@@ -9,6 +9,9 @@ return [
     'utility'   => 'Tiện ích',
     'system'    => 'Hệ thống',
     'customer'  => 'Khách hàng',
+    'service-categories'  => 'Danh mục dịch vụ',
+    'service'  => 'Dịch vụ',
+    'page'  => 'Trang tĩnh',
     'static_page'   => 'Trang tĩnh',
     'users'     => [
         'label' => 'Quản trị',
@@ -21,5 +24,8 @@ return [
     ],
     'reports'   => [
         'label' => 'Báo cáo',
+    ],
+    'utility'   => [
+        'slider'        => 'Slider',
     ],
 ];

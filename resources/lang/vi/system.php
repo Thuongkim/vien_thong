@@ -30,6 +30,7 @@ return [
     ],
     'action'                => [
         'label'             => 'Thao tác',
+        'service'             => 'Danh mục dịch vụ',
         'edit'              => 'Sửa',
         'delete'            => 'Xóa',
         'view'              => 'Xem',

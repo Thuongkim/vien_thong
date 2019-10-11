@@ -42,13 +42,28 @@ class SlidersController extends Controller
 	{
         $request->merge(['status' => intval($request->status)]);
 
-        $validator = Validator::make($data = $request->only('name', 'summary', 'status'), Slider::rules());
+        $validator = Validator::make($data = $request->only('name', 'summary', 'status', 'image'), Slider::rules());
 		$validator->setAttributeNames(trans('sliders'));
 
 		if ($validator->fails())
             return redirect()->back()->withErrors($validator)->withInput();
 
+        $image  = $request->image;
+        $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
+        $image  = \Image::make($request->image);
+        if ($image->height()/$image->width() <> "600"/"1200") {
+            Session::flash('message', "Ảnh đại diện phải có kích thước là " . "1200" ."px x " . "600" . "px.");
+            Session::flash('alert-class', 'danger');
+            return back()->withInput();
+        }
+        \File::makeDirectory('assets/media/images/sliders/', 0777, true, true);
+        $fileName = str_slug($data['name']). "-" . time() . '.' .  $ext;
+        $image->resize('1200', '600')->save('assets/media/images/sliders/' . $fileName);
+        $data['image'] = 'assets/media/images/sliders/' . $fileName;
+        $data['position']   = 1;
+
         $slider = Slider::create($data);
+        Slider::where('id', "<>", $slider->id)->increment('position');
         if ($this->languages && $this->fields) {
             foreach ($this->fields as $field) {
                 $slider->translation($field, $this->language)->create(['locale' => $this->language, 'name' => $field, 'content' => $request->$field]);
@@ -91,7 +106,7 @@ class SlidersController extends Controller
             return back();
         }
 
-        $validator = Validator::make($data = $request->only('name', 'summary', 'status'), Slider::rules($id));
+        $validator = Validator::make($data = $request->only('name', 'summary', 'status','images'), Slider::rules($id));
 
         $validator->setAttributeNames(trans('sliders'));
 
@@ -99,6 +114,24 @@ class SlidersController extends Controller
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }
+
+
+        if ($request->hasFile('image')) {
+            if (\File::exists(public_path() . '/' . $slider->image)) \File::delete(public_path() . '/' . $slider->image);
+            $image  = $request->image;
+            $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
+            $image  = \Image::make($request->image);
+            if ($image->height()/$image->width() <> '600'/'1200') {
+                Session::flash('message', "Ảnh đại diện phải có kích thước là " . '1200' ."px x " . '600' . "px.");
+                Session::flash('alert-class', 'danger');
+                return back()->withInput();
+            }
+            \File::makeDirectory('assets/media/images/sliders/', 0777, true, true);
+            $fileName = str_slug($data['name']). "-" . time() . '.' .  $ext;
+            $image->resize('1200', '600')->save('assets/media/images/sliders/' . $fileName);
+            $data['image'] = 'assets/media/images/sliders/'  . $fileName;
+        }
+
 
         $slider->update($data);
         if ($this->languages && $this->fields) {
@@ -136,7 +169,8 @@ class SlidersController extends Controller
             Session::flash('alert-class', 'danger');
             return back();
         }
-
+        Slider::where('position', '>', $slider->position)->decrement('position');
+        if (\File::exists(public_path() . '/' . $slider->image)) \File::delete(public_path() . '/' . $slider->image);
         $slider->delete();
         Slider::clearCache();
 
@@ -145,4 +179,35 @@ class SlidersController extends Controller
 
 		return redirect()->route('admin.sliders.index');
 	}
+
+    public function updatePosition($id, $value)
+    {
+        if (!in_array($value, [-1, 1])) return back();
+
+        $slider = Slider::find(intval($id));
+
+        if(is_null($slider)) return back();
+
+        // tang len 1 vi tri
+        if($value == 1) {
+            if ($slider->position == Slider::count())
+                return back();
+
+            Slider::where('position', $slider->position + 1)->decrement('position');
+            $slider->position++;
+            $slider->save();
+        } elseif($value == -1) {
+            if ($slider->position == 1)
+                return back();
+
+            Slider::where('position', $slider->position - 1)->increment('position');
+            $slider->position--;
+            $slider->save();
+        }
+
+        Session::flash('message', trans('system.success'));
+        Session::flash('alert-class', 'success');
+
+        return back();
+    }
 }

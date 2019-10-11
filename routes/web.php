@@ -37,13 +37,26 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
         Route::resource('users', 'UsersController');
         Route::resource('roles', 'RolesController');
         Route::get('setting-caches/redis', ['role' => 'backend', 'as' => 'caches.redis', 'uses' => 'SettingsController@redis']);
+
         Route::get('news/delete/{id}', array('as' => 'news.delete', 'uses' => 'NewsController@delete'));
         Route::get('news/approve/{id}', array('as' => 'news.approve', 'uses' => 'NewsController@approve'));
         Route::put('news/publish/{id}', array('as' => 'news.publish', 'uses' => 'NewsController@publish'));
         Route::resource('news', 'NewsController');
 
+
+        Route::get('services/delete/{id}', array('as' => 'services.delete', 'uses' => 'ServiceController@delete'));
+        Route::get('services/approve/{id}', array('as' => 'services.approve', 'uses' => 'ServiceController@approve'));
+        Route::put('services/publish/{id}', array('as' => 'services.publish', 'uses' => 'ServiceController@publish'));
+        Route::resource('services', 'ServiceController');
+
+
         Route::get('news-categories/delete/{id}', array('as' => 'news-categories.delete', 'uses' => 'NewsCategoriesController@delete'));
         Route::resource('news-categories', 'NewsCategoriesController');
+
+
+        Route::get('service-categories/delete/{id}', array('as' => 'service-categories.delete', 'uses' => 'ServiceCategoryController@delete'));
+        Route::resource('service-categories', 'ServiceCategoryController');
+
 
         Route::get('news/delete/{id}', array('as' => 'news.delete', 'uses' => 'NewsController@delete'));
         Route::post('news/ajaxUpdateBulk', array('as' => 'news.updateBulk', 'role' => 'admin.news.update', 'uses' => 'NewsController@updateBulk'));
@@ -53,6 +66,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
 
         Route::resource('static-pages', 'StaticPagesController');
 
+        Route::get('sliders/update-position/{id}/{value}', ['role' => 'backend', 'as' => 'sliders.update-position', 'uses' => 'SlidersController@updatePosition']);
+        Route::get('sliders/delete/{id}', array('as' => 'sliders.delete', 'uses' => 'SlidersController@delete'));
+        Route::resource('sliders', 'SlidersController');
 
         Route::get('locations', ['role' => 'backend', 'as' => 'locations.index', 'uses' => 'LocationsController@index']);
         Route::post('locations/update', ['role' => 'backend', 'as' => 'locations.update', 'uses' => 'LocationsController@update']);

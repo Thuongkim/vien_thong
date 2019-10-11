@@ -4,12 +4,13 @@ use Illuminate\Support\Facades\Cache;
 
 class Slider extends \Eloquent
 {
-    protected $fillable = [ 'name', 'summary', 'status' ];
+    protected $fillable = [ 'name', 'summary', 'status', 'position', 'image', ];
 
     public static function rules($id = 0) {
         return [
-            'name'                 => 'required|max:50',
-            'summary'              => 'required|max:255',
+            'name'    => 'required|max:50',
+            'summary' => 'required|max:255',
+            'image'   => ($id == 0 ? 'required|' : '') . 'max:4096|mimes:jpg,jpeg,png,gif',
         ];
     }
 

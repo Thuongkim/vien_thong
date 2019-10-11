@@ -33,6 +33,15 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
             <![endif]-->
         <link rel="stylesheet" type="text/css" href="{!! asset('assets/backend/css/fixed.css') !!}" />
+         <style>
+        .thumbnail a>img, .thumbnail>img {
+            margin-right: auto;
+            margin-left: auto;
+            height: 256px;
+            width: auto;
+        }
+    </style>
+
     </head>
     <?php $user = auth()->guard('admin')->getUser(); ?>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -275,6 +284,7 @@
         <script src="{!! asset('assets/backend/plugins/toastr/toastr.min.js') !!}"></script>
         <!-- Fixed js -->
         <script src="{!! asset('assets/backend/js/fixed.js') !!}"></script>
+        <script src="{{ asset('assets/backend/js/bootstrap-fileupload.js') }}"></script>
         <script>
             Number.prototype.format = function(n, x) {
                 var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';

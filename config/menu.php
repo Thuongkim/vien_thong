@@ -23,6 +23,31 @@ return [
         'hide' => false
     ],
     [
+        'label' => 'service'
+    ],
+    [
+        'name' => 'service-categories',
+        'route'=> 'admin.service-categories.index',
+        'glyphicon' => 'fa fa-diamond',
+        'hide' => false
+    ],
+    [
+        'name' => 'service',
+        'route'=> 'admin.services.index',
+        'glyphicon' => 'fa fa-list',
+        'hide' => false
+    ],
+    [
+        'label' => 'page'
+    ],
+    [
+        'name' => 'utility.slider',
+        'route'=> 'admin.sliders.index',
+        'glyphicon' => 'fa fa-sliders fa-fw',
+        'role'   => 'system',
+        'hide' => false
+    ],
+    [
         'label' => 'system'
     ],
     [
