@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('title')
-    {!! trans('system.action.edit') !!} - {!! trans('news.label') !!}
+    {!! trans('system.action.edit') !!} - {!! trans('projects.label') !!}
 @stop
 
 @section('head')
@@ -13,12 +13,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            {!! trans('news.label') !!}
+            {!! trans('projects.label') !!}
             <small>{!! trans('system.action.edit') !!}</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{!! route('admin.home') !!}">{!! trans('system.home') !!}</a></li>
-            <li><a href="{!! route('admin.news.index') !!}">{!! trans('news.label') !!}</a></li>
+            <li><a href="{!! route('admin.projects.index') !!}">{!! trans('projects.label') !!}</a></li>
         </ol>
     </section>
     @if($errors->count())
@@ -32,25 +32,25 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(array('url' => route('admin.news.update', $news->id), 'method' => 'PUT', 'role' => 'form', 'files' => true )) !!}
+    {!! Form::open(array('url' => route('admin.projects.update', $project->id), 'method' => 'PUT', 'role' => 'form', 'files' => true )) !!}
 
         <table class='table borderless'>
             <tr>
                 <th class="text-right" style="width: 20%;">
-                    {!! trans('news.title') !!}
+                    {!! trans('projects.title') !!}
                 </th>
                 <td>
-                    {!! Form::text('title', old('title', $news->title), array('class' => 'form-control', 'required', 'maxlength' => 100)) !!}
+                    {!! Form::text('title', old('title', $project->title), array('class' => 'form-control', 'required', 'maxlength' => 100)) !!}
                 </td>
             </tr>
             @if(isset($fields['title']))
                 @foreach($languages as $language => $value)
                     <tr>
                         <th class="text-right">
-                            {!! trans('news.title') !!} ({!! trans('system.' . $language) !!})
+                            {!! trans('projects.title') !!} ({!! trans('system.' . $language) !!})
                         </th>
                         <td>
-                            <?php $content = $news->translation('title', $language)->first(); ?>
+                            <?php $content = $project->translation('title', $language)->first(); ?>
                             {!! Form::text("title_{$language}", old("title_{$language}", is_null($content) ? '' : $content->content), array('class' => 'form-control', 'maxlength' => 100)) !!}
                         </td>
                     </tr>
@@ -58,39 +58,19 @@
             @endif
             <tr>
                 <th class="text-right">
-                    {!! trans('news.category') !!}
+                    {!! trans('projects.category') !!}
                 </th>
                 <td>
-                    {!! Form::select('category', $categories, old('category', $news->category_id), ["class" => "form-control"]) !!}
+                    {!! Form::select('category', $categories, old('category', $project->category_id), ["class" => "form-control"]) !!}
                 </td>
             </tr>
+            
             <tr>
-                <th class="text-right">
-                    {!! trans('news.summary') !!}
-                </th>
-                <td>
-                    {!! Form::textarea('summary', old('summary', $news->summary), array('class' => 'form-control', 'rows' => 2, 'maxlength' => 255)) !!}
-                </td>
-            </tr>
-            @if(isset($fields['summary']))
-                @foreach($languages as $language => $value)
-                    <tr>
-                        <th class="text-right">
-                            {!! trans('news.summary') !!} ({!! trans('system.' . $language) !!})
-                        </th>
-                        <td>
-                            <?php $content = $news->translation('summary', $language)->first(); ?>
-                            {!! Form::textarea("summary_{$language}", old("summary_{$language}", is_null($content) ? '' : $content->content), array('class' => 'form-control', 'rows' => 3, 'maxlength' => 100)) !!}
-                        </td>
-                    </tr>
-                @endforeach
-            @endif
-            <tr>
-                <th class="text-right">{!! trans("news.image") !!}</th>
+                <th class="text-right">{!! trans("projects.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                         <div class="fileupload-preview thumbnail" style="min-height: 200px; max-height: 200px; max-width: 255px;">
-                            <img src="{!! asset('assets/media/images/news/' . $news->image) !!}">
+                            <img src="{!! asset('assets/media/images/projects/' . $project->image) !!}">
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">
@@ -109,20 +89,20 @@
             </tr>
             <tr>
                 <th class="text-right">
-                    {!! trans('news.content') !!}
+                    {!! trans('projects.content') !!}
                 </th>
                 <td>
-                    {!! Form::textarea('content', old('content', $news->content), array('class' => 'form-control ckeditor', 'rows' => 25, 'id' => 'content')) !!}
+                    {!! Form::textarea('content', old('content', $project->content), array('class' => 'form-control ckeditor', 'rows' => 25, 'id' => 'content')) !!}
                 </td>
             </tr>
             @if(isset($fields['content']))
                 @foreach($languages as $language => $value)
                     <tr>
                         <th class="text-right">
-                            {!! trans('news.content') !!} ({!! trans('system.' . $language) !!})
+                            {!! trans('projects.content') !!} ({!! trans('system.' . $language) !!})
                         </th>
                         <td>
-                            <?php $content = $news->translation('content', $language)->first(); ?>
+                            <?php $content = $project->translation('content', $language)->first(); ?>
                             {!! Form::textarea("content_{$language}", old("content_{$language}", is_null($content) ? '' : $content->content), array('class' => 'form-control ckeditor', 'rows' => 25, 'id' => "content_{$language}")) !!}
                         </td>
                     </tr>
@@ -130,15 +110,15 @@
             @endif
             <tr>
                 <td class="text-center" colspan="2">
-                    {!! trans('news.featured') !!}
-                    {!! Form::checkbox('featured', 1, old('featured', $news->featured), [ 'class' => 'minimal' ]) !!}
+                    {!! trans('projects.featured') !!}
+                    {!! Form::checkbox('featured', 1, old('featured', $project->featured), [ 'class' => 'minimal' ]) !!}
                     {!! trans('system.status.active') !!}
-                    {!! Form::checkbox('status', 1, old('status', $news->status), [ 'class' => 'minimal-red' ]) !!}
+                    {!! Form::checkbox('status', 1, old('status', $project->status), [ 'class' => 'minimal-red' ]) !!}
                 </td>
             </tr>
             <tr>
                 <td colspan="2" class="text-center">
-                    {!! HTML::link(route( 'admin.news.index' ), trans('system.action.cancel'), array('class' => 'btn btn-danger btn-flat'))!!}
+                    {!! HTML::link(route( 'admin.projects.index' ), trans('system.action.cancel'), array('class' => 'btn btn-danger btn-flat'))!!}
                     {!! Form::submit(trans('system.action.save'), array('class' => 'btn btn-primary btn-flat')) !!}
                 </td>
             </tr>

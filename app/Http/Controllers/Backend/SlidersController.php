@@ -128,7 +128,7 @@ class SlidersController extends Controller
         return redirect()->route('admin.sliders.index');
 	}
 
-	public function delete($id)
+	public function destroy($id)
 	{
         $slider = Slider::find($id);
         if ( is_null( $slider ) ) {

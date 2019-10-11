@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('title')
-    {!! trans('system.action.edit') !!} - {!! trans('news.categories.label') !!}
+    {!! trans('system.action.edit') !!} - {!! trans('projects.categories.label') !!}
 @stop
 
 @section('head')
@@ -11,12 +11,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            {!! trans('news.categories.label') !!}
+            {!! trans('projects.categories.label') !!}
             <small>{!! trans('system.action.edit') !!}</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{!! route('admin.home') !!}">{!! trans('system.home') !!}</a></li>
-            <li><a href="{!! route('admin.news-categories.index') !!}">{!! trans('news.categories.label') !!}</a></li>
+            <li><a href="{!! route('admin.project-categories.index') !!}">{!! trans('projects.categories.label') !!}</a></li>
         </ol>
     </section>
     @if($errors->count())
@@ -30,12 +30,12 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(array('url' => route('admin.news-categories.update', $category->id), 'method' => 'PUT', 'role' => 'form')) !!}
+    {!! Form::open(array('url' => route('admin.project-categories.update', $category->id), 'method' => 'PUT', 'role' => 'form')) !!}
 
         <table class='table borderless' style="width: 80%;">
             <tr>
                 <th class="table_right_middle" style="width: 25%;">
-                    {!! trans('news.categories.name') !!}
+                    {!! trans('projects.categories.name') !!}
                 </th>
                 <td>
                     {!! Form::text('name', old('name', $category->name), array('class' => 'form-control', 'maxlength' => 100)) !!}
@@ -45,7 +45,7 @@
                 @foreach($languages as $language => $value)
                     <tr>
                         <th class="table_right_middle">
-                            {!! trans('news.categories.name') !!} ({!! trans('system.' . $language) !!})
+                            {!! trans('projects.categories.name') !!} ({!! trans('system.' . $language) !!})
                         </th>
                         <td>
                             <?php $content = $category->translation('name', $language)->first(); ?>
@@ -54,14 +54,14 @@
                     </tr>
                 @endforeach
             @endif
-            <tr>
+            {{-- <tr>
                 <th class="table_right_middle">
-                    {!! trans('news.categories.parent') !!}
+                    {!! trans('projects.categories.parent') !!}
                 </th>
                 <td>
-                    {!! Form::select('parent', ['' => trans('news.categories.parent_category')] + $categories, old('parent', $category->parent_id), ["class" => "form-control"]) !!}
+                    {!! Form::select('parent', ['' => trans('projects.categories.parent_category')] + $categories, old('parent', $category->parent_id), ["class" => "form-control"]) !!}
                 </td>
-            </tr>
+            </tr> --}}
             <tr>
                 <th class="table_right_middle">
                     {!! trans('system.status.label') !!}
@@ -72,7 +72,7 @@
             </tr>
             <tr>
                 <td colspan="2" class="text-center">
-                    {!! HTML::link(route( 'admin.news-categories.index' ), trans('system.action.cancel'), array('class' => 'btn btn-danger btn-flat'))!!}
+                    {!! HTML::link(route( 'admin.project-categories.index' ), trans('system.action.cancel'), array('class' => 'btn btn-danger btn-flat'))!!}
                     {!! Form::submit(trans('system.action.save'), array('class' => 'btn btn-primary btn-flat')) !!}
                 </td>
             </tr>

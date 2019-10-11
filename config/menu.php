@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 return [
     [
@@ -19,6 +19,21 @@ return [
     [
         'name' => 'list',
         'route'=> 'admin.news.index',
+        'glyphicon' => 'fa fa-bank fa-fw',
+        'hide' => false
+    ],
+    [
+        'label' => 'project'
+    ],
+    [
+        'name' => 'category',
+        'route'=> 'admin.project-categories.index',
+        'glyphicon' => 'fa fa-shopping-cart fa-fw',
+        'hide' => false
+    ],
+    [
+        'name' => 'list',
+        'route'=> 'admin.projects.index',
         'glyphicon' => 'fa fa-bank fa-fw',
         'hide' => false
     ],
@@ -64,5 +79,11 @@ return [
                 'hide' => false
             ],
         ]
+    ],
+    [
+        'name' => 'slider',
+        'route'=> 'admin.sliders.index',
+        'glyphicon' => 'fa fa-home fa-fw',
+        'hide' => false
     ],
 ];
