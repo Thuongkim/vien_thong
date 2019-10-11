@@ -1,17 +1,17 @@
-<?php namespace App\Http\Controllers\Backend;
+<?php
+
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
-use App\Define\Constant as Constant;
-use App\News as News;
-use App\NewsCategory as NewsCategory;
+use App\Models\Project;
+use App\Models\ProjectCategory;
 use App\TranslationSetting as TranslationSetting;
 
-use App\Http\Controllers\Controller;
-
-class NewsController extends Controller
+class ProjectsController extends Controller
 {
     private $languages;
     private $language;
@@ -23,12 +23,16 @@ class NewsController extends Controller
         $this->language = $locales[0];
         unset($locales[0]);
         $this->languages = array_flip($locales);
-        $this->fields = TranslationSetting::get(with(new News)->getTable());
+        $this->fields = TranslationSetting::get(with(new Project)->getTable());
 
         \View::share('languages', $this->languages);
         \View::share('fields', $this->fields);
     }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
         $query = '1=1';
@@ -43,66 +47,60 @@ class NewsController extends Controller
         if( $title ) $query .= " AND title like '%" . $title . "%'";
         if($status <> -1) $query .= " AND status = {$status}";
         if($featured <> -1) $query .= " AND featured = {$featured}";
-        if($category <> -1) {
-            $children = NewsCategory::where('parent_id', $category)->select('id')->get();
-            $children = implode(',', array_column($children->toArray(), 'id'));
-            $category = ($children ? $category . ',' . $children : $category);
-            $query .= " AND category_id IN({$category})";
-        }
+        if($category <> -1) $query .= " AND category_id = {$category}";
 
         if ($date_range)
             $date_range = explode(' - ', $date_range);
         if (isset($date_range[0]) && isset($date_range[1]))
             $query .= " AND created_at >= '" . date("Y-m-d 00:00:00", strtotime(str_replace('/', '-', ($date_range[0] == '' ? '1/1/2015' : $date_range[0]) ))) . "' AND updated_at <= '" . date("Y-m-d 23:59:59", strtotime(str_replace('/', '-', ($date_range[1] == '' ? date("d/m/Y") : $date_range[1]) ))) . "'";
 
-        if (!$request->user()->ability(['system', 'admin'], ['news.approve'])) {
+        if (!$request->user()->ability(['system', 'admin'], ['project.approve'])) {
             $query .= " AND created_by = " . $request->user()->id;
         }
 
-        $news = News::whereRaw($query . ' order by updated_at DESC')->paginate($page_num);
+        $projects = Project::whereRaw($query . ' order by updated_at DESC')->paginate($page_num);
 
         $categories = [];
-        $tmp = NewsCategory::where('parent_id', 0)->get();
+        $tmp = ProjectCategory::all();
         foreach ($tmp as $category) {
             $categories[$category->id] = $category->name;
-            $children = NewsCategory::where('parent_id', $category->id)->get();
-            foreach ($children as $child) {
-                $categories[$child->id] = '-- ' . $child->name;
-            }
         }
-        return view('backend.news.index', compact('news', 'categories'));
+        return view('backend.projects.index', compact('projects', 'categories')); 
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         $categories = [];
-        $tmp = NewsCategory::where('parent_id', 0)->where('status', 1)->get();
+        $tmp = ProjectCategory::all();
         foreach ($tmp as $category) {
             $categories[$category->id] = $category->name;
-            $children = NewsCategory::where('parent_id', $category->id)->where('status', 1)->get();
-            foreach ($children as $child) {
-                $categories[$child->id] = '-- ' . $child->name;
-            }
         }
-        return view('backend.news.create', compact('categories'));
+        return view('backend.projects.create', compact('categories'));
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $request->merge(['featured' => intval($request->featured), 'status' => intval($request->status)]);
-
-        if ($request->category == Constant::news_category_id)
-            $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'status', 'featured'), News::rules());
-        else
-            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'image', 'status', 'featured', 'summary'), News::rules());
-        $validator->setAttributeNames(trans('news'));
+        $validator = Validator::make($data = $request->all(), Project::rules());
+        $validator->setAttributeNames(trans('projects'));
 
         if ($validator->fails())
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $data['created_by']   = \Auth::guard('admin')->user()->id;
+        // $data['created_by']   = \Auth::guard('admin')->user()->id;
         $data['category_id'] = $request->input('category');
 
         if ($request->hasFile('image')) {
@@ -124,19 +122,19 @@ class NewsController extends Controller
                 }
             }
 
-            \File::makeDirectory('assets/media/images/news/' .  date('dm'), 0775, true, true);
-            $image->save('assets/media/images/news/' .  date('dm') . '/' . str_slug($data['title']) . '.' .  $ext);
+            \File::makeDirectory('assets/media/images/projects/' .  date('dm'), 0775, true, true);
+            $image->save('assets/media/images/projects/' .  date('dm') . '/' . str_slug($data['title']) . '.' .  $ext);
             $data['image'] = date('dm') . '/' . str_slug($data['title']). '.' .  $ext;
         }
 
-        $news = News::create($data);
+        $project = Project::create($data);
 
         if ($this->languages && $this->fields) {
             foreach ($this->fields as $field) {
-                $news->translation($field, $this->language)->create(['locale' => $this->language, 'name' => $field, 'content' => $request->$field]);
+                $project->translation($field, $this->language)->create(['locale' => $this->language, 'name' => $field, 'content' => $request->$field]);
                 foreach ($this->languages as $k => $v) {
                     $content = $field . '_' .  $k;
-                    $news->translation($field, $k)->create(['locale' => $k, 'name' => $field, 'content' => $request->$content]);
+                    $project->translation($field, $k)->create(['locale' => $k, 'name' => $field, 'content' => $request->$content]);
                 }
             }
         }
@@ -144,86 +142,78 @@ class NewsController extends Controller
         Session::flash('message', trans('system.success'));
         Session::flash('alert-class', 'info');
 
-        return redirect()->route('admin.news.index');
+        return redirect()->route('admin.projects.index');
     }
 
-    public function show(Request $request, $id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        $news = News::find($id);
-        if ( is_null( $news ) ) {
-            Session::flash('message', trans('system.have_an_error'));
-            Session::flash('alert-class', 'danger');
-            return Redirect::back();
-        }
-
-        $categories = [];
-        $tmp = NewsCategory::where('parent_id', 0)->whereRaw("(status=1 OR id={$news->category_id})")->get();
-        foreach ($tmp as $category) {
-            $categories[$category->id] = $category->name;
-            $children = NewsCategory::where('parent_id', $category->id)->whereRaw("(status=1 OR id={$news->category_id})")->get();
-            foreach ($children as $child) {
-                $categories[$child->id] = '-- ' . $child->name;
-            }
-        }
-
-        return view('backend.news.show', ['news' => $news, 'categories' => $categories] );
+        //
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit(Request $request, $id)
     {
-        $news = News::find($id);
-        if ( is_null( $news ) ) {
+        $project = Project::find($id);
+        if ( is_null( $project ) ) {
             Session::flash('message', trans('system.have_an_error'));
             Session::flash('alert-class', 'danger');
             return back();
         }
 
-        if ($news->status && !$request->user()->ability(['system', 'admin'], ['news.approve'])) {
+        if ($project->status && !$request->user()->ability(['system', 'admin'], ['project.approve'])) {
             Session::flash('message', "Bài viết đã xuất bản, không thể sửa.");
             Session::flash('alert-class', 'danger');
             return back();
         }
 
         $categories = [];
-        $tmp = NewsCategory::where('parent_id', 0)->whereRaw("(status=1 OR id={$news->category_id})")->get();
+        $tmp = ProjectCategory::all();
         foreach ($tmp as $category) {
             $categories[$category->id] = $category->name;
-            $children = NewsCategory::where('parent_id', $category->id)->whereRaw("(status=1 OR id={$news->category_id})")->get();
-            foreach ($children as $child) {
-                $categories[$child->id] = '-- ' . $child->name;
-            }
         }
 
-        return view('backend.news.edit', compact( 'news', 'categories' ) );
+        return view('backend.projects.edit', compact( 'project', 'categories' ) );
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id)
     {
         $id = intval( $id );
         $request->merge(['featured' => intval($request->featured), 'status' => intval($request->status)]);
 
-        $news = News::find($id);
-        if (is_null($news)) {
+        $project = Project::find($id);
+        if (is_null($project)) {
             Session::flash('message', trans('system.have_an_error'));
             Session::flash('alert-class', 'danger');
             return back();
         }
 
-        if ($news->status && !$request->user()->ability(['system', 'admin'], ['news.approve'])) {
+        if ($project->status && !$request->user()->ability(['system', 'admin'], ['project.approve'])) {
             Session::flash('message', "Bài viết đã xuất bản, không thể sửa.");
             Session::flash('alert-class', 'danger');
             return back();
         }
 
-        dd(Constant::news_category_id);
-        if ($request->category == Constant::news_category_id) {
-            $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'status', 'featured'), News::rules());
-        }
-        else {
-            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'status', 'featured', 'image', 'summary'), News::rules());
-        }
+        $validator = Validator::make($data = $request->all(), Project::rules());
 
-        $validator->setAttributeNames(trans('news'));
+        $validator->setAttributeNames(trans('projects'));
 
         if ($validator->fails())
         {
@@ -251,66 +241,72 @@ class NewsController extends Controller
                 }
             }
 
-            \File::makeDirectory('assets/media/images/news/' .  date('dm'), 0775, true, true);
-            if(\File::exists(asset('assets/media/images/news/' . $news->image))) \File::delete(asset('assets/media/images/news/' . $news->image));
+            \File::makeDirectory('assets/media/images/projects/' .  date('dm'), 0775, true, true);
+            if(\File::exists(asset('assets/media/images/projects/' . $project->image))) \File::delete(asset('assets/media/images/projects/' . $project->image));
             $timestamp = time();
-            $image->save('assets/media/images/news/' .  date('dm') . '/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext);
+            $image->save('assets/media/images/projects/' .  date('dm') . '/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext);
             $data['image'] = date('dm') . '/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext;
         }
 
-        $news->update($data);
+        $project->update($data);
         if ($this->languages && $this->fields) {
             foreach ($this->fields as $field) {
-                $tmp = $news->translation($field, $this->language)->first();
+                $tmp = $project->translation($field, $this->language)->first();
                 if (is_null($tmp))
-                    $news->translation($field, $this->language)->create(['locale' => $this->language, 'name' => $field, 'content' => $request->$field]);
+                    $project->translation($field, $this->language)->create(['locale' => $this->language, 'name' => $field, 'content' => $request->$field]);
                 else
-                    $news->translation($field, $this->language)->update(['content' => $request->$field]);
+                    $project->translation($field, $this->language)->update(['content' => $request->$field]);
 
                 foreach ($this->languages as $k => $v) {
                     $content = $field . '_' .  $k;
-                    $tmp = $news->translation($field, $k)->first();
+                    $tmp = $project->translation($field, $k)->first();
                     if (is_null($tmp))
-                        $news->translation($field, $k)->create(['locale' => $k, 'name' => $field, 'content' => $request->$content]);
+                        $project->translation($field, $k)->create(['locale' => $k, 'name' => $field, 'content' => $request->$content]);
                     else
-                        $news->translation($field, $k)->update(['content' => $request->$content]);
+                        $project->translation($field, $k)->update(['content' => $request->$content]);
                 }
             }
         }
 
-        News::clearCache();
+        // project::clearCache();
 
         Session::flash('message', trans('system.success'));
         Session::flash('alert-class', 'info');
 
-        return redirect()->route('admin.news.index');
+        return redirect()->route('admin.projects.index');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function delete(Request $request, $id)
     {
-        $news = News::find($id);
-        if (is_null($news)) {
+        $project = Project::find($id);
+        if (is_null($project)) {
             Session::flash('message', trans('system.have_an_error'));
             Session::flash('alert-class', 'danger');
             return back();
         }
 
-        if ($news->status && !$request->user()->ability(['system', 'admin'], ['news.approve'])) {
+        if ($project->status && !$request->user()->ability(['system', 'admin'], ['project.approve'])) {
             Session::flash('message', "Bài viết đã xuất bản, không thể xoá.");
             Session::flash('alert-class', 'danger');
             return back();
         }
 
-        if(\File::exists(asset('assets/media/images/news/' . $news->image)))
-            \File::delete(asset('assets/media/images/news/' . $news->image));
+        if(\File::exists(asset('assets/media/images/project/' . $project->image)))
+            \File::delete(asset('assets/media/images/project/' . $project->image));
 
-        $news->delete();
-        News::clearCache();
+        $project->delete();
+        // project::clearCache();
 
         Session::flash('message', trans('system.success'));
         Session::flash('alert-class', 'success');
 
-        return redirect()->route('admin.news.index');
+        return redirect()->route('admin.projects.index');
     }
 
     public function updateBulk(Request $request)
@@ -318,7 +314,7 @@ class NewsController extends Controller
         if ($request->ajax()) {
             $return = [ 'error' => true, 'message' => trans('system.have_an_error') ];
 
-            if (!$request->user()->ability(['system', 'admin'], ['news.approve'])) {
+            if (!$request->user()->ability(['system', 'admin'], ['project.approve'])) {
                 return response()->json($return, 401);
             }
 
@@ -329,38 +325,38 @@ class NewsController extends Controller
                 case 'delete':
                     foreach ($ids as $id) {
                         foreach ($ids as $id) {
-                            News::where('id', intval($id))->delete();
+                            Project::where('id', intval($id))->delete();
                         }
                     }
-                    News::clearCache();
+                    // Project::clearCache();
                     break;
                 case 'active':
                     $return = ['error' => true, 'message' => trans('system.update') . ' ' . trans('system.success')];
                     foreach ($ids as $id) {
-                        News::where('id', intval($id))->update(['status' => 1]);
+                        Project::where('id', intval($id))->update(['status' => 1]);
                     }
-                    News::clearCache();
+                    // Project::clearCache();
                     break;
                 case 'deactive':
                     $return = ['error' => true, 'message' => trans('system.update') . ' ' . trans('system.success')];
                     foreach ($ids as $id) {
-                        News::where('id', intval($id))->update(['status' => 0]);
+                        Project::where('id', intval($id))->update(['status' => 0]);
                     }
-                    News::clearCache();
+                    // Project::clearCache();
                     break;
                 case 'category':
                     $return             = ['error' => true, 'message' => trans('system.update') . ' ' . trans('system.success')];
                     $category_id        = intval($request->input('category_id', 0));
-                    $category           = NewsCategory::find($category_id);
+                    $category           = ProjectCategory::find($category_id);
                     if (is_null($category) || !$category->status) {
                         $return['message'] = 'Danh mục bạn chọn không cho phép thao tác này.';
                         return response()->json($return);
                     }
 
                     foreach ($ids as $id) {
-                        News::where('id', intval($id))->update(['category_id' => $category_id]);
+                        Project::where('id', intval($id))->update(['category_id' => $category_id]);
                     }
-                    News::clearCache();
+                    // Project::clearCache();
                     break;
                 default:
                     $return['message']  = trans('system.no_action_selected');

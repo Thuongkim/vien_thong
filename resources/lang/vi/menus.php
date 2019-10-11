@@ -5,7 +5,8 @@ return [
     'home'      => 'Quản trị',
     'list'      => 'Danh sách',
     'news'     => 'Tin tức',
-    'category'     => 'Danh mục tin',
+    'project'     => 'Dự án',
+    'category'     => 'Danh mục',
     'utility'   => 'Tiện ích',
     'system'    => 'Hệ thống',
     'customer'  => 'Khách hàng',
@@ -13,6 +14,7 @@ return [
     'service'  => 'Dịch vụ',
     'page'  => 'Trang tĩnh',
     'static_page'   => 'Trang tĩnh',
+    'slider'   => 'Slider',
     'users'     => [
         'label' => 'Quản trị',
         'customer'  => 'Khách hàng',

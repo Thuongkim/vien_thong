@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title'){!! trans('system.action.create') !!} - {!! trans('news.label') !!}
+@section('title'){!! trans('system.action.create') !!} - {!! trans('projects.label') !!}
 @stop
 @section('head')
     <link rel="stylesheet" type="text/css" href="{!! asset('assets/backend/plugins/iCheck/all.css') !!}" />
@@ -8,12 +8,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            {!! trans('news.label') !!}
+            {!! trans('projects.label') !!}
             <small>{!! trans('system.action.create') !!}</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{!! route('admin.home') !!}">{!! trans('system.home') !!}</a></li>
-            <li><a href="{!! route('admin.news.index') !!}">{!! trans('news.label') !!}</a></li>
+            <li><a href="{!! route('admin.projects.index') !!}">{!! trans('projects.label') !!}</a></li>
         </ol>
     </section>
     @if($errors->count())
@@ -27,12 +27,12 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(array('url' => route('admin.news.store'), 'role' => 'form', 'files' => true )) !!}
+    {!! Form::open(array('url' => route('admin.projects.store'), 'role' => 'form', 'files' => true )) !!}
 
         <table class='table borderless'>
             <tr>
                 <th class="text-right" style="width: 20%;">
-                    {!! trans('news.title') !!}
+                    {!! trans('projects.title') !!}
                 </th>
                 <td>
                     {!! Form::text('title', old('title'), array('class' => 'form-control', 'required', 'maxlength' => 255)) !!}
@@ -42,7 +42,7 @@
                 @foreach($languages as $language => $value)
                     <tr>
                         <th class="text-right">
-                            {!! trans('news.title') !!} ({!! trans('system.' . $language) !!})
+                            {!! trans('projects.title') !!} ({!! trans('system.' . $language) !!})
                         </th>
                         <td>
                             {!! Form::text("title_{$language}", old("title_{$language}"), array('class' => 'form-control', 'maxlength' => 100)) !!}
@@ -52,34 +52,15 @@
             @endif
             <tr>
                 <th class="text-right">
-                    {!! trans('news.category') !!}
+                    {!! trans('projects.category') !!}
                 </th>
                 <td>
                     {!! Form::select('category', ['' => trans('system.dropdown_choice')] + $categories, old('category'), ["class" => "form-control"]) !!}
                 </td>
             </tr>
+           
             <tr>
-                <th class="text-right">
-                    {!! trans('news.summary') !!}
-                </th>
-                <td>
-                    {!! Form::textarea('summary', old('summary'), array('class' => 'form-control', 'rows' => 5, 'maxlength' => 255)) !!}
-                </td>
-            </tr>
-            @if(isset($fields['summary']))
-                @foreach($languages as $language => $value)
-                    <tr>
-                        <th class="text-right">
-                            {!! trans('news.summary') !!} ({!! trans('system.' . $language) !!})
-                        </th>
-                        <td>
-                            {!! Form::textarea("summary_{$language}", old("summary_{$language}"), array('class' => 'form-control', 'rows' => 3, 'maxlength' => 100)) !!}
-                        </td>
-                    </tr>
-                @endforeach
-            @endif
-            <tr>
-                <th class="text-right">{!! trans("news.image") !!}</th>
+                <th class="text-right">{!! trans("projects.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                         <div class="fileupload-preview thumbnail" style="min-height: 200px; max-height: 200px; max-width: 255px;">
@@ -101,7 +82,7 @@
             </tr>
             <tr>
                 <th class="text-right">
-                    {!! trans('news.content') !!}
+                    {!! trans('projects.content') !!}
                 </th>
                 <td colspan="3">
                     {!! Form::textarea('content', old('content'), array('class' => 'form-control ckeditor', 'rows' => 25, 'id' => 'content')) !!}
@@ -111,7 +92,7 @@
                 @foreach($languages as $language => $value)
                     <tr>
                         <th class="text-right">
-                            {!! trans('news.content') !!} ({!! trans('system.' . $language) !!})
+                            {!! trans('projects.content') !!} ({!! trans('system.' . $language) !!})
                         </th>
                         <td colspan="3">
                             {!! Form::textarea("content_{$language}", old("content_{$language}"), array('class' => 'form-control ckeditor', 'rows' => 25, 'id' => "content_{$language}")) !!}
@@ -121,7 +102,7 @@
             @endif
             <tr>
                 <td class="text-center" colspan="2">
-                    {!! trans('news.featured') !!}
+                    {!! trans('projects.featured') !!}
                     {!! Form::checkbox('featured', 1, old('featured', 1), [ 'class' => 'minimal' ]) !!}
                     {!! trans('system.status.active') !!}
                     {!! Form::checkbox('status', 1, old('status', 1), [ 'class' => 'minimal-red' ]) !!}
@@ -129,7 +110,7 @@
             </tr>
             <tr>
                 <td colspan="4" class="text-center">
-                    {!! HTML::link(route( 'admin.news.index' ), trans('system.action.cancel'), array('class' => 'btn btn-danger btn-flat'))!!}
+                    {!! HTML::link(route( 'admin.projects.index' ), trans('system.action.cancel'), array('class' => 'btn btn-danger btn-flat'))!!}
                     &nbsp;
                     {!! Form::submit("Gửi bài", array('class' => 'btn btn-primary btn-flat')) !!}
                 </td>

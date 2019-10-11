@@ -74,6 +74,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
         Route::post('locations/update', ['role' => 'backend', 'as' => 'locations.update', 'uses' => 'LocationsController@update']);
         Route::get('locations/{id}', ['role' => 'backend', 'as' => 'locations.show', 'uses' => 'LocationsController@show']);
         Route::post('locations/store', ['role' => 'backend', 'as' => 'locations.store', 'uses' => 'LocationsController@store']) ;
+
+        Route::resource('sliders', 'SlidersController');
+        Route::post('projects/ajaxUpdateBulk', array('as' => 'projects.updateBulk', 'role' => 'admin.projects.update', 'uses' => 'ProjectsController@updateBulk'));
+        Route::get('projects/delete/{id}', array('as' => 'projects.delete', 'uses' => 'ProjectsController@delete'));
+        Route::resource('projects', 'ProjectsController');
+        Route::get('project-categories/delete/{id}', array('as' => 'project-categories.delete', 'uses' => 'ProjectCategoriesController@delete'));
+        Route::resource('project-categories', 'ProjectCategoriesController');
     });
 });
 

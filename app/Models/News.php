@@ -10,7 +10,7 @@ class News extends \Eloquent {
             'title'                 => 'required|max:255',
             'summary'               => 'required|max:500',
             'content'               => 'required',
-            'image'                 => ($id == 0 ? 'required|' : '') . 'max:2048|mimes:jpg,jpeg,png,gif',
+            'image'                 => 'max:2048|mimes:jpg,jpeg,png,gif',
             'created_by'            => 'integer',
             'category'              => 'required|integer',
         ];

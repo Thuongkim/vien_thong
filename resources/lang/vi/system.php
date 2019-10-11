@@ -39,6 +39,7 @@ return [
         'bulk'              => 'lượng lớn',
         'refresh'           => 'Làm mới',
         'list'              => 'Danh sách',
+        'list-nd'              => 'Danh mục',
         'save'                  => 'Lưu lại',
         'ok'                    => 'Đồng ý',
         'cancel'                => 'Hủy bỏ',
