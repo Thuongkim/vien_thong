@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('title')
-{!! trans('system.action.list') !!} {!! trans('news.label') !!}
+{!! trans('system.action.list') !!} {!! trans('services.label') !!}
 @stop
 
 @section('head')
@@ -14,12 +14,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        {!! trans('news.label') !!}
+        {!! trans('services.label') !!}
         <small>{!! trans('system.action.list') !!}</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{!! route('admin.home') !!}">{!! trans('system.home') !!}</a></li>
-        <li><a href="{!! route('admin.services.index') !!}">{!! trans('news.label') !!}</a></li>
+        <li><a href="{!! route('admin.services.index') !!}">{!! trans('services.label') !!}</a></li>
     </ol>
 </section>
 <!-- Main content -->
@@ -42,13 +42,13 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        {!! Form::label('title', trans('news.title')) !!}
+                        {!! Form::label('title', trans('services.title')) !!}
                         {!! Form::text('title', Request::input('title'), ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        {!! Form::label('category_id', trans('news.category')) !!}
+                        {!! Form::label('category_id', trans('services.category')) !!}
                         {!! Form::select('category_id', [-1 => trans('system.dropdown_all')] + $categories, Request::input('category_id', -1), ["class" => "form-control"]) !!}
                     </div>
                 </div>
@@ -61,12 +61,6 @@
                             </div>
                             {!! Form::text('date_range', Request::input('date_range'), ['class' => 'form-control pull-right date_range']) !!}
                         </div><!-- /.input group -->
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-group">
-                        {!! Form::label('featured', trans('news.featured')) !!}
-                        {!! Form::select('featured', [ -1 => trans('system.dropdown_all'), 0 => trans('system.no'), 1 => trans('system.yes') ], Request::input('featured'), ['class' => 'form-control'])!!}
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -117,7 +111,6 @@
                 <div class="pull-right form-group">
                     <select class="form-control" id="action">
                         <option value="noaction"> -- {{ trans('system.action.label') }} -- </option>
-                        <option value="category"> {{ trans('system.action.move_to') }} </option>
                         <option value="active"> {{ trans('system.status.active') }} </option>
                         <option value="deactive"> {{ trans('system.status.deactive') }} </option>
                         <option value="delete"> {{ trans('system.action.delete_all') }} </option>
@@ -137,10 +130,10 @@
                         <tr>
                             <th style="text-align: center; vertical-align: middle;"></th>
                             <th style="text-align: center; vertical-align: middle;">#</th>
-                            <th style="text-align: center; vertical-align: middle;"> {!! trans('news.title') !!} </th>
+                            <th style="text-align: center; vertical-align: middle;"> {!! trans('services.title') !!} </th>
                             <th style="text-align: center; vertical-align: middle;"> {!! trans('services.icon') !!} </th>
-                            <th style="text-align: center; vertical-align: middle;"> {!! trans('news.image') !!} </th>
-                            <th style="text-align: center; vertical-align: middle;"> {!! trans('news.category') !!} </th>
+                            <th style="text-align: center; vertical-align: middle;"> {!! trans('services.image') !!} </th>
+                            <th style="text-align: center; vertical-align: middle;"> {!! trans('services.category') !!} </th>
                             <th style="text-align: center; vertical-align: middle;"> {!! trans('services.position') !!} </th>
                             <th style="text-align: center; vertical-align: middle;"> {!! trans('system.status.label') !!} </th>
                             <th style="text-align: center; vertical-align: middle;"> {!! trans('system.updated_at') !!} </th>
@@ -156,25 +149,41 @@
                             </td>
                             <td style="text-align: center; vertical-align: middle;">{!! $i++ !!}</td>
                             <td style="text-align: justify; vertical-align: middle;">
-                                {!! HTML::link( route('admin.services.show', $item->id), \App\Helper\HString::modSubstr($item->title, 50), array('class' => '', 'title' => $item->title)) !!}
+                                {!! \App\Helper\HString::modSubstr($item->title, 50) !!}
                             </td>
                             <td style="text-align: center; vertical-align: middle;">
-                                <?php $user = \App\User::find( $item->created_by ); ?>
-                                {!! is_null( $user ) ? '-' : $user->fullname !!}
+                                <i class="fa {{ $item->icon }}" aria-hidden="true"></i>
                             </td>
                             <td style="text-align: center; vertical-align: middle;">
-                                <img src="{!! asset('assets/media/images/news/' . $item->image) !!}" height="50px" style="max-width: 80px;">
+                                <img src="{!! asset($item->image) !!}" height="50px" style="max-width: 80px;">
                             </td>
+
                             <td style="text-align: center; vertical-align: middle;">
-                                <span class="label label-{!! $labels[ $item->category_id % 5 ] !!}">{!! \App\NewsCategory::find($item->category_id)->name !!}</span>
+                                <span class="label label-{!! $labels[ $item->category_id % 5 ] !!}">{!! \App\Models\ServiceCategory::find($item->category_id)->name !!}</span>
                             </td>
+
                             <td style="text-align: center; vertical-align: middle;">
-                                @if($item->featured == 0)
-                                <span class="label label-danger"><span class='glyphicon glyphicon-remove'></span></span>
-                                @elseif($item->featured == 1)
-                                <span class="label label-success"><span class='glyphicon glyphicon-ok'></span></span>
+                                @if($services->count() > 1)
+                                    @if($item->position == 1)
+                                        <a href="{{ route('admin.services.update-position', [$item->id, 1]) }}" title="{{ trans('system.down') }}">
+                                            <i class="glyphicon glyphicon-circle-arrow-down"></i>
+                                        </a>
+                                    @elseif( $item->position == $services->count() )
+                                        <a href="{{ route('admin.services.update-position', [$item->id, -1]) }}" title="{{ trans('system.up') }}">
+                                            <i class="glyphicon glyphicon-circle-arrow-up"></i>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('admin.services.update-position', [$item->id, -1]) }}" title="{{ trans('system.up') }}">
+                                            <i class="glyphicon glyphicon-circle-arrow-up"></i>
+                                        </a>&nbsp;|&nbsp;
+                                        <a href="{{ route('admin.services.update-position', [$item->id, 1]) }}" title="{{ trans('system.down') }}">
+                                            <i class="glyphicon glyphicon-circle-arrow-down"></i>
+                                        </a>
+                                    @endif
                                 @endif
                             </td>
+
+
                             <td style="text-align: center; vertical-align: middle;">
                                 @if($item->status == 0)
                                 <span class="label label-danger"><span class='glyphicon glyphicon-remove'></span></span>
@@ -302,7 +311,7 @@
             });
 
         $.ajax({
-            url: "{!! URL::route('admin.news.updateBulk') !!}",
+            url: "{!! URL::route('admin.services.updateBulk') !!}",
             data: { action: $('#action').val(), ids: JSON.stringify(values), category_id: $("select[name='category']").val() },
             type: 'POST',
             datatype: 'json',

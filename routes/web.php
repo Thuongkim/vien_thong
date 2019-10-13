@@ -36,39 +36,33 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
         Route::put('users/post_update_password/{id}', ['as' => 'users.update_password_put', 'role' => 'admin.users.update', 'uses' => 'UsersController@postChangePassword']);
         Route::resource('users', 'UsersController');
         Route::resource('roles', 'RolesController');
+        Route::get('sliders/update-position/{id}/{value}', ['role' => 'backend', 'as' => 'sliders.update-position', 'uses' => 'SlidersController@updatePosition']);
+        Route::get('sliders/delete/{id}', array('as' => 'sliders.delete', 'uses' => 'SlidersController@delete'));
+        Route::resource('sliders', 'SlidersController');
         Route::get('setting-caches/redis', ['role' => 'backend', 'as' => 'caches.redis', 'uses' => 'SettingsController@redis']);
+        Route::get('service-categories/delete/{id}', array('as' => 'service-categories.delete', 'uses' => 'ServiceCategoryController@delete'));
+        Route::resource('service-categories', 'ServiceCategoryController');
+        Route::get('services/delete/{id}', array('as' => 'services.delete', 'uses' => 'ServiceController@delete'));
+        Route::get('services/update-position/{id}/{value}', ['role' => 'backend', 'as' => 'services.update-position', 'uses' => 'ServiceController@updatePosition']);
+        Route::get('services/approve/{id}', array('as' => 'services.approve', 'uses' => 'ServiceController@approve'));
+        Route::post('services/ajaxUpdateBulk', array('as' => 'services.updateBulk', 'role' => 'admin.services.update', 'uses' => 'ServiceController@updateBulk'));
+        Route::resource('services', 'ServiceController');
 
-        Route::get('news/delete/{id}', array('as' => 'news.delete', 'uses' => 'NewsController@delete'));
         Route::get('news/approve/{id}', array('as' => 'news.approve', 'uses' => 'NewsController@approve'));
         Route::put('news/publish/{id}', array('as' => 'news.publish', 'uses' => 'NewsController@publish'));
         Route::resource('news', 'NewsController');
 
-
-        Route::get('services/delete/{id}', array('as' => 'services.delete', 'uses' => 'ServiceController@delete'));
-        Route::get('services/approve/{id}', array('as' => 'services.approve', 'uses' => 'ServiceController@approve'));
-        Route::put('services/publish/{id}', array('as' => 'services.publish', 'uses' => 'ServiceController@publish'));
-        Route::resource('services', 'ServiceController');
-
-
         Route::get('news-categories/delete/{id}', array('as' => 'news-categories.delete', 'uses' => 'NewsCategoriesController@delete'));
         Route::resource('news-categories', 'NewsCategoriesController');
-
-
-        Route::get('service-categories/delete/{id}', array('as' => 'service-categories.delete', 'uses' => 'ServiceCategoryController@delete'));
-        Route::resource('service-categories', 'ServiceCategoryController');
-
 
         Route::get('news/delete/{id}', array('as' => 'news.delete', 'uses' => 'NewsController@delete'));
         Route::post('news/ajaxUpdateBulk', array('as' => 'news.updateBulk', 'role' => 'admin.news.update', 'uses' => 'NewsController@updateBulk'));
         Route::resource('news', 'NewsController');
+
+
         Route::get('static-pages/delete/{id}', array('as' => 'static-pages.delete', 'uses' => 'StaticPagesController@delete'));
         Route::resource('static-pages', 'StaticPagesController');
-
         Route::resource('static-pages', 'StaticPagesController');
-
-        Route::get('sliders/update-position/{id}/{value}', ['role' => 'backend', 'as' => 'sliders.update-position', 'uses' => 'SlidersController@updatePosition']);
-        Route::get('sliders/delete/{id}', array('as' => 'sliders.delete', 'uses' => 'SlidersController@delete'));
-        Route::resource('sliders', 'SlidersController');
 
         Route::get('locations', ['role' => 'backend', 'as' => 'locations.index', 'uses' => 'LocationsController@index']);
         Route::post('locations/update', ['role' => 'backend', 'as' => 'locations.update', 'uses' => 'LocationsController@update']);

@@ -23,20 +23,20 @@ class ServiceCategory extends Model
     }
 
     // Don't forget to fill this array
-    protected $fillable = [ 'name', 'parent_id', 'summary', 'status' ];
+    protected $fillable = [ 'name', 'parent_id', 'status' ];
 
     public function parent()
     {
-        return $this->belongsTo('App\ServiceCategory', 'parent_id', 'id');
+        return $this->belongsTo('App\Models\ServiceCategory', 'parent_id', 'id');
     }
 
     public function children()
     {
-        return $this->hasMany('App\ServiceCategory');
+        return $this->hasMany('App\Models\ServiceCategory');
     }
     public function services()
     {
-        return $this->hasMany('App\Service');
+        return $this->hasMany('App\Models\Service');
     }
 
     public static function clearCache()

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Cache;
 
 class Slider extends \Eloquent
 {
-    protected $fillable = [ 'name', 'summary', 'status', 'position', 'image', ];
+    protected $fillable = [ 'name', 'summary', 'status', 'position', 'image' ];
 
     public static function rules($id = 0) {
         return [

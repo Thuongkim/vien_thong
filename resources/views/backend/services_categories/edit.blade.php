@@ -35,7 +35,7 @@
         <table class='table borderless' style="width: 80%;">
             <tr>
                 <th class="table_right_middle" style="width: 25%;">
-                    {!! trans('news.categories.name') !!}
+                    {!! trans('services.categories.name') !!}
                 </th>
                 <td>
                     {!! Form::text('name', old('name', $category->name), array('class' => 'form-control', 'maxlength' => 100)) !!}
@@ -45,7 +45,7 @@
                 @foreach($languages as $language => $value)
                     <tr>
                         <th class="table_right_middle">
-                            {!! trans('news.categories.name') !!} ({!! trans('system.' . $language) !!})
+                            {!! trans('services.categories.name') !!} ({!! trans('system.' . $language) !!})
                         </th>
                         <td>
                             <?php $content = $category->translation('name', $language)->first(); ?>
@@ -56,10 +56,10 @@
             @endif
             <tr>
                 <th class="table_right_middle">
-                    {!! trans('news.categories.parent') !!}
+                    {!! trans('services.categories.parent') !!}
                 </th>
                 <td>
-                    {!! Form::select('parent', ['' => trans('news.categories.parent_category')] + $categories, old('parent', $category->parent_id), ["class" => "form-control"]) !!}
+                    {!! Form::select('parent', ['' => trans('services.categories.parent_category')] + $categories, old('parent', $category->parent_id), ["class" => "form-control"]) !!}
                 </td>
             </tr>
             <tr>
@@ -71,7 +71,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2" class="text-center">
+                <td colspan="4" class="text-center">
                     {!! HTML::link(route( 'admin.service-categories.index' ), trans('system.action.cancel'), array('class' => 'btn btn-danger btn-flat'))!!}
                     {!! Form::submit(trans('system.action.save'), array('class' => 'btn btn-primary btn-flat')) !!}
                 </td>

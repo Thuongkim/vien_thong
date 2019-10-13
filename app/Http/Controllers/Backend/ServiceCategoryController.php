@@ -72,7 +72,7 @@ class ServiceCategoryController extends Controller
         $request->merge(['status' => intval($request->status)]);
 
         $validation = Validator::make($data = $request->only(['parent', 'status', 'name']), ServiceCategory::rules());
-        $validation->setAttributeNames(trans('news.categories'));
+        $validation->setAttributeNames(trans('services.categories'));
 
         if (!$validation->passes()) {
             return back()->withErrors($validation)->withInput();
@@ -110,7 +110,7 @@ class ServiceCategoryController extends Controller
         }
 
         $validation = Validator::make($data = $request->only(['parent', 'status', 'name']), ServiceCategory::rules());
-        $validation->setAttributeNames(trans('news.categories'));
+        $validation->setAttributeNames(trans('services.categories'));
 
         if (!$validation->passes()) {
             return back()->withErrors($validation)->withInput();
