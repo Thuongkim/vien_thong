@@ -180,6 +180,7 @@ return [
         Laratrust\LaratrustServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\Elfinder\ElfinderServiceProvider::class,
     ],
 
     /*

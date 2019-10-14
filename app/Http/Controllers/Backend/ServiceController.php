@@ -119,7 +119,8 @@ class ServiceController extends Controller
             $data['image'] = 'assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext;
         }
         $data['position']   = 1;
-        Service::create($data);
+        $sevice = Service::create($data);
+        Service::where('id', "<>", $sevice->id)->increment('position');
 
         Session::flash('message', trans('system.success'));
         Session::flash('alert-class', 'success');

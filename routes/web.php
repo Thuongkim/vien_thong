@@ -64,6 +64,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
         Route::resource('static-pages', 'StaticPagesController');
         Route::resource('static-pages', 'StaticPagesController');
 
+        Route::get('elfinder', '\Barryvdh\Elfinder\ElfinderController@showIndex');
+        // Route::any('elfinder/connector', '\Barryvdh\Elfinder\ElfinderController@showConnector');
+        Route::get('elfinder/ckeditor4', '\Barryvdh\Elfinder\ElfinderController@showCKeditor4');
+        Route::get('elfinder/tinymce', '\Barryvdh\Elfinder\ElfinderController@showTinyMCE4');
+        
         Route::get('locations', ['role' => 'backend', 'as' => 'locations.index', 'uses' => 'LocationsController@index']);
         Route::post('locations/update', ['role' => 'backend', 'as' => 'locations.update', 'uses' => 'LocationsController@update']);
         Route::get('locations/{id}', ['role' => 'backend', 'as' => 'locations.show', 'uses' => 'LocationsController@show']);
