@@ -12,6 +12,7 @@ return [
     'customer'  => 'Khách hàng',
     'static_page'   => 'Trang tĩnh',
     'slider'   => 'Slider',
+    'partner'   => 'Đối tác',
     'users'     => [
         'label' => 'Quản trị',
         'customer'  => 'Khách hàng',

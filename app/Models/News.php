@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Cache;
 
 class News extends \Eloquent {
 
-    public static function rules($id = 0) {
+    public static function rules($id = true) {
 
         return [
             'title'                 => 'required|max:255',
-            'summary'               => 'required|max:500',
+            'summary'               => ($id == true ? 'required' : ''). '|max:500',
             'content'               => 'required',
             'image'                 => 'max:2048|mimes:jpg,jpeg,png,gif',
             'created_by'            => 'integer',
@@ -79,5 +79,43 @@ class News extends \Eloquent {
         Cache::forget('lastNews');
         Cache::tags('newsCategory')->flush();
         Cache::forget('newsImages');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        static:: created (function($news)
+        {
+            self::clearCache();
+        });
+        Static:: updated (function($news)
+        {
+            Self::clearCache();
+        });
+        Static::deleted(function($news)
+        {
+            Self::clearCache();
+        });
+        Static::saved(function($news)
+        {
+            Self::clearCache();
+        });
+    }
+    public static function clearCache()
+    {
+        Cache:: forget ('home_news');
+    }
+    public static function getHomeNews()
+    {
+        $homeNews = [];
+        if (!Cache::has('home_news')) {
+            $homeNews = News::where('status', 1)->where( 'featured', 1)->select('id', 'title', ' image', 'updated_at', '
+                Summary ' )—->orderBy( 'updated_at', 'desc')->take(6)->get();
+            $homeNews = json_encode($homeNews) ;
+            if ($homeNews) Cache:: forever( 'home_news', $homeNews) ;
+        } else {
+            $homeNews = Cache::get( 'home_news');
+        }
+        return json_decode($homeNews, 1);
     }
 }

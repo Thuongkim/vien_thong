@@ -43,9 +43,16 @@ return [
 
     'disks' => [
 
+        // media folder in public path
+        'media' => [
+            'driver' => 'local',
+            'root' => public_path('assets/media'),
+            'url' => env('APP_URL').'/assets/media',
+        ],
+
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root'   => public_path(),
         ],
 
         'public' => [

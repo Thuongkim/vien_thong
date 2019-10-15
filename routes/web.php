@@ -65,6 +65,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
         Route::resource('projects', 'ProjectsController');
         Route::get('project-categories/delete/{id}', array('as' => 'project-categories.delete', 'uses' => 'ProjectCategoriesController@delete'));
         Route::resource('project-categories', 'ProjectCategoriesController');
+        Route::resource('partners', 'PartnersController');
+        Route::get('partners/delete/{id}', array('as' => 'partners.delete', 'uses' => 'PartnersController@delete'));
     });
 });
 

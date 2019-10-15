@@ -242,7 +242,7 @@ class ProjectsController extends Controller
             }
 
             \File::makeDirectory('assets/media/images/projects/' .  date('dm'), 0775, true, true);
-            if(\File::exists(asset('assets/media/images/projects/' . $project->image))) \File::delete(asset('assets/media/images/projects/' . $project->image));
+            if(\File::exists(asset('assets/media/images/projects/' . $project->image))) \File::delete(public_path(). '/assets/media/images/projects/' . $project->image);
             $timestamp = time();
             $image->save('assets/media/images/projects/' .  date('dm') . '/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext);
             $data['image'] = date('dm') . '/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext;
@@ -297,8 +297,8 @@ class ProjectsController extends Controller
             return back();
         }
 
-        if(\File::exists(asset('assets/media/images/project/' . $project->image)))
-            \File::delete(asset('assets/media/images/project/' . $project->image));
+        if(\File::exists(asset('assets/media/images/projects/' . $project->image)))
+            \File::delete(public_path(). '/assets/media/images/projects/' . $project->image);
 
         $project->delete();
         // project::clearCache();
