@@ -12,7 +12,7 @@ class SettingsController extends Controller
     public function redis()
     {
         \Illuminate\Support\Facades\Redis::flushall();
-        dd('done');
+        // dd('done');
     	Session::flash('message', "Đã xoá hết cache.");
         Session::flash('alert-class', 'success');
         return redirect()->route('admin.home');

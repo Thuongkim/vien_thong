@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 return [
     [
@@ -63,6 +63,15 @@ return [
         'hide' => false
     ],
     [
+        'label' => 'partner'
+    ],
+    [
+        'name' => 'partner',
+        'route'=> 'admin.partners.index',
+        'glyphicon' => 'fa fa-home fa-fw',
+        'hide' => false
+    ],
+    [
         'label' => 'system'
     ],
     [
@@ -104,11 +113,5 @@ return [
                 'hide' => false
             ],
         ]
-    ],
-    [
-        'name' => 'slider',
-        'route'=> 'admin.sliders.index',
-        'glyphicon' => 'fa fa-home fa-fw',
-        'hide' => false
     ],
 ];
