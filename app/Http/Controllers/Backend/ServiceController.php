@@ -107,8 +107,8 @@ class ServiceController extends Controller
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
             $image  = \Image::make($request->image);
-            if ($image->height() <> '700' || $image->width() <> '500') {
-                Session::flash('message', "Ảnh đại diện phải có kích thước là " . '500' ."px x " . '700' . "px.");
+            if ($image->height() <> '225' || $image->width() <> '300') {
+                Session::flash('message', "Ảnh đại diện phải có kích thước là " . '255' ."px x " . '300' . "px.");
                 Session::flash('alert-class', 'danger');
                 return back()->withInput();
             }
@@ -194,14 +194,14 @@ class ServiceController extends Controller
             $image  = \Image::make($request->image);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 200) {
-                    $image->resize(null, 200, function ($constraint) {
+                if ($image->height() >= 225) {
+                    $image->resize(null, 225, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->width() >= 255) {
-                    $image->resize(255, null, function ($constraint) {
+                if ($image->width() >= 300) {
+                    $image->resize(300, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }

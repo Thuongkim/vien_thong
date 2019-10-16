@@ -52,7 +52,19 @@ class StaticPage extends \Eloquent
 
         return json_decode($introduction, 1);
     }
+    public static function getByAllWihoutGroup()
+    {
+        $staticPages = [];
+        if (!Cache::has('static_pages')) {
+            $staticPages = StaticPage::where('status', 1)->whereNull('group')->select('description', 'title', 'slug')->get()->keyBy('slug');
+            $staticPages = json_encode($staticPages);
+            Cache::forever('static_pages', $staticPages);
+        } else {
+            $staticPages = Cache::get('static_pages');
+        }
 
+        return json_decode($staticPages, 1);
+    }
     public static function contact()
     {
         $contact = [];

@@ -110,7 +110,7 @@
                             <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
                                 {!! trans('system.action.remove') !!}
                             </a>
-                            (Kích thước 700x500)
+                            (Kích thước 300x225)
                         </div>
                     </div>
                 </td>

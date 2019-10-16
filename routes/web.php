@@ -76,4 +76,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
     });
 });
 
-Route::get('/', [ 'as' => 'home', 'uses' => 'HomeController@home']);
+Route::get('/', ['as' => 'home', 'uses' => 'Frontend\HomeController@index']);
