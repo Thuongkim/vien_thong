@@ -166,7 +166,9 @@
                                 @endif
                             </td>
                             <td style="text-align: center; vertical-align: middle;">
+                                @if($item->image)
                                 <img src="{!! asset('assets/media/images/news/' . $item->image) !!}" height="50px" style="max-width: 80px;">
+                                @endif
                             </td>
                             <td style="text-align: center; vertical-align: middle;">
                                 <span class="label label-{!! $labels[ $item->category_id % 5 ] !!}">{!! \App\NewsCategory::find($item->category_id)->name !!}</span>

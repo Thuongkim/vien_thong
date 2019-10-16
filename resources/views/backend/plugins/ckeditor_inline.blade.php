@@ -104,7 +104,7 @@
                     { name: 'Borderless Table', element: 'table', styles: { 'border-style': 'hidden', 'background-color': '#E6E6FA' } },
                     { name: 'Square Bulleted List', element: 'ul', styles: { 'list-style-type': 'square' } }
                 ],
-                filebrowserBrowseUrl: '/admin/elfinder/ckeditor',
+                filebrowserBrowseUrl: '/file-manager/ckeditor',
                 filebrowserUploadUrl : '#',    //disable upload tab
                 filebrowserImageUploadUrl : null,   //disable upload tab
                 filebrowserFlashUploadUrl : null,   //disable upload tab

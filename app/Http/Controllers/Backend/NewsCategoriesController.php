@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-use App\NewsCategory as NewsCategory;
 use App\News as News;
+use App\Define\Constant as Constant;
+use App\NewsCategory as NewsCategory;
 use App\TranslationSetting as TranslationSetting;
 
 use App\Http\Controllers\Controller;
@@ -116,6 +117,35 @@ class NewsCategoriesController extends Controller
         }
 
         $data['parent_id'] = intval($data['parent']);
+
+        if ($category->id == Constant::news_category_id) {
+            $category->status = $request->status;
+            $category->save();
+            if ($this->languages && $this->fields) {
+            foreach ($this->fields as $field) {
+                $tmp = $category->translation($field, $this->language)->first();
+                if (is_null($tmp))
+                    $category->translation($field, $this->language)->create(['locale' => $this->language, 'name' => $field, 'content' => $request->$field]);
+                else
+                    $category->translation($field, $this->language)->update(['content' => $request->$field]);
+
+                foreach ($this->languages as $k => $v) {
+                    $content = $field . '_' .  $k;
+                    $tmp = $category->translation($field, $k)->first();
+                    if (is_null($tmp))
+                        $category->translation($field, $k)->create(['locale' => $k, 'name' => $field, 'content' => $request->$content]);
+                    else
+                        $category->translation($field, $k)->update(['content' => $request->$content]);
+                }
+            }
+        }
+
+        Session::flash('message', trans("Danh mục cố định, không thể sửa tên tiếng việt."));
+        Session::flash('alert-class', 'success');
+
+        return redirect()->route('admin.news-categories.index');
+        }
+
         $category->update($data);
 
         if ($this->languages && $this->fields) {
@@ -162,6 +192,12 @@ class NewsCategoriesController extends Controller
 
         if(News::where('category_id', $id)->count()) {
             Session::flash('message', "Danh mục đã tồn tại bài viết.");
+            Session::flash('alert-class', 'danger');
+            return redirect()->route('admin.news-categories.index');
+        }
+
+        if ($category->id == Constant::news_category_id) {
+            Session::flash('message', "Danh mục cố định không thể xóa.");
             Session::flash('alert-class', 'danger');
             return redirect()->route('admin.news-categories.index');
         }

@@ -1,15 +1,15 @@
 @extends('backend.master')
 
 @section('title')
-    {!! trans('system.action.list') !!} {!! trans('news.categories.label') !!}
+    {!! trans('system.action.list-nd') !!} {!! trans('news.label') !!}
 @stop
 
 @section('content')
 
 <section class="content-header">
     <h1>
-        {!! trans('news.categories.label') !!}
-        <small>{!! trans('system.action.list') !!}</small>
+        {!! trans('news.label') !!}
+        <small>{!! trans('system.action.list-nd') !!}</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{!! route('admin.home') !!}">{!! trans('system.home') !!}</a></li>

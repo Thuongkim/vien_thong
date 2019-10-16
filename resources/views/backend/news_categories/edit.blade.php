@@ -45,7 +45,7 @@
                 @foreach($languages as $language => $value)
                     <tr>
                         <th class="table_right_middle">
-                            {!! trans('product_categories.name') !!} ({!! trans('system.' . $language) !!})
+                            {!! trans('news.categories.name') !!} ({!! trans('system.' . $language) !!})
                         </th>
                         <td>
                             <?php $content = $category->translation('name', $language)->first(); ?>

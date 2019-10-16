@@ -69,7 +69,7 @@
                     {!! trans('news.summary') !!}
                 </th>
                 <td>
-                    {!! Form::textarea('summary', old('summary', $news->summary), array('class' => 'form-control', 'rows' => 2, 'maxlength' => 255, 'required')) !!}
+                    {!! Form::textarea('summary', old('summary', $news->summary), array('class' => 'form-control', 'rows' => 2, 'maxlength' => 255)) !!}
                 </td>
             </tr>
             @if(isset($fields['summary']))
@@ -90,7 +90,9 @@
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                         <div class="fileupload-preview thumbnail" style="min-height: 200px; max-height: 200px; max-width: 255px;">
+                            @if($news->image)
                             <img src="{!! asset('assets/media/images/news/' . $news->image) !!}">
+                            @endif
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">

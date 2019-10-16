@@ -48,6 +48,30 @@ return [
         'hide' => false
     ],
     [
+        'label' => 'project'
+    ],
+    [
+        'name' => 'category',
+        'route'=> 'admin.project-categories.index',
+        'glyphicon' => 'fa fa-shopping-cart fa-fw',
+        'hide' => false
+    ],
+    [
+        'name' => 'list',
+        'route'=> 'admin.projects.index',
+        'glyphicon' => 'fa fa-bank fa-fw',
+        'hide' => false
+    ],
+    [
+        'label' => 'partner'
+    ],
+    [
+        'name' => 'partner',
+        'route'=> 'admin.partners.index',
+        'glyphicon' => 'fa fa-home fa-fw',
+        'hide' => false
+    ],
+    [
         'label' => 'system'
     ],
     [

@@ -63,7 +63,7 @@
                     {!! trans('news.summary') !!}
                 </th>
                 <td>
-                    {!! Form::textarea('summary', old('summary'), array('class' => 'form-control', 'rows' => 5, 'maxlength' => 255, 'required')) !!}
+                    {!! Form::textarea('summary', old('summary'), array('class' => 'form-control', 'rows' => 5, 'maxlength' => 255)) !!}
                 </td>
             </tr>
             @if(isset($fields['summary']))
