@@ -80,30 +80,9 @@ class News extends \Eloquent {
         Cache::tags('newsCategory')->flush();
         Cache::forget('newsImages');
     }
-
-    public static function boot()
+    public function category()
     {
-        parent::boot();
-        static:: created (function($news)
-        {
-            self::clearCache();
-        });
-        Static:: updated (function($news)
-        {
-            Self::clearCache();
-        });
-        Static::deleted(function($news)
-        {
-            Self::clearCache();
-        });
-        Static::saved(function($news)
-        {
-            Self::clearCache();
-        });
-    }
-    public static function clearCache()
-    {
-        Cache:: forget ('home_news');
+        return $this->belongsTo("\App\NewsCategory");
     }
     public static function getHomeNews()
     {

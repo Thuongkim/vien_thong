@@ -29,11 +29,11 @@ class HomeController extends Controller
     }
     public function search(Request $request)
     {
-        // $query = htmlentities($request->keyword);
-        // if (!$query) return redirect()->route('home');
-        // $items = News::where('status', 1)->where('title', 'like', "%" . $query . "%")->get();
-        // $featuredNews = News::where('status', 1)->where('featured', 1)->orderBy('updated_at', 'DESC')->take(6)->get();
-        // $newsCategories = NewsCategory::getByAll();
-        return view('frontend.pages.search');
+        $query = htmlentities($request->keyword);
+        if (!$query) return redirect()->route('home');
+        $items = News::where('status', 1)->where('title', 'like', "%" . $query . "%")->get();
+        $featuredNews = News::where('status', 1)->where('featured', 1)->orderBy('updated_at', 'DESC')->take(6)->get();
+        $newsCategories = NewsCategory::getByAll();
+        return view('frontend.pages.search', compact('items', 'query', 'featuredNews', 'newsCategories'));
     }
 }

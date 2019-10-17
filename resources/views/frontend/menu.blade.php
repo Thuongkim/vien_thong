@@ -31,7 +31,7 @@
 						<!-- Quik search -->
 						<div class="dlab-quik-search bg-primary ">
 							<form action="{{ route('home.search') }}" method="GET">
-								<input name="search" value="" type="text" class="form-control"
+								<input name="keyword" value="" type="text" class="form-control"
 									placeholder="Tìm kiếm">
 								<span id="quik-search-remove"><i class="ti-close"></i></span>
 							</form>
