@@ -149,185 +149,67 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-9 text-white">
-								<h2 class="title">Giới thiệu </h2>
-								<p class="m-b0">Công ty Cổ phần Dịch vụ Kỹ thuật Viễn thông Hà Nội (HTE) được thành lập
-									vào tháng 9/2007 với các cổ đông sáng lập chính là Công ty Cổ phần Viễn thông Hà Nội
-									(Hanoi Telecom) đơn vị chủ quản mạng di động Vietnamobile và một số đơn vị cá nhân
-									khác trong lĩnh vực viễn thông và công nghệ thông tin tại Việt nam.</p>
+								<h2 class="title">{!! isset($staticPages['gioi-thieu']['title']) ? $staticPages['gioi-thieu']['title'] : '' !!}
+								</p></h2>
+								<p class="m-b0">
+								{!! isset($staticPages['gioi-thieu']['description']) ? $staticPages['gioi-thieu']['description'] : '' !!}
+								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- Call To Action End -->
+
+
+
 				<!-- About Us -->
 				<div class="section-full content-inner bg-white wow fadeIn" data-wow-duration="2s"
 					data-wow-delay="0.4s">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title">Dịch vụ của chúng tôi</h2>
+							{!! isset($staticPages['service']['description']) ? $staticPages['service']['description'] : '' !!}
 						</div>
 						<div class="on-show-slider ">
+							
 							<div id="sync2" class="owl-carousel owl-theme owl-none owl-dots-none project-list">
+								@foreach($services as $service)
 								<div class="item">
 									<div class="project-owbx">
-										<i class="fa fa-camera-retro"></i>
-										<h4 class="title">Khảo sát thiết kế</h4>
+										<i class="fa {{ $service->icon }}"></i>
+										<h4 class="title">{{ $service->title }}</h4>
 									</div>
 								</div>
-								<div class="item">
-									<div class="project-owbx">
-										<i class="fa fa-bold"></i>
-										<h4 class="title">Xây dựng nhà trạm</h4>
-									</div>
-								</div>
-								<div class="item">
-									<div class="project-owbx active">
-										<i class="fa fa-italic"></i>
-										<h4 class="title">Lắp đặt thiết bị</h4>
-									</div>
-								</div>
-								<div class="item">
-									<div class="project-owbx">
-										<i class="fa fa-rss"></i>
-										<h4 class="title">Tối ưu hóa</h4>
-									</div>
-								</div>
-								<div class="item">
-									<div class="project-owbx">
-										<i class="fa fa-maxcdn"></i>
-										<h4 class="title">Quản lý vận hành mạng</h4>
-									</div>
-								</div>
+								@endforeach
 							</div>
 							<div id="sync1"
 								class="owl-carousel owl-theme owl-btn-center-lr m-b5 owl-dots-none owl-btn-3 primary">
+								@foreach($services as $service)
 								<div class="item">
 									<div class="row align-items-center">
 										<div class="col-lg-6 col-md-6 m-b30">
 											<div class="our-story">
-												<h2 class="title"><span class="text-primary">Khảo sát thiết kế</span>
+												<h2 class="title"><span class="text-primary">{{ $service->title }}</span>
 												</h2>
-												<h6 class="title">Công ty HTE có nhiều năm kinh nghiệm hoạt động trong
-													lĩnh vực viễn thông, đã thực hiện nhiều dự án lớn, nhỏ trong lĩnh
-													vực Khảo sát thiết kế các công trình Viễn thông trên phạm vi toàn
-													quốc.</h6>
-												<p>– Nội dung chủ yếu của nhiệm vụ khảo sát
-													– Đặc điểm, quy mô, tính chất của công trình
-													– Vị trí và điều kiện tự nhiên của khu vực khảo sát xây dựng
-													– Tiêu chuẩn về khảo sát xây dựng được áp dụng
-													– Khối lượng khảo sát
-													– Quy trình, phương pháp và thiết bị khảo sát
-													– Phân tích số liệu, đánh giá kết quả khảo sát
-													– Đề xuất giải pháp phục vụ cho việc thiết kế, thi công xây dựng
-													công trình
-													– Kết luận và kiến nghị</p>
+												{!! $service->content !!}
+												<br>
 												<a href="#" class="site-button btnhover16">xem thêm</a>
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 m-b30">
-											<img src="images/our-work/d1.jpg" class="radius-sm" alt="">
+											<img src="{{ asset($service->image) }}" class="radius-sm" alt="">
 										</div>
 									</div>
 								</div>
-								<div class="item">
-									<div class="row align-items-center">
-										<div class="col-lg-6 col-md-6 m-b30">
-											<img src="images/our-work/d5.jpg" class="radius-sm" alt="">
-										</div>
-										<div class="col-lg-6 col-md-6 m-b30">
-											<div class="our-story content-bx1">
-												<h2 class="title"><span class="text-primary">Xây dựng nhà trạm</span>
-												</h2>
-												<h6 class="title">HTE là Công ty hàng đầu về triển khai hạ tầng mạng
-													Viễn thông. Chúng tôi tin rằng sẽ làm hài lòng khách hàng với các
-													dịch vụ lắp đặt từng phần, hạng mục hoặc các dự án cho các hệ thống
-													viễn thông.</h6>
-												<p>– HTE cung cấp đầy đủ các dịch vụ phục vụ xây dựng hạ tầng mạng thông
-													tin di động, đáp ứng tốt nhất các yêu cầu khắt khe của các nhà mạng
-													về hạ tầng viễn thông trên tất cả các mặt như chất lượng và khối
-													lượng công việc.
-													– Dịch vụ bao gồm: khảo sát tìm kiếm nhà trạm, thiết kế, xây dựng
-													nhà trạm… cho các trạm BTS, BSC, MSC.</p>
-												<a href="#" class="site-button btnhover16">xem thêm</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item">
-									<div class="row align-items-center">
-										<div class="col-lg-6 col-md-6 m-b30">
-											<div class="our-story">
-												<h2 class="title"><span class="text-primary"> Lắp đặt thiết bị</span>
-												</h2>
-												<h6 class="title">Với đội ngũ kỹ sư dày dạn kinh nghiệm, chuyên môn cao,
-													chúng tôi có khả năng triển khai những dự án lớn yêu cầu trải dài từ
-													Bắc, Trung, Nam</h6>
-												<p>Với hệ thống văn phòng ở tất cả 64 tỉnh thành, chúng tôi đáp ứng với
-													hầu hết các yêu cầu khắt khe nhất về tiến độ, thời gian, hiệu quả,
-													chi phí và là đối tác chiến lược của không chỉ các nhà khai thác
-													mạng viễn thông trong nước như Vietnamobile, Mobifone, Vinaphone… mà
-													còn các hãng cung cấp thiết bị nổi tiếng trên thế giới như Ericsson,
-													Huawei…</p>
-												<a href="#" class="site-button btnhover16">xem thêm</a>
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 m-b30">
-											<img src="images/our-work/d2.jpg" class="radius-sm" alt="">
-										</div>
-									</div>
-								</div>
-								<div class="item">
-									<div class="row align-items-center">
-										<div class="col-lg-6 col-md-6 m-b30">
-											<img src="images/our-work/d4.jpg" class="radius-sm" alt="">
-										</div>
-										<div class="col-lg-6 col-md-6 m-b30">
-											<div class="our-story content-bx1">
-												<h2 class="title"><span class="text-primary">Tối ưu hóa </span></h2>
-												<h6 class="title">Với đội ngũ chuyên sâu về RF, dịch vụ Tối ưu là một
-													lĩnh vực thế mạnh của HTE. Chúng tôi đã khẳng định được vị thế trên
-													thị trường bằng niềm tin của tất cả các nhà khai thác mạng Viễn
-													thông</h6>
-												<p>Mô tả dịch vụ
-													– Thực hiện việc tối ưu mạng vô tuyến cho các mạng di động 2G, 3G
-													– Đo kiểm chất lượng mạng
-													– Phân tích đưa ra giải pháp
-													– Thực hiện tối ưu hóa mạng</p>
-												<a href="#" class="site-button btnhover16">xem thêm</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item">
-									<div class="row align-items-center">
-										<div class="col-lg-6 col-md-6 m-b30">
-											<div class="our-story">
-												<h2 class="title"><span class="text-primary"> Quản lý Vận hành
-														mạng</span></h2>
-												<h6 class="title">HTE tự hào là đơn vị quản lý, vận hành và ứng cứu
-													thông tin cho toàn bộ mạng di động Vietnamobile.</h6>
-												<p> Với đội ngũ nhân lực hơn 700 người trải dài khắp 64 tỉnh, thành phố
-													chúng tôi luôn đem tới cho khách hàng dịch vụ vận hành mạng hoàn
-													hảo, dịch vụ bảo dưỡng chuyên nghiệp và dịch vụ ứng cứu thông tin
-													nhanh chóng, kịp thời đem lại cho khách hàng chất lượng mạng tốt
-													nhất.Bằng hệ thống tiêu chuẩn ISO 9001-2008, hệ thống quản lý và
-													triển khai dịch vụ Managed Services của chúng tôi không chỉ mang lại
-													lợi ích cho mạng Viễn thông Vietnamobile mà còn là niềm tin của các
-													nhà khai thác Viễn thông khác.</p>
-												<a href="#" class="site-button btnhover16">xem thêm</a>
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 m-b30">
-											<img src="images/our-work/d3.jpg" class="radius-sm" alt="">
-										</div>
-									</div>
-								</div>
+								@endforeach
 							</div>
 						</div>
 
 					</div>
 				</div>
 				<!-- About Us End -->
+
+
+
 				<!-- Client logo -->
 				<div class="section-full content-inner-2 bg-gray wow fadeIn" data-wow-duration="2s"
 					data-wow-delay="0.6s">

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Cache;
 
 class StaticPage extends \Eloquent
 {
-    protected $fillable = [ 'title', 'description' ];
+    protected $fillable = [ 'slug', 'title', 'description', 'status' ];
 
     public static function rules($id = 0) {
         return [
@@ -64,6 +64,19 @@ class StaticPage extends \Eloquent
         }
 
         return json_decode($staticPages, 1);
+    }
+    public static function getMenu()
+    {
+        $staticPagess = [];
+        if (!Cache::has('static_pages')) {
+            $staticPagess = StaticPage::where('status', 1)->where('group', 1)->select('description', 'title', 'slug')->get()->keyBy('slug');
+            $staticPagess = json_encode($staticPagess);
+            Cache::forever('static_pages', $staticPagess);
+        } else {
+            $staticPagess = Cache::get('static_pages');
+        }
+
+        return json_decode($staticPagess, 1);
     }
     public static function contact()
     {

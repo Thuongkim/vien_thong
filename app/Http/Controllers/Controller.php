@@ -15,5 +15,6 @@ class Controller extends BaseController
     public function __construct()
     {
     	view()->share('staticPages', StaticPage::getByAllWihoutGroup());
+    	view()->share('staticPagess', StaticPage::getMenu());
     }
 }

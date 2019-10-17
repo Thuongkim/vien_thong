@@ -23,6 +23,7 @@ class CreateServicesTable extends Migration
             $table->string('icon');
             $table->integer('position');
             $table->integer('status');
+            $table->integer('featured');
             $table->integer('created_by');
             $table->timestamps();
         });

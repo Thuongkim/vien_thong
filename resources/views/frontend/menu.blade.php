@@ -48,7 +48,7 @@
 									<a href="#">Giới thiệu<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu tab-content">
 										<li>
-											<a href="history.html">Lịch sử phát triển</a>
+											<a href="history.html">{!! isset($staticPages['history']['description']) ? $staticPages['history']['description'] : '' !!}</a>
 										</li>
 										<li>
 											<a href="about-us.html">Thông tin chung</a>

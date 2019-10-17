@@ -35,12 +35,14 @@ class ServiceController extends Controller
 
         $title                  = $request->input('title');
         $status                 = intval($request->input('status', -1));
+        $featured               = intval($request->input('featured', -1));
         $category               = intval($request->input('category_id', -1));
         $date_range             = $request->input('date_range');
         $page_num               = intval($request->input('page_num', \App\Define\Constant::PAGE_NUM_20));
 
         if( $title ) $query .= " AND title like '%" . $title . "%'";
         if($status <> -1) $query .= " AND status = {$status}";
+        if($featured <> -1) $query .= " AND featured = {$featured}";
         if($category <> -1) {
             $children = ServiceCategory::where('parent_id', $category)->select('id')->get();
             $children = implode(',', array_column($children->toArray(), 'id'));
@@ -95,8 +97,8 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
-        $request->merge(['status' => intval($request->status)]);
-        $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary','status', 'icon'), Service::rules());
+        $request->merge(['featured' => intval($request->featured), 'status' => intval($request->status)]);
+        $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary','status', 'icon', 'featured'), Service::rules());
         $validator->setAttributeNames(trans('services'));
         if ($validator->fails()) return redirect()->back()->withErrors($validator)->withInput();
 
@@ -159,7 +161,7 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         $id = intval( $id );
-        $request->merge(['status' => intval($request->status)]);
+        $request->merge(['featured' => intval($request->featured), 'status' => intval($request->status)]);
 
         $services = Service::find($id);
         if (is_null($services)) {
@@ -175,9 +177,9 @@ class ServiceController extends Controller
         }
 
         if ($request->hasFile('image'))
-            $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary', 'status', 'icon'), Service::rules($id));
+            $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary', 'status', 'icon', 'featured'), Service::rules($id));
         else
-            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'summary', 'status', 'icon'), Service::rules($id));
+            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'summary', 'status', 'icon', 'featured'), Service::rules($id));
 
         $validator->setAttributeNames(trans('services'));
 
