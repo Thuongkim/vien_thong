@@ -436,26 +436,43 @@
 									<a href="javascript:void(0);"
 										class="site-button-secondry button-sm radius-xl"><span>All</span></a>
 								</li>
-								<li data-filter="technology" class="btn">
+								@foreach ($projectCategories as $projectCategory)
+								<li data-filter="{{ $projectCategory['id']}}" class="btn">
 									<input type="radio">
 									<a href="javascript:void(0);"
-										class="site-button-secondry button-sm radius-xl"><span>Tin học</span></a>
+										class="site-button-secondry button-sm radius-xl"><span>Dự án {{ $projectCategory[$lang]['name']}}</span></a>
 								</li>
-								<li data-filter="telecommunication" class="btn">
-									<input type="radio">
-									<a href="javascript:void(0);"
-										class="site-button-secondry button-sm radius-xl"><span>Dự án viễn
-											thông</span></a>
-								</li>
+								@endforeach
 							</ul>
 						</div>
+
 						<div class="clearfix" id="lightgallery">
 							<ul id="masonry"
 								class=" portfolio-ic dlab-gallery-listing gallery-grid-4 gallery lightgallery text-center">
-								<li class="technology design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
+								@foreach ($projects as $project)
+								@if (!$project['image'])
+								<li class="{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
 									<div class="dlab-box dlab-gallery-box">
 										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-											<a href="project-details.html"> <img src="images/our-work/d1.jpg" alt="">
+											<div class="overlay-bx">
+												<div class="overlay-icon">
+													<div class="text-white">
+														<a href="project-details.html"><i
+																class="fa fa-link icon-bx-xs"></i></a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="dez-info p-a30 bg-white">
+											<b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('home'), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
+										</div>
+									</div>
+								</li>
+								@else
+								<li class="{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
+									<div class="dlab-box dlab-gallery-box">
+										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
+											<a href="project-details.html"> <img src="{!! asset('assets/media/images/projects/' . $project['image']) !!}" alt="">
 											</a>
 											<div class="overlay-bx">
 												<div class="overlay-icon">
@@ -467,171 +484,12 @@
 											</div>
 										</div>
 										<div class="dez-info p-a30 bg-white">
-											<p class="dez-title m-t0"><a href="project-details.html">dự án công ty
-													hte</a></p>
+											<b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('home'), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
 										</div>
 									</div>
 								</li>
-								<li class="technology design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
-									<div class="dlab-box dlab-gallery-box">
-										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-											<a href="project-details.html"> <img src="images/our-work/d2.jpg" alt="">
-											</a>
-											<div class="overlay-bx">
-												<div class="overlay-icon">
-													<div class="text-white">
-														<a href="project-details.html"><i
-																class="fa fa-link icon-bx-xs"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="dez-info p-a30 bg-white">
-											<p class="dez-title m-t0"><a href="project-details.html">dự án công ty
-													hte</a></p>
-										</div>
-									</div>
-								</li>
-								<li class="technology design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
-									<div class="dlab-box dlab-gallery-box">
-										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-											<a href="project-details.html"> <img src="images/our-work/d3.jpg" alt="">
-											</a>
-											<div class="overlay-bx">
-												<div class="overlay-icon">
-													<div class="text-white">
-														<a href="project-details.html"><i
-																class="fa fa-link icon-bx-xs"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="dez-info p-a30 bg-white">
-											<p class="dez-title m-t0"><a href="project-details.html">dự án công ty
-													hte</a></p>
-										</div>
-									</div>
-								</li>
-								<li class="technology design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
-									<div class="dlab-box dlab-gallery-box">
-										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-											<a href="project-details.html"> <img src="images/our-work/d4.jpg" alt="">
-											</a>
-											<div class="overlay-bx">
-												<div class="overlay-icon">
-													<div class="text-white">
-														<a href="project-details.html"><i
-																class="fa fa-link icon-bx-xs"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="dez-info p-a30 bg-white">
-											<p class="dez-title m-t0"><a href="project-details.html">dự án công ty
-													hte</a></p>
-										</div>
-									</div>
-								</li>
-								<li class="technology design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
-									<div class="dlab-box dlab-gallery-box">
-										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-											<a href="project-details.html"> <img src="images/our-work/d5.jpg" alt="">
-											</a>
-											<div class="overlay-bx">
-												<div class="overlay-icon">
-													<div class="text-white">
-														<a href="project-details.html"><i
-																class="fa fa-link icon-bx-xs"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="dez-info p-a30 bg-white">
-											<p class="dez-title m-t0"><a href="project-details.html">dự án công ty
-													hte</a></p>
-										</div>
-									</div>
-								</li>
-								<li class="technology design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
-									<div class="dlab-box dlab-gallery-box">
-										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-											<a href="project-details.html"> <img src="images/our-work/d6.jpg" alt="">
-											</a>
-											<div class="overlay-bx">
-												<div class="overlay-icon">
-													<div class="text-white">
-														<a href="project-details.html"><i
-																class="fa fa-link icon-bx-xs"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="dez-info p-a30 bg-white">
-											<p class="dez-title m-t0"><a href="project-details.html">dự án công ty
-													hte</a></p>
-										</div>
-									</div>
-								</li>
-								<li class="technology design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
-									<div class="dlab-box dlab-gallery-box">
-										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-											<a href="project-details.html"> <img src="images/our-work/d7.jpg" alt="">
-											</a>
-											<div class="overlay-bx">
-												<div class="overlay-icon">
-													<div class="text-white">
-														<a href="project-details.html"><i
-																class="fa fa-link icon-bx-xs"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="dez-info p-a30 bg-white">
-											<p class="dez-title m-t0"><a href="project-details.html">dự án công ty
-													hte</a></p>
-										</div>
-									</div>
-								</li>
-								<li class="technology design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
-									<div class="dlab-box dlab-gallery-box">
-										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-											<a href="project-details.html"> <img src="images/our-work/d8.jpg" alt="">
-											</a>
-											<div class="overlay-bx">
-												<div class="overlay-icon">
-													<div class="text-white">
-														<a href="project-details.html"><i
-																class="fa fa-link icon-bx-xs"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="dez-info p-a30 bg-white">
-											<p class="dez-title m-t0"><a href="project-details.html">dự án công ty
-													hte</a></p>
-										</div>
-									</div>
-								</li>
-								<li class="telecommunication design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
-									<div class="dlab-box dlab-gallery-box">
-										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-											<a href="project-details.html"> <img src="images/our-work/d9.jpg" alt="">
-											</a>
-											<div class="overlay-bx">
-												<div class="overlay-icon">
-													<div class="text-white">
-														<a href="project-details.html"><i
-																class="fa fa-link icon-bx-xs"></i></a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="dez-info p-a30 bg-white">
-											<p class="dez-title m-t0"><a href="project-details.html">dự án công ty
-													hte</a></p>
-										</div>
-									</div>
-								</li>
+								@endif
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -647,30 +505,31 @@
 						<div class="section-content box-sort-in m-b30 button-example">
 							<div
 								class="blog-carousel mfp-gallery owl-loaded owl-theme owl-carousel gallery owl-btn-center-lr owl-btn-1 primary">
+								@foreach ($news as $news)
 								<div class="item">
 									<div class="ow-blog-post date-style-2">
 										<div class="ow-post-media dlab-img-effect zoom-slow">
-											<img src="images/blog-grid/n1.jpg" style="height: 270px;" alt="">
+											@if($news['image'])
+											<img src="{!! asset('assets/media/images/news/' . $news['image']) !!}" style="height: 270px;" alt="">
+											@endif
 										</div>
 										<div class="ow-post-info">
 											<div class="ow-post-title">
 												<h4 class="post-title"> <a href="javascript:void(0);"
-														title="news">Together Everyone Achieves</a> </h4>
+														title="news">{{$news[$lang]['title']}}</a> </h4>
 											</div>
 											<div class="ow-post-meta">
 												<ul>
 													<li class="post-date"> <i
-															class="ti-comment-alt"></i><strong>18/09/</strong> <span>
-															2016</span> </li>
+															class="ti-comment-alt"></i><strong>{!! date("d/m", strtotime($news['updated_at'])) !!}</strong> <span>
+															{!! date("Y", strtotime($news['updated_at'])) !!}</span> </li>
 													<li class="post-author"><i class="ti-user"></i>By <a
 															href="javascript:void(0);" title="Posts by admin"
-															rel="author">admin</a> </li>
+															rel="author">{{$news['created_by']}}</a> </li>
 												</ul>
 											</div>
 											<div class="ow-post-text">
-												<p>TEAMBUILDING 2019 – TRUNG TÂM KỸ THUẬT MIỀN BẮC Team buiding là hoạt
-													động vô cùng cần thiết để xây dựng tinh thần đoàn kết, gắn kết các
-													cá nhân, bộ ...</p>
+												<p>{{$news[$lang]['summary']}}</p>
 											</div>
 											<div class="ow-post-readmore "> <a href="javascript:void(0);"
 													title="XEM THÊM" rel="bookmark" class=" site-button-link"> XEM THÊM
@@ -678,67 +537,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="item">
-									<div class="ow-blog-post date-style-2">
-										<div class="ow-post-media dlab-img-effect zoom-slow"> <img
-												src="images/blog-grid/n2.png" style="height: 270px;" alt=""> </div>
-										<div class="ow-post-info ">
-											<div class="ow-post-title">
-												<h4 class="post-title"> <a href="javascript:void(0);" title="news">Lễ
-														Tổng Kết năm 2018</a> </h4>
-											</div>
-											<div class="ow-post-meta">
-												<ul>
-													<li class="post-date"> <i
-															class="ti-comment-alt"></i><strong>18/09/</strong> <span>
-															2016</span> </li>
-													<li class="post-author"><i class="ti-user"></i>By <a
-															href="javascript:void(0);" title="Posts by admin"
-															rel="author">admin</a> </li>
-												</ul>
-											</div>
-											<div class="ow-post-text">
-												<p>Năm 2018 vừa qua là năm có nhiều sự mới mẻ, là sự chuẩn bị TĂNG TỐC
-													cho những thay đổi để BỨT PHÁ của HTE. Nhân dịp năm cũ sắp qua đi,
-													đón chào năm ...</p>
-											</div>
-											<div class="ow-post-readmore "> <a href="javascript:void(0);"
-													title="XEM THÊM" rel="bookmark" class=" site-button-link"> XEM THÊM
-													<i class="fa fa-angle-double-right"></i></a> </div>
-										</div>
-									</div>
-								</div>
-								<div class="item">
-									<div class="ow-blog-post date-style-2">
-										<div class="ow-post-media dlab-img-effect zoom-slow"> <img
-												src="images/blog-grid/n3.png" style="height: 270px;" alt=""> </div>
-										<div class="ow-post-info ">
-											<div class="ow-post-title">
-												<h4 class="post-title"> <a href="javascript:void(0);" title="news">HTE
-														SPORTS DAY 2018</a> </h4>
-											</div>
-											<div class="ow-post-meta">
-												<ul>
-													<li class="post-date"> <i
-															class="ti-comment-alt"></i><strong>18/09/</strong> <span>
-															2016</span> </li>
-													<li class="post-author"><i class="ti-user"></i>By <a
-															href="javascript:void(0);" title="Posts by admin"
-															rel="author">admin</a> </li>
-
-												</ul>
-											</div>
-											<div class="ow-post-text">
-												<p>Nằm trong hoạt động giao lưu tổng kết năm 2018, tại Sông Hồng Resort
-													- Hà Nội, HTE đã tổ chức ngày hội thể thao với các môn thi đấu là
-													Bóng đá và ...</p>
-											</div>
-											<div class="ow-post-readmore "> <a href="javascript:void(0);"
-													title="XEM THÊM" rel="bookmark" class=" site-button-link"> XEM THÊM
-													<i class="fa fa-angle-double-right"></i></a> </div>
-										</div>
-									</div>
-								</div>
+								@endforeach
 							</div>
 						</div>
 					</div>

@@ -24,8 +24,8 @@
 						</div>
 						<div class="extra-nav">
 							<ul class="nav navbar-nav">
-								<li><a><img src="{{ asset('assets/frontend/images/vn.png') }}" alt=""></a>
-									<a><img src="{{ asset('assets/frontend/images/gb.png') }}" alt=""></a></li>
+								<li><a href="{!! route('change-language', ['vi']) !!}"><img src="{{ asset('assets/frontend/images/vn.png') }}" alt=""></a>
+									<a href="{!! route('change-language', ['en']) !!}"><img src="{{ asset('assets/frontend/images/gb.png') }}" alt=""></a></li>
 							</ul>
 						</div>
 						<!-- Quik search -->

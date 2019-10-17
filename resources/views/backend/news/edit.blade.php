@@ -80,7 +80,7 @@
                         </th>
                         <td>
                             <?php $content = $news->translation('summary', $language)->first(); ?>
-                            {!! Form::textarea("summary_{$language}", old("summary_{$language}", is_null($content) ? '' : $content->content), array('class' => 'form-control', 'rows' => 3, 'maxlength' => 100)) !!}
+                            {!! Form::textarea("summary_{$language}", old("summary_{$language}", is_null($content) ? '' : $content->content), array('class' => 'form-control', 'rows' => 3, 'maxlength' => 255)) !!}
                         </td>
                     </tr>
                 @endforeach

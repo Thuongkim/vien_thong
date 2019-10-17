@@ -1,6 +1,7 @@
 <?php namespace App;
 
 use Illuminate\Support\Facades\Cache;
+use App\Define\Constant as Constant;
 
 class News extends \Eloquent {
 
@@ -39,48 +40,6 @@ class News extends \Eloquent {
         }
     }
 
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::updated(function($page)
-        {
-            //clear cache
-            Cache::forget('hotNews');
-            Cache::forget('lastNews');
-            Cache::tags('newsCategory')->flush();
-            Cache::forget('newsImages');
-        });
-
-        static::deleted(function($page)
-        {
-            //clear cache
-            Cache::forget('hotNews');
-            Cache::forget('lastNews');
-            Cache::tags('newsCategory')->flush();
-            Cache::forget('newsImages');
-        });
-
-        static::saved(function($page)
-        {
-            //clear cache
-            Cache::forget('hotNews');
-            Cache::forget('lastNews');
-            Cache::tags('newsCategory')->flush();
-            Cache::forget('newsImages');
-        });
-    }
-
-    public static function clearCache()
-    {
-        //clear cache
-        Cache::forget('hotNews');
-        Cache::forget('lastNews');
-        Cache::tags('newsCategory')->flush();
-        Cache::forget('newsImages');
-    }
-
     public static function boot()
     {
         parent::boot();
@@ -88,17 +47,17 @@ class News extends \Eloquent {
         {
             self::clearCache();
         });
-        Static:: updated (function($news)
+        static:: updated (function($news)
         {
-            Self::clearCache();
+            self::clearCache();
         });
-        Static::deleted(function($news)
+        static::deleted(function($news)
         {
-            Self::clearCache();
+            self::clearCache();
         });
-        Static::saved(function($news)
+        static::saved(function($news)
         {
-            Self::clearCache();
+            self::clearCache();
         });
     }
     public static function clearCache()
@@ -107,10 +66,31 @@ class News extends \Eloquent {
     }
     public static function getHomeNews()
     {
+        $id_exception = Constant::news_category_id;
         $homeNews = [];
+        $langs = config('app.locales');
         if (!Cache::has('home_news')) {
-            $homeNews = News::where('status', 1)->where( 'featured', 1)->select('id', 'title', ' image', 'updated_at', '
-                Summary ' )->orderBy( 'updated_at', 'desc')->take(6)->get();
+            $temp = News::where('status', 1)->where('category_id', '<>', $id_exception)->where( 'featured', 1)->orderBy( 'updated_at', 'desc')->take(6)->get();
+            foreach ($temp as $home_news) {
+                $tmp = [];
+                $image = $home_news->image;
+                $tmp['image'] = is_null($image) ? '' : $image;
+                $created_by = \App\User::find( $home_news->created_by );
+                $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
+                $updated_at = $home_news->updated_at;
+                $tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
+                for ($i = 0; $i < count($langs); $i++) {
+                    $trans = $home_news->translation('title', $langs[$i])->first();
+                    $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+                    $trans = $home_news->translation('summary', $langs[$i])->first();
+                    $tmp[$langs[$i]]['summary'] = is_null($trans) ? '' : $trans->content;
+                    $trans = $home_news->translation('content', $langs[$i])->first();
+                    $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
+                }
+
+                array_push($homeNews, $tmp);
+            }
+
             $homeNews = json_encode($homeNews) ;
             if ($homeNews) Cache:: forever( 'home_news', $homeNews) ;
         } else {
