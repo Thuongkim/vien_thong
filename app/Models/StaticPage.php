@@ -68,12 +68,12 @@ class StaticPage extends \Eloquent
     public static function getMenu()
     {
         $staticPagess = [];
-        if (!Cache::has('static_pages')) {
+        if (!Cache::has('static_pagess')) {
             $staticPagess = StaticPage::where('status', 1)->where('group', 1)->select('description', 'title', 'slug')->get()->keyBy('slug');
             $staticPagess = json_encode($staticPagess);
-            Cache::forever('static_pages', $staticPagess);
+            Cache::forever('static_pagess', $staticPagess);
         } else {
-            $staticPagess = Cache::get('static_pages');
+            $staticPagess = Cache::get('static_pagess');
         }
 
         return json_decode($staticPagess, 1);

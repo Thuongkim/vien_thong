@@ -110,7 +110,7 @@
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
 											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#fc1520; text-transform: uppercase;">
 										
-											{{ $slider['vi']['name'] }}
+											{{ $slider[$lang]['name'] }}
 											
 										</a>
 										<!-- LAYER NR. 5 -->
@@ -149,10 +149,9 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-9 text-white">
-								<h2 class="title">{!! isset($staticPages['gioi-thieu']['title']) ? $staticPages['gioi-thieu']['title'] : '' !!}
-								</p></h2>
+								<h2 class="title">Giới thiệu</h2>
 								<p class="m-b0">
-								{!! isset($staticPages['gioi-thieu']['description']) ? $staticPages['gioi-thieu']['description'] : '' !!}
+								{!! isset($staticPages['index']['description']) ? $staticPages['index']['description'] : '' !!}
 								</p>
 							</div>
 						</div>

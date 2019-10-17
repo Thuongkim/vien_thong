@@ -86,3 +86,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
 });
 
 Route::get('/', ['as' => 'home', 'uses' => 'Frontend\HomeController@index']);
+Route::get('tim-kiem.html', [ 'as' => 'home.search', 'uses' => 'Frontend\HomeController@search']);
+Route::get('{slug}.html', [ 'as' => 'home.static-page', 'uses' => 'Frontend\HomeController@staticPage' ])->where(['slug' => '[a-zA-Z0-9\-]+']);
