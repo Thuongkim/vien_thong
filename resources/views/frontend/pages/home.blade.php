@@ -337,90 +337,15 @@
 						</div>
 						<div
 							class="client-logo-carousel owl-loaded owl-theme owl-carousel owl-dots-none owl-btn-center-lr owl-btn-3">
+							@foreach ($partners as $partner)
 							<div class="item">
 								<div class="ow-client-logo">
 									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t1.png" alt=""></a>
+										<a href="javascript:void(0);"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
 									</div>
 								</div>
 							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t2.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t3.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t4.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t5.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t6.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t7.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t8.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t9.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t10.jpg" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t11.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t12.png" alt=""></a>
-									</div>
-								</div>
-							</div>
+							@endforeach
 						</div>
 					</div>
 				</div>

@@ -88,4 +88,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
 Route::group(['middleware' => 'locale'], function() {
     Route::get('/', ['as' => 'home', 'uses' => 'Frontend\HomeController@index']);
     Route::get('change-language/{language}', 'Frontend\HomeController@changeLanguage')->name('change-language');
+    Route::get('news', 'Frontend\HomeController@indexNews')->name('news');
 });

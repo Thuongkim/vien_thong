@@ -54,14 +54,14 @@ class PartnersController extends Controller
             $image  = \Image::make($request->image);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 200) {
-                    $image->resize(null, 200, function ($constraint) {
+                if ($image->height() >= 50) {
+                    $image->resize(null, 50, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->width() >= 255) {
-                    $image->resize(255, null, function ($constraint) {
+                if ($image->width() >= 200) {
+                    $image->resize(200, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
@@ -143,14 +143,14 @@ class PartnersController extends Controller
             $image  = \Image::make($request->image);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 200) {
-                    $image->resize(null, 200, function ($constraint) {
+                if ($image->height() >= 50) {
+                    $image->resize(null, 50, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->width() >= 255) {
-                    $image->resize(255, null, function ($constraint) {
+                if ($image->width() >= 200) {
+                    $image->resize(200, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }

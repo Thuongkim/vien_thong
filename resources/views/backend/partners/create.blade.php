@@ -46,7 +46,7 @@
                     {!! trans('partners.slogan') !!}
                 </th>
                 <td>
-                    {!! Form::text('slogan', old('slogan'), array('class' => 'form-control', 'required',  'maxlength' => 255)) !!}
+                    {!! Form::text('slogan', old('slogan'), array('class' => 'form-control', 'maxlength' => 255)) !!}
                 </td>
             </tr>
             <tr>

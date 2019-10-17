@@ -118,7 +118,7 @@
 										</li>
 									</ul>
 								</li>
-								<li class="has-mega-menu"> <a href="news.html">Tin tức</a>
+								<li class="has-mega-menu"> <a href="{{ route('news') }}">Tin tức</a>
 								</li>
 								<li class="has-mega-menu"> <a href="recruitment.html">Tuyển dụng</a>
 								</li>
