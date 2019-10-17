@@ -4,12 +4,13 @@ use Illuminate\Support\Facades\Cache;
 
 class Slider extends \Eloquent
 {
-    protected $fillable = [ 'name', 'summary', 'status' ];
+    protected $fillable = [ 'name', 'summary', 'status', 'position', 'image' ];
 
     public static function rules($id = 0) {
         return [
-            'name'                 => 'required|max:50',
-            'summary'              => 'required|max:255',
+            'name'    => 'required|max:50',
+            'summary' => 'required|max:255',
+            'image'   => ($id == 0 ? 'required|' : '') . 'max:4096|mimes:jpg,jpeg,png,gif',
         ];
     }
 
@@ -23,9 +24,20 @@ class Slider extends \Eloquent
     public static function boot()
     {
         parent::boot();
+
+        static::updated(function($page)
+        {
+            self::clearCache();
+        });
+
+        static::deleted(function($page)
+        {
+            self::clearCache();
+        });
+
         static::saved(function($page)
         {
-            Cache::forget('sliders');
+            self::clearCache();
         });
     }
 
@@ -34,14 +46,17 @@ class Slider extends \Eloquent
         Cache::forget('sliders');
     }
 
-    public static function getAll()
+    public static function getSliders()
     {
         $sliders = [];
         $langs = config('app.locales');
         if (!Cache::has('sliders')) {
-            $temp = Slider::where('status', 1)->get();
+            $temp = Slider::where('status', 1)->orderBy('position')->get();
+
             foreach ($temp as $slider) {
                 $tmp = [];
+                $trans = $slider->image;
+                $tmp['image'] = is_null($trans) ? '' : $trans;
                 for ($i = 0; $i < count($langs); $i++) {
                     $trans = $slider->translation('name', $langs[$i])->first();
                     $tmp[$langs[$i]]['name'] = is_null($trans) ? '' : $trans->content;

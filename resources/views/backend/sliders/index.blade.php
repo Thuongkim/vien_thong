@@ -36,6 +36,7 @@
                         <th style="text-align: center; vertical-align: middle;">#</th>
                         <th style="text-align: center; vertical-align: middle;"> {!! trans('sliders.name') !!} </th>
                         <th style="text-align: center; vertical-align: middle;"> {!! trans('sliders.summary') !!} </th>
+                        <th style="text-align: center; vertical-align: middle;"> {!! trans('sliders.position') !!} </th>
                         <th style="text-align: center; vertical-align: middle;"> {!! trans('system.status.label') !!} </th>
                         <th style="text-align: center; vertical-align: middle;"> {!! trans('system.updated_at') !!} </th>
                         <th style="text-align: center; vertical-align: middle;"> {!! trans('system.action.label') !!} </th>
@@ -51,6 +52,26 @@
                         <td style="text-align: center; vertical-align: middle;">
                             {!! $item->summary !!}
                         </td>
+                        <td  style="text-align: center; vertical-align: middle;">
+                                @if($sliders->count() > 1)
+                                    @if($item->position == 1)
+                                        <a href="{{ route('admin.sliders.update-position', [$item->id, 1]) }}" title="{{ trans('system.down') }}">
+                                            <i class="glyphicon glyphicon-circle-arrow-down"></i>
+                                        </a>
+                                    @elseif( $item->position == $sliders->count() )
+                                        <a href="{{ route('admin.sliders.update-position', [$item->id, -1]) }}" title="{{ trans('system.up') }}">
+                                            <i class="glyphicon glyphicon-circle-arrow-up"></i>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('admin.sliders.update-position', [$item->id, -1]) }}" title="{{ trans('system.up') }}">
+                                            <i class="glyphicon glyphicon-circle-arrow-up"></i>
+                                        </a>&nbsp;|&nbsp;
+                                        <a href="{{ route('admin.sliders.update-position', [$item->id, 1]) }}" title="{{ trans('system.down') }}">
+                                            <i class="glyphicon glyphicon-circle-arrow-down"></i>
+                                        </a>
+                                    @endif
+                                @endif
+                            </td>
                         <td style="text-align: center; vertical-align: middle;">
                             @if($item->status == 0)
                             <span class="label label-danger"><span class='glyphicon glyphicon-remove'></span></span>
@@ -61,7 +82,7 @@
                         <td style="text-align: center; vertical-align: middle;">{!! date("d/m/Y", strtotime($item->updated_at)) !!}</td>
                         <td style="text-align: center; vertical-align: middle;">
                             <a href="{!! route('admin.sliders.edit', $item->id) !!}" class="text-warning"><i class="glyphicon glyphicon-edit"></i> Sửa </a>
-                            <a href="{!! route('admin.sliders.delete', $item->id) !!}" class="btn-confirm text-danger"><i class="glyphicon glyphicon-remove"></i> Xóa </a>
+                            <a href="{!! route('admin.sliders.destroy', $item->id) !!}" class="btn-confirm text-danger"><i class="glyphicon glyphicon-remove"></i> Xóa </a>
                         </td>
                     </tr>
                     @endforeach

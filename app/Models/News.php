@@ -1,16 +1,17 @@
 <?php namespace App;
 
 use Illuminate\Support\Facades\Cache;
+use App\Define\Constant as Constant;
 
 class News extends \Eloquent {
 
-    public static function rules($id = 0) {
+    public static function rules($id = true) {
 
         return [
             'title'                 => 'required|max:255',
-            'summary'               => 'required|max:500',
+            'summary'               => ($id == true ? 'required' : ''). '|max:500',
             'content'               => 'required',
-            'image'                 => ($id == 0 ? 'required|' : '') . 'max:2048|mimes:jpg,jpeg,png,gif',
+            'image'                 => 'max:2048|mimes:jpg,jpeg,png,gif',
             'created_by'            => 'integer',
             'category'              => 'required|integer',
         ];
@@ -39,45 +40,62 @@ class News extends \Eloquent {
         }
     }
 
-
     public static function boot()
     {
         parent::boot();
-
-        static::updated(function($page)
+        static:: created (function($news)
         {
-            //clear cache
-            Cache::forget('hotNews');
-            Cache::forget('lastNews');
-            Cache::tags('newsCategory')->flush();
-            Cache::forget('newsImages');
+            self::clearCache();
         });
-
-        static::deleted(function($page)
+        static:: updated (function($news)
         {
-            //clear cache
-            Cache::forget('hotNews');
-            Cache::forget('lastNews');
-            Cache::tags('newsCategory')->flush();
-            Cache::forget('newsImages');
+            self::clearCache();
         });
-
-        static::saved(function($page)
+        static::deleted(function($news)
         {
-            //clear cache
-            Cache::forget('hotNews');
-            Cache::forget('lastNews');
-            Cache::tags('newsCategory')->flush();
-            Cache::forget('newsImages');
+            self::clearCache();
+        });
+        static::saved(function($news)
+        {
+            self::clearCache();
         });
     }
-
     public static function clearCache()
     {
-        //clear cache
-        Cache::forget('hotNews');
-        Cache::forget('lastNews');
-        Cache::tags('newsCategory')->flush();
-        Cache::forget('newsImages');
+        Cache:: forget ('home_news');
+    }
+    public static function getHomeNews()
+    {
+        $id_exception = Constant::news_category_id;
+        $homeNews = [];
+        $langs = config('app.locales');
+        if (!Cache::has('home_news')) {
+            $temp = News::where('status', 1)->where('category_id', '<>', $id_exception)->where( 'featured', 1)->orderBy( 'updated_at', 'desc')->take(6)->get();
+            foreach ($temp as $home_news) {
+                $tmp = [];
+                $image = $home_news->image;
+                $tmp['image'] = is_null($image) ? '' : $image;
+                $created_by = \App\User::find( $home_news->created_by );
+                $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
+                $updated_at = $home_news->updated_at;
+                $tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
+                for ($i = 0; $i < count($langs); $i++) {
+                    $trans = $home_news->translation('title', $langs[$i])->first();
+                    $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+                    $trans = $home_news->translation('summary', $langs[$i])->first();
+                    $tmp[$langs[$i]]['summary'] = is_null($trans) ? '' : $trans->content;
+                    $trans = $home_news->translation('content', $langs[$i])->first();
+                    $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
+                }
+
+                array_push($homeNews, $tmp);
+            }
+
+            $homeNews = json_encode($homeNews) ;
+            if ($homeNews) Cache:: forever( 'home_news', $homeNews) ;
+        } else {
+            $homeNews = Cache::get( 'home_news');
+        }
+        return json_decode($homeNews, 1);
     }
 }

@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
         'admin'     => \App\Http\Middleware\AdminAuthenticate::class,
         'partner'   => \App\Http\Middleware\PartnerAuthenticate::class,
         'decorator'     => \App\Http\Middleware\DecoratorAuthenticate::class,
+        'locale' => \App\Http\Middleware\Locale::class,
     ];
 
     /**

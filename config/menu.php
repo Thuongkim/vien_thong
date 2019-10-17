@@ -23,6 +23,55 @@ return [
         'hide' => false
     ],
     [
+        'label' => 'service'
+    ],
+    [
+        'name' => 'service-categories',
+        'route'=> 'admin.service-categories.index',
+        'glyphicon' => 'fa fa-diamond',
+        'hide' => false
+    ],
+    [
+        'name' => 'service',
+        'route'=> 'admin.services.index',
+        'glyphicon' => 'fa fa-list',
+        'hide' => false
+    ],
+    [
+        'label' => 'page'
+    ],
+    [
+        'name' => 'utility.slider',
+        'route'=> 'admin.sliders.index',
+        'glyphicon' => 'fa fa-sliders fa-fw',
+        'role'   => 'system',
+        'hide' => false
+    ],
+    [
+        'label' => 'project'
+    ],
+    [
+        'name' => 'category',
+        'route'=> 'admin.project-categories.index',
+        'glyphicon' => 'fa fa-shopping-cart fa-fw',
+        'hide' => false
+    ],
+    [
+        'name' => 'list',
+        'route'=> 'admin.projects.index',
+        'glyphicon' => 'fa fa-bank fa-fw',
+        'hide' => false
+    ],
+    [
+        'label' => 'partner'
+    ],
+    [
+        'name' => 'partner',
+        'route'=> 'admin.partners.index',
+        'glyphicon' => 'fa fa-home fa-fw',
+        'hide' => false
+    ],
+    [
         'label' => 'system'
     ],
     [

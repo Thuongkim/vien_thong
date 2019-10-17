@@ -30,6 +30,7 @@ return [
     ],
     'action'                => [
         'label'             => 'Thao tác',
+        'service'             => 'Danh mục dịch vụ',
         'edit'              => 'Sửa',
         'delete'            => 'Xóa',
         'view'              => 'Xem',
@@ -38,6 +39,7 @@ return [
         'bulk'              => 'lượng lớn',
         'refresh'           => 'Làm mới',
         'list'              => 'Danh sách',
+        'list-nd'              => 'Danh mục',
         'save'                  => 'Lưu lại',
         'ok'                    => 'Đồng ý',
         'cancel'                => 'Hủy bỏ',
