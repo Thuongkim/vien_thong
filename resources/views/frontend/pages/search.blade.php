@@ -46,14 +46,19 @@
 							<!--/.entry-header -->
 							<div class="entry-content">
 								<p style="text-align: left;">{!! $item->summary !!}</p>
-								<button type=""><a href="" class="more-link">Xem Tiếp</a></button>
 							</div>
-
+							<div class="dlab-post-readmore">
+								<a href="" title="READ MORE" rel="bookmark"
+									class="site-button">READ MORE
+									<i class="ti-arrow-right"></i>
+								</a>
+							</div>
 							<footer>
 							</footer>
 
 						</article>
 					@endforeach
+					{!! $news->links("frontend.pagination_long") !!}
 					</div>
 				</div>
 
