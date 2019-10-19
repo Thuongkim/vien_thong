@@ -63,7 +63,7 @@ class HomeController extends Controller
     	$id_exception = Constant::news_category_id;
     	$homeNews = [];
     	$langs = config('app.locales');
-    	$temp = News::where('status', 1)->where('category_id', '<>', $id_exception)->orderBy( 'updated_at', 'desc')->get();
+    	$temp = News::where('status', 1)->where('category_id', '<>', $id_exception)->orderBy( 'updated_at', 'desc')->paginate(4);
     	foreach ($temp as $home_news) {
     		$tmp = [];
     		$image = $home_news->image;
@@ -88,7 +88,8 @@ class HomeController extends Controller
 
     	$homeNews = json_encode($homeNews) ;
     	$news = json_decode($homeNews, 1);
-    	return view('frontend.pages.news', compact('news'));
+    	$news_all             = News::getHomeNews();
+    	return view('frontend.pages.news', compact('news','temp','news_all'));
     }
 
     public function showNews($id)
@@ -101,7 +102,7 @@ class HomeController extends Controller
     public function indexCareer()
     {
     	$id_exception = Constant::news_category_id;
-    	$news = News::where('status', 1)->where('category_id', $id_exception)->orderBy( 'updated_at', 'desc')->get();
+    	$news = News::where('status', 1)->where('category_id', $id_exception)->orderBy( 'updated_at', 'desc')->paginate(10);
     	$news_all = News::getHomeNews();
 		return view('frontend.pages.career', compact('news', 'news_all'));
     }
@@ -134,7 +135,6 @@ class HomeController extends Controller
 
             array_push($projects, $tmp);
         }
-
         $projects = json_encode($projects) ;
         $projects = json_decode($projects, 1);
 		return view('frontend.pages.project', compact('projects'));
