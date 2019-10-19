@@ -65,8 +65,10 @@ class Project extends Model
             $temp = Project::where('status', 1)->where( 'featured', 1)->orderBy( 'updated_at', 'desc')->get();
             foreach ($temp as $project) {
                 $tmp = [];
-                $id = $project->category_id;
-                $tmp['category_id'] = is_null($id) ? '' : $id;
+                $id = $project->id;
+                $tmp['id'] = is_null($id) ? '' : $id;
+                $category_id = $project->category_id;
+                $tmp['category_id'] = is_null($category_id) ? '' : $category_id;
                 $image = $project->image;
                 $tmp['image'] = is_null($image) ? '' : $image;
                 for ($i = 0; $i < count($langs); $i++) {

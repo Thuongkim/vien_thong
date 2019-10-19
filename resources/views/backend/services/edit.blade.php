@@ -110,7 +110,7 @@
                             <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
                                 {!! trans('system.action.remove') !!}
                             </a>
-                            (Kích thước 300x225)
+                            (Kích thước 225x300)
                         </div>
                     </div>
                 </td>
@@ -137,13 +137,15 @@
                 @endforeach
             @endif
             <tr>
-                <td class="text-center" colspan="2">
+                <td class="text-center" colspan="4">
+                    {!! trans('services.featured') !!}
+                    {!! Form::checkbox('featured', 1, old('featured', $services->featured), [ 'class' => 'minimal' ]) !!}
                     {!! trans('system.status.active') !!}
                     {!! Form::checkbox('status', 1, old('status', $services->status), [ 'class' => 'minimal-red' ]) !!}
                 </td>
             </tr>
             <tr>
-                <td colspan="2" class="text-center">
+                <td colspan="4" class="text-center">
                     {!! HTML::link(route( 'admin.services.index' ), trans('system.action.cancel'), array('class' => 'btn btn-danger btn-flat'))!!}
                     {!! Form::submit(trans('system.action.save'), array('class' => 'btn btn-primary btn-flat')) !!}
                 </td>

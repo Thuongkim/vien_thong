@@ -135,6 +135,7 @@
                             <th style="text-align: center; vertical-align: middle;"> {!! trans('services.image') !!} </th>
                             <th style="text-align: center; vertical-align: middle;"> {!! trans('services.category') !!} </th>
                             <th style="text-align: center; vertical-align: middle;"> {!! trans('services.position') !!} </th>
+                            <th style="text-align: center; vertical-align: middle;"> {!! trans('services.featured') !!} </th>
                             <th style="text-align: center; vertical-align: middle;"> {!! trans('system.status.label') !!} </th>
                             <th style="text-align: center; vertical-align: middle;"> {!! trans('system.updated_at') !!} </th>
                             <th style="text-align: center; vertical-align: middle;"> {!! trans('system.action.label') !!} </th>
@@ -149,7 +150,7 @@
                             </td>
                             <td style="text-align: center; vertical-align: middle;">{!! $i++ !!}</td>
                             <td style="text-align: justify; vertical-align: middle;">
-                                {!! \App\Helper\HString::modSubstr($item->title, 50) !!}
+                                {!! \App\Helper\HString::modSubstr($item->title, 30) !!}
                             </td>
                             <td style="text-align: center; vertical-align: middle;">
                                 <i class="fa {{ $item->icon }}" aria-hidden="true"></i>
@@ -182,7 +183,14 @@
                                     @endif
                                 @endif
                             </td>
-
+                            
+                            <td style="text-align: center; vertical-align: middle;">
+                                @if($item->featured == 0)
+                                <span class="label label-danger"><span class='glyphicon glyphicon-remove'></span></span>
+                                @elseif($item->featured == 1)
+                                <span class="label label-success"><span class='glyphicon glyphicon-ok'></span></span>
+                                @endif
+                            </td>
 
                             <td style="text-align: center; vertical-align: middle;">
                                 @if($item->status == 0)

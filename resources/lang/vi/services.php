@@ -9,6 +9,7 @@ return array(
         'content'      => 'Nội dung',
         'view_counter' => 'Lượt xem',
         'image'        => 'Ảnh bìa',
+        'featured'        => 'Nổi bật',
         'category'     => 'Danh mục',
         'categories' => [
                 'label'                         => 'Danh mục tin',

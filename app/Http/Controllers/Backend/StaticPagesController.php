@@ -78,7 +78,7 @@ class StaticPagesController extends Controller
         {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
+        
         $news->update($data);
 
         if ($this->languages && $this->fields) {

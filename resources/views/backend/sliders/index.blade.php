@@ -82,7 +82,7 @@
                         <td style="text-align: center; vertical-align: middle;">{!! date("d/m/Y", strtotime($item->updated_at)) !!}</td>
                         <td style="text-align: center; vertical-align: middle;">
                             <a href="{!! route('admin.sliders.edit', $item->id) !!}" class="text-warning"><i class="glyphicon glyphicon-edit"></i> Sửa </a>
-                            <a href="{!! route('admin.sliders.destroy', $item->id) !!}" class="btn-confirm text-danger"><i class="glyphicon glyphicon-remove"></i> Xóa </a>
+                            <a href="{!! route('admin.sliders.delete', $item->id) !!}" class="btn-confirm text-danger"><i class="glyphicon glyphicon-remove"></i> Xóa </a>
                         </td>
                     </tr>
                     @endforeach

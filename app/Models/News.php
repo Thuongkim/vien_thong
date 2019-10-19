@@ -60,9 +60,12 @@ class News extends \Eloquent {
             self::clearCache();
         });
     }
-    public static function clearCache()
+    public static function clearCache(){
+    	Cache:: forget ('home_news');
+    }
+    public function category()
     {
-        Cache:: forget ('home_news');
+        return $this->belongsTo("\App\NewsCategory");
     }
     public static function getHomeNews()
     {
@@ -73,6 +76,8 @@ class News extends \Eloquent {
             $temp = News::where('status', 1)->where('category_id', '<>', $id_exception)->where( 'featured', 1)->orderBy( 'updated_at', 'desc')->take(6)->get();
             foreach ($temp as $home_news) {
                 $tmp = [];
+                $id = $home_news->id;
+                $tmp['id'] = is_null($id) ? '' : $id;
                 $image = $home_news->image;
                 $tmp['image'] = is_null($image) ? '' : $image;
                 $created_by = \App\User::find( $home_news->created_by );
@@ -90,7 +95,6 @@ class News extends \Eloquent {
 
                 array_push($homeNews, $tmp);
             }
-
             $homeNews = json_encode($homeNews) ;
             if ($homeNews) Cache:: forever( 'home_news', $homeNews) ;
         } else {
