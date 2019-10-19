@@ -40,6 +40,10 @@ class Service extends Model
 
         return json_decode($services, 1);
     }
+     public function category()
+    {
+        return $this->belongsTo("\App\Models\ServiceCategory");
+    }
     public static function boot()
     {
         parent::boot();

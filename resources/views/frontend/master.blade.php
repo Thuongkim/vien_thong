@@ -48,6 +48,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/plugins/revolution/revolution/css/revolution.min.css') }}">
 	<!-- SEARCH -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/search.css') }}">
+	
 </head>
 
 <body id="bg">

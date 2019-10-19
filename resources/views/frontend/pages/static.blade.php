@@ -56,7 +56,39 @@
 				<!-- About Us End -->
 				<!-- About Services info END -->
 				<!-- Counter -->
-				{!! isset($staticPages['counter']['description']) ? $staticPages['counter']['description'] : '' !!}
+				<div class="section-full content-inner overlay-black-dark bg-img-fix" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide3.jpg') }});">
+					<div class="container">
+						<div class="section-content text-center text-white">
+							<div class="row">
+								<div class="col-lg-4 col-md-6 col-sm-6 col-6 m-b30">
+									<div class="counter-style-5">
+										<div class="">
+											<span class="counter">1000</span>
+										</div>
+										<span class="counter-text">Cán bộ nhân viên</span>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-6 col-6 m-b30">
+									<div class="counter-style-5">
+										<div class="">
+											<span class="counter">100</span>
+										</div>
+										<span class="counter-text">Chi nhánh khắp cả nước</span>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-6 col-6 m-b30">
+									<div class="counter-style-5">
+										<div class="">
+											<span class="counter">1000</span>
+										</div>
+										<span class="counter-text">Giải thưởng xuất sắc</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 				
 				<!-- Counter END -->
 				<!-- result -->
@@ -98,21 +130,21 @@
 							<div class="item">
 								<div class="ow-client-logo">
 									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t1.png" alt=""></a>
+										<a href="javascript:void(0);"><img src="{{ asset('assets/frontend/') }}images/client-logo/t1.png" alt=""></a>
 									</div>
 								</div>
 							</div>
 							<div class="item">
 								<div class="ow-client-logo">
 									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t2.png" alt=""></a>
+										<a href="javascript:void(0);"><img src="{{ asset('assets/frontend/') }}images/client-logo/t2.png" alt=""></a>
 									</div>
 								</div>
 							</div>
 							<div class="item">
 								<div class="ow-client-logo">
 									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t3.png" alt=""></a>
+										<a href="javascript:void(0);"><img src="{{ asset('assets/frontend/') }}images/client-logo/t3.png" alt=""></a>
 									</div>
 								</div>
 							</div>
@@ -196,7 +228,7 @@
 										<p>chất lượng đảm bảo hàng đầu</p>
 									</div>
 									<div class="testimonial-detail clearfix">
-										<div class="testimonial-pic radius shadow"><img src="images/about/img.png"
+										<div class="testimonial-pic radius shadow"><img src="{{ asset('assets/frontend/images/about/img.png') }}"
 												width="100" height="100" alt=""></div>
 										<h5 class="testimonial-name m-t0 m-b5">Mr.nguyễn</h5> <span
 											class="testimonial-position"></span>
@@ -209,7 +241,7 @@
 										<p>chất lượng đảm bảo hàng đầu</p>
 									</div>
 									<div class="testimonial-detail clearfix">
-										<div class="testimonial-pic radius shadow"><img src="images/about/img.png"
+										<div class="testimonial-pic radius shadow"><img src="{{ asset('assets/frontend/images/about/img.png') }}"
 												width="100" height="100" alt=""></div>
 										<h5 class="testimonial-name m-t0 m-b5">Mr.nguyễn</h5> <span
 											class="testimonial-position"></span>
@@ -222,7 +254,7 @@
 										<p>chất lượng đảm bảo hàng đầu</p>
 									</div>
 									<div class="testimonial-detail clearfix">
-										<div class="testimonial-pic radius shadow"><img src="images/about/img.png"
+										<div class="testimonial-pic radius shadow"><img src="{{ asset('assets/frontend/images/about/img.png') }}"
 												width="100" height="100" alt=""></div>
 										<h5 class="testimonial-name m-t0 m-b5">Mr.nguyễn</h5> <span
 											class="testimonial-position"></span>
