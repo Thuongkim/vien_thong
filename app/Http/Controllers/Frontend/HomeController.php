@@ -23,12 +23,20 @@ use App\Models\ServiceCategory;
 class HomeController extends Controller
 {
 	private $lang;
+	private $projects;
+	private $projectCategories;
 
 	public function __construct()
     {
         \View::share('staticPages', StaticPage::getByAllWihoutGroup());
         \View::share('staticPagess', StaticPage::getMenu());
         \View::share('servicesCategories', ServiceCategory::getByAll());
+		$this->projectCategories = ProjectCategory::getProjectCategories();
+		$this->projects          = Project::getProject();
+
+        \View::share('projects', $this->projects);
+        \View::share('projectCategories', $this->projectCategories);
+
     	$this->middleware(function ($request, $next) {
     		if (!Session::has('website_language')) {
     			$locales = config('app.locales');
@@ -69,6 +77,8 @@ class HomeController extends Controller
     		$tmp = [];
     		$image = $home_news->image;
     		$tmp['image'] = is_null($image) ? '' : $image;
+    		$id = $home_news->id;
+    		$tmp['id'] = is_null($id) ? '' : $id;
     		$created_by = \App\User::find( $home_news->created_by );
     		$tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
     		$updated_at = $home_news->updated_at;
@@ -88,6 +98,63 @@ class HomeController extends Controller
     	$homeNews = json_encode($homeNews) ;
     	$news = json_decode($homeNews, 1);
     	return view('frontend.pages.news', compact('news'));
+    }
+    
+
+    public function showNews($id)
+    {
+		$news = News::find($id);
+		$news_all = News::getHomeNews();
+		return view('frontend.pages.news-detail', compact('news', 'news_all'));
+    }
+
+    public function indexCareer()
+    {
+    	$id_exception = Constant::news_category_id;
+    	$news = News::where('status', 1)->where('category_id', $id_exception)->orderBy( 'updated_at', 'desc')->get();
+    	$news_all = News::getHomeNews();
+		return view('frontend.pages.career', compact('news', 'news_all'));
+    }
+
+    public function indexPartner()
+    {
+    	$partners          = Partner::getPartner();
+		return view('frontend.pages.partner', compact('partners'));
+    }
+
+    public function indexProject()
+    {
+    	$projects = [];
+        $langs = config('app.locales');
+        $temp = Project::where('status', 1)->orderBy( 'updated_at', 'desc')->get();
+        foreach ($temp as $project) {
+            $tmp = [];
+            $id = $project->id;
+            $tmp['id'] = is_null($id) ? '' : $id;
+            $category_id = $project->category_id;
+            $tmp['category_id'] = is_null($category_id) ? '' : $category_id;
+            $image = $project->image;
+            $tmp['image'] = is_null($image) ? '' : $image;
+            for ($i = 0; $i < count($langs); $i++) {
+                $trans = $project->translation('title', $langs[$i])->first();
+                $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+                $trans = $project->translation('content', $langs[$i])->first();
+                $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
+            }
+
+            array_push($projects, $tmp);
+        }
+
+        $projects = json_encode($projects) ;
+        $projects = json_decode($projects, 1);
+		return view('frontend.pages.project', compact('projects'));
+    }
+
+    public function showProject($id)
+    {
+		$project = Project::find($id);
+		$news_all = News::getHomeNews();
+		return view('frontend.pages.project-detail', compact('project', 'news_all'));
     }
     public function staticPage($slug)
     {

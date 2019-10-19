@@ -28,16 +28,13 @@
 				<!-- Left part start -->
 				<div class="col-xl-9 col-lg-8 col-md-7">
 					@foreach ($news as $news_st)
-					<div class="blog-post blog-lg blog-rounded">
-						<div class="dlab-info p-a20 border-1">
-							<div class="dlab-post-media dlab-img-effect zoom-slow col-xl-3 col-lg-3 col-md-3">
-								<a href="news-details.html">
-								@if($news_st['image'])
-								<img src="{!! asset('assets/media/images/news/' . $news_st['image']) !!}" alt="">
-								@endif
-								</a>
-							</div>
-							
+					<div class="blog-post blog-lg blog-rounded dlab-info p-a20 border-1">
+						<div class="dlab-post-media dlab-img-effect zoom-slow col-xl-3 col-lg-3 col-md-3">
+							@if($news_st['image'])
+							<img src="{!! asset('assets/media/images/news/' . $news_st['image']) !!}" alt="">
+							@endif
+						</div>
+						<div class="dlab-info p-a20">
 							<div class="dlab-post-meta">
 								<ul>
 									<li class="post-date"> <strong>{!! date("d/m", strtotime($news_st['updated_at'])) !!}</strong> <span> {!! date("/Y", strtotime($news_st['updated_at'])) !!}</span> </li>
@@ -45,13 +42,13 @@
 								</ul>
 							</div>
 							<div class="dlab-post-title">
-								<h4 class="post-title"><a href="news-details.html">{{$news_st[$lang]['title']}}</a></h4>
+								<h4 class="post-title"><a href="{{ route('news.show', $news_st['id']) }}">{{$news_st[$lang]['title']}}</a></h4>
 							</div>
 							<div class="dlab-post-text">
 								<p>{{$news_st[$lang]['summary']}}</p>
 							</div>
 							<div class="dlab-post-readmore">
-								<a href="news-details.html" title="READ MORE" rel="bookmark"
+								<a href="{{ route('news.show', $news_st['id']) }}" title="READ MORE" rel="bookmark"
 									class="site-button">READ MORE
 									<i class="ti-arrow-right"></i>
 								</a>
@@ -96,11 +93,11 @@
 							<div class="widget-post-bx">
 								@foreach ($news as $news_nd)
 								<div class="widget-post clearfix">
-									<div class="dlab-post-media">
+									{{-- <div class="dlab-post-media">
 										@if($news_nd['image'])
 										<img src="{!! asset('assets/media/images/news/' . $news_nd['image']) !!}" width="200" height="143" alt="">
 										@endif
-									</div>
+									</div> --}}
 									<div class="dlab-post-info">
 										<div class="dlab-post-meta">
 											<ul>
@@ -110,7 +107,7 @@
 											</ul>
 										</div>
 										<div class="dlab-post-header">
-											<h6 class="post-title"><a href="">{{$news_nd[$lang]['title']}}</a></h6>
+											<h6 class="post-title"><a href="{{ route('news.show', $news_nd['id']) }}">{{$news_nd[$lang]['title']}}</a></h6>
 										</div>
 									</div>
 								</div>
