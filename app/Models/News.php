@@ -73,6 +73,8 @@ class News extends \Eloquent {
             $temp = News::where('status', 1)->where('category_id', '<>', $id_exception)->where( 'featured', 1)->orderBy( 'updated_at', 'desc')->take(6)->get();
             foreach ($temp as $home_news) {
                 $tmp = [];
+                $id = $home_news->id;
+                $tmp['id'] = is_null($id) ? '' : $id;
                 $image = $home_news->image;
                 $tmp['image'] = is_null($image) ? '' : $image;
                 $created_by = \App\User::find( $home_news->created_by );

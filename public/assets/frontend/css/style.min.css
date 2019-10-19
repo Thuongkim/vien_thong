@@ -10036,7 +10036,7 @@ ul[class*=list-] {
 .testimonial-4 {
     background-color: #282a3c;
     position: relative;
-    padding: 30px 40px 30px 10px;
+    padding: 30px 10px;
     margin-left: 140px;
     min-height: 150px
 }
@@ -11781,7 +11781,7 @@ ul[class*=list-] {
     border-color: #eee
 }
 
-.dlab-info.border-1,
+/*.dlab-info.border-1,*/
 .dlab-info.border-2,
 .dlab-info.border-3,
 .dlab-info.border-4,

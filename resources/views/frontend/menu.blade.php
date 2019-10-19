@@ -42,7 +42,7 @@
 								<a href="index.html"><img src="images/hte-logo.png" alt=""></a>
 							</div>
 							<ul class="nav navbar-nav">
-								<li class="active has-mega-menu homedemo"> <a href="index.html">Trang chủ</a>
+								<li class="active has-mega-menu homedemo"> <a href="{{ route('home') }}">Trang chủ</a>
 								</li>
 								<li>
 									<a href="#">Giới thiệu<i class="fa fa-chevron-down"></i></a>
@@ -93,36 +93,35 @@
 										</li>
 									</ul>
 								</li>
-								<li class="has-mega-menu"> <a href="#">Dự án<i
+								<li class="has-mega-menu"> <a href="{{ route('project') }}">Dự án<i
 											class="fa fa-chevron-down"></i></a>
 									<ul class="mega-menu">
+										@foreach ($projectCategories as $projectCategory)
 										<li>
-											<a href="javascript:void(0);">Tin học</a>
+											<a href="javascript:void(0);">Dự án {{ $projectCategory[$lang]['name']}}</a>
 											<ul>
-												<li><a href="project-details.html">Dự án lắp đặt Metro IP Core</a></li>
-												<li><a href="project-details.html">Dự án di dời nhà trạm</a></li>
-												<li><a href="project-details.html">Dự án triển khai xây dựng hạ tầng mạng
-														Viễn thông</a></li>
-												<li><a href="project-details.html">Dự án vận hành và ứng cứu máy nổ cố
-														định</a></li>
-												<li><a href="project-details.html">Dự án vận hành và ứng cứu thông tin
-														mạng Viễn thông cho Huawei</a></li>
+												@php
+													$i = 0;	
+												@endphp
+												@foreach ($projects as $project)
+												@if ($projectCategory['id'] == $project['category_id'])
+												<li><a href="{{ route('project.show', $project['id']) }}">{{$project[$lang]['title']}}</a></li>
+												@php
+													$i++;
+													if ($i > 5) break;
+												@endphp
+												@endif
+												@endforeach
 											</ul>
 										</li>
-										<li>
-											<a href="javascript:void(0);">Dự án viễn thông</a>
-											<ul>
-												<li><a href="project-details.html">Dự án vận hành Mobile Genset cho mạng
-														Vietnamobile</a></li>
-											</ul>
-										</li>
+										@endforeach
 									</ul>
 								</li>
 								<li class="has-mega-menu"> <a href="{{ route('news') }}">Tin tức</a>
 								</li>
-								<li class="has-mega-menu"> <a href="recruitment.html">Tuyển dụng</a>
+								<li class="has-mega-menu"> <a href="{{ route('career') }}">Tuyển dụng</a>
 								</li>
-								<li class="has-mega-menu"> <a href="partner.html">Đối tác</a>
+								<li class="has-mega-menu"> <a href="{{ route('partner') }}">Đối tác</a>
 								</li>
 								<li class="has-mega-menu"> <a href="https://mail.hte.vn">Mail</a>
 								</li>

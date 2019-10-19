@@ -382,14 +382,12 @@
 											<div class="overlay-bx">
 												<div class="overlay-icon">
 													<div class="text-white">
-														<a href="project-details.html"><i
-																class="fa fa-link icon-bx-xs"></i></a>
 													</div>
 												</div>
 											</div>
 										</div>
 										<div class="dez-info p-a30 bg-white">
-											<b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('home'), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
+											<b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('project.show', $project['id']), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
 										</div>
 									</div>
 								</li>
@@ -397,19 +395,19 @@
 								<li class="{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
 									<div class="dlab-box dlab-gallery-box">
 										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-											<a href="project-details.html"> <img src="{!! asset('assets/media/images/projects/' . $project['image']) !!}" alt="">
+											<a> <img src="{!! asset('assets/media/images/projects/' . $project['image']) !!}" alt="">
 											</a>
 											<div class="overlay-bx">
 												<div class="overlay-icon">
 													<div class="text-white">
-														<a href="project-details.html"><i
+														<a href="{{ route('project.show', $project['id']) }}"><i
 																class="fa fa-link icon-bx-xs"></i></a>
 													</div>
 												</div>
 											</div>
 										</div>
 										<div class="dez-info p-a30 bg-white">
-											<b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('home'), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
+											<b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('project.show', $project['id']), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
 										</div>
 									</div>
 								</li>
@@ -435,12 +433,14 @@
 									<div class="ow-blog-post date-style-2">
 										<div class="ow-post-media dlab-img-effect zoom-slow">
 											@if($news['image'])
-											<img src="{!! asset('assets/media/images/news/' . $news['image']) !!}" style="height: 270px;" alt="">
+											<a href="{{ route('news.show', $news['id']) }}">
+												<img src="{!! asset('assets/media/images/news/' . $news['image']) !!}" style="height: 250px;" alt="">
+											</a>
 											@endif
 										</div>
 										<div class="ow-post-info">
 											<div class="ow-post-title">
-												<h4 class="post-title"> <a href="javascript:void(0);"
+												<h4 class="post-title" style="min-height: 60px;font-size: 20px"> <a href="{{ route('news.show', $news['id']) }}"
 														title="news">{{$news[$lang]['title']}}</a> </h4>
 											</div>
 											<div class="ow-post-meta">
@@ -456,9 +456,6 @@
 											<div class="ow-post-text">
 												<p>{{$news[$lang]['summary']}}</p>
 											</div>
-											<div class="ow-post-readmore "> <a href="javascript:void(0);"
-													title="XEM THÊM" rel="bookmark" class=" site-button-link"> XEM THÊM
-													<i class="fa fa-angle-double-right"></i></a> </div>
 										</div>
 									</div>
 								</div>

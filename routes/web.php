@@ -89,4 +89,10 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/', ['as' => 'home', 'uses' => 'Frontend\HomeController@index']);
     Route::get('change-language/{language}', 'Frontend\HomeController@changeLanguage')->name('change-language');
     Route::get('news', 'Frontend\HomeController@indexNews')->name('news');
+    Route::get('news/{id}', 'Frontend\HomeController@showNews')->name('news.show');
+    Route::get('career', 'Frontend\HomeController@indexCareer')->name('career');
+    Route::get('partner', 'Frontend\HomeController@indexPartner')->name('partner');
+    Route::get('project', 'Frontend\HomeController@indexProject')->name('project');
+    Route::get('project/{id}', 'Frontend\HomeController@showproject')->name('project.show');
+
 });
