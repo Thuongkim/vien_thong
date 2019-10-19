@@ -9,12 +9,12 @@
 		style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
 		<div class="container">
 			<div class="dlab-bnr-inr-entry">
-				<h1 class="text-white">Tin tức và sự kiện</h1>
+				<h1 class="text-white">{{trans('frontend.news_event')}}</h1>
 				<!-- Breadcrumb row -->
 				<div class="breadcrumb-row">
 					<ul class="list-inline">
-						<li><a href="{{ route('home') }}">Home</a></li>
-						<li>Tin tức</li>
+						<li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
+						<li>{{trans('frontend.news')}}</li>
 					</ul>
 				</div>
 				<!-- Breadcrumb row END -->
@@ -28,6 +28,7 @@
 				<!-- Left part start -->
 				<div class="col-xl-9 col-lg-8 col-md-7">
 					@foreach ($news as $news_st)
+					@if($news_st[$lang]['title'])
 					<div class="blog-post blog-lg blog-rounded dlab-info p-a20 border-1">
 						<div class="dlab-post-media dlab-img-effect zoom-slow col-xl-3 col-lg-3 col-md-3">
 							@if($news_st['image'])
@@ -38,7 +39,7 @@
 							<div class="dlab-post-meta">
 								<ul>
 									<li class="post-date"> <strong>{!! date("d/m", strtotime($news_st['updated_at'])) !!}</strong> <span> {!! date("/Y", strtotime($news_st['updated_at'])) !!}</span> </li>
-									<li class="post-author"> By <a href="javascript:void(0);">{{$news_st['created_by']}}</a> </li>
+									<li class="post-author"> {{trans('frontend.by')}} <a href="javascript:void(0);">{{$news_st['created_by']}}</a> </li>
 								</ul>
 							</div>
 							<div class="dlab-post-title">
@@ -49,49 +50,26 @@
 							</div>
 							<div class="dlab-post-readmore">
 								<a href="{{ route('news.show', $news_st['id']) }}" title="READ MORE" rel="bookmark"
-									class="site-button">READ MORE
+									class="site-button">{{trans('frontend.read_more')}}
 									<i class="ti-arrow-right"></i>
 								</a>
 							</div>
 						</div>
 					</div>
+					@endif
 					@endforeach
 					<!-- Pagination start -->
-					<div class="pagination-bx clearfix text-center">
-						<ul class="pagination">
-							<li class="previous"><a href="javascript:void(0);"><i class="ti-arrow-left"></i>
-									Prev</a></li>
-							<li class="active"><a href="javascript:void(0);">1</a></li>
-							<li><a href="javascript:void(0);">2</a></li>
-							<li><a href="javascript:void(0);">3</a></li>
-							<li class="next"><a href="javascript:void(0);">Next <i
-										class="ti-arrow-right"></i></a></li>
-						</ul>
-					</div>
+					{!! $temp->links("frontend.pagination") !!}
 					<!-- Pagination END -->
 				</div>
 				<!-- Left part END -->
 				<!-- Side bar start -->
 				<div class="col-xl-3 col-lg-4 col-md-5 sticky-top">
 					<aside class="side-bar">
-						<div class="widget">
-							<h5 class="widget-title style-1">Search</h5>
-							<div class="search-bx style-1">
-								<form role="search" method="post">
-									<div class="input-group">
-										<input name="text" class="form-control"
-											placeholder="Enter your keywords..." type="text">
-										<span class="input-group-btn">
-											<button type="submit" class="fa fa-search text-primary"></button>
-										</span>
-									</div>
-								</form>
-							</div>
-						</div>
 						<div class="widget recent-posts-entry">
-							<h5 class="widget-title style-1">BÀI VIẾT GẦN ĐÂY</h5>
+							<h5 class="widget-title style-1">{{trans('frontend.post')}}</h5>
 							<div class="widget-post-bx">
-								@foreach ($news as $news_nd)
+								@foreach ($news_all as $news_nd)
 								<div class="widget-post clearfix">
 									{{-- <div class="dlab-post-media">
 										@if($news_nd['image'])
@@ -102,7 +80,7 @@
 										<div class="dlab-post-meta">
 											<ul>
 												<li class="post-date"> <strong>{!! date("d/m/Y", strtotime($news_nd['updated_at'])) !!}</strong> </li>
-												<li class="post-author"> By <a href="javascript:void(0);">{{$news_nd['created_by']}}
+												<li class="post-author"> {{trans('frontend.by')}} <a href="javascript:void(0);">{{$news_nd['created_by']}}
 													</a> </li>
 											</ul>
 										</div>

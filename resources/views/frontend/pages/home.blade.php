@@ -214,7 +214,7 @@
 					data-wow-delay="0.6s">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title text-capitalize">Đối Tác</h2>
+							<h2 class="title text-capitalize">{{trans('frontend.partner')}}</h2>
 						</div>
 						<div
 							class="client-logo-carousel owl-loaded owl-theme owl-carousel owl-dots-none owl-btn-center-lr owl-btn-3">
@@ -240,13 +240,13 @@
 								<li data-filter="" class="btn active">
 									<input type="radio">
 									<a href="javascript:void(0);"
-										class="site-button-secondry button-sm radius-xl"><span>All</span></a>
+										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.all')}}</span></a>
 								</li>
 								@foreach ($projectCategories as $projectCategory)
 								<li data-filter="{{ $projectCategory['id']}}" class="btn">
 									<input type="radio">
 									<a href="javascript:void(0);"
-										class="site-button-secondry button-sm radius-xl"><span>Dự án {{ $projectCategory[$lang]['name']}}</span></a>
+										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</span></a>
 								</li>
 								@endforeach
 							</ul>
@@ -256,23 +256,21 @@
 							<ul id="masonry"
 								class=" portfolio-ic dlab-gallery-listing gallery-grid-4 gallery lightgallery text-center">
 								@foreach ($projects as $project)
-								@if (!$project['image'])
+								@if (!$project['image'] && $project[$lang]['title'])
 								<li class="{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
 									<div class="dlab-box dlab-gallery-box">
-										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-											<div class="overlay-bx">
-												<div class="overlay-icon">
-													<div class="text-white">
-													</div>
-												</div>
-											</div>
-										</div>
 										<div class="dez-info p-a30 bg-white">
-											<b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('project.show', $project['id']), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
+											@if ($project[$lang]['title'])
+											<b><p class="dez-title m-t0" style="text-transform: capitalize;">
+												<a href="{{ route('project.show', $project['id']) }}">
+												{!! \App\Helper\HString::modSubstr($project[$lang]['title'], 50)!!}
+												</a>
+											</p></b>
+											@endif
 										</div>
 									</div>
 								</li>
-								@else
+								@elseif ($project[$lang]['title'])
 								<li class="{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
 									<div class="dlab-box dlab-gallery-box">
 										<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
@@ -288,7 +286,11 @@
 											</div>
 										</div>
 										<div class="dez-info p-a30 bg-white">
-											<b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('project.show', $project['id']), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
+											<b><p class="dez-title m-t0" style="text-transform: capitalize;">
+												<a href="{{ route('project.show', $project['id']) }}">
+												{!! \App\Helper\HString::modSubstr($project[$lang]['title'], 50)!!}
+												</a>
+											</p></b>
 										</div>
 									</div>
 								</li>
@@ -303,13 +305,14 @@
 				<div class="section-full bg-white">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title text-capitalize">TIN TỨC VÀ SỰ KIỆN</h2>
+							<h2 class="title text-capitalize">{{trans('frontend.news_event')}}</h2>
 						</div>
 						<!-- blog post Carousel with no margin -->
 						<div class="section-content box-sort-in m-b30 button-example">
 							<div
 								class="blog-carousel mfp-gallery owl-loaded owl-theme owl-carousel gallery owl-btn-center-lr owl-btn-1 primary">
 								@foreach ($news as $news)
+								@if ($news[$lang]['title'])
 								<div class="item">
 									<div class="ow-blog-post date-style-2">
 										<div class="ow-post-media dlab-img-effect zoom-slow">
@@ -329,7 +332,7 @@
 													<li class="post-date"> <i
 															class="ti-comment-alt"></i><strong>{!! date("d/m", strtotime($news['updated_at'])) !!}</strong> <span>
 															{!! date("Y", strtotime($news['updated_at'])) !!}</span> </li>
-													<li class="post-author"><i class="ti-user"></i>By <a
+													<li class="post-author"><i class="ti-user"></i>{{trans('frontend.by')}} <a
 															href="javascript:void(0);" title="Posts by admin"
 															rel="author">{{$news['created_by']}}</a> </li>
 												</ul>
@@ -340,6 +343,7 @@
 										</div>
 									</div>
 								</div>
+								@endif
 								@endforeach
 							</div>
 						</div>

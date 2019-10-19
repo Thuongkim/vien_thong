@@ -9,13 +9,13 @@
 		style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
 		<div class="container">
 			<div class="dlab-bnr-inr-entry">
-				<h1 class="text-white">Tin tức</h1>
+				<h1 class="text-white">{{trans('frontend.news')}}</h1>
 				<!-- Breadcrumb row -->
 				<div class="breadcrumb-row">
 					<ul class="list-inline">
-						<li><a href="{{ route('home') }}">Home</a></li>
-						<li><a href="{{ route('news') }}">Tin tức</a></li>
-						<li>Chi tiết tin tức</li>
+						<li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
+						<li><a href="{{ route('news') }}">{{trans('frontend.news')}}</a></li>
+						<li>{{trans('frontend.detail')}}</li>
 					</ul>
 				</div>
 				<!-- Breadcrumb row END -->
@@ -34,7 +34,7 @@
 						<div class="dlab-post-meta">
 							<ul>
 								<li class="post-date"> <strong>{!! date("d/m/Y", strtotime($news['updated_at'])) !!}</strong> </li>
-								<li class="post-author"> đăng bởi <a href="javascript:void(0);">{{\App\User::find( $news->created_by )->fullname}}</a> </li>
+								<li class="post-author"> {{trans('frontend.by')}} <a href="javascript:void(0);">{{\App\User::find( $news->created_by )->fullname}}</a> </li>
 							</ul>
 						</div>
 						<div class="dlab-post-title">
@@ -58,7 +58,7 @@
 				<div class="col-xl-3 col-lg-4 col-md-5 sticky-top">
 					<aside class="side-bar">
 						<div class="widget recent-posts-entry">
-							<h5 class="widget-title style-1">BÀI VIẾT GẦN ĐÂY</h5>
+							<h5 class="widget-title style-1">{{trans('frontend.post')}}</h5>
 							<div class="widget-post-bx">
 								@foreach($news_all as $news_all)
 								<div class="widget-post clearfix">
@@ -71,7 +71,7 @@
 										<div class="dlab-post-meta">
 											<ul>
 												<li class="post-date"> <strong>{!! date("d/m/Y", strtotime($news_all['updated_at'])) !!}</strong> </li>
-												<li class="post-author"> By <a href="javascript:void(0);">{{$news_all['created_by']}}
+												<li class="post-author"> {{trans('frontend.by')}} <a href="javascript:void(0);">{{$news_all['created_by']}}
 													</a> </li>
 											</ul>
 										</div>
