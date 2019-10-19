@@ -89,4 +89,9 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/', ['as' => 'home', 'uses' => 'Frontend\HomeController@index']);
     Route::get('change-language/{language}', 'Frontend\HomeController@changeLanguage')->name('change-language');
     Route::get('news', 'Frontend\HomeController@indexNews')->name('news');
+    Route::get('tim-kiem.html', [ 'as' => 'home.search', 'uses' => 'Frontend\HomeController@search']);
+	Route::get('{slug}.html', [ 'as' => 'home.static-page', 'uses' => 'Frontend\HomeController@staticPage' ])->where(['slug' => '[a-zA-Z0-9\-]+']);
+	Route::get('danh-muc-dich-vu/{slug}-{id}.html', [ 'as' => 'home.services-category', 'uses' => 'Frontend\HomeController@getServicesCategory' ])->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);
+	Route::get('dich-vu/{slug}-{id}.html', [ 'as' => 'home.services-detail', 'uses' => 'Frontend\HomeController@getDetailService' ])->where(['slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+']);
 });
+

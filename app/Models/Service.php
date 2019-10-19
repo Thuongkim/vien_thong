@@ -40,6 +40,10 @@ class Service extends Model
 
         return json_decode($services, 1);
     }
+     public function category()
+    {
+        return $this->belongsTo("\App\Models\ServiceCategory");
+    }
     public static function boot()
     {
         parent::boot();
@@ -66,7 +70,7 @@ class Service extends Model
     }
 
 	// Don't forget to fill this array
-	protected $fillable = [ 'title', 'summary', 'content', 'status', 'image', 'position', 'icon', 'category_id', 'created_by' ];
+	protected $fillable = [ 'title', 'summary', 'content', 'status', 'image', 'position', 'icon', 'category_id','featured', 'created_by' ];
 
     private static function increase_count( $id, $redis ) {
 

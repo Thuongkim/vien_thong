@@ -36,8 +36,7 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
             <![endif]-->
         <link rel="stylesheet" type="text/css" href="{!! asset('assets/backend/css/fixed.css') !!}" />
-        <!-- File manager css -->
-        <link rel="stylesheet" href="{{ asset('vendor/file-manager/css/file-manager.css') }}">
+
          <style>
         .thumbnail a>img, .thumbnail>img {
             margin-right: auto;
@@ -289,8 +288,6 @@
         <script src="{!! asset('assets/backend/plugins/toastr/toastr.min.js') !!}"></script>
         <!-- Fixed js -->
         <script src="{!! asset('assets/backend/js/fixed.js') !!}"></script>
-        <!-- File manager js -->
-        <script src="{{ asset('vendor/file-manager/js/file-manager.js') }}"></script>
         <script>
             Number.prototype.format = function(n, x) {
                 var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';

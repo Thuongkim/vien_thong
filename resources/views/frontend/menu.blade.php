@@ -5,7 +5,7 @@
 					<div class="container clearfix">
 						<!-- technologysite logo -->
 						<div class="logo-header mostion" style="width: auto;">
-							<a href="index.html"><img src="{{ asset('assets/frontend/images/hte-logo.png') }}" alt=""></a>
+							<a href="{{ route('home') }}"><img src="{{ asset('assets/frontend/images/hte-logo.jpg') }}" alt="" style="width: 258px; height: 75px"></a>
 						</div>
 						<!-- nav toggle button -->
 						<button class="navbar-toggler collapsed navicon justify-content-end" type="button"
@@ -30,9 +30,9 @@
 						</div>
 						<!-- Quik search -->
 						<div class="dlab-quik-search bg-primary ">
-							<form action="#">
-								<input name="search" value="" type="text" class="form-control"
-									placeholder="Type to search">
+							<form action="{{ route('home.search') }}" method="GET">
+								<input name="keyword" value="" type="text" class="form-control"
+									placeholder="Tìm kiếm">
 								<span id="quik-search-remove"><i class="ti-close"></i></span>
 							</form>
 						</div>
@@ -42,55 +42,43 @@
 								<a href="index.html"><img src="images/hte-logo.png" alt=""></a>
 							</div>
 							<ul class="nav navbar-nav">
-								<li class="active has-mega-menu homedemo"> <a href="index.html">Trang chủ</a>
+								<li class="active has-mega-menu homedemo"> <a href="{{ route('home') }}">Trang chủ</a>
 								</li>
 								<li>
 									<a href="#">Giới thiệu<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu tab-content">
+										@foreach($staticPagess as $staticPage)
 										<li>
-											<a href="history.html">Lịch sử phát triển</a>
+											<a href="{!! route('home.static-page', $staticPage['slug']) !!}">{{ $staticPage['title'] }}</a>
 										</li>
-										<li>
-											<a href="about-us.html">Thông tin chung</a>
-										</li>
-										<li>
-											<a href="vision.html">Tầm nhìn sứ mệnh giá trị cốt lõi </a>
-										</li>
-										<li>
-											<a href="quality-policy.html">Chính sách chất lượng</a>
-										</li>
-										<li>
-											<a href="executive-board.html">Bạn điều hành</a>
-										</li>
-										<li>
-											<a href="organizational-chart.html">Sơ đồ tổ chức</a>
-										</li>
+										@endforeach
 									</ul>
 								</li>
 								<li>
 									<a href="#">Dịch vụ<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu tab-content">
+										@foreach($servicesCategories as $servicesCategory)
+										@if (count($servicesCategory['children']))
 										<li>
-											<a href="javascript:void(0);">Viễn thông <i
+											<a href="{!! route('home.services-category', ['slug' => str_slug($servicesCategory['name']), 'id' => $servicesCategory['id']]) !!}" title="{!! $servicesCategory['name'] !!}">{{ $servicesCategory['name'] }} <i
 													class="fa fa-angle-right"></i></a>
 											<ul class="sub-menu">
-												<li><a href="services-details.html">Khảo sát thiết kế </a></li>
-												<li><a href="services-details.html">Xây dựng nhà trạm</a></li>
-												<li><a href="services-details.html">Lắp đặt thiết bị</a></li>
-												<li><a href="services-details.html">Tối ưu hóa</a></li>
-												<li><a href="services-details.html">Vận hành mạng</a></li>
+												@foreach($servicesCategory['children'] as $child)
+
+												<li>
+													<a href="{!! route('home.services-category', ['slug' => str_slug($child['name']), 'id' => $child['id']]) !!}">{!! $child['name'] !!} </a>
+												</li>
+												
+												@endforeach
 											</ul>
 										</li>
+										@else
 										<li>
-											<a href="javascript:void(0);">Tin học <i class="fa fa-angle-right"></i></a>
-											<ul class="sub-menu">
-												<li><a href="services-details.html">Dịch vụ tin học</a></li>
-												<li><a href="services-details.html">Dịch vụ tin học</a></li>
-												<li><a href="services-details.html">Dịch vụ tin học</a></li>
-												<li><a href="services-details.html">Dịch vụ tin học</a></li>
-												<li><a href="services-details.html">Dịch vụ tin học</a></li>
-											</ul>
+											<a href="{!! route('home.services-category', ['slug' => str_slug($servicesCategory['name']), 'id' => $servicesCategory['id']]) !!}">{!! $servicesCategory['name'] !!}</a>
+
 										</li>
+										@endif
+										@endforeach
 									</ul>
 								</li>
 								<li class="has-mega-menu"> <a href="#">Dự án<i

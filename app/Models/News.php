@@ -60,9 +60,12 @@ class News extends \Eloquent {
             self::clearCache();
         });
     }
-    public static function clearCache()
+    public static function clearCache(){
+    	Cache:: forget ('home_news');
+    }
+    public function category()
     {
-        Cache:: forget ('home_news');
+        return $this->belongsTo("\App\NewsCategory");
     }
     public static function getHomeNews()
     {

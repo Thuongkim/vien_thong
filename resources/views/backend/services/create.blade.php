@@ -102,7 +102,7 @@
                             <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
                                 {!! trans('system.action.remove') !!}
                             </a>
-                            (Kích thước 300x225)
+                            (Kích thước 225x300)
                         </div>
                     </div>
                 </td>
@@ -128,7 +128,9 @@
                 @endforeach
             @endif
             <tr>
-                <th colspan="4" class="text-center">
+                <td class="text-center" colspan="4">
+                    {!! trans('news.featured') !!}
+                    {!! Form::checkbox('featured', 1, old('featured', 1), [ 'class' => 'minimal' ]) !!}
                     {!! trans('system.status.active') !!}
                     {!! Form::checkbox('status', 1, old('status', 1), [ 'class' => 'minimal-red' ]) !!}
                 </td>
