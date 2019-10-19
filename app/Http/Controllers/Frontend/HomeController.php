@@ -16,7 +16,6 @@ use App\Models\Partner;
 use App\Models\ProjectCategory;
 
 use App\StaticPage;
-use App\News;
 use App\NewsCategory;
 use App\Models\Service;
 use App\Models\ServiceCategory;
