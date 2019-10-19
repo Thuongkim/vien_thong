@@ -68,27 +68,21 @@
 				<div class="blog-post blog-single">
 					<div class="dlab-post-meta">
 						<ul>
-							<?php $user = \App\User::find( $services->created_by ); ?>
-							<li class="post-date"> {{ $services->created_at }} </li>
+							<?php $user = \App\User::find( $detailService[0]['created_by'] ); ?>
+							<li class="post-date"> {{ $detailService[0]['created_at'] }} </li>
 							<li class="post-author"> đăng bởi <a href="">{!! is_null($user) ? '-' : $user->fullname !!}</a> </li>
 						</ul>
 					</div>
 					<div class="dlab-post-title">
-						<h4 class="post-title m-t0"><a href="blog-single-sidebar">{{ $services->title }}</a></h4>
+						<h4 class="post-title m-t0"><a href="blog-single-sidebar">{{ $detailService[0][$lang]['title'] }}</a></h4>
 					</div>
 					<div class="dlab-post-media dlab-img-effect zoom-slow">
-						<a href="blog-single-sidebar"><img src="{{ asset($services->image) }}" alt=""></a>
+						<a href="blog-single-sidebar"><img src="{{ asset($detailService[0]['image']) }}" alt=""></a>
 					</div>
 					<div class="dlab-post-text">
-						{!! $services->content !!}
+						{!! $detailService[0][$lang]['content'] !!}
 					</div>
-					<div class="dlab-post-tags clear">
-						<div class="post-tags">
-							<a href="javascript:void(0);">tin tức mới </a>
-							<a href="javascript:void(0);">tuyển dụng </a>
-							<a href="javascript:void(0);">an toàn </a>
-						</div>
-					</div>
+					
 				</div>
 				<!-- blog END -->
 			</div>

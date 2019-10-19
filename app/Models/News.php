@@ -93,7 +93,6 @@ class News extends \Eloquent {
 
                 array_push($homeNews, $tmp);
             }
-
             $homeNews = json_encode($homeNews) ;
             if ($homeNews) Cache:: forever( 'home_news', $homeNews) ;
         } else {

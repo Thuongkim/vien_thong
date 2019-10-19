@@ -22,7 +22,7 @@
 			</div>
 			<!-- inner page banner END -->
 			<!-- contact area -->
-			@if($page->slug == 'thong-tin-chung')
+			@if($slug == 'thong-tin-chung')
 
 			<div class="content-area">
 				<div class="container">
@@ -42,7 +42,7 @@
 											<div class="dlab-separator-outer ">
 												<div class="dlab-separator bg-primary style-skew"></div>
 											</div>
-											{!! isset($staticPages['gioi-thieu']['description']) ? $staticPages['gioi-thieu']['description'] : '' !!}
+											{!! isset($staticPages[$lang]['gioi-thieu']['description']) ? $staticPages[$lang]['gioi-thieu']['description'] : '' !!}
 										</div>
 										<div class="section-content"></div>
 									</div>
@@ -101,7 +101,7 @@
 							<div class="col-lg-12 col-md-12 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">
 								<div class="blog-post blog-grid blog-rounded blog-effect1 fly-box">
 									<div class="dlab-post-media dlab-img-effect">
-										<a href="">{!! isset($staticPages['result']['description']) ? $staticPages['result']['description'] : '' !!}</a>
+										<a href="">{!! isset($staticPages[$lang]['result']['description']) ? $staticPages[$lang]['result']['description'] : '' !!}</a>
 									</div>
 								</div>
 							</div>
@@ -273,9 +273,9 @@
 					<div class="row align-items-center">
 						<div class="col-lg-12 col-md-12 m-b30">
 							<div class="our-story jumbotron">
-
+									
 								
-								{!! $page->description !!}
+								{!! $page[0][$lang]['description'] !!}
 
 							</div>
 						</div>

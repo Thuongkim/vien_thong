@@ -25,6 +25,7 @@ class StaticPage extends \Eloquent
     {
         Cache::forget('introduction');
         Cache::forget('contact');
+        Cache::forget('static_pages');
     }
 
     public static function introduction()
@@ -55,10 +56,23 @@ class StaticPage extends \Eloquent
     public static function getByAllWihoutGroup()
     {
         $staticPages = [];
+        $langs = config('app.locales');
         if (!Cache::has('static_pages')) {
-            $staticPages = StaticPage::where('status', 1)->whereNull('group')->select('description', 'title', 'slug')->get()->keyBy('slug');
-            $staticPages = json_encode($staticPages);
-            Cache::forever('static_pages', $staticPages);
+            $staticPages = StaticPage::where('status', 1)->whereNull('group')->get();
+            $tmp = [];
+            foreach ($staticPages as $staticPage) {
+                for ($i = 0; $i < count($langs); $i++) {
+                    $trans = $staticPage->translation('title', $langs[$i])->first();
+                    $tmp[$langs[$i]][$staticPage->slug]['title'] = is_null($trans) ? '' : $trans->content;
+                    $trans = $staticPage->translation('description', $langs[$i])->first();
+                    $tmp[$langs[$i]][$staticPage->slug]['description'] = is_null($trans) ? '' : $trans->content;
+                }
+                // dd($tmp);
+                $staticPages = json_encode($tmp);
+            }
+                   
+            Cache::put('static_pages', $staticPages, 3600);
+
         } else {
             $staticPages = Cache::get('static_pages');
         }
@@ -67,15 +81,32 @@ class StaticPage extends \Eloquent
     }
     public static function getMenu()
     {
+
         $staticPagess = [];
+        $langs = config('app.locales');
         if (!Cache::has('static_pagess')) {
-            $staticPagess = StaticPage::where('status', 1)->where('group', 1)->select('description', 'title', 'slug')->get()->keyBy('slug');
+            $tem = StaticPage::where('status', 1)->where('group', 1)->get();
+            foreach ($tem as $staticPages) {
+                $tmp = [];
+                $tmp['slug'] = $staticPages->slug;
+                for ($i = 0; $i < count($langs); $i++) {
+                    $trans = $staticPages->translation('title', $langs[$i])->first();
+                    $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+                    $trans = $staticPages->translation('description', $langs[$i])->first();
+                    $tmp[$langs[$i]]['description'] = is_null($trans) ? '' : $trans->content;
+
+                }
+                array_push($staticPagess, $tmp);
+            }
             $staticPagess = json_encode($staticPagess);
-            Cache::forever('static_pagess', $staticPagess);
+               
+            Cache::put('static_pagess', $staticPagess, 3600);
+
         } else {
             $staticPagess = Cache::get('static_pagess');
         }
 
+        // dd($staticPagess);
         return json_decode($staticPagess, 1);
     }
     public static function contact()

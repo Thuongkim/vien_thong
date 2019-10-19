@@ -114,7 +114,7 @@
 											
 										</a>
 										<!-- LAYER NR. 5 -->
-										<a class="tp-caption rev-btn tc-btnshadow tp-rs-menulink"
+										{{-- <a class="tp-caption rev-btn tc-btnshadow tp-rs-menulink"
 											href="services-details.html" target="_blank" id="slide-100-layer-6"
 											data-x="['center','center','center','center']"
 											data-hoffset="['-340','-160','70','70']"
@@ -129,7 +129,7 @@
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
 											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#fc1520; text-transform: uppercase;">
 											Dịch vụ
-										</a>
+										</a> --}}
 									</li>
 									@endforeach
 								</ul>
@@ -151,7 +151,7 @@
 							<div class="col-lg-9 text-white">
 								<h2 class="title">Giới thiệu</h2>
 								<p class="m-b0">
-								{!! isset($staticPages['index']['description']) ? $staticPages['index']['description'] : '' !!}
+								{!! isset($staticPages[$lang]['index']['description']) ? $staticPages[$lang]['index']['description'] : '' !!}
 								</p>
 							</div>
 						</div>
@@ -166,7 +166,7 @@
 					data-wow-delay="0.4s">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							{!! isset($staticPages['service']['description']) ? $staticPages['service']['description'] : '' !!}
+							{!! isset($staticPages[$lang]['service']['description']) ? $staticPages[$lang]['service']['description'] : '' !!}
 						</div>
 						<div class="on-show-slider ">
 							

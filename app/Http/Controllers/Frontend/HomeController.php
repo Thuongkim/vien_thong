@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Define\Constant as Constant;
 use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Cache;
 
 
 use App\News;
@@ -25,6 +26,9 @@ class HomeController extends Controller
 
 	public function __construct()
     {
+        \View::share('staticPages', StaticPage::getByAllWihoutGroup());
+        \View::share('staticPagess', StaticPage::getMenu());
+        \View::share('servicesCategories', ServiceCategory::getByAll());
     	$this->middleware(function ($request, $next) {
     		if (!Session::has('website_language')) {
     			$locales = config('app.locales');
@@ -32,8 +36,8 @@ class HomeController extends Controller
     		} else {
 	        	$this->lang = Session::get('website_language');
     		}
-    		
-	        \View::share('lang', $this->lang);
+
+            \View::share('lang', $this->lang);
 	        return $next($request);
         });
     }
@@ -84,16 +88,22 @@ class HomeController extends Controller
     	$homeNews = json_encode($homeNews) ;
     	$news = json_decode($homeNews, 1);
     	return view('frontend.pages.news', compact('news'));
-        $sliders = Slider::getSliders();
-        $services = Service::where('featured', 1)->where('status', 1)->orderBy('position')->take(5)->get();
-        return view('frontend.pages.home', compact('sliders', 'services'));
     }
     public function staticPage($slug)
     {
-        $page = StaticPage::where('slug', $slug)->where('group', 1)->where('status', 1)->first();
-        // if (is_null($page)) abort('404');
-
-        return view('frontend.pages.static', compact('page'));
+        $page = [];
+        $langs = config('app.locales');
+        $pages = StaticPage::where('slug', $slug)->where('group', 1)->where('status', 1)->first();
+        $tmp = [];
+        for ($i = 0; $i < count($langs); $i++) {
+            $trans = $pages->translation('title', $langs[$i])->first();
+            $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+            $trans = $pages->translation('description', $langs[$i])->first();
+            $tmp[$langs[$i]]['description'] = is_null($trans) ? '' : $trans->content;
+        }
+        array_push($page, $tmp);
+        // dd($slug);
+        return view('frontend.pages.static', compact('page', 'slug'));
     }
     public function search(Request $request)
     {
@@ -106,27 +116,76 @@ class HomeController extends Controller
     }
     public function getServicesCategory(Request $request, $slug, $id)
     {
+        $servicesCategories = [];
+        $langs = config('app.locales');
+
     	$category = ServiceCategory::where('status', 1)->where('id', intval($id))->first();
         // if (is_null($category)) abort('404');
         $childIds = ServiceCategory::where('status', 1)->where('parent_id', $category->id)->pluck('id', 'id')->toArray();
         $services = Service::where('status', 1)->whereIn('category_id', [$category->id] + $childIds)->orderBy('updated_at', 'DESC')->paginate('5');
+
+        foreach ($services as $service) {
+            $tmp = [];
+            $id = $service->id;
+            $tmp['id'] = is_null($id) ? '' : $id;
+            $image = $service->image;
+            $tmp['image'] = is_null($image) ? '' : $image;
+            $created_by = \App\User::find( $service->created_by );
+            $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
+            $updated_at = $service->updated_at;
+            $tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
+            for ($i = 0; $i < count($langs); $i++) {
+                $trans = $service->translation('title', $langs[$i])->first();
+                $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+                $trans = $service->translation('summary', $langs[$i])->first();
+                $tmp[$langs[$i]]['summary'] = is_null($trans) ? '' : $trans->content;
+                $trans = $service->translation('content', $langs[$i])->first();
+                $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
+            }
+
+            array_push($servicesCategories, $tmp);
+        }
+        $servicesCategories = json_encode($servicesCategories) ;
+        $serviceCategories = json_decode($servicesCategories, 1);
+
         $featuredNews = Service::where('status', 1)->where('featured', 1)->orderBy('updated_at', 'DESC')->take(6)->get();
         $rootCat = null;
         if ($category->parent_id) {
             $rootCat = ServiceCategory::where('status', 1)->where('id', $category->parent_id)->first();
             // if (is_null($rootCat)) \App::abort('404');
         }
-
+        // dd($serviceCategories);
         $servicesCategories = ServiceCategory::getByAll();
-        return view('frontend.pages.service_category', compact('category', 'services', 'rootCat', 'featuredNews', 'servicesCategories'));
+        return view('frontend.pages.service_category', compact('category', 'services', 'serviceCategories', 'rootCat', 'featuredNews', 'servicesCategories'));
     }
     public function getDetailService(Request $request, $slug, $id)
     {
+        $detailService = [];
+        $langs = config('app.locales');
         $services = Service::where('status', 1)->where('id', intval($id))->first();
+        $tmp = [];
+        $image = $services->image;
+        $tmp['image'] = is_null($image) ? '' : $image;
+        $created_by = \App\User::find( $services->created_by );
+        $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
+        $created_at = $services->created_at;
+        $tmp['created_at'] = is_null($created_at) ? '' : $created_at;
+        for ($i = 0; $i < count($langs); $i++) {
+            $trans = $services->translation('title', $langs[$i])->first();
+            $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+            $trans = $services->translation('summary', $langs[$i])->first();
+            $tmp[$langs[$i]]['summary'] = is_null($trans) ? '' : $trans->content;
+            $trans = $services->translation('content', $langs[$i])->first();
+            $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
+        }
+        array_push($detailService, $tmp);
+        // dd($detailService);
         if (is_null($services)) \App::abort('404');
         $category = ServiceCategory::where('status', 1)->where('id', $services->category_id)->first();
         if (is_null($category)) \App::abort('404', "Không tìm thấy tài nguyên bạn yêu cầu.");
         $featuredServices = Service::where('status', 1)->orderBy('created_at', 'DESC')->take(6)->get();
+
+
         $otherCategories = ServiceCategory::where('status', 1)->where('id', '<>', $services->category_id)->get();
 
         $rootCat = null;
@@ -135,6 +194,6 @@ class HomeController extends Controller
             if (is_null($rootCat)) \App::abort('404');
         }
         $servicesCategories = ServiceCategory::getByAll();
-        return view('frontend.pages.detail_services', compact('services', 'category', 'lastNews', 'featuredServices', 'otherCategories', 'rootCat', 'servicesCategories'));
+        return view('frontend.pages.detail_services', compact('services', 'category', 'lastNews', 'featuredServices', 'otherCategories', 'rootCat', 'servicesCategories', 'detailService'));
     }
 }

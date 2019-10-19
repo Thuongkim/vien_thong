@@ -16,26 +16,25 @@
 							<span></span>
 						</button>
 						<!-- extra nav -->
-						<div class="extra-nav">
+						{{-- <div class="extra-nav">
 							<div class="extra-cell">
 								<button id="quik-search-btn" type="button" class="site-button-link"><i
 										class="la la-search"></i></button>
 							</div>
-						</div>
+						</div> --}}
 						<div class="extra-nav">
 							<ul class="nav navbar-nav">
-								<li><a href="{!! route('change-language', ['vi']) !!}"><img src="{{ asset('assets/frontend/images/vn.png') }}" alt=""></a>
-									<a href="{!! route('change-language', ['en']) !!}"><img src="{{ asset('assets/frontend/images/gb.png') }}" alt=""></a></li>
+								<li><a href="{!! route('change-language', ['vi']) !!}"><img src="{{ asset('assets/frontend/images/vn.png') }}" alt=""></a><a href="{!! route('change-language', ['en']) !!}"><img src="{{ asset('assets/frontend/images/gb.png') }}" alt=""></a></li>
 							</ul>
 						</div>
 						<!-- Quik search -->
-						<div class="dlab-quik-search bg-primary ">
+						{{-- <div class="dlab-quik-search bg-primary ">
 							<form action="{{ route('home.search') }}" method="GET">
 								<input name="keyword" value="" type="text" class="form-control"
 									placeholder="Tìm kiếm">
 								<span id="quik-search-remove"><i class="ti-close"></i></span>
 							</form>
-						</div>
+						</div> --}}
 						<!-- main nav -->
 						<div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
 							<div class="logo-header d-md-block d-lg-none">
@@ -45,11 +44,13 @@
 								<li class="active has-mega-menu homedemo"> <a href="{{ route('home') }}">Trang chủ</a>
 								</li>
 								<li>
-									<a href="#">Giới thiệu<i class="fa fa-chevron-down"></i></a>
+									<a href="">Giới thiệu<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu tab-content">
+
 										@foreach($staticPagess as $staticPage)
 										<li>
-											<a href="{!! route('home.static-page', $staticPage['slug']) !!}">{{ $staticPage['title'] }}</a>
+											<a href="{!! route('home.static-page', $staticPage['slug']) !!}">{{ $staticPage[$lang]['title'] }}</a>
+											{{-- @dd($staticPage) --}}
 										</li>
 										@endforeach
 									</ul>
