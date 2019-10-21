@@ -1,5 +1,8 @@
 @extends('frontend.master')
-
+@section('title'){!! trans('frontend.career') !!}@stop
+@section('seo_keywords'){!! trans('frontend.career'). " " .config('app.name') !!}@stop
+@section('seo_description'){!! trans('frontend.career'). " " .config('app.name') !!}@stop
+@section('image'){!!  asset('assets/frontend/images/main-slider/slide1.jpg') !!}@stop
 @section('content')
 
 <!-- Content -->
@@ -75,7 +78,7 @@
 											</ul>
 										</div>
 										<div class="dlab-post-header">
-											<h6 class="post-title"><a href="{{ route('news.show', $news_all['id']) }}">{{$news_all[$lang]['title']}}</a></h6>
+											<h6 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_all[$lang]['title']), 'id' => $news_all['id']]) }}">{{$news_all[$lang]['title']}}</a></h6>
 										</div>
 									</div>
 								</div>

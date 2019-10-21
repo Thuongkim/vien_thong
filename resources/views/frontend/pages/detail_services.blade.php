@@ -5,13 +5,13 @@
 <div class="dlab-bnr-inr overlay-black-middle bg-pt" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
 	<div class="container">
 		<div class="dlab-bnr-inr-entry">
-			<h1 class="text-white">Dịch vụ</h1>
+			<h1 class="text-white">{{trans('frontend.service')}}</h1>
 			<!-- Breadcrumb row -->
 			<div class="breadcrumb-row">
 				<ul class="list-inline">
-					<li><a href="{{ route('home') }}">Home</a></li>
-					<li>Dịch vụ</li>
-					<li>Chi tiết dịch vụ</li>
+					<li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
+					<li>{{trans('frontend.service')}}</li>
+					<li>{{trans('frontend.data-textAlign')}}</li>
 				</ul>
 			</div>
 			<!-- Breadcrumb row END -->
@@ -28,7 +28,7 @@
 			<div class="col-xl-3 col-lg-4 col-md-5 sticky-top">
 				<aside class="side-bar">
 					<div class="widget recent-posts-entry">
-						<h5 class="widget-title style-1">DỊCH VỤ GẦN ĐÂY</h5>
+						<h5 class="widget-title style-1">{{trans('frontend.service')}}</h5>
 						<div class="widget-post-bx">
 							@foreach($featuredServices as $featuredService)
 							<div class="widget-post clearfix">
@@ -40,7 +40,7 @@
 										<ul>
 											<?php $user = \App\User::find( $services->created_by ); ?>
 											<li class="post-date"> {{ $featuredService->created_at }} </li>
-											<li class="post-author"> ĐĂNG BỞI: {!! is_null($user) ? '-' : $user->fullname !!} </li>
+											<li class="post-author"> {{trans('frontend.by')}}: {!! is_null($user) ? '-' : $user->fullname !!} </li>
 										</ul>
 									</div>
 									<div class="dlab-post-header">
@@ -52,7 +52,7 @@
 						</div>
 					</div>
 					<div class="widget widget_archive">
-						<h5 class="widget-title style-1">Loại danh mục</h5>
+						<h5 class="widget-title style-1">{{trans('frontend.categories')}}</h5>
 						<ul>
 							@foreach($servicesCategories as $servicesCategory)
 							<li><a href="{!! route('home.services-category', ['slug' => str_slug($servicesCategory['name']), 'id' => $servicesCategory['id']]) !!}">{!! $servicesCategory['name'] !!}</a></li>
@@ -70,7 +70,7 @@
 						<ul>
 							<?php $user = \App\User::find( $detailService[0]['created_by'] ); ?>
 							<li class="post-date"> {{ $detailService[0]['created_at'] }} </li>
-							<li class="post-author"> đăng bởi <a href="">{!! is_null($user) ? '-' : $user->fullname !!}</a> </li>
+							<li class="post-author"> {{trans('frontend.by')}} <a href="">{!! is_null($user) ? '-' : $user->fullname !!}</a> </li>
 						</ul>
 					</div>
 					<div class="dlab-post-title">

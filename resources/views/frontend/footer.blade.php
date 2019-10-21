@@ -1,5 +1,5 @@
 <footer class="site-footer">
-	<div class="footer-top" style="background-image:url(images/background/bg3.png); background-size: contain;">
+	<div class="footer-top" style="background-image:url({{ asset('assets/frontend/images/background/bg3.png') }}); background-size: contain;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 col-xl-3 col-lg-3 col-sm-6 footer-col-4">

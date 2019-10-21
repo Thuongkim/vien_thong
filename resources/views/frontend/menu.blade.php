@@ -40,14 +40,14 @@
 						</div> --}}
 						<!-- main nav -->
 						<div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
-							<div class="logo-header d-md-block d-lg-none">
+							{{-- <div class="logo-header d-md-block d-lg-none">
 								<a href="index.html"><img src="images/hte-logo.png" alt=""></a>
-							</div>
+							</div> --}}
 							<ul class="nav navbar-nav">
 								<li class="active has-mega-menu homedemo"> <a href="{{ route('home') }}">{{trans('frontend.home')}}</a>
 								</li>
 								<li>
-
+									<a href="">{{trans('frontend.present')}}<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu tab-content">
 
 										@foreach($staticPagess as $staticPage)
@@ -97,7 +97,7 @@
 												@endphp
 												@foreach ($projects as $project)
 												@if ($projectCategory['id'] == $project['category_id'] && $project[$lang]['title'])
-												<li><a href="{{ route('project.show', $project['id']) }}">{{$project[$lang]['title']}}</a></li>
+												<li><a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">{{$project[$lang]['title']}}</a></li>
 												@php
 													$i++;
 													if ($i > 5) break;

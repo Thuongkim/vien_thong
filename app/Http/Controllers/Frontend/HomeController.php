@@ -102,7 +102,7 @@ class HomeController extends Controller
     }
     
 
-    public function showNews($id)
+    public function showNews($slug, $id)
     {
 		$news = News::find($id);
 		$news_all = News::getHomeNews();
@@ -150,7 +150,7 @@ class HomeController extends Controller
 		return view('frontend.pages.project', compact('projects'));
     }
 
-    public function showProject($id)
+    public function showProject($slug, $id)
     {
 		$project = Project::find($id);
 		$news_all = News::getHomeNews();
