@@ -80,7 +80,7 @@
                         </th>
                         <td>
                             <?php $content = $news->translation('summary', $language)->first(); ?>
-                            {!! Form::textarea("summary_{$language}", old("summary_{$language}", is_null($content) ? '' : $content->content), array('class' => 'form-control', 'rows' => 3, 'maxlength' => 100)) !!}
+                            {!! Form::textarea("summary_{$language}", old("summary_{$language}", is_null($content) ? '' : $content->content), array('class' => 'form-control', 'rows' => 3, 'maxlength' => 255)) !!}
                         </td>
                     </tr>
                 @endforeach
@@ -90,7 +90,9 @@
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                         <div class="fileupload-preview thumbnail" style="min-height: 200px; max-height: 200px; max-width: 255px;">
+                            @if($news->image)
                             <img src="{!! asset('assets/media/images/news/' . $news->image) !!}">
+                            @endif
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">

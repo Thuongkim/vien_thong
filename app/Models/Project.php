@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
@@ -32,4 +33,59 @@ class Project extends Model
         return $this->belongsTo('App\Models\ProjectCategory');
     }
 
+    public static function boot()
+    {
+        parent::boot();
+        static:: created (function($project)
+        {
+            self::clearCache();
+        });
+        static:: updated (function($project)
+        {
+            self::clearCache();
+        });
+        static::deleted(function($project)
+        {
+            self::clearCache();
+        });
+        static::saved(function($project)
+        {
+            self::clearCache();
+        });
+    }
+    public static function clearCache()
+    {
+        Cache:: forget ('projects');
+    }
+    public static function getProject()
+    {
+        $projects = [];
+        $langs = config('app.locales');
+        if (!Cache::has('projects')) {
+            $temp = Project::where('status', 1)->where( 'featured', 1)->orderBy( 'updated_at', 'desc')->get();
+            foreach ($temp as $project) {
+                $tmp = [];
+                $id = $project->id;
+                $tmp['id'] = is_null($id) ? '' : $id;
+                $category_id = $project->category_id;
+                $tmp['category_id'] = is_null($category_id) ? '' : $category_id;
+                $image = $project->image;
+                $tmp['image'] = is_null($image) ? '' : $image;
+                for ($i = 0; $i < count($langs); $i++) {
+                    $trans = $project->translation('title', $langs[$i])->first();
+                    $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+                    $trans = $project->translation('content', $langs[$i])->first();
+                    $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
+                }
+
+                array_push($projects, $tmp);
+            }
+
+            $projects = json_encode($projects) ;
+            if ($projects) Cache:: forever( 'projects', $projects) ;
+        } else {
+            $projects = Cache::get( 'projects');
+        }
+        return json_decode($projects, 1);
+    }
 }

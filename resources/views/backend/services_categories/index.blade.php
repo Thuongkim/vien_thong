@@ -37,7 +37,7 @@
             <table class='table table-striped table-bordered'>
                 <thead>
                     <tr>
-                        <th style="text-align: center; vertical-align: middle;"> {!! trans('news.categories.name') !!} </th>
+                        <th style="text-align: center; vertical-align: middle;"> {!! trans('services.categories.name') !!} </th>
                         <th style="text-align: center; vertical-align: middle;"> {!! trans('system.status.label') !!} </th>
                         <th style="text-align: center; vertical-align: middle;"> {!! trans('system.updated_at') !!} </th>
                         <th style="text-align: center; vertical-align: middle;"> {!! trans('system.action.label') !!} </th>

@@ -4,6 +4,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <link rel="apple-touch-icon" sizes="180x180" href="{!! asset('assets/favicon.ico/apple-touch-icon.png') !!}">
         <link rel="icon" type="image/png" href="{!! asset('assets/favicon.ico/favicon-32x32.png" sizes="32x32') !!}">
         <link rel="icon" type="image/png" href="{!! asset('assets/favicon.ico/favicon-16x16.png" sizes="16x16') !!}">
@@ -33,6 +36,7 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
             <![endif]-->
         <link rel="stylesheet" type="text/css" href="{!! asset('assets/backend/css/fixed.css') !!}" />
+
          <style>
         .thumbnail a>img, .thumbnail>img {
             margin-right: auto;
@@ -48,7 +52,7 @@
         <div class="wrapper">
             <header class="main-header">
                 <!-- Logo -->
-                <a href="{!! route('home') !!}" class="logo" target="_blank">
+                <a href="{!! route('admin.home') !!}" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini">
                         {!! substr($appName, 0, 1) !!}
@@ -284,7 +288,6 @@
         <script src="{!! asset('assets/backend/plugins/toastr/toastr.min.js') !!}"></script>
         <!-- Fixed js -->
         <script src="{!! asset('assets/backend/js/fixed.js') !!}"></script>
-        <script src="{{ asset('assets/backend/js/bootstrap-fileupload.js') }}"></script>
         <script>
             Number.prototype.format = function(n, x) {
                 var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';

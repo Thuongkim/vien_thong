@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class ServiceCategory extends Model
 {
@@ -23,26 +24,49 @@ class ServiceCategory extends Model
     }
 
     // Don't forget to fill this array
-    protected $fillable = [ 'name', 'parent_id', 'summary', 'status' ];
+    protected $fillable = [ 'name', 'parent_id', 'status' ];
 
     public function parent()
     {
-        return $this->belongsTo('App\ServiceCategory', 'parent_id', 'id');
+        return $this->belongsTo('App\Models\ServiceCategory', 'parent_id', 'id');
     }
 
     public function children()
     {
-        return $this->hasMany('App\ServiceCategory');
+        return $this->hasMany('App\Models\ServiceCategory');
     }
     public function services()
     {
-        return $this->hasMany('App\Service');
+        return $this->hasMany('App\Models\Service');
     }
 
     public static function clearCache()
     {
         //clear cache
         Cache::forget('service_category');
+        Cache::forget('service_categories');
+    }
+    public static function getByAll()
+    {
+        $categories = [];
+        if (!Cache::has('service_categories')) {
+            $categories = ServiceCategory::where('parent_id', 0)->where('status', 1)->get();
+            for ($i=0; $i < $categories->count(); $i++) {
+                $children = ServiceCategory::where('parent_id', $categories{$i}->id)->where('status', 1)->get();
+                for ($j=0; $j < $children->count(); $j++) {
+                    $children{$j}->children = ServiceCategory::where('parent_id', $children{$j}->id)->where('status', 1)->get();
+
+                }
+                $categories{$i}->children = $children;
+            }
+
+            $categories = json_encode($categories);
+            Cache::forever('service_categories', $categories, 1);
+        } else {
+            $categories = Cache::get('service_categories');
+        }
+
+        return json_decode($categories, 1);
     }
 
     public static function getCategories()

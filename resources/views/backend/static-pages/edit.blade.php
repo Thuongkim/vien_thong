@@ -59,7 +59,13 @@
                     {!! trans('static_pages.description') !!}
                 </th>
                 <td colspan="3">
-                    {!! Form::textarea('description', old('description', $news->description), array('class' => 'form-control ckeditor', 'rows' => 25, 'id' => 'description')) !!}
+                    @if ($news->type == 'SIMPLE')
+                        {!! Form::text('description', old('description', $news->description), array('class' => 'form-control')) !!}
+                    @elseif ($news->type == 'COMPLEX')
+                        {!! Form::textarea('description', old('description', $news->description), array('class' => 'form-control', 'rows' => 5)) !!}
+                    @else
+                        {!! Form::textarea('description', old('description', $news->description), array('class' => 'form-control ckeditor', 'rows' => 25, 'id' => 'description')) !!}
+                    @endif
                 </td>
             </tr>
             @if(isset($fields['description']))
@@ -70,13 +76,20 @@
                         </th>
                         <td>
                             <?php $content = $news->translation('description', $language)->first(); ?>
+                            @if ($news->type == 'SIMPLE')
+                            {!! Form::text('description_{$language}', old('description_{$language}', is_null($content) ? '' : $content->content), array('class' => 'form-control')) !!}
+                            @elseif ($news->type == 'COMPLEX')
+                            {!! Form::textarea('description_{$language}', old('description_{$language}', is_null($content) ? '' : $content->content), array('class' => 'form-control', 'rows' => 5)) !!}
+                            @else
                             {!! Form::textarea("description_{$language}", old('description_{$language}', is_null($content) ? '' : $content->content), array('class' => 'form-control ckeditor', 'rows' => 25, 'id' => 'description_{$language}')) !!}
+                            @endif
+                            
                         </td>
                     </tr>
                 @endforeach
             @endif
-            <tr>
-                <th class="text-center" colspan="2">
+           <tr>
+                <td class="text-center" colspan="2">
                     {!! trans('system.status.active') !!}
                     {!! Form::checkbox('status', 1, old('status', $news->status), [ 'class' => 'minimal-red' ]) !!}
                 </td>

@@ -42,6 +42,29 @@ class NewsCategory extends \Eloquent {
     {
         //clear cache
         Cache::forget('news_categories');
+        Cache::forget('news_categoriess');
+    }
+    public static function getByAll()
+    {
+        $categories = [];
+        if (!Cache::has('news_categoriess')) {
+            $categories = NewsCategory::where('parent_id', 0)->where('status', 1)->get();
+            for ($i=0; $i < $categories->count(); $i++) {
+                $children = NewsCategory::where('parent_id', $categories{$i}->id)->where('status', 1)->get();
+                for ($j=0; $j < $children->count(); $j++) {
+                    $children{$j}->children = NewsCategory::where('parent_id', $children{$j}->id)->where('status', 1)->get();
+
+                }
+                $categories{$i}->children = $children;
+            }
+
+            $categories = json_encode($categories);
+            Cache::forever('news_categoriess', $categories, 1);
+        } else {
+            $categories = Cache::get('news_categoriess');
+        }
+
+        return json_decode($categories, 1);
     }
 
     public static function getCategories()

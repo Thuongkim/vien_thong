@@ -91,10 +91,12 @@ class NewsController extends Controller
     {
         $request->merge(['featured' => intval($request->featured), 'status' => intval($request->status)]);
 
-        if ($request->category == Constant::news_category_id)
-            $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'status', 'featured'), News::rules());
-        else
-            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'image', 'status', 'featured', 'summary'), News::rules());
+        if ($request->category == Constant::news_category_id) {
+            $validator = Validator::make($data = $request->all(), News::rules($check = false));
+        }
+        else {
+            $validator = Validator::make($data = $request->all(), News::rules($check = true));
+        }
         $validator->setAttributeNames(trans('news'));
 
         if ($validator->fails())
@@ -111,14 +113,14 @@ class NewsController extends Controller
             $image  = \Image::make($request->image);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 200) {
-                    $image->resize(null, 200, function ($constraint) {
+                if ($image->height() >= 270) {
+                    $image->resize(null, 270, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->width() >= 255) {
-                    $image->resize(255, null, function ($constraint) {
+                if ($image->width() >= 370) {
+                    $image->resize(370, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
@@ -215,12 +217,12 @@ class NewsController extends Controller
             return back();
         }
 
-        dd(Constant::news_category_id);
+        // dd(Constant::news_category_id);
         if ($request->category == Constant::news_category_id) {
-            $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'status', 'featured'), News::rules());
+            $validator = Validator::make($data = $request->all(), News::rules($check = false));
         }
         else {
-            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'status', 'featured', 'image', 'summary'), News::rules());
+            $validator = Validator::make($data = $request->all(), News::rules($check = true));
         }
 
         $validator->setAttributeNames(trans('news'));
@@ -238,21 +240,21 @@ class NewsController extends Controller
             $image  = \Image::make($request->image);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 200) {
-                    $image->resize(null, 200, function ($constraint) {
+                if ($image->height() >= 270) {
+                    $image->resize(null, 270, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->width() >= 255) {
-                    $image->resize(255, null, function ($constraint) {
+                if ($image->width() >= 370) {
+                    $image->resize(370, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             }
 
             \File::makeDirectory('assets/media/images/news/' .  date('dm'), 0775, true, true);
-            if(\File::exists(asset('assets/media/images/news/' . $news->image))) \File::delete(asset('assets/media/images/news/' . $news->image));
+            if(\File::exists(asset('assets/media/images/news/' . $news->image))) \File::delete(public_path(). '/assets/media/images/news/' . $news->image);
             $timestamp = time();
             $image->save('assets/media/images/news/' .  date('dm') . '/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext);
             $data['image'] = date('dm') . '/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext;
@@ -302,7 +304,7 @@ class NewsController extends Controller
         }
 
         if(\File::exists(asset('assets/media/images/news/' . $news->image)))
-            \File::delete(asset('assets/media/images/news/' . $news->image));
+            \File::delete(public_path(). '/assets/media/images/news/' . $news->image);
 
         $news->delete();
         News::clearCache();
