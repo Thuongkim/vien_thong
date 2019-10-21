@@ -5,7 +5,7 @@
 					<div class="container clearfix">
 						<!-- technologysite logo -->
 						<div class="logo-header mostion" style="width: auto;">
-							<a href="{{ route('home') }}"><img src="{{ asset('assets/frontend/images/hte-logo.jpg') }}" alt="" style="width: 258px; height: 75px"></a>
+							<a href="{{ route('home') }}"><img src="{{ asset('assets/frontend/images/hte-logo.png') }}" alt="" style="width: 258px; height: 75px"></a>
 						</div>
 						<!-- nav toggle button -->
 						<button class="navbar-toggler collapsed navicon justify-content-end" type="button"
@@ -38,7 +38,7 @@
 						<!-- main nav -->
 						<div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
 							<div class="logo-header d-md-block d-lg-none">
-								<a href="index.html"><img src="images/hte-logo.png" alt=""></a>
+								<a href="index.html"><img src="{{ asset('assets/frontend/images/hte-logo.jpg') }}" alt=""></a>
 							</div>
 							<ul class="nav navbar-nav">
 								<li class="active has-mega-menu homedemo"> <a href="{{ route('home') }}">Trang chủ</a>

@@ -128,4 +128,6 @@ return [
     'image_lower'       => 'ảnh',
     'en'                    => 'Tiếng Anh',
     'de'                    => 'Tiếng Đức',
+    'down'                    => 'Down',
+    'up'                    => 'Up',
 ];

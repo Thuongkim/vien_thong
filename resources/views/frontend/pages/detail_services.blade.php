@@ -1,17 +1,22 @@
 @extends('frontend.master')
 
+@section('title'){!! $detailService[0][$lang]['title'] !!}@stop
+
+@section('seo_keywords'){!! $detailService[0][$lang]['title'] !!}@stop
+@section('seo_description'){!! $detailService[0][$lang]['summary'] !!}@stop
+
 @section('content')
 
 <div class="dlab-bnr-inr overlay-black-middle bg-pt" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
 	<div class="container">
 		<div class="dlab-bnr-inr-entry">
-			<h1 class="text-white">Dịch vụ</h1>
+			<h1 class="text-white">{!! trans('frontend.dich_vu') !!}</h1>
 			<!-- Breadcrumb row -->
 			<div class="breadcrumb-row">
 				<ul class="list-inline">
-					<li><a href="{{ route('home') }}">Home</a></li>
-					<li>Dịch vụ</li>
-					<li>Chi tiết dịch vụ</li>
+					<li><a href="{{ route('home') }}">{!! trans('frontend.home') !!}</a></li>
+					<li>{!! trans('frontend.dich_vu') !!}</li>
+					<li>{!! $detailService[0][$lang]['title'] !!}</li>
 				</ul>
 			</div>
 			<!-- Breadcrumb row END -->

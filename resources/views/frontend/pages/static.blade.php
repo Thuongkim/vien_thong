@@ -1,5 +1,10 @@
 @extends('frontend.master')
 
+@section('title'){!! $page[0][$lang]['title'] !!}@stop
+
+@section('seo_keywords'){!! $page[0][$lang]['title'] !!}@stop
+@section('seo_description'){!! $page[0][$lang]['description'] !!}@stop
+
 @section('content')
 
 		<div class="page-content bg-white">
@@ -8,12 +13,12 @@
 				style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
 				<div class="container">
 					<div class="dlab-bnr-inr-entry">
-						<h1 class="text-white">{!! $page->title !!}</h1>
+						<h1 class="text-white">{!! $page[0][$lang]['title'] !!}</h1>
 						<!-- Breadcrumb row -->
 						<div class="breadcrumb-row">
 							<ul class="list-inline">
-								<li><a href="{!! route('home') !!}">Home</a></li>
-								<li>{!! $page->title !!}</li>
+								<li><a href="{!! route('home') !!}">{!! trans('frontend.home') !!}</a></li>
+								<li>{!! $page[0][$lang]['title'] !!}</li>
 							</ul>
 						</div>
 						<!-- Breadcrumb row END -->
@@ -125,145 +130,24 @@
 						<div class="section-head text-black text-center">
 							<h2 class="title text-capitalize">Đối Tác</h2>
 						</div>
-						<div
-							class="client-logo-carousel owl-loaded owl-theme owl-carousel owl-dots-none owl-btn-center-lr owl-btn-3">
+						<div class="client-logo-carousel owl-loaded owl-theme owl-carousel owl-dots-none owl-btn-center-lr owl-btn-3">
+							
+							@foreach ($partners as $partner)
+
 							<div class="item">
 								<div class="ow-client-logo">
 									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="{{ asset('assets/frontend/') }}images/client-logo/t1.png" alt=""></a>
+										<a href=""><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
 									</div>
 								</div>
 							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="{{ asset('assets/frontend/') }}images/client-logo/t2.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="{{ asset('assets/frontend/') }}images/client-logo/t3.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t4.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t5.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t6.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t7.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t8.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t9.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t10.jpg" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t11.png" alt=""></a>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="images/client-logo/t12.png" alt=""></a>
-									</div>
-								</div>
-							</div>
+							
+							@endforeach
+
 						</div>
 					</div>
 				</div>
 				<!-- Client logo End -->
-				<!-- Testimonials -->
-				<div class="section-full content-inner bg-gray">
-					<div class="container">
-						<div class="section-head text-black text-center">
-							<h2 class="title">Bình luận của khách hàng</h2>
-						</div>
-						<div class="testimonial-six owl-loaded owl-theme owl-carousel owl-none dots-style-2">
-							<div class="item">
-								<div class="testimonial-8">
-									<div class="testimonial-text">
-										<p>chất lượng đảm bảo hàng đầu</p>
-									</div>
-									<div class="testimonial-detail clearfix">
-										<div class="testimonial-pic radius shadow"><img src="{{ asset('assets/frontend/images/about/img.png') }}"
-												width="100" height="100" alt=""></div>
-										<h5 class="testimonial-name m-t0 m-b5">Mr.nguyễn</h5> <span
-											class="testimonial-position"></span>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="testimonial-8">
-									<div class="testimonial-text">
-										<p>chất lượng đảm bảo hàng đầu</p>
-									</div>
-									<div class="testimonial-detail clearfix">
-										<div class="testimonial-pic radius shadow"><img src="{{ asset('assets/frontend/images/about/img.png') }}"
-												width="100" height="100" alt=""></div>
-										<h5 class="testimonial-name m-t0 m-b5">Mr.nguyễn</h5> <span
-											class="testimonial-position"></span>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="testimonial-8">
-									<div class="testimonial-text">
-										<p>chất lượng đảm bảo hàng đầu</p>
-									</div>
-									<div class="testimonial-detail clearfix">
-										<div class="testimonial-pic radius shadow"><img src="{{ asset('assets/frontend/images/about/img.png') }}"
-												width="100" height="100" alt=""></div>
-										<h5 class="testimonial-name m-t0 m-b5">Mr.nguyễn</h5> <span
-											class="testimonial-position"></span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 
 			@else

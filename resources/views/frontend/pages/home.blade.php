@@ -1,5 +1,10 @@
 @extends('frontend.master')
 
+@section('title'){!! trans('frontend.home') !!}@stop
+
+@section('seo_keywords'){!! isset($staticPages[$lang]['seo-keywords']['description']) ? $staticPages[$lang]['seo-keywords']['description'] : '' !!}@stop
+@section('seo_description'){!! isset($staticPages[$lang]['seo-description']['description']) ? $staticPages[$lang]['seo-description']['description'] : '' !!}@stop
+
 @section('content')
 
 <div class="page-content bg-white">
@@ -110,7 +115,7 @@
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
 											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#fc1520; text-transform: uppercase;">
 										
-											{{ $slider[$lang]['name'] }}
+											Về chúng tôi
 											
 										</a>
 										<!-- LAYER NR. 5 -->
@@ -171,31 +176,31 @@
 						<div class="on-show-slider ">
 							
 							<div id="sync2" class="owl-carousel owl-theme owl-none owl-dots-none project-list">
-								@foreach($services as $service)
+								@foreach($servicesLangs as $servicesLang)
 								<div class="item">
 									<div class="project-owbx">
-										<i class="fa {{ $service->icon }}"></i>
-										<h4 class="title">{{ $service->title }}</h4>
+										<i class="fa {{ $servicesLang['icon'] }}"></i>
+										<h4 class="title">{{ $servicesLang[$lang]['title'] }}</h4>
 									</div>
 								</div>
 								@endforeach
 							</div>
 							<div id="sync1"
 								class="owl-carousel owl-theme owl-btn-center-lr m-b5 owl-dots-none owl-btn-3 primary">
-								@foreach($services as $service)
+								@foreach($servicesLangs as $servicesLang)
 								<div class="item">
 									<div class="row align-items-center">
 										<div class="col-lg-6 col-md-6 m-b30">
 											<div class="our-story">
-												<h2 class="title"><span class="text-primary">{{ $service->title }}</span>
+												<h2 class="title"><span class="text-primary">{{ $servicesLang[$lang]['title'] }}</span>
 												</h2>
-												{!! $service->content !!}
+												{!! $servicesLang[$lang]['content'] !!}
 												<br>
-												<a href="#" class="site-button btnhover16">xem thêm</a>
+												<a href="{!! route('home.services-detail', ['slug' => str_slug($servicesLang[$lang]['title']), 'id' => $servicesLang['id']]) !!}" class="site-button btnhover16">xem thêm</a>
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 m-b30">
-											<img src="{{ asset($service->image) }}" class="radius-sm" alt="">
+											<img src="{{ asset($servicesLang['image']) }}" class="radius-sm" alt="">
 										</div>
 									</div>
 								</div>

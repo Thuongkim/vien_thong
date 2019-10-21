@@ -83,14 +83,14 @@
                     {!! trans('services.icon') !!}
                 </th>
                 <td>
-                    <input type="text" name="icon" style="width: 740px; height: 30px">
+                    {!! Form::text('icon', old('icon'), array('class' => 'form-control', 'required', 'maxlength' => 255)) !!}
                 </td>
             </tr>
             <tr>
                 <th class="text-right">{!! trans("services.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="height: 265px;width: 740px;">
+                        <div class="fileupload-preview thumbnail" style="height: 225px;width: 300px;">
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">
