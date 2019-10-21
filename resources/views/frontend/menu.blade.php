@@ -49,7 +49,6 @@
 								<li>
 									<a href="">{{trans('frontend.present')}}<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu tab-content">
-
 										@foreach($staticPagess as $staticPage)
 										<li>
 											<a href="{!! route('home.static-page', $staticPage['slug']) !!}">{{ $staticPage[$lang]['title'] }}</a>
