@@ -13,4 +13,5 @@ class Constant
     const IMAGE_PAPER_HEIGHT = 200;
     const IMAGE_PAPER_RATIO = 1;
     const news_category_id = 2;
+    const service_category_id = 2;
 }

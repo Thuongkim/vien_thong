@@ -261,7 +261,9 @@ class HomeController extends Controller
         }
         // dd($categories);
         $servicesCategories = ServiceCategory::getByAll();
-        return view('frontend.pages.service_category', compact('category', 'services', 'serviceCategories', 'rootCat', 'featuredNews', 'servicesCategories', 'categories'));
+        $servicesNew             = Service::getServiceNews();
+        // dd($servicesNew);
+        return view('frontend.pages.service_category', compact('category', 'services', 'serviceCategories', 'rootCat', 'featuredNews', 'servicesCategories', 'categories', 'servicesNew'));
     }
     public function getDetailService(Request $request, $slug, $id)
     {
