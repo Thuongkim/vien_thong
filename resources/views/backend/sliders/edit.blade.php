@@ -84,7 +84,7 @@
         </th>
         <td colspan="3">
             <div class="fileupload fileupload-new" data-provides="fileupload">
-                <div class="fileupload-preview thumbnail" style="width: 740px; height: 265px;">
+                <div class="fileupload-preview thumbnail" style="width: {!! 1200/1.5 !!}px; height: {!! 600/1.5 !!}px;">
                     <img src="{!! asset($slider->image) !!}">
                 </div>
                 <div>

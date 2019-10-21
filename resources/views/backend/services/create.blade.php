@@ -90,7 +90,7 @@
                 <th class="text-right">{!! trans("services.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="height: 225px;width: 300px;">
+                        <div class="fileupload-preview thumbnail" style="width: {!! 300/1.5 !!}px; height: {!! 225/1.5 !!}px;">
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">
