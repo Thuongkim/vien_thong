@@ -1,4 +1,8 @@
 @extends('frontend.master')
+@section('title'){!! trans('frontend.partner') !!}@stop
+@section('seo_keywords'){!! trans('frontend.partner'). " " .config('app.name') !!}@stop
+@section('seo_description'){!! trans('frontend.partner'). " " .config('app.name') !!}@stop
+@section('image'){!!  asset('assets/frontend/images/main-slider/slide1.jpg') !!}@stop
 
 @section('content')
 

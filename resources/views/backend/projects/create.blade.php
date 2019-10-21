@@ -63,7 +63,7 @@
                 <th class="text-right">{!! trans("projects.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="min-height: 200px; max-height: 200px; max-width: 255px;">
+                        <div class="fileupload-preview thumbnail" style="min-height: 200px; max-height: 200px; max-width: 255px;padding: 0px;">
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">

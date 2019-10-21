@@ -113,8 +113,8 @@ class NewsController extends Controller
             $image  = \Image::make($request->image);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 270) {
-                    $image->resize(null, 270, function ($constraint) {
+                if ($image->height() >= 250) {
+                    $image->resize(null, 250, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
@@ -240,8 +240,8 @@ class NewsController extends Controller
             $image  = \Image::make($request->image);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 270) {
-                    $image->resize(null, 270, function ($constraint) {
+                if ($image->height() >= 250) {
+                    $image->resize(null, 250, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }

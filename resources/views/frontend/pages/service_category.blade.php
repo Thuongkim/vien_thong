@@ -53,7 +53,7 @@
 							</div>
 							<div class="dlab-post-readmore">
 								<a href="{!! route('home.services-detail', ['slug' => str_slug($service[$lang]['title']), 'id' => $service['id']]) !!}" title="READ MORE" rel="bookmark"
-									class="site-button">READ MORE
+									class="site-button">{{trans('frontend.read_more')}}
 									<i class="ti-arrow-right"></i>
 								</a>
 							</div>

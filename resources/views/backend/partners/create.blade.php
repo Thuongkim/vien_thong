@@ -53,7 +53,7 @@
                 <th class="text-right">{!! trans("partners.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="min-height: 200px; max-height: 200px; max-width: 255px;">
+                        <div class="fileupload-preview thumbnail" style="min-height: 70px; max-height: 70px; max-width: 230px;">
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">
@@ -65,7 +65,7 @@
                             <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
                                 {!! trans('system.action.remove') !!}
                             </a>
-                            (Kích thước 255x200)
+                            (Kích thước 200x50)
                         </div>
                     </div>
                 </td>
