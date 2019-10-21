@@ -86,7 +86,7 @@
 											</ul>
 										</div>
 										<div class="dlab-post-header">
-											<h6 class="post-title"><a href="{{ route('news.show', $servicesN['id']) }}">{{$servicesN[$lang]['title']}}</a></h6>
+											<h6 class="post-title"><a href="{!! route('home.services-detail', ['slug' => str_slug($servicesN[$lang]['title']), 'id' => $service['id']]) !!}">{{$servicesN[$lang]['title']}}</a></h6>
 										</div>
 									</div>
 								</div>
