@@ -89,7 +89,7 @@
                 <th class="text-right">{!! trans("news.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="min-height: 200px; max-height: 200px; max-width: 255px;">
+                        <div class="fileupload-preview thumbnail" style="min-height: 250px; max-height: 250px; max-width: 370px; padding: 0px;">
                             @if($news->image)
                             <img src="{!! asset('assets/media/images/news/' . $news->image) !!}">
                             @endif
@@ -104,7 +104,7 @@
                             <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
                                 {!! trans('system.action.remove') !!}
                             </a>
-                            (Kích thước 255x200)
+                            (Kích thước 370x250)
                         </div>
                     </div>
                 </td>

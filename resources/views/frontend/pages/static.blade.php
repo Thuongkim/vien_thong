@@ -42,7 +42,7 @@
 									<div class="row">
 										<div class="col-lg-12">
 											<div class=" clearfix">
-												<h4>Giới thiệu</h4>
+												<h4>{{trans('frontend.introduction')}}</h4>
 											</div>
 											<div class="dlab-separator-outer ">
 												<div class="dlab-separator bg-primary style-skew"></div>
@@ -100,7 +100,7 @@
 				<div class="section-full text-center bg-gray content-inner">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title">Kết quả sản xuất kinh doanh</h2>
+							<h2 class="title">{{trans('frontend.business-production-results')}}</h2>
 						</div>
 						<div class="row">
 							<div class="col-lg-12 col-md-12 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">
@@ -114,7 +114,7 @@
 						<div class="row">
 							<div class="col-lg-12 col-md-12 m-b30 align-self-center video-infobx">
 								<div class="content-bx1">
-									<h2 class="m-b15 title">Lĩnh vực hoạt động</h2>
+									<h2 class="m-b15 title">{{trans('frontend.field-of-operation')}}</h2>
 									<div class="our-story">
 										
 									</div>
@@ -128,7 +128,7 @@
 				<div class="section-full content-inner-2 wow fadeIn" data-wow-duration="2s" data-wow-delay="0.6s">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title text-capitalize">Đối Tác</h2>
+							<h2 class="title text-capitalize">{{trans('frontend.partner')}}</h2>
 						</div>
 						<div class="client-logo-carousel owl-loaded owl-theme owl-carousel owl-dots-none owl-btn-center-lr owl-btn-3">
 							

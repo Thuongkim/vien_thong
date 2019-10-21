@@ -156,7 +156,7 @@
                             </td>
                             <td style="text-align: center; vertical-align: middle;">{!! $i++ !!}</td>
                             <td style="text-align: justify; vertical-align: middle;">
-                                {!! HTML::link( route('admin.projects.show', $item->id), \App\Helper\HString::modSubstr($item->title, 50), array('class' => '', 'title' => $item->title)) !!}
+                                {!! HTML::link( route('admin.projects.index'), \App\Helper\HString::modSubstr($item->title, 50), array('class' => '', 'title' => $item->title)) !!}
                             </td>
                             <td style="text-align: center; vertical-align: middle;">
                                 @if($item->featured == 0)

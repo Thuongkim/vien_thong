@@ -1,5 +1,8 @@
 @extends('frontend.master')
-
+@section('title'){!! trans('frontend.project') !!}@stop
+@section('seo_keywords'){!! trans('frontend.project'). " " .config('app.name') !!}@stop
+@section('seo_description'){!! trans('frontend.project'). " " .config('app.name') !!}@stop
+@section('image'){!!  asset('assets/frontend/images/main-slider/slide1.jpg') !!}@stop
 @section('content')
 
 <!-- Content -->
@@ -58,7 +61,7 @@
                                 </div>
                             </div>
                             <div class="dez-info p-a30 bg-white">
-                                <b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('project.show', $project['id']), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
+                                <b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('project.show',['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
                             </div>
                         </div>
                     </li>
@@ -71,14 +74,14 @@
                                 <div class="overlay-bx">
                                     <div class="overlay-icon">
                                         <div class="text-white">
-                                            <a href="{{ route('project.show', $project['id']) }}"><i
+                                            <a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
                                                     class="fa fa-link icon-bx-xs"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="dez-info p-a30 bg-white">
-                                <b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('project.show', $project['id']), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
+                                <b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
                             </div>
                         </div>
                     </li>

@@ -70,7 +70,7 @@
 				<div class="col-xl-3 col-lg-4 col-md-5 sticky-top">
 					<aside class="side-bar">
 						<div class="widget recent-posts-entry">
-							<h5 class="widget-title style-1">{{trans('frontend.post')}}</h5>
+							<h5 class="widget-title style-1">{{trans('frontend.service')}}</h5>
 							<div class="widget-post-bx">
 								@foreach ($servicesNew as $servicesN)
 								<div class="widget-post clearfix">

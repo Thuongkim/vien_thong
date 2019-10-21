@@ -1,4 +1,8 @@
 @extends('frontend.master')
+@section('title'){!! trans('frontend.news') !!}@stop
+@section('seo_keywords'){!! trans('frontend.news'). " " .config('app.name') !!}@stop
+@section('seo_description'){!! trans('frontend.news'). " " .config('app.name') !!}@stop
+@section('image'){!!  asset('assets/frontend/images/main-slider/slide1.jpg') !!}@stop
 
 @section('content')
 
@@ -43,13 +47,13 @@
 								</ul>
 							</div>
 							<div class="dlab-post-title">
-								<h4 class="post-title"><a href="{{ route('news.show', $news_st['id']) }}">{{$news_st[$lang]['title']}}</a></h4>
+								<h4 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}">{{$news_st[$lang]['title']}}</a></h4>
 							</div>
 							<div class="dlab-post-text">
 								<p>{{$news_st[$lang]['summary']}}</p>
 							</div>
 							<div class="dlab-post-readmore">
-								<a href="{{ route('news.show', $news_st['id']) }}" title="READ MORE" rel="bookmark"
+								<a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}" title="READ MORE" rel="bookmark"
 									class="site-button">{{trans('frontend.read_more')}}
 									<i class="ti-arrow-right"></i>
 								</a>
@@ -85,7 +89,7 @@
 											</ul>
 										</div>
 										<div class="dlab-post-header">
-											<h6 class="post-title"><a href="{{ route('news.show', $news_nd['id']) }}">{{$news_nd[$lang]['title']}}</a></h6>
+											<h6 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_nd[$lang]['title']), 'id' => $news_nd['id']]) }}">{{$news_nd[$lang]['title']}}</a></h6>
 										</div>
 									</div>
 								</div>
