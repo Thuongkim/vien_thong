@@ -24,7 +24,10 @@
 						</div> --}}
 						<div class="extra-nav">
 							<ul class="nav navbar-nav">
-								<li><a href="{!! route('change-language', ['vi']) !!}"><img src="{{ asset('assets/frontend/images/vn.png') }}" alt=""></a><a href="{!! route('change-language', ['en']) !!}"><img src="{{ asset('assets/frontend/images/gb.png') }}" alt=""></a></li>
+								<li>
+									<a href="{!! route('change-language', ['vi']) !!}"><img src="{{ asset('assets/frontend/images/vn.png') }}" alt=""></a>
+									<a href="{!! route('change-language', ['en']) !!}"><img src="{{ asset('assets/frontend/images/gb.png') }}" alt=""></a>
+								</li>
 							</ul>
 						</div>
 						<!-- Quik search -->
@@ -41,10 +44,10 @@
 								<a href="index.html"><img src="{{ asset('assets/frontend/images/hte-logo.jpg') }}" alt=""></a>
 							</div>
 							<ul class="nav navbar-nav">
-								<li class="active has-mega-menu homedemo"> <a href="{{ route('home') }}">Trang chủ</a>
+								<li class="active has-mega-menu homedemo"> <a href="{{ route('home') }}">{{trans('frontend.home')}}</a>
 								</li>
 								<li>
-									<a href="">Giới thiệu<i class="fa fa-chevron-down"></i></a>
+
 									<ul class="sub-menu tab-content">
 
 										@foreach($staticPagess as $staticPage)
@@ -56,7 +59,7 @@
 									</ul>
 								</li>
 								<li>
-									<a href="#">Dịch vụ<i class="fa fa-chevron-down"></i></a>
+									<a href="#">{{trans('frontend.service')}}<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu tab-content">
 										@foreach($servicesCategories as $servicesCategory)
 										@if (count($servicesCategory['children']))
@@ -82,18 +85,18 @@
 										@endforeach
 									</ul>
 								</li>
-								<li class="has-mega-menu"> <a href="{{ route('project') }}">Dự án<i
+								<li class="has-mega-menu"> <a href="{{ route('project') }}">{{trans('frontend.project')}}<i
 											class="fa fa-chevron-down"></i></a>
 									<ul class="mega-menu">
 										@foreach ($projectCategories as $projectCategory)
 										<li>
-											<a href="javascript:void(0);">Dự án {{ $projectCategory[$lang]['name']}}</a>
+											<a href="javascript:void(0);">{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</a>
 											<ul>
 												@php
 													$i = 0;	
 												@endphp
 												@foreach ($projects as $project)
-												@if ($projectCategory['id'] == $project['category_id'])
+												@if ($projectCategory['id'] == $project['category_id'] && $project[$lang]['title'])
 												<li><a href="{{ route('project.show', $project['id']) }}">{{$project[$lang]['title']}}</a></li>
 												@php
 													$i++;
@@ -106,11 +109,11 @@
 										@endforeach
 									</ul>
 								</li>
-								<li class="has-mega-menu"> <a href="{{ route('news') }}">Tin tức</a>
+								<li class="has-mega-menu"> <a href="{{ route('news') }}">{{trans('frontend.news')}}</a>
 								</li>
-								<li class="has-mega-menu"> <a href="{{ route('career') }}">Tuyển dụng</a>
+								<li class="has-mega-menu"> <a href="{{ route('career') }}">{{trans('frontend.career')}}</a>
 								</li>
-								<li class="has-mega-menu"> <a href="{{ route('partner') }}">Đối tác</a>
+								<li class="has-mega-menu"> <a href="{{ route('partner') }}">{{trans('frontend.partner')}}</a>
 								</li>
 								<li class="has-mega-menu"> <a href="https://mail.hte.vn">Mail</a>
 								</li>

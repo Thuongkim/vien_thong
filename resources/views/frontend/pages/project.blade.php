@@ -9,12 +9,12 @@
         style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
         <div class="container">
             <div class="dlab-bnr-inr-entry">
-                <h1 class="text-white">Dự án</h1>
+                <h1 class="text-white">{{trans('frontend.project')}}</h1>
                 <!-- Breadcrumb row -->
                 <div class="breadcrumb-row">
                     <ul class="list-inline">
-                        <li><a href="{{ route('home') }}">Home</a></li>
-                        <li>Dự án</li>
+                        <li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
+                        <li>{{trans('frontend.project')}}</li>
                     </ul>
                 </div>
                 <!-- Breadcrumb row END -->
@@ -30,13 +30,13 @@
                     <li data-filter="" class="btn active">
                         <input type="radio">
                         <a href="javascript:void(0);"
-                            class="site-button-secondry button-sm radius-xl"><span>All</span></a>
+                            class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.all')}}</span></a>
                     </li>
                     @foreach ($projectCategories as $projectCategory)
                     <li data-filter="{{ $projectCategory['id']}}" class="btn">
                         <input type="radio">
                         <a href="javascript:void(0);"
-                            class="site-button-secondry button-sm radius-xl"><span>Dự án {{ $projectCategory[$lang]['name']}}</span></a>
+                            class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</span></a>
                     </li>
                     @endforeach
                 </ul>
@@ -46,7 +46,7 @@
                 <ul id="masonry"
                     class=" portfolio-ic dlab-gallery-listing gallery-grid-4 gallery lightgallery text-center">
                     @foreach ($projects as $project)
-                    @if (!$project['image'])
+                    @if (!$project['image'] && $project[$lang]['title'])
                     <li class="{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
                         <div class="dlab-box dlab-gallery-box">
                             <div class="dlab-media dlab-img-overlay1 dlab-img-effect">
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </li>
-                    @else
+                    @elseif ($project[$lang]['title'])
                     <li class="{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
                         <div class="dlab-box dlab-gallery-box">
                             <div class="dlab-media dlab-img-overlay1 dlab-img-effect">

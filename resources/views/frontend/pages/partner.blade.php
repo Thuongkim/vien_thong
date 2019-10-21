@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="sort-title text-white clearfix text-center">
-                            <h4>Đối tác của chúng tôi</h4>
+                            <h4>{{trans('frontend.partner_us')}}</h4>
                         </div>
                         <div class="section-content">
                             <div class="testimonial-four owl-loaded owl-theme owl-carousel owl-none">
@@ -27,7 +27,7 @@
                                         </div>
                                         <div class="testimonial-detail"> <strong
                                                 class="testimonial-name">{{$partner['name']}}</strong> <span
-                                                class="testimonial-position">Đối tác</span> </div>
+                                                class="testimonial-position">{{trans('frontend.partner')}}</span> </div>
                                         <div class="quote-right"></div>
                                     </div>
                                 </div>

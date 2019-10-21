@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php $appName = isset($staticPages['website-title']['description']) ? $staticPages['website-title']['description'] : env('APP_NAME'); ?>
 <head>
 	<!-- PAGE TITLE HERE -->
 	<title>@yield('title')</title>
@@ -30,7 +30,6 @@
 	<script src="js/html5shiv.min.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/plugins.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/plugins/fontawesome/css/font-awesome.min.css') }}">
@@ -51,7 +50,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/plugins/revolution/revolution/css/revolution.min.css') }}">
 	<!-- SEARCH -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/search.css') }}">
-	
+
 </head>
 
 <body id="bg">
