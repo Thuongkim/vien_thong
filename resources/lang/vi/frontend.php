@@ -18,4 +18,5 @@ return [
     'partner_us'         => 'Đối tác của chúng tôi',
     'present'            => 'Giới thiệu',
     'all'            => 'Tất cả',
+    'dich_vu'               => 'Dịch vụ',
 ];

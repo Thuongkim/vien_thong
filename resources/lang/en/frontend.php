@@ -18,4 +18,5 @@ return [
     'partner_us'         => 'Our Partners',
     'present'            => 'Present',
     'all'            => 'All',
+    'dich_vu'               => 'Service',
 ];
