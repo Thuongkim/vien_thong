@@ -5,7 +5,7 @@
 					<div class="container clearfix">
 						<!-- technologysite logo -->
 						<div class="logo-header mostion" style="width: auto;">
-							<a href="{{ route('home') }}"><img src="{{ asset('assets/frontend/images/hte-logo.jpg') }}" alt="" style="width: 258px; height: 75px"></a>
+							<a href="{{ route('home') }}"><img src="{{ asset('assets/frontend/images/hte-logo.jpg') }}" alt="" style="width: 258px; height: 75px;"></a>
 						</div>
 						<!-- nav toggle button -->
 						<button class="navbar-toggler collapsed navicon justify-content-end" type="button"
@@ -25,8 +25,8 @@
 						<div class="extra-nav">
 							<ul class="nav navbar-nav">
 								<li>
-									<a href="{!! route('change-language', ['vi']) !!}"><img src="{{ asset('assets/frontend/images/vn.png') }}" alt=""></a>
-									<a href="{!! route('change-language', ['en']) !!}"><img src="{{ asset('assets/frontend/images/gb.png') }}" alt=""></a>
+									<a href="{!! route('change-language', ['vi']) !!}"><img src="{{ asset('assets/frontend/images/vn.png') }}" alt="" style="display: inline;"></a>
+									<a href="{!! route('change-language', ['en']) !!}"><img src="{{ asset('assets/frontend/images/gb.png') }}" alt="" style="display: inline;"></a>
 								</li>
 							</ul>
 						</div>
