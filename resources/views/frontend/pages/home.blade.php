@@ -1,5 +1,10 @@
 @extends('frontend.master')
 
+@section('title'){!! trans('frontend.home') !!}@stop
+
+@section('seo_keywords'){!! isset($staticPages[$lang]['seo-keywords']['description']) ? $staticPages[$lang]['seo-keywords']['description'] : '' !!}@stop
+@section('seo_description'){!! isset($staticPages[$lang]['seo-description']['description']) ? $staticPages[$lang]['seo-description']['description'] : '' !!}@stop
+
 @section('content')
 
 <div class="page-content bg-white">
@@ -110,7 +115,7 @@
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
 											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#fc1520; text-transform: uppercase;">
 										
-											{{ $slider[$lang]['name'] }}
+											{{trans('frontend.about-us')}}
 											
 										</a>
 										<!-- LAYER NR. 5 -->
@@ -149,7 +154,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-9 text-white">
-								<h2 class="title">Giới thiệu</h2>
+								<h2 class="title">{{trans('frontend.introduction')}}</h2>
 								<p class="m-b0">
 								{!! isset($staticPages[$lang]['index']['description']) ? $staticPages[$lang]['index']['description'] : '' !!}
 								</p>
@@ -171,31 +176,31 @@
 						<div class="on-show-slider ">
 							
 							<div id="sync2" class="owl-carousel owl-theme owl-none owl-dots-none project-list">
-								@foreach($services as $service)
+								@foreach($servicesLangs as $servicesLang)
 								<div class="item">
 									<div class="project-owbx">
-										<i class="fa {{ $service->icon }}"></i>
-										<h4 class="title">{{ $service->title }}</h4>
+										<i class="fa {{ $servicesLang['icon'] }}"></i>
+										<h4 class="title">{{ $servicesLang[$lang]['title'] }}</h4>
 									</div>
 								</div>
 								@endforeach
 							</div>
 							<div id="sync1"
 								class="owl-carousel owl-theme owl-btn-center-lr m-b5 owl-dots-none owl-btn-3 primary">
-								@foreach($services as $service)
+								@foreach($servicesLangs as $servicesLang)
 								<div class="item">
 									<div class="row align-items-center">
 										<div class="col-lg-6 col-md-6 m-b30">
 											<div class="our-story">
-												<h2 class="title"><span class="text-primary">{{ $service->title }}</span>
+												<h2 class="title"><span class="text-primary">{{ $servicesLang[$lang]['title'] }}</span>
 												</h2>
-												{!! $service->content !!}
+												{!! $servicesLang[$lang]['content'] !!}
 												<br>
-												<a href="#" class="site-button btnhover16">xem thêm</a>
+
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 m-b30">
-											<img src="{{ asset($service->image) }}" class="radius-sm" alt="">
+											<img src="{{ asset($servicesLang['image']) }}" class="radius-sm" alt="">
 										</div>
 									</div>
 								</div>
@@ -262,7 +267,7 @@
 										<div class="dez-info p-a30 bg-white">
 											@if ($project[$lang]['title'])
 											<b><p class="dez-title m-t0" style="text-transform: capitalize;">
-												<a href="{{ route('project.show', $project['id']) }}">
+												<a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">
 												{!! \App\Helper\HString::modSubstr($project[$lang]['title'], 50)!!}
 												</a>
 											</p></b>
@@ -279,7 +284,7 @@
 											<div class="overlay-bx">
 												<div class="overlay-icon">
 													<div class="text-white">
-														<a href="{{ route('project.show', $project['id']) }}"><i
+														<a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
 																class="fa fa-link icon-bx-xs"></i></a>
 													</div>
 												</div>
@@ -287,7 +292,7 @@
 										</div>
 										<div class="dez-info p-a30 bg-white">
 											<b><p class="dez-title m-t0" style="text-transform: capitalize;">
-												<a href="{{ route('project.show', $project['id']) }}">
+												<a href="{{ route('project.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}">
 												{!! \App\Helper\HString::modSubstr($project[$lang]['title'], 50)!!}
 												</a>
 											</p></b>
@@ -317,14 +322,14 @@
 									<div class="ow-blog-post date-style-2">
 										<div class="ow-post-media dlab-img-effect zoom-slow">
 											@if($news['image'])
-											<a href="{{ route('news.show', $news['id']) }}">
+											<a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}">
 												<img src="{!! asset('assets/media/images/news/' . $news['image']) !!}" style="height: 250px;" alt="">
 											</a>
 											@endif
 										</div>
 										<div class="ow-post-info">
 											<div class="ow-post-title">
-												<h4 class="post-title" style="min-height: 60px;font-size: 20px"> <a href="{{ route('news.show', $news['id']) }}"
+												<h4 class="post-title" style="min-height: 60px;font-size: 20px"> <a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}"
 														title="news">{{$news[$lang]['title']}}</a> </h4>
 											</div>
 											<div class="ow-post-meta">

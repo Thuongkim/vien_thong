@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
+use App\Define\Constant as Constant;
 
 class Service extends Model
 {
@@ -83,5 +84,41 @@ class Service extends Model
             $redis->setex("add_to_change_list_$id", \Config::get('products.write_count_cycle'), "change_after");
         }
     }
+    public static function getServiceNews()
+    {
+        $id_exception = Constant::service_category_id;
+        $servicesNews = [];
+        $langs = config('app.locales');
+        if (!Cache::has('services_new')) {
+        $servicess = Service::where('status', 1)->where('category_id', '<>', $id_exception)->where( 'featured', 1)->orderBy( 'updated_at', 'desc')->take(6)->get();
 
+        foreach ($servicess as $service) {
+            $tmp = [];
+            $id = $service->id;
+            $tmp['id'] = is_null($id) ? '' : $id;
+            $image = $service->image;
+            $tmp['image'] = is_null($image) ? '' : $image;
+            $created_by = \App\User::find( $service->created_by );
+            $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
+            $updated_at = $service->updated_at;
+            $tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
+            for ($i = 0; $i < count($langs); $i++) {
+                $trans = $service->translation('title', $langs[$i])->first();
+                $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+                $trans = $service->translation('summary', $langs[$i])->first();
+                $tmp[$langs[$i]]['summary'] = is_null($trans) ? '' : $trans->content;
+                $trans = $service->translation('content', $langs[$i])->first();
+                $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
+            }
+
+            array_push($servicesNews, $tmp);
+        }
+        $servicesNews = json_encode($servicesNews) ;
+        if ($servicesNews) Cache:: forever( 'services_new', $servicesNews);
+    } else {
+        $servicesNews = Cache::get( 'services_new');
+    }
+    return json_decode($servicesNews, 1);
+
+}
 }

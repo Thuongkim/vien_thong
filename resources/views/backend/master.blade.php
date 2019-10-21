@@ -36,15 +36,6 @@
             <![endif]-->
         <link rel="stylesheet" type="text/css" href="{!! asset('assets/backend/css/fixed.css') !!}" />
 
-         <style>
-        .thumbnail a>img, .thumbnail>img {
-            margin-right: auto;
-            margin-left: auto;
-            height: 256px;
-            width: auto;
-        }
-    </style>
-
     </head>
     <?php $user = auth()->guard('admin')->getUser(); ?>
     <body class="hold-transition skin-blue sidebar-mini">

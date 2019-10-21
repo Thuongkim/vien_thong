@@ -1,4 +1,8 @@
 @extends('frontend.master')
+@section('title'){!! $news->translation('title', $lang)->first()->content !!}@stop
+@section('seo_keywords'){!! $news->translation('title', $lang)->first()->content !!}@stop
+@section('seo_description'){!! $news->translation('summary', $lang)->first()->content !!}@stop
+@section('image'){!! $news->image ? asset('assets/media/images/news/' . $news->image) : '' !!}@stop
 
 @section('content')
 
@@ -76,7 +80,7 @@
 											</ul>
 										</div>
 										<div class="dlab-post-header">
-											<h6 class="post-title"><a href="{{ route('news.show', $news_all['id']) }}">{{$news_all[$lang]['title']}}</a></h6>
+											<h6 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_all[$lang]['title']), 'id' => $news_all['id']]) }}">{{$news_all[$lang]['title']}}</a></h6>
 										</div>
 									</div>
 								</div>

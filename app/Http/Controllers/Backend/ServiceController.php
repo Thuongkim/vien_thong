@@ -115,7 +115,7 @@ class ServiceController extends Controller
                 return back()->withInput();
             }
 
-            \File::makeDirectory('assets/media/images/services/', 0777, true, true);
+            \File::makeDirectory('assets/media/images/services/', 0775, true, true);
             $timestamp = time();
             $image->save('assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext);
             $data['image'] = 'assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext;
@@ -209,7 +209,7 @@ class ServiceController extends Controller
                 }
             }
 
-            \File::makeDirectory('assets/media/images/services/', 0777, true, true);
+            \File::makeDirectory('assets/media/images/services/', 0775, true, true);
             if (\File::exists(public_path() . '/' . $services->image)) \File::delete(public_path() . '/' . $services->image);
             $timestamp = time();
             $image->save('assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext);

@@ -70,6 +70,7 @@ class StaticPage extends \Eloquent
                 // dd($tmp);
                 $staticPages = json_encode($tmp);
             }
+            
                    
             Cache::put('static_pages', $staticPages, 3600);
 

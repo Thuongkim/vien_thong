@@ -51,13 +51,43 @@ class HomeController extends Controller
     }
     public function index(Request $request)
     {
+        $servicess = [];
+        $langs = config('app.locales');
 		$sliders           = Slider::getSliders();
 		$services = Service::where('featured', 1)->where('status', 1)->orderBy('position')->take(5)->get();
+
+        foreach ($services as $service) {
+            $tmp = [];
+            $icon = $service->icon;
+            $tmp['icon'] = is_null($icon) ? '' : $icon;
+            $image = $service->image;
+            $tmp['image'] = is_null($image) ? '' : $image;
+            $id = $service->id;
+            $tmp['id'] = is_null($id) ? '' : $id;
+            $created_by = \App\User::find( $service->created_by );
+            $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
+            $updated_at = $service->updated_at;
+            $tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
+            for ($i = 0; $i < count($langs); $i++) {
+                $trans = $service->translation('title', $langs[$i])->first();
+                $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+                $trans = $service->translation('summary', $langs[$i])->first();
+                $tmp[$langs[$i]]['summary'] = is_null($trans) ? '' : $trans->content;
+                $trans = $service->translation('content', $langs[$i])->first();
+                $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
+            }
+
+            array_push($servicess, $tmp);
+        }
+
+        $servicess = json_encode($servicess) ;
+        $servicesLangs = json_decode($servicess, 1);
+        // dd($servicesLangs);
 		$news              = News::getHomeNews();
 		$projectCategories = ProjectCategory::getProjectCategories();
 		$projects          = Project::getProject();
 		$partners          = Partner::getPartner();
-        return view('frontend.pages.home', compact('sliders', 'news', 'projectCategories', 'projects', 'partners', 'services'));
+        return view('frontend.pages.home', compact('sliders', 'news', 'projectCategories', 'projects', 'partners', 'services', 'servicesLangs'));
     }
 
     public function changeLanguage($language)
@@ -102,7 +132,7 @@ class HomeController extends Controller
     }
     
 
-    public function showNews($id)
+    public function showNews($slug, $id)
     {
 		$news = News::find($id);
 		$news_all = News::getHomeNews();
@@ -150,7 +180,7 @@ class HomeController extends Controller
 		return view('frontend.pages.project', compact('projects'));
     }
 
-    public function showProject($id)
+    public function showProject($slug, $id)
     {
 		$project = Project::find($id);
 		$news_all = News::getHomeNews();
@@ -169,8 +199,9 @@ class HomeController extends Controller
             $tmp[$langs[$i]]['description'] = is_null($trans) ? '' : $trans->content;
         }
         array_push($page, $tmp);
-        // dd($slug);
-        return view('frontend.pages.static', compact('page', 'slug'));
+        // dd($page);
+        $partners = Partner::getPartner();
+        return view('frontend.pages.static', compact('page', 'slug', 'partners'));
     }
     public function search(Request $request)
     {
@@ -187,6 +218,13 @@ class HomeController extends Controller
         $langs = config('app.locales');
 
     	$category = ServiceCategory::where('status', 1)->where('id', intval($id))->first();
+        $categories = [];
+        $temp = [];
+        for ($i = 0; $i < count($langs); $i++) {
+            $trans = $category->translation('name', $langs[$i])->first();
+            $temp[$langs[$i]]['name'] = is_null($trans) ? '' : $trans->content;
+        }
+        array_push($categories, $temp);
         // if (is_null($category)) abort('404');
         $childIds = ServiceCategory::where('status', 1)->where('parent_id', $category->id)->pluck('id', 'id')->toArray();
         $services = Service::where('status', 1)->whereIn('category_id', [$category->id] + $childIds)->orderBy('updated_at', 'DESC')->paginate('5');
@@ -221,9 +259,11 @@ class HomeController extends Controller
             $rootCat = ServiceCategory::where('status', 1)->where('id', $category->parent_id)->first();
             // if (is_null($rootCat)) \App::abort('404');
         }
-        // dd($serviceCategories);
+        // dd($categories);
         $servicesCategories = ServiceCategory::getByAll();
-        return view('frontend.pages.service_category', compact('category', 'services', 'serviceCategories', 'rootCat', 'featuredNews', 'servicesCategories'));
+        $servicesNew             = Service::getServiceNews();
+        // dd($servicesNew);
+        return view('frontend.pages.service_category', compact('category', 'services', 'serviceCategories', 'rootCat', 'featuredNews', 'servicesCategories', 'categories', 'servicesNew'));
     }
     public function getDetailService(Request $request, $slug, $id)
     {

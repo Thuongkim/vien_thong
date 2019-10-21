@@ -2,23 +2,30 @@
 <html lang="en">
 <?php $appName = isset($staticPages['website-title']['description']) ? $staticPages['website-title']['description'] : env('APP_NAME'); ?>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
-	<meta name="robots" content="" />
-	<meta name="description" content="Industry - Factory & Industrial HTML Template" />
-	<meta property="og:title" content="Industry - Factory & Industrial HTML Template" />
-	<meta property="og:description" content="Industry - Factory & Industrial HTML Template" />
-	<meta property="og:image" content="" />
-    <meta name="format-detection" content="telephone=no">
-    <link rel="apple-touch-icon" sizes="180x180" href="{!! asset('assets/favicon.ico/apple-touch-icon.png') !!}">
-    <link rel="icon" type="image/png" href="{!! asset('assets/favicon.ico/favicon-32x32.png" sizes="32x32') !!}">
-    <link rel="icon" type="image/png" href="{!! asset('assets/favicon.ico/favicon-16x16.png" sizes="16x16') !!}">
-    <link rel="manifest" href="{!! asset('assets/favicon.ico/manifest.json') !!}">
-    <meta name="theme-color" content="#ffffff">
-    <title>@yield('title') | {!! $appName !!}</title>
+	<!-- PAGE TITLE HERE -->
+	<title>@yield('title')</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="@yield('title')">
+    <meta property="og:url" content="{!! url()->full() !!}">
+    <meta property="fb:app_id" content="1081710445331564">
+    <meta property="og:description" content="@yield('seo_description')">
+    <meta property="og:site_name" content="{!! env("APP_NAME") !!}">
+    <meta property="og:type" content="product">
+    <meta name="twitter:site" content="{!! env("APP_NAME") !!}">
+    <meta name="twitter:title" content="@yield('title')">
+    <meta name="twitter:description" content="@yield('seo_description')">
+    <meta name="twitter:creator" content="{!! env("APP_NAME") !!}">
+    <meta name="twitter:card" content="photo">
+    <meta name="twitter:url" content="{!! url()->full() !!}">
+    <link rel="canonical" href="{!! route('home') !!}">
+    <meta name="author" content="{!! env("APP_NAME") !!}" />
+    <meta name="keywords" content="@yield('seo_keywords')" />
+    <meta name="description" content="@yield('seo_description')" />
+    <meta name="copyright" content="BCTech, Công ty Cổ phần Giải pháp Công nghệ cao BCTech, Chuyên thiết kế website, phần mềm ứng dụng, ứng dụng Android, iOS, các giải pháp Cloud Server, Streaming, Camera, Cung cấp VPS, Hosting, 024 6688 3355" />
+    <link rel="icon" href="{{ asset('assets/frontend/images/hte-logo.png') }}" type="image/x-icon" />
+
+
+
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.min.js"></script>
 	<script src="js/respond.min.js"></script>
@@ -42,7 +49,7 @@
 	<!-- REVOLUTION SLIDER CSS -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/plugins/revolution/revolution/css/revolution.min.css') }}">
 	<!-- SEARCH -->
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/search.css') }}">
+	{{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/search.css') }}"> --}}
 
 </head>
 

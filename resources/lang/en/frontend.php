@@ -16,6 +16,12 @@ return [
     'slider'             => 'Slider',
     'partner'            => 'Partners',
     'partner_us'         => 'Our Partners',
-    'present'            => 'Present',
+    'present'            => 'About Us',
+    'introduction'            => 'Introduction',
     'all'            => 'All',
+    'about-us'            => 'About us',
+    'search'            => 'Search',
+    'categories'            => 'Categories',
+    'field-of-operation'            => 'Business production results',
+    'business-production-results'            => 'Field of Operation',
 ];

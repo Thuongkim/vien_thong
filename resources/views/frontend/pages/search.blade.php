@@ -5,12 +5,12 @@
 <div class="dlab-bnr-inr overlay-black-middle bg-pt" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
 	<div class="container">
 		<div class="dlab-bnr-inr-entry">
-			<h1 class="text-white">Tìm kiếm</h1>
+			<h1 class="text-white">{{trans('frontend.search')}}</h1>
 			<!-- Breadcrumb row -->
 			<div class="breadcrumb-row">
 				<ul class="list-inline">
-					<li><a href="{{ route('home') }}">Home</a></li>
-					<li>Tìm Kiếm</li>
+					<li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
+					<li>{{trans('frontend.search')}}</li>
 				</ul>
 			</div>
 			<!-- Breadcrumb row END -->
@@ -49,7 +49,7 @@
 							</div>
 							<div class="dlab-post-readmore">
 								<a href="" title="READ MORE" rel="bookmark"
-									class="site-button">READ MORE
+									class="site-button">{{trans('frontend.read_more')}}
 									<i class="ti-arrow-right"></i>
 								</a>
 							</div>
