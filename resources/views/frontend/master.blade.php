@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php $appName = isset($staticPages['website-title']['description']) ? $staticPages['website-title']['description'] : env('APP_NAME'); ?>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="keywords" content="" />
@@ -11,23 +12,17 @@
 	<meta property="og:title" content="Industry - Factory & Industrial HTML Template" />
 	<meta property="og:description" content="Industry - Factory & Industrial HTML Template" />
 	<meta property="og:image" content="" />
-	<meta name="format-detection" content="telephone=no">
-
-	<!-- FAVICONS ICON -->
-	<link rel="icon" href="images/hte-logo.png" type="image/x-icon" />
-	<!-- <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" /> -->
-
-	<!-- PAGE TITLE HERE -->
-	<title>HTE | Managed Services</title>
-
-	<!-- MOBILE SPECIFIC -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="{!! asset('assets/favicon.ico/apple-touch-icon.png') !!}">
+    <link rel="icon" type="image/png" href="{!! asset('assets/favicon.ico/favicon-32x32.png" sizes="32x32') !!}">
+    <link rel="icon" type="image/png" href="{!! asset('assets/favicon.ico/favicon-16x16.png" sizes="16x16') !!}">
+    <link rel="manifest" href="{!! asset('assets/favicon.ico/manifest.json') !!}">
+    <meta name="theme-color" content="#ffffff">
+    <title>@yield('title') | {!! $appName !!}</title>
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.min.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/plugins.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/plugins/fontawesome/css/font-awesome.min.css') }}">
@@ -48,7 +43,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/plugins/revolution/revolution/css/revolution.min.css') }}">
 	<!-- SEARCH -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/search.css') }}">
-	
+
 </head>
 
 <body id="bg">
