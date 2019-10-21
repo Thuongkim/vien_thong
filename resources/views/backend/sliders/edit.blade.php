@@ -120,6 +120,7 @@
 @stop
 
 @section('footer')
+<script src="{!! asset('assets/backend/plugins/jasny/js/bootstrap-fileupload.js') !!}"></script>
 <script src="{!! asset('assets/backend/plugins/iCheck/icheck.min.js') !!}"></script>
 <script>
     !function ($) {
