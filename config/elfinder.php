@@ -9,7 +9,7 @@ return array(
     | The dir where to store the images (relative from public)
     |
     */
-    'dir' => ['assets/media/images/services'],//'assets/media'
+    'dir' => ['assets/media/images/'],//'assets/media'
 
     /*
     |--------------------------------------------------------------------------
