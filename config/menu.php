@@ -85,12 +85,12 @@ return [
                 'glyphicon' => 'fa fa-users fa-fw',
                 'hide' => false
             ],
-            [
-                'name' => 'users.role',
-                'route'=> 'admin.roles.index',
-                'glyphicon' => 'fa fa-university fa-fw',
-                'hide' => false
-            ],
+            // [
+            //     'name' => 'users.role',
+            //     'route'=> 'admin.roles.index',
+            //     'glyphicon' => 'fa fa-university fa-fw',
+            //     'hide' => false
+            // ],
             [
                 'name' => 'static_page',
                 'route'=> 'admin.static-pages.index',

@@ -24,6 +24,7 @@ return [
     'settings'  => [
         'label' => 'Cài đặt',
         'location'          => 'Tỉnh/Thành phố',
+        'redis' => 'Xóa cache',
     ],
     'reports'   => [
         'label' => 'Báo cáo',
