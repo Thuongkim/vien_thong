@@ -19,14 +19,10 @@
 						<ul class="list-inline m-a0">
 							<li><a href="{!! isset($staticPages[$lang]['fb']['description']) ? $staticPages[$lang]['fb']['description'] : '' !!}" class="site-button facebook circle "><i
 								class="fa fa-facebook"></i></a></li>
-								<li><a href="{!! isset($staticPages[$lang]['gg']['description']) ? $staticPages[$lang]['gg']['description'] : '' !!}" class="site-button google-plus circle "><i
-									class="fa fa-google-plus"></i></a></li>
 									<li><a href="{!! isset($staticPages[$lang]['link']['description']) ? $staticPages[$lang]['link']['description'] : '' !!}" class="site-button linkedin circle "><i
 										class="fa fa-linkedin"></i></a></li>
-										<li><a href="{!! isset($staticPages[$lang]['ins']['description']) ? $staticPages[$lang]['ins']['description'] : '' !!}" class="site-button instagram circle "><i
-											class="fa fa-instagram"></i></a></li>
-											<li><a href="{!! isset($staticPages[$lang]['tw']['description']) ? $staticPages[$lang]['tw']['description'] : '' !!}" class="site-button twitter circle "><i
-												class="fa fa-twitter"></i></a></li>
+											<li><a href="{!! isset($staticPages[$lang]['youtube']['description']) ? $staticPages[$lang]['youtube']['description'] : '' !!}" class="site-button youtube circle "><i
+												class="fa fa-youtube"></i></a></li>
 											</ul>
 										</div>
 									</div>

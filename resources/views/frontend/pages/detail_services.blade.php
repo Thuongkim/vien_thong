@@ -16,7 +16,7 @@
 				<ul class="list-inline">
 					<li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
 					<li>{{trans('frontend.service')}}</li>
-					<li>{{trans('frontend.data-textAlign')}}</li>
+					<li>{!! $detailService[0][$lang]['title'] !!}</li>
 				</ul>
 			</div>
 			<!-- Breadcrumb row END -->
@@ -73,9 +73,9 @@
 				<div class="blog-post blog-single">
 					<div class="dlab-post-meta">
 						<ul>
-							<?php $user = \App\User::find( $detailService[0]['created_by'] ); ?>
+							<?php $user = \App\User::find($detailService[0]['created_by']); ?>
 							<li class="post-date"> {{ $detailService[0]['created_at'] }} </li>
-							<li class="post-author"> {{trans('frontend.by')}} <a href="">{!! is_null($user) ? '-' : $user->fullname !!}</a> </li>
+							<li class="post-author"> {{trans('frontend.by')}}: {!! is_null($user) ? '-' : $user->fullname !!} </li>
 						</ul>
 					</div>
 					<div class="dlab-post-title">
