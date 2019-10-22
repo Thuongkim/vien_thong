@@ -46,28 +46,25 @@
             </div>
 
             <div class="clearfix" id="lightgallery">
-                <ul id="masonry"
-                    class=" portfolio-ic dlab-gallery-listing gallery-grid-4 gallery lightgallery text-center">
-                    @foreach ($projects as $project)
-                    @if (!$project['image'] && $project[$lang]['title'])
+                <ul id="masonry" class=" portfolio-ic dlab-gallery-listing gallery-grid-4 gallery lightgallery text-center">
+                @foreach ($projects as $project)
+                    @if ($project[$lang]['title'])
                     <li class="{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
                         <div class="dlab-box dlab-gallery-box">
+                            @if (!$project['image'])
                             <div class="dlab-media dlab-img-overlay1 dlab-img-effect">
+                                <a> <img src="https://via.placeholder.com/279x250.png?text=HTE-project" alt="">
+                                </a>
                                 <div class="overlay-bx">
                                     <div class="overlay-icon">
                                         <div class="text-white">
+                                            <a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
+                                                    class="fa fa-link icon-bx-xs"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="dez-info p-a30 bg-white">
-                                <b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('project.show',['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
-                            </div>
-                        </div>
-                    </li>
-                    @elseif ($project[$lang]['title'])
-                    <li class="{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
-                        <div class="dlab-box dlab-gallery-box">
+                            @else
                             <div class="dlab-media dlab-img-overlay1 dlab-img-effect">
                                 <a> <img src="{!! asset('assets/media/images/projects/' . $project['image']) !!}" alt="">
                                 </a>
@@ -80,13 +77,18 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                             <div class="dez-info p-a30 bg-white">
-                                <b><p class="dez-title m-t0" style="text-transform: capitalize;">{!! HTML::link( route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]), \App\Helper\HString::modSubstr($project[$lang]['title'], 50), array('class' => '', 'title' => $project[$lang]['title'])) !!}</p></b>
+                                <b><p class="dez-title m-t0" style="text-transform: capitalize;">
+                                    <a href="{{ route('project.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}">
+                                    {!! \App\Helper\HString::modSubstr($project[$lang]['title'], 50)!!}
+                                    </a>
+                                </p></b>
                             </div>
                         </div>
                     </li>
                     @endif
-                    @endforeach
+                @endforeach
                 </ul>
             </div>
         </div>
