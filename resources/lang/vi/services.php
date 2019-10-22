@@ -12,7 +12,7 @@ return array(
         'featured'        => 'Nổi bật',
         'category'     => 'Danh mục',
         'categories' => [
-                'label'                         => 'Danh mục tin',
+                'label'                         => 'Danh mục dịch vụ',
                 'name'                          => 'Tên danh mục',
                 'parent_category'               => '-- Chọn một danh mục làm danh mục cha --',
                 'parent'                        => 'Danh mục cha',

@@ -65,7 +65,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
         Route::resource('static-pages', 'StaticPagesController');
 
         Route::get('elfinder', '\Barryvdh\Elfinder\ElfinderController@showIndex');
-        // Route::any('elfinder/connector', '\Barryvdh\Elfinder\ElfinderController@showConnector');
+        Route::any('elfinder/connector', '\Barryvdh\Elfinder\ElfinderController@showConnector');
         Route::get('elfinder/ckeditor4', '\Barryvdh\Elfinder\ElfinderController@showCKeditor4');
         Route::get('elfinder/tinymce', '\Barryvdh\Elfinder\ElfinderController@showTinyMCE4');
         

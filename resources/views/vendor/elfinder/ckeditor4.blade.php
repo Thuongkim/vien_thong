@@ -42,7 +42,7 @@
                     customData: { 
                         _token: '{{ csrf_token() }}'
                     },
-                    url: '{{ route("elfinder.connector") }}',  // connector URL
+                    url: '{{ url('admin/elfinder/connector') }}',  // connector URL
                     soundPath: '{{ asset($dir.'/sounds') }}',
                     getFileCallback : function(file) {
                         window.opener.CKEDITOR.tools.callFunction(funcNum, file.url);
