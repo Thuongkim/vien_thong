@@ -20,6 +20,7 @@ return [
     'introduction'            => 'Giới thiệu',
     'all'            => 'Tất cả',
     'about-us'            => 'Về chúng tôi',
+    'tam-nhin'            => 'Tầm nhìn',
     'search'            => 'Tìm kiếm',
     'categories'            => 'Loại danh mục',
     'field-of-operation'            => 'Kết quả sản xuất kinh doanh',

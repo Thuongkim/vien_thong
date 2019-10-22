@@ -3,7 +3,7 @@
 <?php $appName = isset($staticPages['website-title']['description']) ? $staticPages['website-title']['description'] : env('APP_NAME'); ?>
 <head>
 	<!-- PAGE TITLE HERE -->
-	<title>@yield('title')</title>
+	<title>@yield('title') | HTE.,JSC</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:title" content="@yield('title')">
     <meta property="og:url" content="{!! url()->full() !!}">

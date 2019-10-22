@@ -12,7 +12,7 @@ return [
     'customer'  => 'Khách hàng',
     'service-categories'  => 'Danh mục dịch vụ',
     'service'  => 'Dịch vụ',
-    'page'  => 'Trang tĩnh',
+    'page'  => 'Slider',
     'static_page'   => 'Trang tĩnh',
     'slider'   => 'Slider',
     'partner'   => 'Đối tác',

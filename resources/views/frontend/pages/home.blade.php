@@ -48,7 +48,7 @@
 											data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]"
 											data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
 											data-paddingleft="[0,0,0,0]"
-											style="z-index: 2;background-color:rgba(0, 0, 0, 0.1);border-color:rgba(0, 0, 0, 0);border-width:0px; background-image:url(images/overlay/rrdiagonal-line.png)">
+											style="z-index: 2;background-color:rgba(0, 0, 0, 0.1);border-color:rgba(0, 0, 0, 0);border-width:0px; background-image:url({{ asset('assets/frontend/images/overlay/rrdiagonal-line.png') }})">
 										</div>
 										<!-- LAYER NR. 1 -->
 
@@ -100,7 +100,7 @@
 											style="z-index: 7; min-width: 640px; max-width: 640px; font-weight: 700; font-size: 18px; line-height: 30px; font-weight: 400; color: #fff; font-family: 'Poppins',sans-serif;">
 										</div>
 										<!-- LAYER NR. 5 -->
-										<a class="tp-caption rev-btn tc-btnshadow tp-rs-menulink" href="#"
+										<a class="tp-caption rev-btn tc-btnshadow tp-rs-menulink" href="{!! route('home.static-page', 'thong-tin-chung') !!}"
 											target="_blank" id="slide-100-layer-5"
 											data-x="['center','center','center','center']"
 											data-hoffset="['-510','-335','-100','-80']"
@@ -119,8 +119,8 @@
 											
 										</a>
 										<!-- LAYER NR. 5 -->
-										{{-- <a class="tp-caption rev-btn tc-btnshadow tp-rs-menulink"
-											href="services-details.html" target="_blank" id="slide-100-layer-6"
+										<a class="tp-caption rev-btn tc-btnshadow tp-rs-menulink"
+											href="{!! route('home.static-page', 'tam-nhin-gia-tri-cot-loi') !!}" target="_blank" id="slide-100-layer-6"
 											data-x="['center','center','center','center']"
 											data-hoffset="['-340','-160','70','70']"
 											data-y="['middle','middle','middle','middle']"
@@ -133,8 +133,8 @@
 											data-paddingtop="[15,15,15,10]" data-paddingright="[30,30,30,20]"
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
 											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#fc1520; text-transform: uppercase;">
-											Dịch vụ
-										</a> --}}
+											{{trans('frontend.tam-nhin')}}
+										</a>
 									</li>
 									@endforeach
 								</ul>

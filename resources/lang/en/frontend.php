@@ -20,6 +20,7 @@ return [
     'introduction'            => 'Introduction',
     'all'            => 'All',
     'about-us'            => 'About us',
+    'tam-nhin'            => 'Vision',
     'search'            => 'Search',
     'categories'            => 'Categories',
     'field-of-operation'            => 'Business production results',
