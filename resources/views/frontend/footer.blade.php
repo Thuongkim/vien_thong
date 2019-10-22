@@ -33,7 +33,9 @@
 						<div class="footer-bottom">
 							<div class="container">
 								<div class="row">
-									{!! isset($staticPages[$lang]['company']['description']) ? $staticPages[$lang]['company']['description'] : '' !!}
+									<div class="col-md-6 col-sm-6 text-left "> 
+										<span>{!! isset($staticPages[$lang]['company']['description']) ? $staticPages[$lang]['company']['description'] : '' !!}</span>					
+									</div>
 								</div>
 							</div>
 						</div>
