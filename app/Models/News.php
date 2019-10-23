@@ -43,11 +43,11 @@ class News extends \Eloquent {
     public static function boot()
     {
         parent::boot();
-        static:: created (function($news)
+        static::created(function($news)
         {
             self::clearCache();
         });
-        static:: updated (function($news)
+        static::updated(function($news)
         {
             self::clearCache();
         });
@@ -61,7 +61,7 @@ class News extends \Eloquent {
         });
     }
     public static function clearCache(){
-    	Cache:: forget ('home_news');
+    	Cache::forget('home_news');
     }
     public function category()
     {
@@ -96,9 +96,9 @@ class News extends \Eloquent {
                 array_push($homeNews, $tmp);
             }
             $homeNews = json_encode($homeNews) ;
-            if ($homeNews) Cache:: forever( 'home_news', $homeNews) ;
+            if ($homeNews) Cache::forever('home_news', $homeNews) ;
         } else {
-            $homeNews = Cache::get( 'home_news');
+            $homeNews = Cache::get('home_news');
         }
         return json_decode($homeNews, 1);
     }

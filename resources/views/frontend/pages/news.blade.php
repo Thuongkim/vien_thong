@@ -34,7 +34,7 @@
 					@foreach ($news as $news_st)
 					@if($news_st[$lang]['title'])
 					<div class="blog-post blog-lg blog-rounded dlab-info p-a20 border-1">
-						<div class="dlab-post-media dlab-img-effect zoom-slow col-xl-3 col-lg-3 col-md-3">
+						<div class="dlab-post-media dlab-img-effect zoom-slow col-xl-4 col-lg-4 col-md-4">
 							@if($news_st['image'])
 							<img src="{!! asset('assets/media/images/news/' . $news_st['image']) !!}" alt="">
 							@endif
