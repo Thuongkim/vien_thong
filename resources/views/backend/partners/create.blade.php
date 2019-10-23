@@ -53,7 +53,7 @@
                 <th class="text-right">{!! trans("partners.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="min-height: 70px; max-height: 70px; max-width: 230px;">
+                        <div class="fileupload-preview thumbnail" style="min-height: 70px; max-height: auto; max-width: 230px;">
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">

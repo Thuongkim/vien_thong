@@ -51,7 +51,7 @@ class PartnersController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image);
+            $image  = \Image::make($request->image)->resize(200, 50);
             //resize
             if ($image->height() > $image->width()) {
                 if ($image->height() >= 50) {
@@ -60,7 +60,12 @@ class PartnersController extends Controller
                     });
                 }
             } else {
-                if ($image->width() >= 200) {
+                if ($image->height() >= 50) {
+                    $image->resize(null, 50, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+                elseif ($image->width() >= 200) {
                     $image->resize(200, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
@@ -140,7 +145,7 @@ class PartnersController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image);
+            $image  = \Image::make($request->image)->resize(200, 50);
             //resize
             if ($image->height() > $image->width()) {
                 if ($image->height() >= 50) {
@@ -149,7 +154,12 @@ class PartnersController extends Controller
                     });
                 }
             } else {
-                if ($image->width() >= 200) {
+                if ($image->height() >= 50) {
+                    $image->resize(null, 50, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+                elseif ($image->width() >= 200) {
                     $image->resize(200, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });

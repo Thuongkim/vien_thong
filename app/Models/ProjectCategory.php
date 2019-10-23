@@ -34,11 +34,11 @@ class ProjectCategory extends Model
     public static function boot()
     {
         parent::boot();
-        static:: created (function($category)
+        static::created(function($category)
         {
             self::clearCache();
         });
-        static:: updated (function($category)
+        static::updated(function($category)
         {
             self::clearCache();
         });
@@ -53,7 +53,7 @@ class ProjectCategory extends Model
     }
     public static function clearCache()
     {
-        Cache:: forget ('categories');
+        Cache::forget('categories');
     }
     public static function getProjectCategories()
     {
@@ -74,7 +74,7 @@ class ProjectCategory extends Model
             }
 
             $categories = json_encode($categories) ;
-            if ($categories) Cache:: forever( 'categories', $categories) ;
+            if ($categories) Cache::forever( 'categories', $categories) ;
         } else {
             $categories = Cache::get( 'categories');
         }

@@ -110,7 +110,7 @@ class NewsController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image);
+            $image  = \Image::make($request->image)->resize(370, 250);
             //resize
             if ($image->height() > $image->width()) {
                 if ($image->height() >= 250) {
@@ -143,6 +143,7 @@ class NewsController extends Controller
             }
         }
 
+        News::clearCache();
         Session::flash('message', trans('system.success'));
         Session::flash('alert-class', 'info');
 
@@ -237,7 +238,7 @@ class NewsController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image);
+            $image  = \Image::make($request->image)->resize(370, 250);
             //resize
             if ($image->height() > $image->width()) {
                 if ($image->height() >= 250) {

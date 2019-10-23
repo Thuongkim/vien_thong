@@ -267,7 +267,7 @@
 										<div class="dlab-box dlab-gallery-box">
 											@if (!$project['image'])
 											<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-												<a> <img src="https://via.placeholder.com/279x250.png?text=HTE-project" alt="">
+												<a> <img src="https://via.placeholder.com/279x200.png?text=HTE-project" alt="">
 												</a>
 												<div class="overlay-bx">
 													<div class="overlay-icon">
@@ -323,7 +323,11 @@
 								<div class="item">
 									<div class="ow-blog-post date-style-2">
 										<div class="ow-post-media dlab-img-effect zoom-slow">
-											@if($news['image'])
+											@if(!$news['image'])
+											<a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}">
+												<img src="https://via.placeholder.com/370x250.png?text=HTE-news" style="height: 250px;" alt="">
+											</a>
+											@else
 											<a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}">
 												<img src="{!! asset('assets/media/images/news/' . $news['image']) !!}" style="height: 250px;" alt="">
 											</a>
