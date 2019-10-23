@@ -24,11 +24,11 @@ class Partner extends Model
 	public static function boot()
     {
         parent::boot();
-        static:: created (function($partner)
+        static::created(function($partner)
         {
             self::clearCache();
         });
-        static:: updated (function($partner)
+        static::updated(function($partner)
         {
             self::clearCache();
         });
@@ -50,7 +50,7 @@ class Partner extends Model
         if (!Cache::has('partners')) {
             $partners = Partner::where('status', 1)->orderBy( 'updated_at', 'desc')->get();
             $partners = json_encode($partners) ;
-            if ($partners) Cache:: forever( 'partners', $partners) ;
+            if ($partners) Cache::forever( 'partners', $partners) ;
         } else {
             $partners = Cache::get( 'partners');
         }

@@ -106,7 +106,7 @@ class ProjectsController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image);
+            $image  = \Image::make($request->image)->resize(279, 200);
             //resize
             if ($image->height() > $image->width()) {
                 if ($image->height() >= 200) {
@@ -115,8 +115,8 @@ class ProjectsController extends Controller
                     });
                 }
             } else {
-                if ($image->width() >= 255) {
-                    $image->resize(255, null, function ($constraint) {
+                if ($image->width() >= 279) {
+                    $image->resize(279, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
@@ -225,7 +225,7 @@ class ProjectsController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image);
+            $image  = \Image::make($request->image)->resize(279, 200);
             //resize
             if ($image->height() > $image->width()) {
                 if ($image->height() >= 200) {
@@ -234,8 +234,8 @@ class ProjectsController extends Controller
                     });
                 }
             } else {
-                if ($image->width() >= 255) {
-                    $image->resize(255, null, function ($constraint) {
+                if ($image->width() >= 279) {
+                    $image->resize(279, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }

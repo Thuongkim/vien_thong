@@ -36,11 +36,11 @@ class Project extends Model
     public static function boot()
     {
         parent::boot();
-        static:: created (function($project)
+        static::created(function($project)
         {
             self::clearCache();
         });
-        static:: updated (function($project)
+        static::updated(function($project)
         {
             self::clearCache();
         });
@@ -55,7 +55,7 @@ class Project extends Model
     }
     public static function clearCache()
     {
-        Cache:: forget ('projects');
+        Cache::forget('projects');
     }
     public static function getProject()
     {
@@ -82,7 +82,7 @@ class Project extends Model
             }
 
             $projects = json_encode($projects) ;
-            if ($projects) Cache:: forever( 'projects', $projects) ;
+            if ($projects) Cache::forever( 'projects', $projects) ;
         } else {
             $projects = Cache::get( 'projects');
         }
