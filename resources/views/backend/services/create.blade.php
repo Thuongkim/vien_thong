@@ -45,7 +45,7 @@
                             {!! trans('services.title') !!} ({!! trans('system.' . $language) !!})
                         </th>
                         <td>
-                            {!! Form::text("title_{$language}", old("title_{$language}"), array('class' => 'form-control', 'maxlength' => 100)) !!}
+                            {!! Form::text("title_{$language}", old("title_{$language}"), array('class' => 'form-control', 'maxlength' => 255)) !!}
                         </td>
                     </tr>
                 @endforeach
@@ -63,7 +63,7 @@
                     {!! trans('services.summary') !!}
                 </th>
                 <td>
-                    {!! Form::textarea('summary', old('summary'), array('class' => 'form-control', 'rows' => 5, 'maxlength' => 255, 'required')) !!}
+                    {!! Form::textarea('summary', old('summary'), array('class' => 'form-control', 'rows' => 3, 'required')) !!}
                 </td>
             </tr>
             @if(isset($fields['summary']))
@@ -73,7 +73,7 @@
                             {!! trans('services.summary') !!} ({!! trans('system.' . $language) !!})
                         </th>
                         <td>
-                            {!! Form::textarea("summary_{$language}", old("summary_{$language}"), array('class' => 'form-control', 'rows' => 3, 'maxlength' => 100)) !!}
+                            {!! Form::textarea("summary_{$language}", old("summary_{$language}"), array('class' => 'form-control', 'rows' => 3)) !!}
                         </td>
                     </tr>
                 @endforeach
@@ -90,7 +90,7 @@
                 <th class="text-right">{!! trans("services.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="width: {!! 300/1.5 !!}px; height: {!! 225/1.5 !!}px;">
+                        <div class="fileupload-preview thumbnail" style="width: {!! 300/1.5 !!}px; height: {!! 225/1.5 !!}px;min-height: 225px; max-height: 225px; max-width: 300px;padding: 0px;">
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">

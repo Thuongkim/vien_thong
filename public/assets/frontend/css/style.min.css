@@ -12649,7 +12649,7 @@ footer.footer-white.site-footer .widget_services ul li a {
 }
 
 .section-head {
-    margin-bottom: 50px
+    margin-bottom: 0px;
 }
 
 .section-head.no-margin {
@@ -14160,7 +14160,7 @@ ol.commentlist li .star-rating {
 }
 
 .content-inner {
-    padding-top: 80px;
+    padding-top: 30px;
     padding-bottom: 50px
 }
 

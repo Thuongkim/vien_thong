@@ -69,7 +69,7 @@
                     {!! trans('services.summary') !!}
                 </th>
                 <td>
-                    {!! Form::textarea('summary', old('summary', $services->summary), array('class' => 'form-control', 'rows' => 2, 'maxlength' => 255, 'required')) !!}
+                    {!! Form::textarea('summary', old('summary', $services->summary), array('class' => 'form-control', 'rows' => 3, 'required')) !!}
                 </td>
             </tr>
             @if(isset($fields['summary']))
@@ -80,14 +80,14 @@
                         </th>
                         <td>
                             <?php $content = $services->translation('summary', $language)->first(); ?>
-                            {!! Form::textarea("summary_{$language}", old("summary_{$language}", is_null($content) ? '' : $content->content), array('class' => 'form-control', 'rows' => 3, 'maxlength' => 100)) !!}
+                            {!! Form::textarea("summary_{$language}", old("summary_{$language}", is_null($content) ? '' : $content->content), array('class' => 'form-control', 'rows' => 3)) !!}
                         </td>
                     </tr>
                 @endforeach
             @endif
             <tr>
                 <th class="text-right">
-                    {!! trans('service.icon') !!}
+                    {!! trans('services.icon') !!}
                 </th>
                 <td>
                     {!! Form::text('icon', old('icon', $services->icon), array('class' => 'form-control', 'required', 'maxlength' => 100)) !!}
@@ -97,7 +97,7 @@
                 <th class="text-right">{!! trans("services.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="width: {!! 300/1.5 !!}px; height: {!! 225/1.5 !!}px;">
+                        <div class="fileupload-preview thumbnail" style="width: {!! 300/1.5 !!}px; height: {!! 225/1.5 !!}px;min-height: 225px; max-height: 225px; max-width: 300px;padding: 0px;">
                             <img src="{!! asset($services->image) !!}">
                         </div>
                         <div>

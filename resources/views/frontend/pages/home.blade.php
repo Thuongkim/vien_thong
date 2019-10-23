@@ -171,12 +171,14 @@
 					data-wow-delay="0.4s">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							{!! isset($staticPages[$lang]['service']['description']) ? $staticPages[$lang]['service']['description'] : '' !!}
+							<h2 class="title">
+								{!! isset($staticPages[$lang]['service']['description']) ? $staticPages[$lang]['service']['description'] : '' !!}
+							</h2>
 						</div>
 						<div class="on-show-slider ">
 							
 							<div id="sync2" class="owl-carousel owl-theme owl-none owl-dots-none project-list">
-								@foreach($servicesLangs as $servicesLang)
+								@foreach($servicess as $servicesLang)
 								<div class="item">
 									<div class="project-owbx">
 										<i class="fa {{ $servicesLang['icon'] }}"></i>
@@ -187,16 +189,16 @@
 							</div>
 							<div id="sync1"
 								class="owl-carousel owl-theme owl-btn-center-lr m-b5 owl-dots-none owl-btn-3 primary">
-								@foreach($servicesLangs as $servicesLang)
+								@foreach($servicess as $servicesLang)
 								<div class="item">
 									<div class="row align-items-center">
 										<div class="col-lg-6 col-md-6 m-b30">
 											<div class="our-story">
 												<h2 class="title"><span class="text-primary">{{ $servicesLang[$lang]['title'] }}</span>
 												</h2>
-												{!! $servicesLang[$lang]['content'] !!}
+												{!! $servicesLang[$lang]['summary'] !!}
 												<br>
-
+												<a href="{!! route('home.services-detail', ['slug' => str_slug($servicesLang[$lang]['title']), 'id' => $servicesLang['id']]) !!}" class="site-button btnhover16">{{trans('frontend.read_more')}}</a>
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 m-b30">

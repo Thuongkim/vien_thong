@@ -33,10 +33,8 @@ class HomeController extends Controller
         \View::share('servicesCategories', ServiceCategory::getByAll());
 		$this->projectCategories = ProjectCategory::getProjectCategories();
 		$this->projects          = Project::getProject();
-
         \View::share('projects', $this->projects);
         \View::share('projectCategories', $this->projectCategories);
-
     	$this->middleware(function ($request, $next) {
     		if (!Session::has('website_language')) {
     			$locales = config('app.locales');
@@ -81,13 +79,13 @@ class HomeController extends Controller
         }
 
         $servicess = json_encode($servicess) ;
-        $servicesLangs = json_decode($servicess, 1);
-        // dd($servicesLangs);
+        $servicess = json_decode($servicess, 1);
+        // dd($servicess);
 		$news              = News::getHomeNews();
 		$projectCategories = ProjectCategory::getProjectCategories();
 		$projects          = Project::getProject();
 		$partners          = Partner::getPartner();
-        return view('frontend.pages.home', compact('sliders', 'news', 'projectCategories', 'projects', 'partners', 'services', 'servicesLangs'));
+        return view('frontend.pages.home', compact('sliders', 'news', 'projectCategories', 'projects', 'partners', 'services', 'servicess'));
     }
 
     public function changeLanguage($language)

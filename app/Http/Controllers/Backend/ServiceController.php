@@ -110,7 +110,7 @@ class ServiceController extends Controller
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
             $image  = \Image::make($request->image);
             if ($image->height() <> '225' || $image->width() <> '300') {
-                Session::flash('message', "Ảnh đại diện phải có kích thước là " . '255' ."px x " . '300' . "px.");
+                Session::flash('message', "Ảnh đại diện phải có kích thước là " . '225' ."px x " . '300' . "px.");
                 Session::flash('alert-class', 'danger');
                 return back()->withInput();
             }
@@ -123,6 +123,16 @@ class ServiceController extends Controller
         $data['position']   = 1;
         $sevice = Service::create($data);
         Service::where('id', "<>", $sevice->id)->increment('position');
+
+        if ($this->languages && $this->fields) {
+            foreach ($this->fields as $field) {
+                $sevice->translation($field, $this->language)->create(['locale' => $this->language, 'name' => $field, 'content' => $request->$field]);
+                foreach ($this->languages as $k => $v) {
+                    $content = $field . '_' .  $k;
+                    $sevice->translation($field, $k)->create(['locale' => $k, 'name' => $field, 'content' => $request->$content]);
+                }
+            }
+        }
 
         Session::flash('message', trans('system.success'));
         Session::flash('alert-class', 'success');
@@ -179,7 +189,7 @@ class ServiceController extends Controller
         if ($request->hasFile('image'))
             $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary', 'status', 'icon', 'featured'), Service::rules($id));
         else
-            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'summary', 'status', 'icon', 'featured'), Service::rules($id));
+            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'summary', 'status', 'icon', 'featured', 'image'), Service::rules($id));
 
         $validator->setAttributeNames(trans('services'));
 

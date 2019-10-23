@@ -20,12 +20,32 @@ class StaticPage extends \Eloquent
         }
         return $this->morphMany('App\Translation', 'translatable')->where('locale', $locale)->where('name', $field); //->first();
     }
-
+    public static function boot()
+    {
+        parent::boot();
+        static:: created (function($staticpage)
+        {
+            self::clearCache();
+        });
+        static:: updated (function($staticpage)
+        {
+            self::clearCache();
+        });
+        static::deleted(function($staticpage)
+        {
+            self::clearCache();
+        });
+        static::saved(function($staticpage)
+        {
+            self::clearCache();
+        });
+    }
     public static function clearCache()
     {
         Cache::forget('introduction');
         Cache::forget('contact');
         Cache::forget('static_pages');
+        Cache::forget('static_pagess');
     }
 
     public static function introduction()
@@ -58,9 +78,9 @@ class StaticPage extends \Eloquent
         $staticPages = [];
         $langs = config('app.locales');
         if (!Cache::has('static_pages')) {
-            $staticPages = StaticPage::where('status', 1)->whereNull('group')->get();
+            $staticPagess = StaticPage::where('status', 1)->whereNull('group')->get();
             $tmp = [];
-            foreach ($staticPages as $staticPage) {
+            foreach ($staticPagess as $staticPage) {
                 for ($i = 0; $i < count($langs); $i++) {
                     $trans = $staticPage->translation('title', $langs[$i])->first();
                     $tmp[$langs[$i]][$staticPage->slug]['title'] = is_null($trans) ? '' : $trans->content;
@@ -70,14 +90,11 @@ class StaticPage extends \Eloquent
                 // dd($tmp);
                 $staticPages = json_encode($tmp);
             }
-            
-                   
-            Cache::put('static_pages', $staticPages, 3600);
-
+           if ($staticPages) Cache:: forever( 'static_pages', $staticPages) ; 
         } else {
             $staticPages = Cache::get('static_pages');
         }
-
+        // dd($staticPages);
         return json_decode($staticPages, 1);
     }
     public static function getMenu()
@@ -99,10 +116,9 @@ class StaticPage extends \Eloquent
                 }
                 array_push($staticPagess, $tmp);
             }
-            $staticPagess = json_encode($staticPagess);
-               
-            Cache::put('static_pagess', $staticPagess, 3600);
-
+            // dd($staticPagess);
+            $staticPagess = json_encode($staticPagess) ;
+            if ($staticPagess) Cache:: forever( 'static_pagess', $staticPagess) ;
         } else {
             $staticPagess = Cache::get('static_pagess');
         }

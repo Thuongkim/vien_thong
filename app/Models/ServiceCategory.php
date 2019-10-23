@@ -39,7 +39,27 @@ class ServiceCategory extends Model
     {
         return $this->hasMany('App\Models\Service');
     }
-
+    
+     public static function boot()
+    {
+        parent::boot();
+        static:: created (function($ser)
+        {
+            self::clearCache();
+        });
+        static:: updated (function($ser)
+        {
+            self::clearCache();
+        });
+        static::deleted(function($ser)
+        {
+            self::clearCache();
+        });
+        static::saved(function($ser)
+        {
+            self::clearCache();
+        });
+    }
     public static function clearCache()
     {
         //clear cache
@@ -48,24 +68,42 @@ class ServiceCategory extends Model
     }
     public static function getByAll()
     {
-        $categories = [];
+        $temp = [];
+        $langs = config('app.locales');
         if (!Cache::has('service_categories')) {
-            $categories = ServiceCategory::where('parent_id', 0)->where('status', 1)->get();
-            for ($i=0; $i < $categories->count(); $i++) {
-                $children = ServiceCategory::where('parent_id', $categories{$i}->id)->where('status', 1)->get();
-                for ($j=0; $j < $children->count(); $j++) {
-                    $children{$j}->children = ServiceCategory::where('parent_id', $children{$j}->id)->where('status', 1)->get();
-
+            $categories = ServiceCategory::where('status', 1)->where('parent_id', 0)->select('id')->get();
+            foreach ($categories as $category) {
+                $tmp = [];
+                $tmp['id'] = $category->id;
+                for ($i = 0; $i < count($langs); $i++) {
+                    $trans = $category->translation('name', $langs[$i])->first();
+                    $tmp[$langs[$i]] = is_null($trans) ? '' : $trans->content;
                 }
-                $categories{$i}->children = $children;
+
+                $children = ServiceCategory::where('status', 1)->where('parent_id', $category->id)->select('id')->get();
+                if ($children->count()) {
+                    $ch = [];
+                    foreach ($children as $child) {
+                        $t = [];
+                        $t['id'] = $child->id;
+                        for ($j = 0; $j < count($langs); $j++) {
+                            $trans = $child->translation('name', $langs[$j])->first();
+                            $t[$langs[$j]] = is_null($trans) ? '' : $trans->content;
+                        }
+                        array_push($ch, $t);
+                    }
+
+                    $tmp['children'] = $ch;
+                }
+                array_push($temp, $tmp);
             }
 
-            $categories = json_encode($categories);
-            Cache::forever('service_categories', $categories, 1);
+            $categories = json_encode($temp);
+            Cache::put('service_categories', $categories, 1);
         } else {
             $categories = Cache::get('service_categories');
         }
-
+        // dd($categories);
         return json_decode($categories, 1);
     }
 

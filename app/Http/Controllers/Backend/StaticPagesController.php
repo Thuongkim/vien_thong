@@ -63,8 +63,8 @@ class StaticPagesController extends Controller
         $id = intval( $id );
         $request->merge(['status' => intval($request->status)]);
 
-        $news = StaticPage::find($id);
-        if ( is_null( $news ) ) {
+        $staticPage = StaticPage::find($id);
+        if ( is_null( $staticPage ) ) {
             Session::flash('message', trans('system.have_an_error'));
             Session::flash('alert-class', 'danger');
             return back();
@@ -79,23 +79,23 @@ class StaticPagesController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         
-        $news->update($data);
+        $staticPage->update($data);
 
         if ($this->languages && $this->fields) {
             foreach ($this->fields as $field) {
-                $tmp = $news->translation($field, $this->language)->first();
+                $tmp = $staticPage->translation($field, $this->language)->first();
                 if (is_null($tmp))
-                    $news->translation($field, $this->language)->create(['locale' => $this->language, 'name' => $field, 'content' => $request->$field]);
+                    $staticPage->translation($field, $this->language)->create(['locale' => $this->language, 'name' => $field, 'content' => $request->$field]);
                 else
-                    $news->translation($field, $this->language)->update(['content' => $request->$field]);
+                    $staticPage->translation($field, $this->language)->update(['content' => $request->$field]);
 
                 foreach ($this->languages as $k => $v) {
                     $content = $field . '_' .  $k;
-                    $tmp = $news->translation($field, $k)->first();
+                    $tmp = $staticPage->translation($field, $k)->first();
                     if (is_null($tmp))
-                        $news->translation($field, $k)->create(['locale' => $k, 'name' => $field, 'content' => $request->$content]);
+                        $staticPage->translation($field, $k)->create(['locale' => $k, 'name' => $field, 'content' => $request->$content]);
                     else
-                        $news->translation($field, $k)->update(['content' => $request->$content]);
+                        $staticPage->translation($field, $k)->update(['content' => $request->$content]);
                 }
             }
         }

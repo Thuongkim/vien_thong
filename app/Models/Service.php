@@ -28,19 +28,9 @@ class Service extends Model
         }
         return $this->morphMany('App\Translation', 'translatable')->where('locale', $locale)->where('name', $field); //->first();
     }
-    public static function clearCache()
-    {
-       $services = [];
-        if (!Cache::has('services')) {
-            $services = Service::where('status', 1)->select('id', 'title', 'summary', 'image')->orderBy('updated_at', 'desc')->get();
-            $services = json_encode($services);
-            Cache::forever('services', $services, 1);
-        } else {
-            $services = Cache::get('services');
-        }
+        // Don't forget to fill this array
+    protected $fillable = [ 'title', 'summary', 'content', 'status', 'image', 'position', 'icon', 'category_id','featured', 'created_by' ];
 
-        return json_decode($services, 1);
-    }
      public function category()
     {
         return $this->belongsTo("\App\Models\ServiceCategory");
@@ -48,30 +38,26 @@ class Service extends Model
     public static function boot()
     {
         parent::boot();
-
-        static::created(function($news)
+        static:: created (function($service)
         {
             self::clearCache();
         });
-
-        static::updated(function($news)
+        static:: updated (function($service)
         {
             self::clearCache();
         });
-
-        static::deleted(function($news)
+        static::deleted(function($service)
         {
             self::clearCache();
         });
-
-        static::saved(function($news)
+        static::saved(function($services)
         {
             self::clearCache();
         });
     }
-
-	// Don't forget to fill this array
-	protected $fillable = [ 'title', 'summary', 'content', 'status', 'image', 'position', 'icon', 'category_id','featured', 'created_by' ];
+    public static function clearCache(){
+        Cache::forget('services_new');
+    }
 
     private static function increase_count( $id, $redis ) {
 
@@ -118,6 +104,7 @@ class Service extends Model
     } else {
         $servicesNews = Cache::get( 'services_new');
     }
+    // dd($servicesNews);
     return json_decode($servicesNews, 1);
 
 }

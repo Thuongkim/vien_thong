@@ -61,15 +61,14 @@
 									<a href="#">{{trans('frontend.service')}}<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu tab-content">
 										@foreach($servicesCategories as $servicesCategory)
-										@if (count($servicesCategory['children']))
+										@if (isset($servicesCategory['children']))
 										<li>
-											<a href="{!! route('home.services-category', ['slug' => str_slug($servicesCategory['name']), 'id' => $servicesCategory['id']]) !!}" title="{!! $servicesCategory['name'] !!}">{{ $servicesCategory['name'] }} <i
-													class="fa fa-angle-right"></i></a>
+											<a href="{!! route('home.services-category', ['slug' => str_slug($servicesCategory['vi']), 'id' => $servicesCategory['id']]) !!}">{{ $servicesCategory[$lang] }} <i class="fa fa-angle-right"></i></a>
 											<ul class="sub-menu">
 												@foreach($servicesCategory['children'] as $child)
 
 												<li>
-													<a href="{!! route('home.services-category', ['slug' => str_slug($child['name']), 'id' => $child['id']]) !!}">{!! $child['name'] !!} </a>
+													<a href="{!! route('home.services-category', ['slug' => str_slug($child['vi']), 'id' => $child['id']]) !!}">{!! $child[$lang] !!} </a>
 												</li>
 												
 												@endforeach
@@ -77,7 +76,7 @@
 										</li>
 										@else
 										<li>
-											<a href="{!! route('home.services-category', ['slug' => str_slug($servicesCategory['name']), 'id' => $servicesCategory['id']]) !!}">{!! $servicesCategory['name'] !!}</a>
+											<a href="{!! route('home.services-category', ['slug' => str_slug($servicesCategory['vi']), 'id' => $servicesCategory['id']]) !!}">{{ $servicesCategory[$lang] }}</a>
 
 										</li>
 										@endif

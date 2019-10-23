@@ -60,7 +60,7 @@
 						<h5 class="widget-title style-1">{{trans('frontend.categories')}}</h5>
 						<ul>
 							@foreach($servicesCategories as $servicesCategory)
-							<li><a href="{!! route('home.services-category', ['slug' => str_slug($servicesCategory['name']), 'id' => $servicesCategory['id']]) !!}">{!! $servicesCategory['name'] !!}</a></li>
+							<li><a href="{!! route('home.services-category', ['slug' => str_slug($servicesCategory['vi']), 'id' => $servicesCategory['id']]) !!}">{!! $servicesCategory[$lang] !!}</a></li>
 							@endforeach
 						</ul>
 					</div>

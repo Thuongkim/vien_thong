@@ -3,16 +3,24 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 col-xl-3 col-lg-3 col-sm-6 footer-col-4">
-					{!! isset($staticPages[$lang]['footer-left']['description']) ? $staticPages[$lang]['footer-left']['description'] : '' !!}
+					<div class="widget widget_getintuch">
+						{!! isset($staticPages[$lang]['footer-left']['description']) ? $staticPages[$lang]['footer-left']['description'] : '' !!}
+					</div>
 				</div>
 				<div class="col-md-3 col-xl-3 col-lg-3 col-sm-6 footer-col-4">
-					{!! isset($staticPages[$lang]['footer-left1']['description']) ? $staticPages[$lang]['footer-left1']['description'] : '' !!}
+					<div class="widget widget_getintuch">
+						{!! isset($staticPages[$lang]['footer-left1']['description']) ? $staticPages[$lang]['footer-left1']['description'] : '' !!}
+					</div>
 				</div>
 				<div class="col-md-3 col-xl-3 col-lg-3 col-sm-6 footer-col-4">
-					{!! isset($staticPages[$lang]['footer-left2']['description']) ? $staticPages[$lang]['footer-left2']['description'] : '' !!}
+					<div class="widget widget_getintuch">
+						{!! isset($staticPages[$lang]['footer-left2']['description']) ? $staticPages[$lang]['footer-left2']['description'] : '' !!}
+					</div>
 				</div>
 				<div class="col-md-3 col-xl-3 col-lg-3 col-sm-6 footer-col-4">
-					{!! isset($staticPages[$lang]['footer-right']['description']) ? $staticPages[$lang]['footer-right']['description'] : '' !!}
+					<div class="widget widget_getintuch">
+						{!! isset($staticPages[$lang]['footer-right']['description']) ? $staticPages[$lang]['footer-right']['description'] : '' !!}
+					</div>
 				</div>
 				<div class="col-md-12 footer-col-12">
 					<div class="widget" align="right">
