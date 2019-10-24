@@ -50,7 +50,7 @@
                             {!! $item->name !!}
                         </td>
                         <td style="text-align: center; vertical-align: middle;">
-                            {!! $item->slogan !!}
+                            {!! \App\Helper\HString::modSubstr($item->slogan, 50) !!}
                         </td>
                         <td style="text-align: center; vertical-align: middle;">
                             @if($item->image)
