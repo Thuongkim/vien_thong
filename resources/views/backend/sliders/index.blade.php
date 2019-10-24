@@ -50,7 +50,7 @@
                             {!! $item->name !!}
                         </td>
                         <td style="text-align: center; vertical-align: middle;">
-                            {!! $item->summary !!}
+                            {!! \App\Helper\HString::modSubstr($item->summary, 30) !!}
                         </td>
                         <td  style="text-align: center; vertical-align: middle;">
                                 @if($sliders->count() > 1)
