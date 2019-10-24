@@ -13,7 +13,7 @@ class Service extends Model
         return [
             'title'      => 'required|max:255',
             'icon'      => 'required|max:255',
-            'summary'    => 'required|max:500',
+            'summary'    => 'required|max:1024',
             'content'    => 'required',
             'image'      => ($id == 0 ? 'required|' : '') . 'max:2048|mimes:jpg,jpeg,png,gif',
             'category'   => 'required|integer',
