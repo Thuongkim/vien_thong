@@ -25,4 +25,5 @@ return [
     'categories'            => 'Loại danh mục',
     'field-of-operation'            => 'Kết quả sản xuất kinh doanh',
     'business-production-results'            => 'Lĩnh vực hoạt động',
+    'service_category' => 'Danh mục dịch vụ'
 ];

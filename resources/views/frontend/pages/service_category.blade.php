@@ -2,8 +2,8 @@
 
 @section('title'){!! $categories[0][$lang]['name'] !!}@stop
 
-@section('seo_keywords'){!! $detailService[0][$lang]['name'] !!}@stop
-@section('seo_description'){!! $detailService[0][$lang]['name'] !!}@stop
+@section('seo_keywords'){!! trans('frontend.service_category'). " " .config('app.name') !!}@stop
+@section('seo_description'){!! trans('frontend.service_category'). " " .config('app.name') !!}@stop
 
 @section('content')
 

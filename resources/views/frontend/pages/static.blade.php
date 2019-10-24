@@ -2,8 +2,8 @@
 
 @section('title'){!! $page[0][$lang]['title'] !!}@stop
 
-@section('seo_keywords'){!! $page[0][$lang]['title'] !!}@stop
-@section('seo_description'){!! $page[0][$lang]['description'] !!}@stop
+@section('seo_keywords'){!! trans('frontend.static_page'). " " .config('app.name') !!}@stop
+@section('seo_description'){!! trans('frontend.static_page'). " " .config('app.name') !!}@stop
 
 @section('content')
 
@@ -154,13 +154,10 @@
 
 			<div class="content-area">
 				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-12 col-md-12 m-b30">
-							<div class="our-story jumbotron">
-									
-								
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="jumbotron">
 								{!! $page[0][$lang]['description'] !!}
-
 							</div>
 						</div>
 					</div>
