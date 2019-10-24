@@ -106,13 +106,28 @@ class ServiceController extends Controller
         $data['category_id'] = $request->input('category');
 
         if ($request->hasFile('image')) {
+
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image);
-            if ($image->height() <> '225' || $image->width() <> '300') {
-                Session::flash('message', "Ảnh đại diện phải có kích thước là " . '225' ."px x " . '300' . "px.");
-                Session::flash('alert-class', 'danger');
-                return back()->withInput();
+            $image  = \Image::make($request->image)->resize(300, 225);
+            //resize
+            if ($image->height() > $image->width()) {
+                if ($image->height() >= 225) {
+                    $image->resize(null, 225, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+            } else {
+                if ($image->height() >= 225) {
+                    $image->resize(null, 225, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+                elseif ($image->width() >= 300) {
+                    $image->resize(300, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
             }
 
             \File::makeDirectory('assets/media/images/services/', 0775, true, true);
@@ -203,7 +218,7 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image);
+            $image  = \Image::make($request->image)->resize(300, 225);
             //resize
             if ($image->height() > $image->width()) {
                 if ($image->height() >= 225) {
@@ -212,7 +227,12 @@ class ServiceController extends Controller
                     });
                 }
             } else {
-                if ($image->width() >= 300) {
+                if ($image->height() >= 225) {
+                    $image->resize(null, 225, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+                elseif ($image->width() >= 300) {
                     $image->resize(300, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });

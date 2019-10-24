@@ -80,11 +80,11 @@
     <tr>
         <th class="text-right">
             {!! trans("sliders.image") !!}<br/>
-            (1200x600)
+            (1140x450)
         </th>
         <td colspan="3">
             <div class="fileupload fileupload-new" data-provides="fileupload">
-                <div class="fileupload-preview thumbnail" style="width: {!! 1200/1.5 !!}px; height: {!! 600/1.5 !!}px;">
+                <div class="fileupload-preview thumbnail" style="width: {!! 1140/1.5 !!}px; min-height: {!! 450/1.5 !!}px; max-height: auto; max-width: 1200px;">
                     <img src="{!! asset($slider->image) !!}">
                 </div>
                 <div>

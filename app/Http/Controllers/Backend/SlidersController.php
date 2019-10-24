@@ -48,20 +48,37 @@ class SlidersController extends Controller
 		if ($validator->fails())
             return redirect()->back()->withErrors($validator)->withInput();
 
-        $image  = $request->image;
-        $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-        $image  = \Image::make($request->image);
-        if ($image->height()/$image->width() <> "600"/"1200") {
-            Session::flash('message', "Ảnh đại diện phải có kích thước là " . "1200" ."px x " . "600" . "px.");
-            Session::flash('alert-class', 'danger');
-            return back()->withInput();
-        }
-        \File::makeDirectory('assets/media/images/sliders/', 0777, true, true);
-        $fileName = str_slug($data['name']). "-" . time() . '.' .  $ext;
-        $image->resize('1200', '600')->save('assets/media/images/sliders/' . $fileName);
-        $data['image'] = 'assets/media/images/sliders/' . $fileName;
-        $data['position']   = 1;
+        if ($request->hasFile('image')) {
+            $image  = $request->image;
+            $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
+            $image  = \Image::make($request->image)->resize(1140, 450);
+            //resize
+            if ($image->height() > $image->width()) {
+                if ($image->height() >= 450) {
+                    $image->resize(null, 450, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+            } else {
+                if ($image->height() >= 450) {
+                    $image->resize(null, 450, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+                elseif ($image->width() >= 1140) {
+                    $image->resize(1140, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+            }
 
+        \File::makeDirectory('assets/media/images/sliders/', 0775, true, true);
+        $fileName = str_slug($data['name']). "-" . time() . '.' .  $ext;
+        $image->save('assets/media/images/sliders/' . $fileName);
+        $data['image'] = 'assets/media/images/sliders/' . $fileName;
+
+    }
+        $data['position']   = 1;
         $slider = Slider::create($data);
         Slider::where('id', "<>", $slider->id)->increment('position');
         if ($this->languages && $this->fields) {
@@ -120,17 +137,32 @@ class SlidersController extends Controller
             if (\File::exists(public_path() . '/' . $slider->image)) \File::delete(public_path() . '/' . $slider->image);
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image);
-            if ($image->height()/$image->width() <> '600'/'1200') {
-                Session::flash('message', "Ảnh đại diện phải có kích thước là " . '1200' ."px x " . '600' . "px.");
-                Session::flash('alert-class', 'danger');
-                return back()->withInput();
+            $image  = \Image::make($request->image)->resize(1140, 450);
+            //resize
+            if ($image->height() > $image->width()) {
+                if ($image->height() >= 450) {
+                    $image->resize(null, 450, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+            } else {
+                if ($image->height() >= 450) {
+                    $image->resize(null, 450, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+                elseif ($image->width() >= 1140) {
+                    $image->resize(1140, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
             }
-            \File::makeDirectory('assets/media/images/sliders/', 0777, true, true);
+            \File::makeDirectory('assets/media/images/sliders/', 0775, true, true);
             $fileName = str_slug($data['name']). "-" . time() . '.' .  $ext;
-            $image->resize('1200', '600')->save('assets/media/images/sliders/' . $fileName);
+            $image->save('assets/media/images/sliders/' . $fileName);
             $data['image'] = 'assets/media/images/sliders/'  . $fileName;
         }
+
 
 
         $slider->update($data);
