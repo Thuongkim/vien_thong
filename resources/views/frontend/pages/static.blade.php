@@ -150,6 +150,21 @@
 				<!-- Client logo End -->
 			</div>
 
+			@elseif($slug = 'ban-dieu-hanh')
+
+
+			<div class="content-area">
+				<div class="section-full wow fadeIn" data-wow-duration="2s" data-wow-delay="0.3s">
+					<div class="container bg-white">
+						<div class="testimonial-box-carousel owl-carousel owl-btn-center-lr owl-btn-2 radius-no owl-btn-md owl-theme primary owl-dots-none">
+
+							{!! $page[0][$lang]['description'] !!}
+
+						</div>
+					</div>
+				</div>
+			</div>
+
 			@else
 
 			<div class="content-area">
