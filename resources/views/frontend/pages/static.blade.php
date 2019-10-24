@@ -100,7 +100,7 @@
 				<div class="section-full text-center bg-gray content-inner">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title">{{trans('frontend.business-production-results')}}</h2>
+							<h2 class="title">{{trans('frontend.field-of-operation')}}</h2>
 						</div>
 						<div class="row">
 							<div class="col-lg-12 col-md-12 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">
@@ -114,9 +114,9 @@
 						<div class="row">
 							<div class="col-lg-12 col-md-12 m-b30 align-self-center video-infobx">
 								<div class="content-bx1">
-									<h2 class="m-b15 title">{{trans('frontend.field-of-operation')}}</h2>
+									<h2 class="m-b15 title">{{trans('frontend.business-production-results')}}</h2>
 									<div class="our-story">
-										
+										{!! isset($staticPages[$lang]['story']['description']) ? $staticPages[$lang]['story']['description'] : '' !!}
 									</div>
 								</div>
 							</div>
@@ -150,7 +150,7 @@
 				<!-- Client logo End -->
 			</div>
 
-			@elseif($slug = 'ban-dieu-hanh')
+			@elseif($slug == 'ban-dieu-hanh')
 
 
 			<div class="content-area">
@@ -160,6 +160,20 @@
 
 							{!! $page[0][$lang]['description'] !!}
 
+						</div>
+					</div>
+				</div>
+			</div>
+
+			@elseif($slug == 'so-do-to-chuc' || $slug == 'lich-su-phat-trien')
+
+				<div class="content-area">
+				<div class="container">
+					<div class="col-lg-12">
+						<div class="dlab-box">
+							<div class="dlab-media"> 
+								{!! $page[0][$lang]['description'] !!}
+							</div>
 						</div>
 					</div>
 				</div>

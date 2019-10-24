@@ -202,7 +202,7 @@
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 m-b30">
-											<img src="{{ asset($servicesLang['image']) }}" class="radius-sm" alt="">
+											<img src="{{ asset($servicesLang['image']) }}" class="radius-sm" style="min-height: 225px; max-height: 570px; max-width: 427px;padding: 0px;">
 										</div>
 									</div>
 								</div>
