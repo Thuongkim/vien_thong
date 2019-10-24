@@ -53,7 +53,7 @@
                         <div class="dlab-box dlab-gallery-box">
                             @if (!$project['image'])
                             <div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-                                <a> <img src="https://via.placeholder.com/279x250.png?text=HTE-project" alt="">
+                                <a> <img src="https://via.placeholder.com/279x200.png?text=HTE-project" alt="">
                                 </a>
                                 <div class="overlay-bx">
                                     <div class="overlay-icon">
@@ -80,7 +80,7 @@
                             @endif
                             <div class="dez-info p-a30 bg-white">
                                 <b><p class="dez-title m-t0" style="text-transform: capitalize;">
-                                    <a href="{{ route('project.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}">
+                                    <a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">
                                     {!! \App\Helper\HString::modSubstr($project[$lang]['title'], 50)!!}
                                     </a>
                                 </p></b>
