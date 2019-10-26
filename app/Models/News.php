@@ -47,9 +47,17 @@ class News extends \Eloquent {
         {
             self::clearCache();
         });
+        static::creating(function($news)
+        {
+            $news->image = "images/news/".$news->image;
+        });
         static::updated(function($news)
         {
             self::clearCache();
+        });
+        static::updating(function($news)
+        {
+            $news->image = "images/news/".$news->image;
         });
         static::deleted(function($news)
         {

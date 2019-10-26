@@ -49,10 +49,10 @@ class ProjectsController extends Controller
         if($featured <> -1) $query .= " AND featured = {$featured}";
         if($category <> -1) $query .= " AND category_id = {$category}";
 
-        if ($date_range)
-            $date_range = explode(' - ', $date_range);
-        if (isset($date_range[0]) && isset($date_range[1]))
-            $query .= " AND created_at >= '" . date("Y-m-d 00:00:00", strtotime(str_replace('/', '-', ($date_range[0] == '' ? '1/1/2015' : $date_range[0]) ))) . "' AND updated_at <= '" . date("Y-m-d 23:59:59", strtotime(str_replace('/', '-', ($date_range[1] == '' ? date("d/m/Y") : $date_range[1]) ))) . "'";
+        // if ($date_range)
+        //     $date_range = explode(' - ', $date_range);
+        // if (isset($date_range[0]) && isset($date_range[1]))
+        //     $query .= " AND created_at >= '" . date("Y-m-d 00:00:00", strtotime(str_replace('/', '-', ($date_range[0] == '' ? '1/1/2015' : $date_range[0]) ))) . "' AND updated_at <= '" . date("Y-m-d 23:59:59", strtotime(str_replace('/', '-', ($date_range[1] == '' ? date("d/m/Y") : $date_range[1]) ))) . "'";
 
         if (!$request->user()->ability(['system', 'admin'], ['project.approve'])) {
             $query .= " AND created_by = " . $request->user()->id;

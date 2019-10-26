@@ -1,8 +1,8 @@
 @extends('frontend.master')
-@section('title'){!! $news->translation('title', $lang)->first()->content !!}@stop
-@section('seo_keywords'){!! $news->translation('title', $lang)->first()->content !!}@stop
-@section('seo_description'){!! $news->translation('summary', $lang)->first()->content !!}@stop
-@section('image'){!! $news->image ? asset('assets/media/images/news/' . $news->image) : '' !!}@stop
+@section('title'){!! strip_tags($news->translation('title', $lang)->first()->content) !!}@stop
+@section('seo_keywords'){!! strip_tags($news->translation('title', $lang)->first()->content) !!}@stop
+@section('seo_description'){!! strip_tags($news->translation('summary', $lang)->first()->content) !!}@stop
+@section('image'){!! $news->image ? asset('assets/media/' . $news->image) : '' !!}@stop
 
 @section('content')
 
@@ -45,7 +45,8 @@
 							<h4 class="post-title m-t0">{!! $news->translation('title', $lang)->first()->content !!}</h4>
 						</div>
 						<div class="dlab-post-text">
-							<p>{!! nl2br($news->translation('content', $lang)->first()->content) !!}</p>
+							@inject('home', 'App\Http\Controllers\Frontend\HomeController')
+							<p>{!! nl2br($home::convert_caption($news->translation('content', $lang)->first()->content)) !!}</p>
 						</div>
 						<div class="dlab-post-tags clear">
 							{{-- <div class="post-tags">

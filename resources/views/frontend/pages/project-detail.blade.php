@@ -1,7 +1,7 @@
 @extends('frontend.master')
-@section('title'){!! $project->translation('title', $lang)->first()->content !!}@stop
-@section('seo_keywords'){!! $project->translation('title', $lang)->first()->content !!}@stop
-@section('seo_description'){!! $project->translation('title', $lang)->first()->content !!}@stop
+@section('title'){!! strip_tags($project->translation('title', $lang)->first()->content) !!}@stop
+@section('seo_keywords'){!! strip_tags($project->translation('title', $lang)->first()->content) !!}@stop
+@section('seo_description'){!! strip_tags($project->translation('title', $lang)->first()->content) !!}@stop
 @section('image'){!! $project->image ? asset('assets/media/images/projects/' . $project->image) : '' !!}@stop
 
 @section('content')

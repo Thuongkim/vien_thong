@@ -11,6 +11,7 @@ class Partner extends Model
 
         return [
 			'name'   => 'required|max:255',
+            'partner_link'   => 'required|max:255',
 			'slogan' => 'max:255',
 			'image'  => ($id == 0 ? 'required' : ''). '|max:2048|mimes:jpg,jpeg,png,gif',
 			'status' => 'in:0,1',
@@ -19,7 +20,7 @@ class Partner extends Model
     }
 
 	// Don't forget to fill this array
-	protected $fillable = [ 'name', 'slogan', 'status', 'image' ];
+	protected $fillable = [ 'name', 'slogan', 'status', 'image', 'partner_link' ];
 
 	public static function boot()
     {

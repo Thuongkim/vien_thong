@@ -2,8 +2,8 @@
 
 @section('title'){!! trans('frontend.home') !!}@stop
 
-@section('seo_keywords'){!! isset($staticPages[$lang]['seo-keywords']['description']) ? $staticPages[$lang]['seo-keywords']['description'] : '' !!}@stop
-@section('seo_description'){!! isset($staticPages[$lang]['seo-description']['description']) ? $staticPages[$lang]['seo-description']['description'] : '' !!}@stop
+@section('seo_keywords'){!! isset($staticPages[$lang]['seo-keywords']['description']) ? strip_tags($staticPages[$lang]['seo-keywords']['description']) : '' !!}@stop
+@section('seo_description'){!! isset($staticPages[$lang]['seo-description']['description']) ? strip_tags($staticPages[$lang]['seo-description']['description']) : '' !!}@stop
 
 @section('content')
 
@@ -227,7 +227,7 @@
 							<div class="item">
 								<div class="ow-client-logo">
 									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
+										<a href="{{ $partner['partner_link'] }}"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
 									</div>
 								</div>
 							</div>
@@ -327,7 +327,7 @@
 											</a>
 											@else
 											<a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}">
-												<img src="{!! asset('assets/media/images/news/' . $news['image']) !!}" style="height: 250px;" alt="">
+												<img src="{!! asset('assets/media/' . $news['image']) !!}" style="height: 250px;" alt="">
 											</a>
 											@endif
 										</div>
