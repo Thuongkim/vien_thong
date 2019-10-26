@@ -43,14 +43,14 @@
 							<div class="dlab-post-meta">
 								<ul>
 									<li class="post-date"> <strong>{!! date("d/m", strtotime($news_st['updated_at'])) !!}</strong> <span> {!! date("/Y", strtotime($news_st['updated_at'])) !!}</span> </li>
-									<li class="post-author"> {{trans('frontend.by')}} <a href="javascript:void(0);">{{$news_st['created_by']}}</a> </li>
+									<li class="post-author"> {{trans('frontend.by')}} <a href="javascript:void(0);">{!! $news_st['created_by'] !!}</a> </li>
 								</ul>
 							</div>
 							<div class="dlab-post-title">
-								<h4 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}">{{$news_st[$lang]['title']}}</a></h4>
+								<h4 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}">{!! $news_st[$lang]['title'] !!}</a></h4>
 							</div>
 							<div class="dlab-post-text">
-								<p>{{$news_st[$lang]['summary']}}</p>
+								<p>{!! $news_st[$lang]['summary'] !!}</p>
 							</div>
 							<div class="dlab-post-readmore">
 								<a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}" title="READ MORE" rel="bookmark"

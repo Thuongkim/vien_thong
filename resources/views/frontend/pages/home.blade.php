@@ -334,7 +334,7 @@
 										<div class="ow-post-info">
 											<div class="ow-post-title">
 												<h4 class="post-title" style="min-height: 60px;font-size: 20px"> <a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}"
-														title="news">{{$news[$lang]['title']}}</a> </h4>
+														title="news">{!! $news[$lang]['title'] !!}</a> </h4>
 											</div>
 											<div class="ow-post-meta">
 												<ul>
@@ -343,11 +343,11 @@
 															{!! date("Y", strtotime($news['updated_at'])) !!}</span> </li>
 													<li class="post-author"><i class="ti-user"></i>{{trans('frontend.by')}} <a
 															href="javascript:void(0);" title="Posts by admin"
-															rel="author">{{$news['created_by']}}</a> </li>
+															rel="author">{!! $news['created_by'] !!}</a> </li>
 												</ul>
 											</div>
 											<div class="ow-post-text">
-												<p>{{$news[$lang]['summary']}}</p>
+												<p>{!! $news[$lang]['summary'] !!}</p>
 											</div>
 										</div>
 									</div>

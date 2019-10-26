@@ -42,10 +42,10 @@
 							</ul>
 						</div>
 						<div class="dlab-post-title">
-							<h4 class="post-title m-t0">{{ $news->translation('title', $lang)->first()->content }}</h4>
+							<h4 class="post-title m-t0">{!! $news->translation('title', $lang)->first()->content !!}</h4>
 						</div>
 						<div class="dlab-post-text">
-							<p>{!! $news->translation('content', $lang)->first()->content !!}</p>
+							<p>{!! nl2br($news->translation('content', $lang)->first()->content) !!}</p>
 						</div>
 						<div class="dlab-post-tags clear">
 							{{-- <div class="post-tags">
