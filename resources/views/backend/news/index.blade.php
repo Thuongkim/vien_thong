@@ -167,7 +167,7 @@
                             </td>
                             <td style="text-align: center; vertical-align: middle;">
                                 @if($item->image)
-                                <img src="{!! asset('assets/media/images/news/' . $item->image) !!}" height="50px" style="max-width: 80px;">
+                                <img src="{!! asset('assets/media/' . $item->image) !!}" height="50px" style="max-width: 80px;">
                                 @endif
                             </td>
                             <td style="text-align: center; vertical-align: middle;">

@@ -301,4 +301,11 @@ class HomeController extends Controller
         $servicesCategories = ServiceCategory::getByAll();
         return view('frontend.pages.detail_services', compact('services', 'category', 'lastNews', 'featuredServices', 'otherCategories', 'rootCat', 'servicesCategories', 'detailService'));
     }
+    public static function convert_caption($content) 
+    { 
+        return preg_replace(
+            '/\[caption([^\]]+)align="([^"]+)"\s+width="(\d+)"\]\<a([^\]]+)href="([^"]+)"\>(\s*\<img[^>]+>)\s*(.*?)\s*\<\/a\>\s*(.*?)\s*\[\/caption\]/i', 
+            '<div\1style="width: \3px" class="wp-caption \2">\4    <a href="\5">      \6    </a>      <p class="caption">\8</p></div>', 
+            $content); 
+    }
 }

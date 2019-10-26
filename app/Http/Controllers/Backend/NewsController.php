@@ -50,10 +50,10 @@ class NewsController extends Controller
             $query .= " AND category_id IN({$category})";
         }
 
-        if ($date_range)
-            $date_range = explode(' - ', $date_range);
-        if (isset($date_range[0]) && isset($date_range[1]))
-            $query .= " AND created_at >= '" . date("Y-m-d 00:00:00", strtotime(str_replace('/', '-', ($date_range[0] == '' ? '1/1/2015' : $date_range[0]) ))) . "' AND updated_at <= '" . date("Y-m-d 23:59:59", strtotime(str_replace('/', '-', ($date_range[1] == '' ? date("d/m/Y") : $date_range[1]) ))) . "'";
+        // if ($date_range)
+        //     $date_range = explode(' - ', $date_range);
+        // if (isset($date_range[0]) && isset($date_range[1]))
+        //     $query .= " AND created_at >= '" . date("Y-m-d 00:00:00", strtotime(str_replace('/', '-', ($date_range[0] == '' ? '1/1/2015' : $date_range[0]) ))) . "' AND updated_at <= '" . date("Y-m-d 23:59:59", strtotime(str_replace('/', '-', ($date_range[1] == '' ? date("d/m/Y") : $date_range[1]) ))) . "'";
 
         if (!$request->user()->ability(['system', 'admin'], ['news.approve'])) {
             $query .= " AND created_by = " . $request->user()->id;
@@ -255,7 +255,7 @@ class NewsController extends Controller
             }
 
             \File::makeDirectory('assets/media/images/news/' .  date('dm'), 0775, true, true);
-            if(\File::exists(asset('assets/media/images/news/' . $news->image))) \File::delete(public_path(). '/assets/media/images/news/' . $news->image);
+            if(\File::exists(asset('assets/media/' . $news->image))) \File::delete(public_path(). '/assets/media/' . $news->image);
             $timestamp = time();
             $image->save('assets/media/images/news/' .  date('dm') . '/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext);
             $data['image'] = date('dm') . '/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext;

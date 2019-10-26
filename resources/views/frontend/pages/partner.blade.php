@@ -24,14 +24,17 @@
                                 @foreach ($partners as $partner)
                                 <div class="item">
                                     <div class="testimonial-4 testimonial-bg">
-                                        <div class="testimonial-pic"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}"
-                                                style="width: 100%;height: auto;" alt=""></div>
+                                        <div class="testimonial-pic">
+                                            <a href="{{ $partner['partner_link'] }}"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}"
+                                                style="width: 100%;height: auto;" alt=""></a>
+                                        </div>
                                         <div class="testimonial-text">
                                             <p style="min-height: 85px;">{{$partner['slogan']}}</p>
                                         </div>
-                                        <div class="testimonial-detail"> <strong
-                                                class="testimonial-name">{{$partner['name']}}</strong> <span
-                                                class="testimonial-position">{{trans('frontend.partner')}}</span> </div>
+                                        <a href="{{ $partner['partner_link'] }}"><div class="testimonial-detail"> 
+                                            <span class="testimonial-position"><strong class="testimonial-name">{{$partner['name']}}</strong></span>
+                                            <span class="testimonial-position">{{trans('frontend.partner')}}</span> 
+                                        </div></a>
                                         <div class="quote-right"></div>
                                     </div>
                                 </div>

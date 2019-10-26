@@ -5,4 +5,5 @@ return array(
     'slogan'               => 'Slogan',
     'name'                  => 'Tên',
     'image'                 => 'Ảnh bìa',
+    'partner_link'                 => 'Đường dẫn',
 );

@@ -1,7 +1,7 @@
 @extends('frontend.master')
-@section('title'){!! $project->translation('title', $lang)->first()->content !!}@stop
-@section('seo_keywords'){!! $project->translation('title', $lang)->first()->content !!}@stop
-@section('seo_description'){!! $project->translation('title', $lang)->first()->content !!}@stop
+@section('title'){!! strip_tags($project->translation('title', $lang)->first()->content) !!}@stop
+@section('seo_keywords'){!! strip_tags($project->translation('title', $lang)->first()->content) !!}@stop
+@section('seo_description'){!! strip_tags($project->translation('title', $lang)->first()->content) !!}@stop
 @section('image'){!! $project->image ? asset('assets/media/images/projects/' . $project->image) : '' !!}@stop
 
 @section('content')
@@ -41,10 +41,10 @@
 							</ul>
 						</div>
 						<div class="dlab-post-title">
-							<h4 class="post-title m-t0">{{ $project->translation('title', $lang)->first()->content }}</h4>
+							<h4 class="post-title m-t0">{!! $project->translation('title', $lang)->first()->content !!}</h4>
 						</div>
 						<div class="dlab-post-text">
-							<p>{!! $project->translation('content', $lang)->first()->content !!}</p>
+							<p>{!! nl2br($project->translation('content', $lang)->first()->content) !!}</p>
 						</div>
 						<div class="dlab-post-tags clear">
 							{{-- <div class="post-tags">

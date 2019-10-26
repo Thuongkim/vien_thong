@@ -1,9 +1,9 @@
 @extends('frontend.master')
 
-@section('title'){!! $categories[0][$lang]['name'] !!}@stop
+@section('title'){!! strip_tags($categories[0][$lang]['name']) !!}@stop
 
-@section('seo_keywords'){!! trans('frontend.service_category'). " " .config('app.name') !!}@stop
-@section('seo_description'){!! trans('frontend.service_category'). " " .config('app.name') !!}@stop
+@section('seo_keywords'){!! strip_tags($detailService[0][$lang]['name']) !!}@stop
+@section('seo_description'){!! strip_tags($detailService[0][$lang]['name']) !!}@stop
 
 @section('content')
 

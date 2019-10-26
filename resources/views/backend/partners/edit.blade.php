@@ -50,6 +50,14 @@
                 </td>
             </tr>
             <tr>
+                <th class="text-right">
+                    {!! trans('partners.partner_link') !!}
+                </th>
+                <td>
+                    {!! Form::text('partner_link', old('partner_link', $partner->partner_link), array('class' => 'form-control', 'required', 'maxlength' => 50)) !!}
+                </td>
+            </tr>
+            <tr>
                 <th class="text-right">{!! trans("partners.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">

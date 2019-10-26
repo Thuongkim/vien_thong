@@ -2,8 +2,8 @@
 
 @section('title'){!! trans('frontend.home') !!}@stop
 
-@section('seo_keywords'){!! isset($staticPages[$lang]['seo-keywords']['description']) ? $staticPages[$lang]['seo-keywords']['description'] : '' !!}@stop
-@section('seo_description'){!! isset($staticPages[$lang]['seo-description']['description']) ? $staticPages[$lang]['seo-description']['description'] : '' !!}@stop
+@section('seo_keywords'){!! isset($staticPages[$lang]['seo-keywords']['description']) ? strip_tags($staticPages[$lang]['seo-keywords']['description']) : '' !!}@stop
+@section('seo_description'){!! isset($staticPages[$lang]['seo-description']['description']) ? strip_tags($staticPages[$lang]['seo-description']['description']) : '' !!}@stop
 
 @section('content')
 
@@ -229,7 +229,7 @@
 							<div class="item">
 								<div class="ow-client-logo">
 									<div class="client-logo border">
-										<a href="javascript:void(0);"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
+										<a href="{{ $partner['partner_link'] }}"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
 									</div>
 								</div>
 							</div>
@@ -329,14 +329,14 @@
 											</a>
 											@else
 											<a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}">
-												<img src="{!! asset('assets/media/images/news/' . $news['image']) !!}" style="height: 250px;" alt="">
+												<img src="{!! asset('assets/media/' . $news['image']) !!}" style="height: 250px;" alt="">
 											</a>
 											@endif
 										</div>
 										<div class="ow-post-info">
 											<div class="ow-post-title">
 												<h4 class="post-title" style="min-height: 60px;font-size: 20px"> <a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}"
-														title="news">{{$news[$lang]['title']}}</a> </h4>
+														title="news">{!! $news[$lang]['title'] !!}</a> </h4>
 											</div>
 											<div class="ow-post-meta">
 												<ul>
@@ -345,11 +345,11 @@
 															{!! date("Y", strtotime($news['updated_at'])) !!}</span> </li>
 													<li class="post-author"><i class="ti-user"></i>{{trans('frontend.by')}} <a
 															href="javascript:void(0);" title="Posts by admin"
-															rel="author">{{$news['created_by']}}</a> </li>
+															rel="author">{!! $news['created_by'] !!}</a> </li>
 												</ul>
 											</div>
 											<div class="ow-post-text">
-												<p>{{$news[$lang]['summary']}}</p>
+												<p>{!! $news[$lang]['summary'] !!}</p>
 											</div>
 										</div>
 									</div>
