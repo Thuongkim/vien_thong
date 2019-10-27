@@ -66,6 +66,7 @@
 							<h5 class="widget-title style-1">{{trans('frontend.post')}}</h5>
 							<div class="widget-post-bx">
 								@foreach($news_all as $news_all)
+								@if($news_all[$lang]['title'])
 								<div class="widget-post clearfix">
 									{{-- <div class="dlab-post-media">
 										@if($news_all['image'])
@@ -85,6 +86,7 @@
 										</div>
 									</div>
 								</div>
+								@endif
 								@endforeach
 							</div>
 						</div>

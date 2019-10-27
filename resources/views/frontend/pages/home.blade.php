@@ -349,7 +349,7 @@
 												</ul>
 											</div>
 											<div class="ow-post-text">
-												<p>{!! $news[$lang]['summary'] !!}</p>
+												<p>{!! strip_tags($news[$lang]['summary']) !!}</p>
 											</div>
 										</div>
 									</div>

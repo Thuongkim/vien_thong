@@ -10,7 +10,7 @@
 <!-- Content -->
 <div class="page-content bg-white">
 	<!-- inner page banner -->
-	<div class="dlab-bnr-inr overlay-black-middle bg-pt" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">>
+	<div class="dlab-bnr-inr overlay-black-middle bg-pt" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
 		<div class="container">
 			<div class="dlab-bnr-inr-entry">
 				<h1 class="text-white">{!! $categories[0][$lang]['name'] !!}</h1>
@@ -61,7 +61,9 @@
 					</div>
 					@endforeach
 					<!-- Pagination start -->
-					{!! $services->links("frontend.pagination") !!}
+                    <div class="pagination-bx clearfix text-center">
+						{!! $services->links("frontend.pagination") !!}
+					</div>
 					<!-- Pagination END -->
 				</div>
 				<!-- Left part END -->

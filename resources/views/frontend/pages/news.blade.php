@@ -50,7 +50,7 @@
 								<h4 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}">{!! $news_st[$lang]['title'] !!}</a></h4>
 							</div>
 							<div class="dlab-post-text">
-								<p>{!! $news_st[$lang]['summary'] !!}</p>
+								<p>{!! nl2br(strip_tags($news_st[$lang]['summary'])) !!}</p>
 							</div>
 							<div class="dlab-post-readmore">
 								<a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}" title="READ MORE" rel="bookmark"
@@ -63,7 +63,9 @@
 					@endif
 					@endforeach
 					<!-- Pagination start -->
-					{!! $temp->links("frontend.pagination") !!}
+					<div class="pagination-bx clearfix text-center">
+						{!! $temp->links("frontend.pagination") !!}
+					</div>
 					<!-- Pagination END -->
 				</div>
 				<!-- Left part END -->
@@ -74,6 +76,7 @@
 							<h5 class="widget-title style-1">{{trans('frontend.post')}}</h5>
 							<div class="widget-post-bx">
 								@foreach ($news_all as $news_nd)
+								@if($news_nd[$lang]['title'])
 								<div class="widget-post clearfix">
 									{{-- <div class="dlab-post-media">
 										@if($news_nd['image'])
@@ -93,6 +96,7 @@
 										</div>
 									</div>
 								</div>
+								@endif
 								@endforeach()
 							</div>
 						</div>

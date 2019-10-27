@@ -150,6 +150,7 @@
                     <tbody>
                         <?php $labels = ['success', 'info', 'danger', 'warning', 'default']; ?>
                         @foreach ($news as $item)
+                        @if ($item->title)
                         <tr>
                             <td style="text-align: center; width: 3%; vertical-align: middle;">
                                 {!! Form::checkbox('newsId', $item->id, null, array('class' => 'newsId')) !!}
@@ -191,6 +192,7 @@
                                 <a href="{!! route('admin.news.delete', $item->id) !!}" class="btn-confirm text-danger"><i class="glyphicon glyphicon-remove"></i> Xóa </a>
                             </td>
                         </tr>
+                        @endif
                         @endforeach
                     </tbody>
                 </table>

@@ -59,7 +59,7 @@ class NewsController extends Controller
             $query .= " AND created_by = " . $request->user()->id;
         }
 
-        $news = News::whereRaw($query . ' order by updated_at DESC')->paginate($page_num);
+        $news = News::whereNotNull('title')->whereRaw($query . ' order by updated_at DESC')->paginate($page_num);
 
         $categories = [];
         $tmp = NewsCategory::where('parent_id', 0)->get();
