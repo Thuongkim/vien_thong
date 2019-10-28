@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Define\Constant as Constant;
 
@@ -49,7 +50,9 @@ class News extends \Eloquent {
         });
         static::creating(function($news)
         {
-            $news->image = "images/news/".$news->image;
+            if(Request::hasFile('image')) {
+                $news->image = "images/news/".$news->image;
+            }
         });
         static::updated(function($news)
         {
@@ -57,7 +60,9 @@ class News extends \Eloquent {
         });
         static::updating(function($news)
         {
-            $news->image = "images/news/".$news->image;
+            if(Request::hasFile('image')) {
+                $news->image = "images/news/".$news->image;
+            }
         });
         static::deleted(function($news)
         {
