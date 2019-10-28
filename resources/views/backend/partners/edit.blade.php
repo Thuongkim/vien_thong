@@ -54,7 +54,7 @@
                     {!! trans('partners.partner_link') !!}
                 </th>
                 <td>
-                    {!! Form::text('partner_link', old('partner_link', $partner->partner_link), array('class' => 'form-control', 'required', 'maxlength' => 50)) !!}
+                    {!! Form::text('partner_link', old('partner_link', $partner->partner_link), array('class' => 'form-control', 'required', 'maxlength' => 255)) !!}
                 </td>
             </tr>
             <tr>
