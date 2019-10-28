@@ -81,7 +81,7 @@
                             <div class="dez-info p-a30 bg-white">
                                 <b><p class="dez-title m-t0" style="text-transform: capitalize;">
                                     <a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">
-                                    {!! \App\Helper\HString::modSubstr($project[$lang]['title'], 50)!!}
+                                    {!! \App\Helper\HString::modSubstr($project[$lang]['title'], 45)!!}
                                     </a>
                                 </p></b>
                             </div>
