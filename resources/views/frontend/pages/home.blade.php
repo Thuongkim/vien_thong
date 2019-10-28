@@ -335,7 +335,7 @@
 										</div>
 										<div class="ow-post-info">
 											<div class="ow-post-title">
-												<h4 class="post-title" style="min-height: 60px;font-size: 20px"> <a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}"
+												<h4 class="post-title" style="min-height: 84px;font-size: 20px"> <a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}"
 														title="news">{!! $news[$lang]['title'] !!}</a> </h4>
 											</div>
 											<div class="ow-post-meta">
@@ -348,8 +348,8 @@
 															rel="author">{!! $news['created_by'] !!}</a> </li>
 												</ul>
 											</div>
-											<div class="ow-post-text">
-												<p>{!! strip_tags($news[$lang]['summary']) !!}</p>
+											<div class="ow-post-text" style="min-height: 196px;">
+												<p>{!! \App\Helper\HString::modSubstr(strip_tags($news[$lang]['summary']), 255) !!}</p>
 											</div>
 										</div>
 									</div>

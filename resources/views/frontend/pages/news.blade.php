@@ -50,7 +50,7 @@
 								<h4 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}">{!! $news_st[$lang]['title'] !!}</a></h4>
 							</div>
 							<div class="dlab-post-text">
-								<p>{!! nl2br(strip_tags($news_st[$lang]['summary'])) !!}</p>
+								<p>{!! \App\Helper\HString::modSubstr(nl2br(strip_tags($news_st[$lang]['summary'])), 255) !!}</p>
 							</div>
 							<div class="dlab-post-readmore">
 								<a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}" title="READ MORE" rel="bookmark"
