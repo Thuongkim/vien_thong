@@ -244,26 +244,41 @@
 					<div class="container">
 						<div class="site-filters clearfix center  m-b40">
 							<ul class="filters" data-toggle="buttons">
-								<li data-filter="" class="btn active">
+								{{-- <li data-filter="" class="btn active">
 									<input type="radio">
 									<a href="javascript:void(0);"
 										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.all')}}</span></a>
+								</li> --}}
+								<?php $k = 0; ?>
+								@foreach ($projectCategories as $k => $projectCategory)
+								@if($k == 0)
+								<li data-filter="project_{{ $projectCategory['id']}}" class="btn active metal">
+									<input type="radio">
+									<a href="javascript:void(0);"
+										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</span></a>
 								</li>
-								@foreach ($projectCategories as $projectCategory)
+								@else
 								<li data-filter="{{ $projectCategory['id']}}" class="btn">
 									<input type="radio">
 									<a href="javascript:void(0);"
 										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</span></a>
 								</li>
+								@endif
 								@endforeach
 							</ul>
 						</div>
 
 						<div class="clearfix" id="lightgallery">
 							<ul id="masonry" class=" portfolio-ic dlab-gallery-listing gallery-grid-4 gallery lightgallery text-center">
+								@php
+									$tmp = []
+								@endphp
 								@foreach ($projects as $project)
-									@if ($project[$lang]['title'])
-									<li class="{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
+									@if ($project[$lang]['title'] && $tmp[$project['category_id']] < 4)
+									@php
+										$tmp[$project['category_id']]++;
+									@endphp
+									<li class="project_{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
 										<div class="dlab-box dlab-gallery-box">
 											@if (!$project['image'])
 											<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
@@ -343,14 +358,20 @@
 													<li class="post-date"> <i
 															class="ti-comment-alt"></i><strong>{!! date("d/m", strtotime($news['updated_at'])) !!}</strong> <span>
 															{!! date("Y", strtotime($news['updated_at'])) !!}</span> </li>
-													<li class="post-author"><i class="ti-user"></i>{{trans('frontend.by')}} <a
+													{{-- <li class="post-author"><i class="ti-user"></i>{{trans('frontend.by')}} <a
 															href="javascript:void(0);" title="Posts by admin"
-															rel="author">{!! $news['created_by'] !!}</a> </li>
+															rel="author">{!! $news['created_by'] !!}</a> </li> --}}
 												</ul>
 											</div>
-											<div class="ow-post-text" style="min-height: 196px;">
-												<p>{!! \App\Helper\HString::modSubstr(strip_tags($news[$lang]['summary']), 255) !!}</p>
+											<div class="dlab-post-readmore">
+												<a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}" title="READ MORE" rel="bookmark"
+													class="site-button">{{trans('frontend.read_more')}}
+													<i class="ti-arrow-right"></i>
+												</a>
 											</div>
+											{{-- <div class="ow-post-text" style="min-height: 196px;">
+												<p>{!! \App\Helper\HString::modSubstr(strip_tags($news[$lang]['summary']), 255) !!}</p>
+											</div> --}}
 										</div>
 									</div>
 								</div>
