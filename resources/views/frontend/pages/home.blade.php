@@ -258,7 +258,7 @@
 										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</span></a>
 								</li>
 								@else
-								<li data-filter="{{ $projectCategory['id']}}" class="btn">
+								<li data-filter="project_{{ $projectCategory['id']}}" class="btn">
 									<input type="radio">
 									<a href="javascript:void(0);"
 										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</span></a>
