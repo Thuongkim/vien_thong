@@ -95,10 +95,10 @@
 												@endphp
 												@foreach ($projects as $project)
 												@if ($projectCategory['id'] == $project['category_id'] && $project[$lang]['title'])
-												<li><a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">{{$project[$lang]['title']}}</a></li>
+												<li><a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">{!! \App\Helper\HString::modSubstr($project[$lang]['title'], 70)!!}</a></li>
 												@php
 													$i++;
-													if ($i > 5) break;
+													if ($i > 3) break;
 												@endphp
 												@endif
 												@endforeach
