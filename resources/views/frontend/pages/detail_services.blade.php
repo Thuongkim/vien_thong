@@ -7,19 +7,21 @@
 
 @section('content')
 
-<div class="dlab-bnr-inr overlay-black-middle bg-pt" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
-	<div class="container">
-		<div class="dlab-bnr-inr-entry">
-			<h1 class="text-white">{{trans('frontend.service')}}</h1>
-			<!-- Breadcrumb row -->
-			<div class="breadcrumb-row">
-				<ul class="list-inline">
-					<li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
-					<li>{{trans('frontend.service')}}</li>
-					<li>{!! $detailService[0][$lang]['title'] !!}</li>
-				</ul>
+<div class="animation-effects">
+	<div class="dlab-bnr-inr overlay-black-middle bg-pt active wow zoomIn" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
+		<div class="container">
+			<div class="dlab-bnr-inr-entry">
+				<h1 class="text-white">{{trans('frontend.service')}}</h1>
+				<!-- Breadcrumb row -->
+				<div class="breadcrumb-row">
+					<ul class="list-inline">
+						<li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
+						<li>{{trans('frontend.service')}}</li>
+						<li>{!! $detailService[0][$lang]['title'] !!}</li>
+					</ul>
+				</div>
+				<!-- Breadcrumb row END -->
 			</div>
-			<!-- Breadcrumb row END -->
 		</div>
 	</div>
 </div>
@@ -80,9 +82,6 @@
 					</div>
 					<div class="dlab-post-title">
 						<h4 class="post-title m-t0"><a href="blog-single-sidebar">{{ $detailService[0][$lang]['title'] }}</a></h4>
-					</div>
-					<div class="dlab-post-media dlab-img-effect zoom-slow">
-						<a href="blog-single-sidebar"><img src="{{ asset($detailService[0]['image']) }}" alt=""></a>
 					</div>
 					<div class="dlab-post-text">
 						{!! $detailService[0][$lang]['content'] !!}

@@ -48,6 +48,7 @@
 
 	<!-- REVOLUTION SLIDER CSS -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/plugins/revolution/revolution/css/revolution.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/fix.css') }}">
 	<!-- SEARCH -->
 	{{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/search.css') }}"> --}}
 
@@ -68,6 +69,8 @@
 	<button class="scroltop style1 white icon-up" type="button"><i class="fa fa-arrow-up"></i></button>
 	</div>
 	<!-- JAVASCRIPT FILES ========================================= -->
+	<script src="{{ asset('assets/frontend/welcome/js/jquery.min.js') }}"></script><!-- JQUERY.MIN JS -->
+	<script src="{{ asset('assets/frontend/welcome/js/custom.js') }}"></script><!-- CUSTOM FUCTIONS  -->
 	<script src="{{ asset('assets/frontend/js/combining.js') }}"></script><!-- CONTACT JS  -->
 	<script src="{{ asset('assets/frontend/js/jquery.lazy.min.js') }}"></script>
 	<!-- REVOLUTION JS FILES -->

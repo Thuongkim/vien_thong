@@ -9,21 +9,25 @@
 
 		<div class="page-content bg-white">
 			<!-- inner page banner -->
-			<div class="dlab-bnr-inr overlay-black-middle bg-pt"
-				style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
-				<div class="container">
-					<div class="dlab-bnr-inr-entry">
-						<h1 class="text-white">{!! $page[0][$lang]['title'] !!}</h1>
-						<!-- Breadcrumb row -->
-						<div class="breadcrumb-row">
-							<ul class="list-inline">
-								<li><a href="{!! route('home') !!}">{!! trans('frontend.home') !!}</a></li>
-								<li>{!! $page[0][$lang]['title'] !!}</li>
-							</ul>
+			<div class="animation-effects">
+				
+					<div class="dlab-bnr-inr overlay-black-middle bg-pt active wow zoomIn"
+					style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
+					<div class="container">
+						<div class="dlab-bnr-inr-entry">
+							<h1 class="text-white">{!! $page[0][$lang]['title'] !!}</h1>
+							<!-- Breadcrumb row -->
+							<div class="breadcrumb-row">
+								<ul class="list-inline">
+									<li><a href="{!! route('home') !!}">{!! trans('frontend.home') !!}</a></li>
+									<li>{!! $page[0][$lang]['title'] !!}</li>
+								</ul>
+							</div>
+							<!-- Breadcrumb row END -->
 						</div>
-						<!-- Breadcrumb row END -->
 					</div>
-				</div>
+				
+			</div>
 			</div>
 			<!-- inner page banner END -->
 			<!-- contact area -->
@@ -154,11 +158,85 @@
 
 
 			<div class="content-area">
-				<div class="section-full wow fadeIn" data-wow-duration="2s" data-wow-delay="0.3s">
-					<div class="container bg-white">
-						<div class="testimonial-box-carousel owl-carousel owl-btn-center-lr owl-btn-2 radius-no owl-btn-md owl-theme primary owl-dots-none">
+				<div class="section-full bg-gray content-inner">
+					<div class="container">
+						<div class="animation-effects">
 
-							{!! $page[0][$lang]['description'] !!}
+							<div class="row dzseth">
+
+								<div class="col-lg-3 col-md-6 col-sm-6" style="height: 350px;margin: auto;">
+										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceIn fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceIn;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g1.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Thế Thịnh</a></h4>
+											<span class="dlab-position">Tổng Giám đốc</span>	
+										</div>
+									</div>
+								</div>
+								
+
+							</div>
+
+							<div class="row dzseth">
+
+								<div class="col-lg-3 col-sm">
+										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g2.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Trường Giang</a></h4>
+											<span class="dlab-position">Phó Tổng Giám đốc</span>	
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm">
+										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g3.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Thúy Hà</a></h4>
+											<span class="dlab-position">Kế toán trưởng</span>	
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g4.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Huỳnh Trọng Trí</a></h4>
+											<span class="dlab-position">Giám đốc Chi nhánh miền Nam</span>	
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-sm">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g5.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Thanh An</a></h4>
+											<span class="dlab-position">Giám đốc Trung tâm kỹ thuật miền Bắc</span>	
+										</div>
+									</div>
+								</div>
+
+							</div>
 
 						</div>
 					</div>
@@ -167,13 +245,37 @@
 
 			@elseif($slug == 'so-do-to-chuc' || $slug == 'lich-su-phat-trien')
 
-				<div class="content-area">
+			{{-- <div class="content-area">
 				<div class="container">
 					<div class="col-lg-12">
 						<div class="dlab-box">
 							<div class="dlab-media"> 
 								{!! $page[0][$lang]['description'] !!}
 							</div>
+						</div>
+					</div>
+				</div>
+			</div> --}}
+
+
+			<div class="content-area">
+				<div class="section-full bg-gray content-inner">
+					<div class="container">
+						<div class="animation-effects">
+
+							<div class="row dzseth">
+
+								<div class="col-lg-12">
+										<div class="dlab-box active wow bounceIn fly-box-ho seth" data-wow-delay="0.1s" style=" visibility: visible; animation-delay: 0.1s; animation-name: bounceIn;">
+										<div class="dlab-media">
+											{!! $page[0][$lang]['description'] !!}
+										</div>
+									</div>
+								</div>
+								
+
+							</div>
+
 						</div>
 					</div>
 				</div>
