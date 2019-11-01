@@ -44,7 +44,7 @@
 							<h4 class="post-title m-t0">{!! $project->translation('title', $lang)->first()->content !!}</h4>
 						</div>
 						<div class="dlab-post-text">
-							<p>{!! nl2br($project->translation('content', $lang)->first()->content) !!}</p>
+							<p>{!! $project->translation('content', $lang)->first()->content !!}</p>
 						</div>
 						<div class="dlab-post-tags clear">
 							{{-- <div class="post-tags">
