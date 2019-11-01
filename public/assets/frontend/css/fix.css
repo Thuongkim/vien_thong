@@ -9,7 +9,7 @@
 }
 
 .about-8-service .icon-bx-wraper:hover a,.acod-head a,.acod-head a.collapsed:hover,.acod-head a:after,.acod-head a:hover,.breadcrumb-row ul li a,.comments-area p:before,.dlab-post-meta i,.dlab-post-meta.text-primary i,.dlab-post-meta.text-primary ul li,.dlab-post-meta.text-primary ul li a,.dlab-tabs .nav-tabs>li>a i,.header-nav .nav>li .mega-menu>li ul a:hover,.header-nav .nav>li .sub-menu li:hover>a,.header-nav .nav>li.active>a,.header-nav .nav>li.current-menu-item>a .header-nav .nav>li .sub-menu li a:hover,.header-nav .nav>li:hover>a,.header-nav .nav>li>a.nav-link.active,.item-info-in ul li a:hover,.nav-dark.header-nav .nav>li .mega-menu>li ul a:hover,.nav-dark.header-nav .nav>li .sub-menu li:hover>a,.primary li:before,.site-button-link:hover,.site-button.outline,.testimonial-1 .testimonial-position,.testimonial-2 .testimonial-position,.testimonial-3 .quote-left:before,.testimonial-3 .testimonial-position,.testimonial-4 .testimonial-name:after,.text-primary,a,blockquote:before,button.scroltop,footer a:active,footer a:focus,footer a:hover,footer h1 a,footer h2 a,footer h3 a,footer h4 a,footer h5 a,footer h6 a,footer p a,h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover,ol.comment-list li.comment .reply a{
-	color:#BA55D3
+	color:#ad0481
 }
 .dlab-team1 .dlab-info{
 	bottom:-15px;
@@ -67,4 +67,52 @@ h4 a{
 }
 .row {
     margin-top: 50px;
+}
+.dlab-post-readmore {
+    margin-bottom: 0px;
+}
+.page-item.active .page-link {
+    background-color: #ad0481; 
+    border-color: #ad0481; 
+}
+.site-button:hover {
+    background-color: #CC0066;
+}
+.owl-prev:hover {
+    background-color: #CC0066;
+    border-color: #CC0066;
+    color: #fff
+}
+
+.active>.site-button,.bg-primary-dark,.owl-btn-1.primary .owl-next:hover,.owl-btn-1.primary .owl-prev:hover,.owl-btn-2.primary .owl-next:hover,.owl-btn-2.primary .owl-prev:hover,.pagination>.active>a,.pagination>.active>a:focus,.pagination>.active>a:hover,.pagination>.active>span,.pagination>.active>span:focus,.pagination>.active>span:hover,.pagination>li>a:focus,.pagination>li>a:hover,.pagination>li>span:focus,.pagination>li>span:hover,.sidenav .closebtn:focus,.sidenav .closebtn:hover,.site-button:active,.site-button:focus,.site-button:hover{
+  background-color:#CC0066
+}
+.about-us .dlab-tabs .nav-tabs li.active{
+  border-right:4px solid #CC0066
+}
+.dlab-info-has.bg-primary,.dlab-info-has.bg-secondry:hover,.tp-bannertimer.tp-bottom{
+  background-color: #CC0066
+}
+.about-8-service .icon-bx-wraper:hover a,.acod-head a,.acod-head a.collapsed:hover,.acod-head a:after,.acod-head a:hover,.breadcrumb-row ul li a,.comments-area p:before,.dlab-post-meta i,.dlab-post-meta.text-primary i,.dlab-post-meta.text-primary ul li,.dlab-post-meta.text-primary ul li a,.dlab-tabs .nav-tabs>li>a i,.header-nav .nav>li .mega-menu>li ul a:hover,.header-nav .nav>li .sub-menu li:hover>a,.header-nav .nav>li.active>a,.header-nav .nav>li.current-menu-item>a .header-nav .nav>li .sub-menu li a:hover,.header-nav .nav>li:hover>a,.header-nav .nav>li>a.nav-link.active,.item-info-in ul li a:hover,.nav-dark.header-nav .nav>li .mega-menu>li ul a:hover,.nav-dark.header-nav .nav>li .sub-menu li:hover>a,.primary li:before,.site-button-link:hover,.site-button.outline,.testimonial-1 .testimonial-position,.testimonial-2 .testimonial-position,.testimonial-3 .quote-left:before,.testimonial-3 .testimonial-position,.testimonial-4 .testimonial-name:after,.text-primary,a,blockquote:before,button.scroltop,footer a:active,footer a:focus,footer a:hover,footer h1 a,footer h2 a,footer h3 a,footer h4 a,footer h5 a,footer h6 a,footer p a,h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover,ol.comment-list li.comment .reply a{
+  color:#CC0066
+}
+@media only screen and (max-width:991px){
+  .nav-dark.header-nav .nav>li>a:active,.nav-dark.header-nav .nav>li>a:focus,.nav-dark.header-nav .nav>li>a:hover{
+    color:#CC0066
+}
+}
+.navbar-toggle,.owl-slider-banner .owl-theme .owl-dots .owl-dot.active,.owl-slider-banner .owl-theme .owl-dots .owl-dot:hover,.owl-theme.dots-style-3 .owl-dots .owl-dot.active,.owl-theme.dots-style-3 .owl-dots .owl-dot:hover,.side-bar .widget_tag_cloud a:hover,.testimonial-4 .testimonial-pic,.testimonial-4 [class*=quote-],.testimonial-4:after,.ui-state-default,.ui-widget-content .ui-state-default,.ui-widget-header .ui-state-default,.widget_gallery li:hover,blockquote,button.scroltop,input[type=checkbox]+label:hover:before,input[type=checkbox]:checked+label:before,input[type=radio]+label:hover:before{
+  border-color:#CC0066
+}
+.owl-item.active.center .testimonial-8 .testimonial-text:after{
+  border-top:25px solid #CC0066
+}
+.dlab-tabs.border-top .nav-tabs>li.active>a{
+  border-top-color:#CC0066
+}
+.bg-secondry{
+  background-color:#CC0066
+}
+.text-secondry{
+  color:#CC0066
 }

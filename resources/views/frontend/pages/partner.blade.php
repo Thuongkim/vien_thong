@@ -14,8 +14,8 @@
         <div class="section-full overlay-black-middle bg-img-fix content-inner"
             style="background-image:url({{ asset('assets/frontend/images/background/bg-customer.png') }});">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
+                <div class="row animation-effects">
+                    <div class="col-lg-12 active wow zoomIn">
                         <div class="sort-title text-white clearfix text-center">
                             <h4>{{trans('frontend.partner_us')}}</h4>
                         </div>

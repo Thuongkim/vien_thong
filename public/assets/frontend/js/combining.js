@@ -408,7 +408,6 @@ var Industry = function() {
                 }), jQuery(".modal").on("show.bs.modal", a)
         },
         handleMasonryFilter: function() {
-        	console.log(2)
             ! function() {
                 "use strict";
                 if (jQuery("#masonry1").length) {
@@ -738,7 +737,6 @@ var Industry = function() {
             }()
         },
         load: function() {
-        	console.log(3)
             jQuery("select").length && jQuery("select").selectpicker(), jQuery("input[name='demo_vertical2']").TouchSpin({
                     verticalbuttons: !0,
                     verticalupclass: "ti-plus",
@@ -757,16 +755,31 @@ var Industry = function() {
                                 isAnimated: !0,
                                 itemSelector: ".card-container",
 
-                            })
-                        	
+                            });
+                         //    e.masonryFilter({
+	                        //     filter: function() {
+	                        //         return $(this).hasClass('project_1');
+	                        //     }
+	                        // })
                         });
-                        e.masonryFilter({
-                            filter: function() {
-                                return "project_1";
-                            }
-                        })
                     }
-                    jQuery(".filters").length && jQuery(".filters").on("click", "li", function(t) {
+                    if (jQuery("#masonry_1, .masonry_1").length) {
+                        var e = $("#masonry_1, .masonry_1");
+                        jQuery(".card-container").length && e.imagesLoaded(function() {
+                            e.masonry({
+                                gutterWidth: 15,
+                                isAnimated: !0,
+                                itemSelector: ".card-container",
+
+                            });
+                            e.masonryFilter({
+	                            filter: function() {
+	                                return $(this).hasClass('project_1');
+	                            }
+	                        })
+                        });
+                    }
+                    jQuery(".filters_1").length && jQuery(".filters_1").on("click", "li", function(t) {
                         t.preventDefault();
                         var i = $(this).attr("data-filter");
                         e.masonryFilter({

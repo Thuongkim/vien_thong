@@ -32,13 +32,13 @@
 	<div class="container">
 		<div class="row">
 			<!-- Side bar start -->
-			<div class="col-xl-3 col-lg-4 col-md-5 sticky-top">
+			<div class="col-xl-3 col-lg-4 col-md-5 sticky-top animation-effects">
 				<aside class="side-bar">
 					<div class="widget recent-posts-entry">
 						<h5 class="widget-title style-1">{{trans('frontend.service')}}</h5>
 						<div class="widget-post-bx">
 							@foreach($featuredServices as $featuredService)
-							<div class="widget-post clearfix">
+							<div class="widget-post clearfix dlab-box-bg post card-container active wow bounceInRight" style="visibility: visible; animation-delay: 0.5s; animation-name: bounceInLeft;">
 								<div class="dlab-post-media">
 									<img src="{{ asset($featuredService->image) }}" width="200" height="143" alt="">
 								</div>
