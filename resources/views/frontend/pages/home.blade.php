@@ -113,7 +113,7 @@
 											data-textAlign="['center','center','center','center']"
 											data-paddingtop="[15,15,15,10]" data-paddingright="[30,30,30,20]"
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
-											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#BA55D3; text-transform: uppercase;">
+											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#BA55D3; text-transform: uppercase; ">
 										
 											{{trans('frontend.about-us')}}
 											
@@ -153,7 +153,7 @@
 					data-wow-delay="0.2s">
 					<div class="container">
 						<div class="row">
-							<div class="col-lg-9 text-white">
+							<div class="col-lg-12 text-white">
 								<h2 class="title">{{trans('frontend.introduction')}}</h2>
 								<p class="m-b0">
 								{!! isset($staticPages[$lang]['index']['description']) ? $staticPages[$lang]['index']['description'] : '' !!}
