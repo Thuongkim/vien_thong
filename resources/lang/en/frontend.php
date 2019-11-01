@@ -25,5 +25,6 @@ return [
     'categories'            => 'Categories',
     'field-of-operation'            => 'Business production results',
     'business-production-results'            => 'Field of Operation',
+    'development-history'            => 'History of Development',
     'service_category' => 'List of Services'
 ];

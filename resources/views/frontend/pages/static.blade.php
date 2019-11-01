@@ -104,6 +104,18 @@
 				<div class="section-full text-center bg-gray content-inner">
 					<div class="container">
 						<div class="section-head text-black text-center">
+							<h2 class="title">{{trans('frontend.development-history')}}</h2>
+						</div>
+						<div class="row">
+							<div class="col-lg-12 col-md-12 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">
+								<div class="blog-post blog-grid blog-rounded blog-effect1 fly-box">
+									<div class="dlab-post-media dlab-img-effect">
+										<a href="">{!! isset($staticPages[$lang]['lich-su-phat-trien']['description']) ? $staticPages[$lang]['lich-su-phat-trien']['description'] : '' !!}</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="section-head text-black text-center">
 							<h2 class="title">{{trans('frontend.field-of-operation')}}</h2>
 						</div>
 						<div class="row">
@@ -243,7 +255,7 @@
 				</div>
 			</div>
 
-			@elseif($slug == 'so-do-to-chuc' || $slug == 'lich-su-phat-trien')
+			@elseif($slug == 'so-do-to-chuc')
 
 			{{-- <div class="content-area">
 				<div class="container">
