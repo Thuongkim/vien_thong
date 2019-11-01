@@ -8,19 +8,20 @@
 <!-- Content -->
 <div class="page-content bg-white">
     <!-- inner page banner -->
-    <div class="dlab-bnr-inr overlay-black-middle bg-pt"
-        style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
-        <div class="container">
-            <div class="dlab-bnr-inr-entry">
-                <h1 class="text-white">{{trans('frontend.career')}}</h1>
-                <!-- Breadcrumb row -->
-                <div class="breadcrumb-row">
-                    <ul class="list-inline">
-                        <li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
-                        <li>{{trans('frontend.career')}}</li>
-                    </ul>
+    <div class="animation-effects">
+        <div class="dlab-bnr-inr overlay-black-middle bg-pt active wow zoomIn" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
+            <div class="container">
+                <div class="dlab-bnr-inr-entry">
+                    <h1 class="text-white">{{trans('frontend.career')}}</h1>
+                    <!-- Breadcrumb row -->
+                    <div class="breadcrumb-row">
+                        <ul class="list-inline">
+                            <li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
+                            <li>{{trans('frontend.career')}}</li>
+                        </ul>
+                    </div>
+                    <!-- Breadcrumb row END -->
                 </div>
-                <!-- Breadcrumb row END -->
             </div>
         </div>
     </div>
@@ -33,8 +34,8 @@
                     <div class="dlab-accordion faq-1 box-sort-in m-b30" id="accordion1">
                     	@foreach ($news as $news_single)
                         @if ($news_single->translation('title', $lang)->first()->content)
-                        <div class="panel">
-                            <div class="acod-head">
+                        <div class="panel animation-effects">
+                            <div class="acod-head active wow zoomIn">
                                 <h6 class="acod-title">
                                     <a href="javascript:void(0);" data-toggle="collapse" data-target="<?php echo "#faq".$news_single->id ?>"
                                         class="collapsed" aria-expanded="true">
@@ -59,14 +60,14 @@
                 </div>
                 <!-- Left part END -->
                 <!-- Side bar start -->
-                <div class="col-xl-3 col-lg-4 col-md-5 sticky-top">
+                <div class="col-xl-3 col-lg-4 col-md-5 sticky-top animation-effects">
                     <aside class="side-bar">
                         <div class="widget recent-posts-entry">
                             <h5 class="widget-title style-1">{{trans('frontend.post')}}</h5>
                            <div class="widget-post-bx">
 								@foreach ($news_all as $news_all)
                                 @if($news_all[$lang]['title'])
-								<div class="widget-post clearfix">
+								<div class="widget-post clearfix dlab-box-bg post card-container active wow bounceInRight" style="visibility: visible; animation-delay: 0.5s; animation-name: bounceInRight;">
 									{{-- <div class="dlab-post-media">
 										@if($news_all['image'])
 										<img src="{!! asset('assets/media/images/news/' . $news_all['image']) !!}" width="200" height="143" alt="">

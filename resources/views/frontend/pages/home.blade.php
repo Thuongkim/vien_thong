@@ -113,7 +113,7 @@
 											data-textAlign="['center','center','center','center']"
 											data-paddingtop="[15,15,15,10]" data-paddingright="[30,30,30,20]"
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
-											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#BA55D3; text-transform: uppercase; ">
+											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#ad0481; text-transform: uppercase;">
 										
 											{{trans('frontend.about-us')}}
 											
@@ -132,7 +132,7 @@
 											data-textAlign="['center','center','center','center']"
 											data-paddingtop="[15,15,15,10]" data-paddingright="[30,30,30,20]"
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
-											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#BA55D3; text-transform: uppercase;">
+											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#ad0481; text-transform: uppercase;">
 											{{trans('frontend.tam-nhin')}}
 										</a>
 									</li>
@@ -243,13 +243,12 @@
 				<div class="section-full content-inner portfolio text-uppercase bg-white" id="portfolio">
 					<div class="container">
 						<div class="site-filters clearfix center  m-b40">
-							<ul class="filters" data-toggle="buttons">
+							<ul class="filters_1" data-toggle="buttons">
 								{{-- <li data-filter="" class="btn active">
 									<input type="radio">
 									<a href="javascript:void(0);"
 										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.all')}}</span></a>
 								</li> --}}
-								<?php $k = 0; ?>
 								@foreach ($projectCategories as $k => $projectCategory)
 								@if($k == 0)
 								<li data-filter="project_{{ $projectCategory['id']}}" class="btn active metal">
@@ -258,7 +257,7 @@
 										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</span></a>
 								</li>
 								@else
-								<li data-filter="project_{{ $projectCategory['id']}}" class="btn">
+								<li data-filter="project_{{$projectCategory['id']}}" class="btn">
 									<input type="radio">
 									<a href="javascript:void(0);"
 										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</span></a>
@@ -269,7 +268,7 @@
 						</div>
 
 						<div class="clearfix" id="lightgallery">
-							<ul id="masonry" class=" portfolio-ic dlab-gallery-listing gallery-grid-4 gallery lightgallery text-center">
+							<ul id="masonry_1" class=" portfolio-ic dlab-gallery-listing gallery-grid-4 gallery lightgallery text-center">
 								@php
 									$tmp = []
 								@endphp

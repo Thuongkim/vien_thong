@@ -371,7 +371,7 @@ var Agency = function(){
 			});
 			
 		}
-		
+
 		if(jQuery('#masonry2').length)
 		{
 			var masonry2 = $("#masonry2");
