@@ -363,7 +363,7 @@
 												</ul>
 											</div>
 											<div class="dlab-post-readmore">
-												<a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}" title="READ MORE" rel="bookmark"
+												<a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}" title="READ MORE" rel="bookmark"
 													class="site-button">{{trans('frontend.read_more')}}
 													<i class="ti-arrow-right"></i>
 												</a>
