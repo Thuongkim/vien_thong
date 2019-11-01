@@ -101,7 +101,7 @@
 										</div>
 										<!-- LAYER NR. 5 -->
 										<a class="tp-caption rev-btn tc-btnshadow tp-rs-menulink" href="{!! route('home.static-page', 'thong-tin-chung') !!}"
-											target="_blank" id="slide-100-layer-5"
+											target="_self" id="slide-100-layer-5"
 											data-x="['center','center','center','center']"
 											data-hoffset="['-510','-335','-100','-80']"
 											data-y="['middle','middle','middle','middle']"
@@ -113,14 +113,14 @@
 											data-textAlign="['center','center','center','center']"
 											data-paddingtop="[15,15,15,10]" data-paddingright="[30,30,30,20]"
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
-											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#fc1520; text-transform: uppercase;">
+											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#BA55D3; text-transform: uppercase; ">
 										
 											{{trans('frontend.about-us')}}
 											
 										</a>
 										<!-- LAYER NR. 5 -->
 										<a class="tp-caption rev-btn tc-btnshadow tp-rs-menulink"
-											href="{!! route('home.static-page', 'tam-nhin-gia-tri-cot-loi') !!}" target="_blank" id="slide-100-layer-6"
+											href="{!! route('home.static-page', 'tam-nhin-gia-tri-cot-loi') !!}" target="_self" id="slide-100-layer-6"
 											data-x="['center','center','center','center']"
 											data-hoffset="['-340','-160','70','70']"
 											data-y="['middle','middle','middle','middle']"
@@ -132,7 +132,7 @@
 											data-textAlign="['center','center','center','center']"
 											data-paddingtop="[15,15,15,10]" data-paddingright="[30,30,30,20]"
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
-											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#fc1520; text-transform: uppercase;">
+											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#BA55D3; text-transform: uppercase;">
 											{{trans('frontend.tam-nhin')}}
 										</a>
 									</li>
@@ -153,7 +153,7 @@
 					data-wow-delay="0.2s">
 					<div class="container">
 						<div class="row">
-							<div class="col-lg-9 text-white">
+							<div class="col-lg-12 text-white">
 								<h2 class="title">{{trans('frontend.introduction')}}</h2>
 								<p class="m-b0">
 								{!! isset($staticPages[$lang]['index']['description']) ? $staticPages[$lang]['index']['description'] : '' !!}
