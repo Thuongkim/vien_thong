@@ -56,7 +56,16 @@
 
 <body id="bg">
 	<div class="page-wraper">
-		<div id="loading-area"></div>
+		<div id="loading-area" :style="spinnerStyle">
+			<div class="dot"></div>
+			<div class="dot"></div>
+			<div class="dot"></div>
+		</div>
+		{{-- <div class="hollow-dots-spinner" :style="spinnerStyle">
+			<div class="dot"></div>
+			<div class="dot"></div>
+			<div class="dot"></div>
+		</div> --}}
 		<!-- header -->
 		@include('frontend.menu')
 		<!-- header END -->
