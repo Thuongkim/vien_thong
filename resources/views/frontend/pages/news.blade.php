@@ -55,7 +55,7 @@
 										<h4 class="post-title" style="min-height: 60px;"><a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}">{!! $news_st[$lang]['title'] !!}</a></h4>
 									</div>
 									<div class="dlab-post-text">
-										<p>{!! \App\Helper\HString::modSubstr(strip_tags($news_st[$lang]['summary']), 100) !!}</p>
+										<p style="min-height: 84px;">{!! \App\Helper\HString::modSubstr(strip_tags($news_st[$lang]['summary']), 100) !!}</p>
 									</div>
 									<div class="dlab-post-readmore">
 										<a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}" title="READ MORE" rel="bookmark"
