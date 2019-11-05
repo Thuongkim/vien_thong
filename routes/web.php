@@ -100,3 +100,5 @@ Route::group(['middleware' => 'locale'], function() {
 	Route::get('dich-vu/{slug}-{id}.html', [ 'as' => 'home.services-detail', 'uses' => 'Frontend\HomeController@getDetailService' ])->where(['slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+']);
 
 });
+
+Route::view('/page', 'frontend.pages.blog-half-img-left-sidebar');
