@@ -308,4 +308,8 @@ class HomeController extends Controller
             '<div\1style="width: \3px" class="wp-caption \2">\4    <a href="\5">      \6    </a>      <p class="caption">\8</p></div>', 
             $content); 
     }
+     public static function sidebar() 
+    { 
+        return view('frontend.pages.sidebar');
+    }
 }

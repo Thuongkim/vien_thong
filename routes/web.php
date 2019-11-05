@@ -98,6 +98,7 @@ Route::group(['middleware' => 'locale'], function() {
 	Route::get('{slug}.html', [ 'as' => 'home.static-page', 'uses' => 'Frontend\HomeController@staticPage' ])->where(['slug' => '[a-zA-Z0-9\-]+']);
 	Route::get('danh-muc-dich-vu/{slug}-{id}.html', [ 'as' => 'home.services-category', 'uses' => 'Frontend\HomeController@getServicesCategory' ])->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);
 	Route::get('dich-vu/{slug}-{id}.html', [ 'as' => 'home.services-detail', 'uses' => 'Frontend\HomeController@getDetailService' ])->where(['slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+']);
+    Route::get('sidebar', [ 'as' => 'home.sidebar', 'uses' => 'Frontend\HomeController@sidebar' ]);
 
 });
 
