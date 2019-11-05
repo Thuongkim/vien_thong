@@ -31,7 +31,7 @@
             <div class="row">
                 <!-- Left part start -->
                 <div class="col-lg-9">
-                    <div class="blog-post blog-md clearfix">
+                    <div class="blog-post blog-md clearfix wow bounceInDown fly-box-ho" data-wow-delay="0.3s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic1.jpg" alt=""></a>
 						</div>
@@ -46,7 +46,7 @@
                                 <h4 class="post-title"><a href="blog-single.html">Why Are Children So Obsessed</a></h4>
                             </div>
                             <div class="dlab-post-text">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy
                                     text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                             </div>
                             <div class="dlab-post-readmore">
@@ -56,7 +56,7 @@
 							</div>
 						</div>
                     </div>
-                    <div class="blog-post blog-md clearfix">
+                    <div class="blog-post blog-md clearfix  wow bounceOut fly-box-ho" data-wow-delay="0.6s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic2.jpg" alt=""></a>
 						</div>
@@ -81,7 +81,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix">
+                    <div class="blog-post blog-md clearfix  wow bounceOutDown fly-box-ho" data-wow-delay="0.3s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic3.jpg" alt=""></a>
 						</div>
@@ -106,7 +106,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix">
+                    <div class="blog-post blog-md clearfix  wow bounceInDown fly-box-ho" data-wow-delay="0.6s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic1.jpg" alt=""></a>
 						</div>
@@ -131,7 +131,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix">
+                    <div class="blog-post blog-md clearfix  wow BOUNCEOUTUP fly-box-ho" data-wow-delay="0.3s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic2.jpg" alt=""></a>
 						</div>
@@ -156,7 +156,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix">
+                    <div class="blog-post blog-md clearfix  wow bounceInDown fly-box-ho" data-wow-delay="0.6s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic3.jpg" alt=""></a>
 						</div>
@@ -181,7 +181,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix">
+                    <div class="blog-post blog-md clearfix  wow bounceInDown fly-box-ho" data-wow-delay="0.3s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic2.jpg" alt=""></a>
 						</div>
@@ -206,7 +206,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix">
+                    <div class="blog-post blog-md clearfix  wow bounceInDown fly-box-ho" data-wow-delay="0.6s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic1.jpg" alt=""></a>
 						</div>
@@ -259,7 +259,7 @@
                                 </form>
                             </div>
                         </div> --}}
-                        <div class="widget recent-posts-entry">
+                        <div class="widget recent-posts-entry  wow bounceInDown fly-box-ho" data-wow-delay="0.1s">
                             <h5 class="widget-title style-1">Bài viết gần đây</h5>
                             <div class="widget-post-bx">
                                 <div class="widget-post clearfix">
