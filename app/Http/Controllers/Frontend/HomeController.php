@@ -304,7 +304,8 @@ class HomeController extends Controller
             if (is_null($rootCat)) \App::abort('404');
         }
         $servicesCategories = ServiceCategory::getByAll();
-        return view('frontend.pages.detail_services', compact('services', 'category', 'lastNews', 'featuredServices', 'otherCategories', 'rootCat', 'servicesCategories', 'detailService'));
+        $news              = News::getHomeNews();
+        return view('frontend.pages.detail_services', compact('services', 'category', 'lastNews', 'featuredServices', 'otherCategories', 'rootCat', 'servicesCategories', 'detailService', 'news'));
     }
 
     public static function convert_caption($content)
