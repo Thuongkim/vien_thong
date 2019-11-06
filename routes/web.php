@@ -92,8 +92,8 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('tin-tuc/{slug}-{id}.html', 'Frontend\HomeController@showNews')->name('news.show')->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);
     Route::get('tuyen-dung', 'Frontend\HomeController@indexCareer')->name('career');
     Route::get('doi-tac', 'Frontend\HomeController@indexPartner')->name('partner');
-    Route::get('du-an', 'Frontend\HomeController@indexProject')->name('project');
-    Route::get('du-an/{slug}-{id}.html', 'Frontend\HomeController@showproject')->name('project.show')->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);
+    Route::get('danh-muc-du-an/{slug}-{id}.html', 'Frontend\HomeController@indexProject')->name('project')->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);
+    Route::get('du-an/{slug}-{id}.html', 'Frontend\HomeController@showproject')->name('project-detail')->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);
     Route::get('tim-kiem.html', [ 'as' => 'home.search', 'uses' => 'Frontend\HomeController@search']);
 	Route::get('{slug}.html', [ 'as' => 'home.static-page', 'uses' => 'Frontend\HomeController@staticPage' ])->where(['slug' => '[a-zA-Z0-9\-]+']);
 	Route::get('danh-muc-dich-vu/{slug}-{id}.html', [ 'as' => 'home.services-category', 'uses' => 'Frontend\HomeController@getServicesCategory' ])->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);

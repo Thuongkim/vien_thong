@@ -31,6 +31,7 @@ class HomeController extends Controller
         \View::share('staticPages', StaticPage::getByAllWihoutGroup());
         \View::share('staticPagess', StaticPage::getMenu());
         \View::share('servicesCategories', ServiceCategory::getByAll());
+        \View::share('serviceFeatured', Service::getServiceNews());
 		$this->projectCategories = ProjectCategory::getProjectCategories();
 		$this->projects          = Project::getProject();
         \View::share('projects', $this->projects);
@@ -151,11 +152,18 @@ class HomeController extends Controller
 		return view('frontend.pages.partner', compact('partners'));
     }
 
-    public function indexProject()
+    public function indexProject($slug, $id)
     {
     	$projects = [];
+        $project_category = [];
         $langs = config('app.locales');
-        $temp = Project::where('status', 1)->orderBy( 'updated_at', 'desc')->get();
+        $category = ProjectCategory::find($id);
+        for ($i = 0; $i < count($langs); $i++) {
+            $trans = $category->translation('name', $langs[$i])->first();
+            $project_category[$langs[$i]]['name'] = is_null($trans) ? '' : $trans->content;
+        }
+
+        $temp = Project::where('status', 1)->where('category_id', intval($id))->orderBy( 'updated_at', 'desc')->paginate(8);
         foreach ($temp as $project) {
             $tmp = [];
             $id = $project->id;
@@ -164,6 +172,8 @@ class HomeController extends Controller
             $tmp['category_id'] = is_null($category_id) ? '' : $category_id;
             $image = $project->image;
             $tmp['image'] = is_null($image) ? '' : $image;
+            $updated_at = $project->updated_at;
+            $tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
             for ($i = 0; $i < count($langs); $i++) {
                 $trans = $project->translation('title', $langs[$i])->first();
                 $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
@@ -174,15 +184,16 @@ class HomeController extends Controller
             array_push($projects, $tmp);
         }
         $projects = json_encode($projects) ;
-        $projects = json_decode($projects, 1);
-		return view('frontend.pages.project', compact('projects'));
+        $projectss = json_decode($projects, 1);
+        $news_all = News::getHomeNews();
+		return view('frontend.pages.project', compact('projectss', 'news_all', 'temp', 'project_category'));
     }
 
     public function showProject($slug, $id)
     {
-		$project = Project::find($id);
+		$projectss = Project::find($id);
 		$news_all = News::getHomeNews();
-		return view('frontend.pages.project-detail', compact('project', 'news_all'));
+		return view('frontend.pages.project-detail', compact('projectss', 'news_all'));
     }
 
     public function staticPage($slug)

@@ -83,19 +83,19 @@
 										@endforeach
 									</ul>
 								</li>
-								<li class="has-mega-menu"> <a href="{{ route('project') }}">{{trans('frontend.project')}}<i
+								<li class="has-mega-menu"><a href="#">{{trans('frontend.project')}}<i
 											class="fa fa-chevron-down"></i></a>
 									<ul class="mega-menu">
 										@foreach ($projectCategories as $projectCategory)
 										<li>
-											<a href="javascript:void(0);">{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</a>
+											<a href="{!! route('project', ['slug' => str_slug($projectCategory['vi']['name']), 'id' => $projectCategory['id']]) !!}">{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</a>
 											<ul>
 												@php
 													$i = 0;	
 												@endphp
 												@foreach ($projects as $project)
 												@if ($projectCategory['id'] == $project['category_id'] && $project[$lang]['title'])
-												<li><a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">{!! \App\Helper\HString::modSubstr($project[$lang]['title'], 70)!!}</a></li>
+												<li><a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">{!! \App\Helper\HString::modSubstr($project[$lang]['title'], 70)!!}</a></li>
 												@php
 													$i++;
 													if ($i > 3) break;

@@ -286,7 +286,7 @@
 												<div class="overlay-bx">
 													<div class="overlay-icon">
 														<div class="text-white">
-															<a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
+															<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
 																	class="fa fa-link icon-bx-xs"></i></a>
 														</div>
 													</div>
@@ -299,7 +299,7 @@
 												<div class="overlay-bx">
 													<div class="overlay-icon">
 														<div class="text-white">
-															<a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
+															<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
 																	class="fa fa-link icon-bx-xs"></i></a>
 														</div>
 													</div>
@@ -308,7 +308,7 @@
 											@endif
 											<div class="dez-info p-a30 bg-white">
 												<b><p class="dez-title m-t0" style="text-transform: capitalize;">
-													<a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">
+													<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">
 													{!! \App\Helper\HString::modSubstr($project[$lang]['title'], 45)!!}
 													</a>
 												</p></b>

@@ -38,16 +38,14 @@
 					@php
 						$k++;
 					@endphp
-					@if ($k % 2 == 0)
-					<div class="blog-post blog-md clearfix  wow bounceOut fly-box-ho" data-wow-delay="0.4s">
-					@else
-                    <div class="blog-post blog-md clearfix wow bounceInDown fly-box-ho" data-wow-delay="0.2s">
-                	@endif
+					<div class="blog-post blog-md clearfix wow fadeInLeftBig fly-box-ho" data-wow-delay="@php
+						echo($k % 2 == 0 ? '0.4s':'0.2s')
+					@endphp">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							@if($news_st['image'])
 							<img src="{!! asset('assets/media/' . $news_st['image']) !!}" alt="">
 							@else
-							<img src="https://via.placeholder.com/363x246.png?text=HTE-news" alt="">
+							<img src="https://via.placeholder.com/350x237.png?text=HTE-news" alt="">
 							@endif
 						</div>
                         <div class="dlab-post-info">
@@ -83,16 +81,16 @@
 				<!-- Side bar start -->
 				<div class="col-xl-3 col-lg-3 col-md-3">
 					<aside class="side-bar sticky-top">
-						<div class="widget recent-posts-entry wow bounceInDown fly-box-ho" data-wow-delay="0.1s">
+						<div class="widget recent-posts-entry wow fadeInRightBig fly-box-ho" data-wow-delay="0.3s">
 							<h5 class="widget-title style-1">{{trans('frontend.post')}}</h5>
 							<div class="widget-post-bx">
 								@php
-									$k = 0;
+									$i = 0;
 								@endphp
 								@foreach ($news_all as $news_nd)
 								@if($news_nd[$lang]['title'])
 								@php
-									$k++;
+									$i++;
 								@endphp
 								<div class="widget-post clearfix">
 									<div class="dlab-post-media">
@@ -113,17 +111,48 @@
 											</ul>
 										</div>
 										<div class="dlab-post-header">
-											<h6 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_nd[$lang]['title']), 'id' => $news_nd['id']]) }}">{{ \App\Helper\HString::modSubstr($news_nd[$lang]['title'], 60) }}</a></h6>
+											<h6 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_nd[$lang]['title']), 'id' => $news_nd['id']]) }}">{{ \App\Helper\HString::modSubstr(mb_strtolower($news_nd[$lang]['title']), 60) }}</a></h6>
 										</div>
 									</div>
 								</div>
 								@php
-									if ($k == 3) break;
+									if ($i == 3) break;
 								@endphp
 								@endif
 								@endforeach()
 							</div>
 						</div>
+						<div class="widget widget_archive wow fadeInRightBig fly-box-ho seth" data-wow-delay="0.6s">
+                            <h5 class="widget-title style-1">{{trans('frontend.news_category')}}</h5>
+                            <ul>
+                                <li><a href="{{ route('news') }}">{{trans('frontend.news')}}</a></li>
+                                <li><a href="{{ route('career') }}">{{trans('frontend.career')}}</a></li>
+                                {{-- <li><a href="javascript:void(0);">Building Management</a></li>
+                                <li><a href="javascript:void(0);">Power Systems</a></li>
+                                <li><a href="javascript:void(0);">Power & Energy</a></li> --}}
+                            </ul>
+                        </div>
+                        <div class="widget widget-project wow fadeInRightBig fly-box-ho" data-wow-delay="0.3s">
+                            <h5 class="widget-title style-1">{{trans('frontend.featured_projects')}}</h5>
+                            <div class="widget-project-box owl-none owl-loaded owl-theme owl-carousel dots-style-1 owl-dots-black-full">
+                            	@php
+                            		$j = 0;
+                            	@endphp
+                            	 @foreach ($projects as $project)
+                    				@if ($project[$lang]['title'] && $project['image'])
+                    					@php
+                    						$j++;
+                    					@endphp
+                                		<div class="item">
+                                			<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><img src="{!! asset('assets/media/images/projects/' . $project['image']) !!}" alt=""></a>
+                                		</div>
+                            		@endif
+                            		@php
+                            			if($j == 3) break;
+                            		@endphp
+                        		@endforeach
+                            </div>
+                        </div>
 					</aside>
 				</div>
 				<!-- Side bar END -->

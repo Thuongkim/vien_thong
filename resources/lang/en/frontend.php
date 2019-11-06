@@ -26,5 +26,9 @@ return [
     'field-of-operation'            => 'Business production results',
     'business-production-results'            => 'Field of Operation',
     'development-history'            => 'History of Development',
-    'service_category' => 'List of Services'
+    'service_category' => 'List of Services',
+    'news_category' => 'News Categories',
+    'project_category' => 'Project Categories',
+    'featured_projects' => 'Featured Projects',
+    'featured_services' => 'Featured Services',
 ];

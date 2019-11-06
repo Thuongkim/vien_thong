@@ -10,7 +10,7 @@ return array(
     'category'              => 'Danh mục',
     'featured'              => 'Nổi bật',
     'categories'            => [
-        'label'                         => 'Danh mục tin',
+        'label'                         => 'Danh mục dự án',
         'name'                          => 'Tên danh mục',
         'parent_category'               => '-- Chọn một danh mục làm danh mục cha --',
         'parent'                        => 'Danh mục cha',
