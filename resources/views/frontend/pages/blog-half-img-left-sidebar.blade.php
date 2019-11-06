@@ -18,7 +18,7 @@
                             <li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
                             <li>{{trans('frontend.news')}}</li>
                         </ul>
-                    </div>
+                    </div>  
                     <!-- Breadcrumb row END -->
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="row">
                 <!-- Left part start -->
                 <div class="col-lg-9">
-                    <div class="blog-post blog-md clearfix wow bounceInDown fly-box-ho" data-wow-delay="0.3s">
+                    <div class="blog-post blog-md clearfix wow fadeInLeftBig  fly-box-ho" data-wow-delay="0.2s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic1.jpg" alt=""></a>
 						</div>
@@ -56,7 +56,7 @@
 							</div>
 						</div>
                     </div>
-                    <div class="blog-post blog-md clearfix  wow bounceOut fly-box-ho" data-wow-delay="0.6s">
+                    <div class="blog-post blog-md clearfix wow fadeInLeftBig  fly-box-ho seth" data-wow-delay="0.4s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic2.jpg" alt=""></a>
 						</div>
@@ -81,7 +81,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix  wow bounceOutDown fly-box-ho" data-wow-delay="0.3s">
+                    <div class="blog-post blog-md clearfix wow fadeInLeftBig  fly-box-ho" data-wow-delay="0.2s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic3.jpg" alt=""></a>
 						</div>
@@ -106,7 +106,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix  wow bounceInDown fly-box-ho" data-wow-delay="0.6s">
+                    <div class="blog-post blog-md clearfix wow fadeInLeftBig  fly-box-ho seth" data-wow-delay="0.4s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic1.jpg" alt=""></a>
 						</div>
@@ -131,7 +131,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix  wow BOUNCEOUTUP fly-box-ho" data-wow-delay="0.3s">
+                    <div class="blog-post blog-md clearfix wow fadeInLeftBig  fly-box-ho" data-wow-delay="0.2s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic2.jpg" alt=""></a>
 						</div>
@@ -156,7 +156,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix  wow bounceInDown fly-box-ho" data-wow-delay="0.6s">
+                    <div class="blog-post blog-md clearfix wow fadeInLeftBig fly-box-ho seth" data-wow-delay="0.4s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic3.jpg" alt=""></a>
 						</div>
@@ -181,7 +181,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix  wow bounceInDown fly-box-ho" data-wow-delay="0.3s">
+                    <div class="blog-post blog-md clearfix wow fadeInLeftBig fly-box-ho" data-wow-delay="0.2s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic2.jpg" alt=""></a>
 						</div>
@@ -206,7 +206,7 @@
 							</div>
                         </div>
                     </div>
-                    <div class="blog-post blog-md clearfix  wow bounceInDown fly-box-ho" data-wow-delay="0.6s">
+                    <div class="blog-post blog-md clearfix wow fadeInLeftBig fly-box-ho seth" data-wow-delay="0.4s">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
 							<a href="blog-single.html"><img src="https://industry.dexignzone.com/xhtml/images/blog/grid/pic1.jpg" alt=""></a>
 						</div>
@@ -259,7 +259,7 @@
                                 </form>
                             </div>
                         </div> --}}
-                        <div class="widget recent-posts-entry  wow bounceInDown fly-box-ho" data-wow-delay="0.1s">
+                        <div class="widget recent-posts-entry wow fadeInRightBig fly-box-ho" data-wow-delay="0.3s">
                             <h5 class="widget-title style-1">Bài viết gần đây</h5>
                             <div class="widget-post-bx">
                                 <div class="widget-post clearfix">
@@ -386,7 +386,7 @@
                                 </li>
                             </ul>
                         </div> --}}
-                        <div class="widget widget_archive">
+                        <div class="widget widget_archive wow fadeInRightBig fly-box-ho seth" data-wow-delay="0.6s">
                             <h5 class="widget-title style-1">Danh mục tin</h5>
                             <ul>
                                 <li><a href="javascript:void(0);">Tin Tức</a></li>
@@ -396,7 +396,7 @@
                                 <li><a href="javascript:void(0);">Power & Energy</a></li> --}}
                             </ul>
                         </div>
-                        <div class="widget widget-project">
+                        <div class="widget widget-project wow fadeInRightBig fly-box-ho" data-wow-delay="0.3s">
                             <h5 class="widget-title style-1">Dự án nổi bật</h5>
                             <div class="widget-project-box owl-none owl-loaded owl-theme owl-carousel dots-style-1 owl-dots-black-full">
                                 <div class="item"><img src="https://industry.dexignzone.com/xhtml/images/our-services/pic1.jpg" alt=""/></div>
