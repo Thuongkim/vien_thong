@@ -31,4 +31,5 @@ return [
     'project_category' => 'Project Categories',
     'featured_projects' => 'Featured Projects',
     'featured_services' => 'Featured Services',
+    'project_n' => 'Outstanding News',
 ];

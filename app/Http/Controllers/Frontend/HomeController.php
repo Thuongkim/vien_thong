@@ -239,7 +239,7 @@ class HomeController extends Controller
         array_push($categories, $temp);
         // if (is_null($category)) abort('404');
         $childIds = ServiceCategory::where('status', 1)->where('parent_id', $category->id)->pluck('id', 'id')->toArray();
-        $services = Service::where('status', 1)->whereIn('category_id', [$category->id] + $childIds)->orderBy('updated_at', 'DESC')->paginate('5');
+        $services = Service::where('status', 1)->whereIn('category_id', [$category->id] + $childIds)->orderBy('updated_at', 'DESC')->paginate('8');
 
         foreach ($services as $service) {
             $tmp = [];
@@ -275,7 +275,8 @@ class HomeController extends Controller
         $servicesCategories = ServiceCategory::getByAll();
         $servicesNew             = Service::getServiceNews();
         // dd($servicesNew);
-        return view('frontend.pages.service_category', compact('category', 'services', 'serviceCategories', 'rootCat', 'featuredNews', 'servicesCategories', 'categories', 'servicesNew'));
+        $news              = News::getHomeNews();
+        return view('frontend.pages.service_category', compact('category', 'services', 'serviceCategories', 'rootCat', 'featuredNews', 'servicesCategories', 'categories', 'servicesNew', 'news'));
     }
 
     public function getDetailService(Request $request, $slug, $id)
@@ -314,7 +315,8 @@ class HomeController extends Controller
             if (is_null($rootCat)) \App::abort('404');
         }
         $servicesCategories = ServiceCategory::getByAll();
-        return view('frontend.pages.detail_services', compact('services', 'category', 'lastNews', 'featuredServices', 'otherCategories', 'rootCat', 'servicesCategories', 'detailService'));
+        $news              = News::getHomeNews();
+        return view('frontend.pages.detail_services', compact('services', 'category', 'lastNews', 'featuredServices', 'otherCategories', 'rootCat', 'servicesCategories', 'detailService', 'news'));
     }
 
     public static function convert_caption($content)

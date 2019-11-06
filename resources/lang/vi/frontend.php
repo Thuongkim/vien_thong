@@ -31,4 +31,5 @@ return [
     'project_category' => 'Danh mục dự án',
     'featured_projects' => 'Dự án nổi bật',
     'featured_services' => 'Dịch vụ nổi bật',
+    'project_n' => 'Tin tức nổi bật',
 ];
