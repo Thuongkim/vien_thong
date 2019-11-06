@@ -68,7 +68,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
         Route::any('elfinder/connector', '\Barryvdh\Elfinder\ElfinderController@showConnector');
         Route::get('elfinder/ckeditor4', '\Barryvdh\Elfinder\ElfinderController@showCKeditor4');
         Route::get('elfinder/tinymce', '\Barryvdh\Elfinder\ElfinderController@showTinyMCE4');
-        
+
         Route::get('locations', ['role' => 'backend', 'as' => 'locations.index', 'uses' => 'LocationsController@index']);
         Route::post('locations/update', ['role' => 'backend', 'as' => 'locations.update', 'uses' => 'LocationsController@update']);
         Route::get('locations/{id}', ['role' => 'backend', 'as' => 'locations.show', 'uses' => 'LocationsController@show']);
@@ -99,5 +99,6 @@ Route::group(['middleware' => 'locale'], function() {
 	Route::get('danh-muc-dich-vu/{slug}-{id}.html', [ 'as' => 'home.services-category', 'uses' => 'Frontend\HomeController@getServicesCategory' ])->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);
 	Route::get('dich-vu/{slug}-{id}.html', [ 'as' => 'home.services-detail', 'uses' => 'Frontend\HomeController@getDetailService' ])->where(['slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+']);
     Route::get('sidebar', [ 'as' => 'home.sidebar', 'uses' => 'Frontend\HomeController@sidebar' ]);
-
+    Route::get('page', [ 'as' => 'home.page', 'uses' => 'Frontend\HomeController@page' ]);
+    // Route::view('/page', 'frontend.pages.blog-half-img-left-sidebar');
 });

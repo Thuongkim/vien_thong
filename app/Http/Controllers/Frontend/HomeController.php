@@ -63,7 +63,7 @@ class HomeController extends Controller
             $id = $service->id;
             $tmp['id'] = is_null($id) ? '' : $id;
             $created_by = \App\User::find( $service->created_by );
-            $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
+            $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname;
             $updated_at = $service->updated_at;
             $tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
             for ($i = 0; $i < count($langs); $i++) {
@@ -91,7 +91,7 @@ class HomeController extends Controller
     public function changeLanguage($language)
     {
         \Session::put('website_language', $language);
-        
+
         return redirect()->back();
     }
 
@@ -108,7 +108,7 @@ class HomeController extends Controller
     		$id = $home_news->id;
     		$tmp['id'] = is_null($id) ? '' : $id;
     		$created_by = \App\User::find( $home_news->created_by );
-    		$tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
+    		$tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname;
     		$updated_at = $home_news->updated_at;
     		$tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
     		for ($i = 0; $i < count($langs); $i++) {
@@ -128,7 +128,7 @@ class HomeController extends Controller
     	$news_all             = News::getHomeNews();
     	return view('frontend.pages.news', compact('news','temp','news_all'));
     }
-    
+
 
     public function showNews($slug, $id)
     {
@@ -184,6 +184,7 @@ class HomeController extends Controller
 		$news_all = News::getHomeNews();
 		return view('frontend.pages.project-detail', compact('project', 'news_all'));
     }
+
     public function staticPage($slug)
     {
         $page = [];
@@ -201,6 +202,7 @@ class HomeController extends Controller
         $partners = Partner::getPartner();
         return view('frontend.pages.static', compact('page', 'slug', 'partners'));
     }
+
     public function search(Request $request)
     {
         $query = htmlentities($request->keyword);
@@ -210,6 +212,7 @@ class HomeController extends Controller
         $newsCategories = NewsCategory::getByAll();
         return view('frontend.pages.search', compact('items', 'query', 'featuredNews', 'newsCategories'));
     }
+
     public function getServicesCategory(Request $request, $slug, $id)
     {
         $servicesCategories = [];
@@ -234,7 +237,7 @@ class HomeController extends Controller
             $image = $service->image;
             $tmp['image'] = is_null($image) ? '' : $image;
             $created_by = \App\User::find( $service->created_by );
-            $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
+            $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname;
             $updated_at = $service->updated_at;
             $tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
             for ($i = 0; $i < count($langs); $i++) {
@@ -264,6 +267,7 @@ class HomeController extends Controller
         $news              = News::getHomeNews();
         return view('frontend.pages.service_category', compact('category', 'services', 'serviceCategories', 'rootCat', 'featuredNews', 'servicesCategories', 'categories', 'servicesNew', 'news'));
     }
+
     public function getDetailService(Request $request, $slug, $id)
     {
         $detailService = [];
@@ -273,7 +277,7 @@ class HomeController extends Controller
         $image = $services->image;
         $tmp['image'] = is_null($image) ? '' : $image;
         $created_by = \App\User::find( $services->created_by );
-        $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
+        $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname;
         $created_at = $services->created_at;
         $tmp['created_at'] = is_null($created_at) ? '' : $created_at;
         for ($i = 0; $i < count($langs); $i++) {
@@ -302,15 +306,22 @@ class HomeController extends Controller
         $servicesCategories = ServiceCategory::getByAll();
         return view('frontend.pages.detail_services', compact('services', 'category', 'lastNews', 'featuredServices', 'otherCategories', 'rootCat', 'servicesCategories', 'detailService'));
     }
-    public static function convert_caption($content) 
-    { 
+
+    public static function convert_caption($content)
+    {
         return preg_replace(
-            '/\[caption([^\]]+)align="([^"]+)"\s+width="(\d+)"\]\<a([^\]]+)href="([^"]+)"\>(\s*\<img[^>]+>)\s*(.*?)\s*\<\/a\>\s*(.*?)\s*\[\/caption\]/i', 
-            '<div\1style="width: \3px" class="wp-caption \2">\4    <a href="\5">      \6    </a>      <p class="caption">\8</p></div>', 
-            $content); 
+            '/\[caption([^\]]+)align="([^"]+)"\s+width="(\d+)"\]\<a([^\]]+)href="([^"]+)"\>(\s*\<img[^>]+>)\s*(.*?)\s*\<\/a\>\s*(.*?)\s*\[\/caption\]/i',
+            '<div\1style="width: \3px" class="wp-caption \2">\4    <a href="\5">      \6    </a>      <p class="caption">\8</p></div>',
+            $content);
     }
-     public static function sidebar() 
-    { 
+
+    public static function sidebar()
+    {
         return view('frontend.pages.sidebar');
+    }
+
+    public static function page()
+    {
+        return view('frontend.pages.blog-half-img-left-sidebar');
     }
 }
