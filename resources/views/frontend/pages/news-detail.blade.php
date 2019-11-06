@@ -46,7 +46,7 @@
 						</div>
 						<div class="dlab-post-text">
 							@inject('home', 'App\Http\Controllers\Frontend\HomeController')
-							<p>{!! nl2br($home::convert_caption($news->translation('content', $lang)->first()->content)) !!}</p>
+							<p>{!! $home::convert_caption($news->translation('content', $lang)->first()->content) !!}</p>
 						</div>
 						<div class="dlab-post-tags clear">
 							{{-- <div class="post-tags">

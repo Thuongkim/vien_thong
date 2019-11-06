@@ -100,7 +100,7 @@ class HomeController extends Controller
     	$id_exception = Constant::news_category_id;
     	$homeNews = [];
     	$langs = config('app.locales');
-    	$temp = News::where('status', 1)->where('category_id', '<>', $id_exception)->orderBy( 'updated_at', 'desc')->paginate(4);
+    	$temp = News::where('status', 1)->where('category_id', '<>', $id_exception)->orderBy( 'updated_at', 'desc')->paginate(8);
     	foreach ($temp as $home_news) {
     		$tmp = [];
     		$image = $home_news->image;
