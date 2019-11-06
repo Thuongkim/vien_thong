@@ -34,11 +34,11 @@
 			<!-- Side bar start -->
 			<div class="col-xl-3 col-lg-4 col-md-5 sticky-top animation-effects">
 				<aside class="side-bar">
-					<div class="widget recent-posts-entry">
+					<div class="widget recent-posts-entry wow fadeInLeftBig  fly-box-ho" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeftBig;">
 						<h5 class="widget-title style-1">{{trans('frontend.service')}}</h5>
 						<div class="widget-post-bx">
 							@foreach($featuredServices as $featuredService)
-							<div class="widget-post clearfix dlab-box-bg post card-container active wow bounceInRight" style="visibility: visible; animation-delay: 0.5s; animation-name: bounceInLeft;">
+							<div class="widget-post clearfix dlab-box-bg post card-container">
 								<div class="dlab-post-media">
 									<img src="{{ asset($featuredService->image) }}" width="200" height="143" alt="">
 								</div>
@@ -47,7 +47,7 @@
 										<ul>
 											<?php $user = \App\User::find( $services->created_by ); ?>
 											<li class="post-date"> {{ $featuredService->created_at }} </li>
-											<li class="post-author"> {{trans('frontend.by')}}: {!! is_null($user) ? '-' : $user->fullname !!} </li>
+											{{-- <li class="post-author"> {{trans('frontend.by')}}: {!! is_null($user) ? '-' : $user->fullname !!} </li> --}}
 										</ul>
 									</div>
 									<div class="dlab-post-header">
@@ -58,7 +58,7 @@
 							@endforeach
 						</div>
 					</div>
-					<div class="widget widget_archive">
+					<div class="widget widget_archive wow fadeInLeftBig fly-box-ho seth" data-wow-delay="0.6s">
 						<h5 class="widget-title style-1">{{trans('frontend.categories')}}</h5>
 						<ul>
 							@foreach($servicesCategories as $servicesCategory)
@@ -72,7 +72,7 @@
 			<!-- Left part start -->
 			<div class="col-xl-9 col-lg-8 col-md-12">
 				<!-- blog start -->
-				<div class="blog-post blog-single">
+				<div class="blog-post blog-single wow fadeInRightBig fly-box-ho" data-wow-delay="0.2s">
 					<div class="dlab-post-meta">
 						<ul>
 							<?php $user = \App\User::find($detailService[0]['created_by']); ?>

@@ -26,5 +26,6 @@ return [
     'field-of-operation'            => 'Kết quả sản xuất kinh doanh',
     'business-production-results'            => 'Lĩnh vực hoạt động',
     'development-history'            => 'Lịch sử phát triển',
-    'service_category' => 'Danh mục dịch vụ'
+    'service_category' => 'Danh mục dịch vụ',
+    'project_n' => 'Tin tức nổi bật'
 ];
