@@ -190,6 +190,14 @@ max-height: 400px !important;
 {
     padding-left: 40px;
 }
+.dlab-post-text p {
+    color: #6f6f6f;
+}
+.dlab-post-text strong,
+.acod-content strong
+{
+    font-weight: 600;
+}
 .acod-content dl,
 .acod-content ol,
 .acod-content ul
