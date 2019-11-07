@@ -64,11 +64,12 @@ max-height: 400px !important;
     user-select: none;
 }
 .our-story h2.title {
-    font-size: 30px;
+    font-size: 50px;
     line-height: 70px;
     font-weight: 200;
     margin-top: 0px;
 }
+
 .our-story h4.title {
     font-size: 24px;
     font-weight: 200;
