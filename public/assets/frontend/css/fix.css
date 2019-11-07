@@ -68,6 +68,7 @@ max-height: 400px !important;
     line-height: 70px;
     font-weight: 200;
     margin-top: 0px;
+    font-family: Times New Roman,sans-serif;
 }
 
 .our-story h4.title {
@@ -184,6 +185,10 @@ max-height: 400px !important;
     background-size: 280px;
     background-image: url(../images/solar.gif)
 }
+.widget-post .dlab-post-media {
+    width: 110px;
+    padding: 0px;
+}
 .dlab-post-text dl,
 .dlab-post-text ol,
 .dlab-post-text ul
@@ -209,3 +214,15 @@ max-height: 400px !important;
     opacity: 0.7;
     filter: alpha(opacity=70); /* For IE8 and earlier */
 }
+.acod-content dl,
+.acod-content ol,
+.acod-content ul
+{
+    padding-left: 40px;
+}
+
+.post-date {
+    opacity: 0.7;
+    filter: alpha(opacity=70); /* For IE8 and earlier */
+}
+

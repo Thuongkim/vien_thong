@@ -44,7 +44,7 @@
 					@foreach($serviceCategories as $service)
                     <div class="blog-post blog-md clearfix wow fadeInLeftBig fly-box-ho" data-wow-delay="{!! $i++%2 ? $time[1] : $time[0] !!}s" style="visibility: visible; animation-name: fadeInLeftBig;">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
-							<a href="{!! route('home.services-detail', ['slug' => str_slug($service[$lang]['title']), 'id' => $service['id']]) !!}"><img src="{{ asset($service['image']) }}" alt=""></a>
+							<a href="{!! route('home.services-detail', ['slug' => str_slug($service[$lang]['title']), 'id' => $service['id']]) !!}"><img src="{{ asset($service['image']) }}" style="max-height: 260px"></a>
 						</div>
                         <div class="dlab-post-info">
                             <div class="dlab-post-meta">
@@ -84,7 +84,7 @@
 								@foreach ($servicesNew as $servicesN)
                                 <div class="widget-post clearfix">
                                     <div class="dlab-post-media">
-                                        <img src="{{ asset($servicesN['image']) }}" width="200" height="143" alt="">
+                                        <img src="{{ asset($servicesN['image']) }}" style="max-height: 82px; max-width: 110px">
                                     </div>
                                     <div class="dlab-post-info">
                                         <div class="dlab-post-meta">
@@ -118,7 +118,9 @@
                             <div class="widget-project-box owl-none owl-loaded owl-theme owl-carousel dots-style-1 owl-dots-black-full">
 								@foreach ($news as $new)
                                 <div class="item">
-                                	<img src="{!! asset('assets/media/' . $new['image']) !!}" alt=""/>
+                                    <a href="{{ route('news.show', ['slug' => str_slug($new[$lang]['title']), 'id' => $new['id']]) }}">
+                                       <img src="{!! asset('assets/media/' . $new['image']) !!}" alt=""/>
+                                   </a>
                                 </div>
 								@endforeach
                             </div>
