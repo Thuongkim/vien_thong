@@ -286,7 +286,7 @@
 												<div class="overlay-bx">
 													<div class="overlay-icon">
 														<div class="text-white">
-															<a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
+															<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
 																	class="fa fa-link icon-bx-xs"></i></a>
 														</div>
 													</div>
@@ -299,7 +299,7 @@
 												<div class="overlay-bx">
 													<div class="overlay-icon">
 														<div class="text-white">
-															<a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
+															<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
 																	class="fa fa-link icon-bx-xs"></i></a>
 														</div>
 													</div>
@@ -308,7 +308,7 @@
 											@endif
 											<div class="dez-info p-a30 bg-white">
 												<b><p class="dez-title m-t0" style="text-transform: capitalize;">
-													<a href="{{ route('project.show', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">
+													<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">
 													{!! \App\Helper\HString::modSubstr($project[$lang]['title'], 45)!!}
 													</a>
 												</p></b>
@@ -350,7 +350,7 @@
 										<div class="ow-post-info">
 											<div class="ow-post-title">
 												<h4 class="post-title" style="min-height: 84px;font-size: 20px"> <a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}"
-														title="news">{!! $news[$lang]['title'] !!}</a> </h4>
+														title="news">{!! \App\Helper\HString::modSubstr($news[$lang]['title'], 75) !!}</a> </h4>
 											</div>
 											<div class="ow-post-meta">
 												<ul>

@@ -32,10 +32,16 @@
                 <!-- Left part start -->
                 <div class="col-xl-9 col-lg-8 col-md-7">
                     <div class="dlab-accordion faq-1 box-sort-in m-b30" id="accordion1">
+                        @php
+                            $k = 0
+                        @endphp
                     	@foreach ($news as $news_single)
                         @if ($news_single->translation('title', $lang)->first()->content)
-                        <div class="panel animation-effects">
-                            <div class="acod-head active wow zoomIn">
+                        @php
+                            $k++;
+                        @endphp
+                        <div class="panel wow fadeInLeftBig fly-box-ho" data-wow-delay="@php echo($k % 2 == 0 ? '0.4s':'0.2s') @endphp">
+                            <div class="acod-head active">
                                 <h6 class="acod-title">
                                     <a href="javascript:void(0);" data-toggle="collapse" data-target="<?php echo "#faq".$news_single->id ?>"
                                         class="collapsed" aria-expanded="true">
@@ -60,35 +66,79 @@
                 </div>
                 <!-- Left part END -->
                 <!-- Side bar start -->
-                <div class="col-xl-3 col-lg-4 col-md-5 sticky-top animation-effects">
-                    <aside class="side-bar">
-                        <div class="widget recent-posts-entry">
+                <div class="col-xl-3 col-lg-3 col-md-3">
+                    <aside class="side-bar sticky-top">
+                        <div class="widget recent-posts-entry wow fadeInRightBig fly-box-ho" data-wow-delay="0.3s">
                             <h5 class="widget-title style-1">{{trans('frontend.post')}}</h5>
-                           <div class="widget-post-bx">
-								@foreach ($news_all as $news_all)
-                                @if($news_all[$lang]['title'])
-								<div class="widget-post clearfix dlab-box-bg post card-container active wow bounceInRight" style="visibility: visible; animation-delay: 0.5s; animation-name: bounceInRight;">
-									{{-- <div class="dlab-post-media">
-										@if($news_all['image'])
-										<img src="{!! asset('assets/media/images/news/' . $news_all['image']) !!}" width="200" height="143" alt="">
-										@endif
-									</div> --}}
-									<div class="dlab-post-info">
-										<div class="dlab-post-meta">
-											<ul>
-												<li class="post-date"> <strong>{!! date("d/m/Y", strtotime($news_all['updated_at'])) !!}</strong> </li>
-												<li class="post-author"> {{trans('frontend.by')}} <a href="javascript:void(0);">{{$news_all['created_by']}}
-													</a> </li>
-											</ul>
-										</div>
-										<div class="dlab-post-header">
-											<h6 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_all[$lang]['title']), 'id' => $news_all['id']]) }}">{{$news_all[$lang]['title']}}</a></h6>
-										</div>
-									</div>
-								</div>
+                            <div class="widget-post-bx">
+                                @php
+                                    $i = 0;
+                                @endphp
+                                @foreach ($news_all as $news_nd)
+                                @if($news_nd[$lang]['title'])
+                                @php
+                                    $i++;
+                                @endphp
+                                <div class="widget-post clearfix">
+                                    <div class="dlab-post-media">
+                                        @if($news_nd['image'])
+                                        <img src="{!! asset('assets/media/' . $news_nd['image']) !!}" width="200" height="143" alt="">
+                                        @else
+                                        <img src="https://via.placeholder.com/200x143.png?text=HTE-news" >
+                                        @endif
+                                    </div>
+                                    <div class="dlab-post-info">
+                                        <div class="dlab-post-meta">
+                                            <ul>
+                                                <li class="post-date"> <strong>{!! date("d/m/Y", strtotime($news_nd['updated_at'])) !!}</strong> </li>
+                                                <li class="post-author">
+                                                    {{-- {{trans('frontend.by')}} <a href="javascript:void(0);">{{$news_nd['created_by']}}
+                                                    </a> --}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="dlab-post-header">
+                                            <h6 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_nd[$lang]['title']), 'id' => $news_nd['id']]) }}">{{ \App\Helper\HString::modSubstr(mb_strtolower($news_nd[$lang]['title']), 60) }}</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                @php
+                                    if ($i == 3) break;
+                                @endphp
                                 @endif
-								@endforeach()
-							</div>
+                                @endforeach()
+                            </div>
+                        </div>
+                        <div class="widget widget_archive wow fadeInRightBig fly-box-ho seth" data-wow-delay="0.6s">
+                            <h5 class="widget-title style-1">{{trans('frontend.news_category')}}</h5>
+                            <ul>
+                                <li><a href="{{ route('news') }}">{{trans('frontend.news')}}</a></li>
+                                <li><a href="{{ route('career') }}">{{trans('frontend.career')}}</a></li>
+                                {{-- <li><a href="javascript:void(0);">Building Management</a></li>
+                                <li><a href="javascript:void(0);">Power Systems</a></li>
+                                <li><a href="javascript:void(0);">Power & Energy</a></li> --}}
+                            </ul>
+                        </div>
+                        <div class="widget widget-project wow fadeInRightBig fly-box-ho" data-wow-delay="0.3s">
+                            <h5 class="widget-title style-1">{{trans('frontend.featured_projects')}}</h5>
+                            <div class="widget-project-box owl-none owl-loaded owl-theme owl-carousel dots-style-1 owl-dots-black-full">
+                                @php
+                                    $j = 0;
+                                @endphp
+                                 @foreach ($projects as $project)
+                                    @if ($project[$lang]['title'] && $project['image'])
+                                        @php
+                                            $j++;
+                                        @endphp
+                                        <div class="item">
+                                            <a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><img src="{!! asset('assets/media/images/projects/' . $project['image']) !!}" alt=""></a>
+                                        </div>
+                                    @endif
+                                    @php
+                                        if($j == 3) break;
+                                    @endphp
+                                @endforeach
+                            </div>
                         </div>
                     </aside>
                 </div>

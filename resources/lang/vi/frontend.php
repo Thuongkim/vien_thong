@@ -27,5 +27,9 @@ return [
     'business-production-results'            => 'Lĩnh vực hoạt động',
     'development-history'            => 'Lịch sử phát triển',
     'service_category' => 'Danh mục dịch vụ',
-    'project_n' => 'Tin tức nổi bật'
+    'news_category' => 'Danh mục tin',
+    'project_category' => 'Danh mục dự án',
+    'featured_projects' => 'Dự án nổi bật',
+    'featured_services' => 'Dịch vụ nổi bật',
+    'project_n' => 'Tin tức nổi bật',
 ];

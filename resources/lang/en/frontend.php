@@ -27,5 +27,9 @@ return [
     'business-production-results'            => 'Field of Operation',
     'development-history'            => 'History of Development',
     'service_category' => 'List of Services',
-    'project_n' => 'Outstanding News'
+    'news_category' => 'News Categories',
+    'project_category' => 'Project Categories',
+    'featured_projects' => 'Featured Projects',
+    'featured_services' => 'Featured Services',
+    'project_n' => 'Outstanding News',
 ];
