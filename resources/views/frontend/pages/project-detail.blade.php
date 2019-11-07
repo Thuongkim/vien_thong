@@ -47,10 +47,10 @@
 						<div class="dlab-post-text">
 							<p>{!! $projectss->translation('content', $lang)->first()->content !!}</p>
 						</div>
-						{{-- <div class="dlab-post-tags clear">
-						</div> --}}
 					</div>
 					<!-- blog END -->
+					{{-- <div class="dlab-post-tags clear">
+					</div> --}}
 				</div>
 				<!-- Left part END -->
 				<!-- Side bar start -->

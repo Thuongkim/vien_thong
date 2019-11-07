@@ -323,10 +323,9 @@ class HomeController extends Controller
 
     public static function convert_caption($content)
     {
-        return preg_replace(
-            '/\[caption([^\]]+)align="([^"]+)"\s+width="(\d+)"\]\<a([^\]]+)href="([^"]+)"\>(\s*\<img[^>]+>)\s*(.*?)\s*\<\/a\>\s*(.*?)\s*\[\/caption\]/i',
-            '<div\1style="width: \3px" class="wp-caption \2">\4    <a href="\5">      \6    </a>      <p class="caption">\8</p></div>',
-            $content);
+        $content = html_entity_decode($content);
+        $content = preg_replace('/\[caption([^\]]+)align="([^"]+)"\s+width="(\d+)"\]\<a([^\]]+)href="([^"]+)"\>(\s*\<img[^>]+>)\s*(.*?)\s*\<\/a\>\s*(.*?)\s*\[\/caption\]/i', '<div\1style="width: \3px" class="wp-caption \2">\4    <a href="\5">      \6    </a>      <p class="caption">\8</p></div>', $content);
+        return $content;
     }
 
     public static function sidebar()
