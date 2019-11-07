@@ -194,8 +194,7 @@
 									<div class="row align-items-center">
 										<div class="col-lg-6 col-md-6 m-b30">
 											<div class="our-story">
-												<h2 class="title"><span class="text-primary">{{ $servicesLang[$lang]['title'] }}</span>
-												</h2>
+												<h2 class="title">{{ $servicesLang[$lang]['title'] }}</h2>
 												<h4 class="title">{!! $servicesLang[$lang]['summary_long'] !!}</h4>
 												{!! $servicesLang[$lang]['summary'] !!}
 												<br>

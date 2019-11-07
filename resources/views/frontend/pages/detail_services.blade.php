@@ -63,7 +63,7 @@
 							@foreach($featuredServices as $featuredService)
                             <div class="widget-post clearfix">
                                 <div class="dlab-post-media">
-                                    <img src="{{ asset($featuredService->image) }}" width="200" height="143" alt="">
+                                    <img src="{{ asset($featuredService->image) }}" style="height: 82px; width: 110px">
                                 </div>
                                 <div class="dlab-post-info">
                                     <div class="dlab-post-meta">
@@ -95,7 +95,9 @@
                         <div class="widget-project-box owl-none owl-loaded owl-theme owl-carousel dots-style-1 owl-dots-black-full">
                             @foreach ($news as $new)
                                 <div class="item">
+                                    <a href="{{ route('news.show', ['slug' => str_slug($new[$lang]['title']), 'id' => $new['id']]) }}">
                                 	<img src="{!! asset('assets/media/' . $new['image']) !!}" alt=""/>
+                                </a>
                                 </div>
 							@endforeach
                         </div>

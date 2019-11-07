@@ -68,6 +68,7 @@ max-height: 400px !important;
     line-height: 70px;
     font-weight: 200;
     margin-top: 0px;
+    font-family: Times New Roman,sans-serif;
 }
 
 .our-story h4.title {
@@ -183,4 +184,8 @@ max-height: 400px !important;
 #loading-area.solar-loading {
     background-size: 280px;
     background-image: url(../images/solar.gif)
+}
+.widget-post .dlab-post-media {
+    width: 110px;
+    padding: 0px;
 }
