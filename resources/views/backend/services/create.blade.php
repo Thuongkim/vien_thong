@@ -63,7 +63,7 @@
                     {!! trans('services.summary') !!}
                 </th>
                 <td>
-                    {!! Form::textarea('summary', old('summary'), array('class' => 'form-control', 'rows' => 3, 'required')) !!}
+                    {!! Form::textarea('summary', old('summary'), array('class' => 'form-control', 'rows' => 3, 'required', 'maxlength' => 255)) !!}
                 </td>
             </tr>
             @if(isset($fields['summary']))
@@ -73,7 +73,7 @@
                             {!! trans('services.summary') !!} ({!! trans('system.' . $language) !!})
                         </th>
                         <td>
-                            {!! Form::textarea("summary_{$language}", old("summary_{$language}"), array('class' => 'form-control', 'rows' => 3)) !!}
+                            {!! Form::textarea("summary_{$language}", old("summary_{$language}"), array('class' => 'form-control', 'rows' => 3, 'maxlength' => 255)) !!}
                         </td>
                     </tr>
                 @endforeach
