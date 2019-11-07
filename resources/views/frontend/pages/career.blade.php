@@ -91,10 +91,6 @@
                                         <div class="dlab-post-meta">
                                             <ul>
                                                 <li class="post-date"> <strong>{!! date("d/m/Y", strtotime($news_nd['updated_at'])) !!}</strong> </li>
-                                                <li class="post-author">
-                                                    {{-- {{trans('frontend.by')}} <a href="javascript:void(0);">{{$news_nd['created_by']}}
-                                                    </a> --}}
-                                                </li>
                                             </ul>
                                         </div>
                                         <div class="dlab-post-header">
