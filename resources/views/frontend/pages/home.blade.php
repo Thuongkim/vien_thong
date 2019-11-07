@@ -196,13 +196,14 @@
 											<div class="our-story">
 												<h2 class="title"><span class="text-primary">{{ $servicesLang[$lang]['title'] }}</span>
 												</h2>
+												<h4 class="title">{!! $servicesLang[$lang]['summary_long'] !!}</h4>
 												{!! $servicesLang[$lang]['summary'] !!}
 												<br>
 												<a href="{!! route('home.services-detail', ['slug' => str_slug($servicesLang[$lang]['title']), 'id' => $servicesLang['id']]) !!}" class="site-button btnhover16">{{trans('frontend.read_more')}}</a>
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 m-b30">
-											<img src="{{ asset($servicesLang['image']) }}" class="radius-sm" style="min-height: 225px; max-height: 570px; max-width: 427px;padding: 0px;">
+											<img src="{{ asset($servicesLang['image']) }}" class="radius-sm" style="height: 500px;width: 425px;padding: 0px;">
 										</div>
 									</div>
 								</div>

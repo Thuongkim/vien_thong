@@ -70,6 +70,8 @@ class HomeController extends Controller
             for ($i = 0; $i < count($langs); $i++) {
                 $trans = $service->translation('title', $langs[$i])->first();
                 $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+                $trans = $service->translation('summary_long', $langs[$i])->first();
+                $tmp[$langs[$i]]['summary_long'] = is_null($trans) ? '' : $trans->content;
                 $trans = $service->translation('summary', $langs[$i])->first();
                 $tmp[$langs[$i]]['summary'] = is_null($trans) ? '' : $trans->content;
                 $trans = $service->translation('content', $langs[$i])->first();

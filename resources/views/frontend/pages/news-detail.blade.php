@@ -32,9 +32,9 @@
 		<div class="container">
 			<div class="row">
 				<!-- Left part start -->
-				<div class="col-xl-9 col-lg-8 col-md-12">
+				<div class="col-xl-9 col-lg-8 col-md-12 wow fadeInLeftBig fly-box-ho" data-wow-delay="0.2s">
 					<!-- blog start -->
-					<div class="blog-post blog-single wow fadeInLeftBig fly-box-ho" data-wow-delay="0.2s">
+					<div class="blog-post blog-single">
 						<div class="dlab-post-meta">
 							<ul>
 								<li class="post-date"> <strong>{!! date("d/m/Y", strtotime($news['updated_at'])) !!}</strong> </li>
