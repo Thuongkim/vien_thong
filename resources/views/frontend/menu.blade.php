@@ -47,7 +47,7 @@
 								<li class="active has-mega-menu homedemo"> <a href="{{ route('home') }}">{{trans('frontend.home')}}</a>
 								</li>
 								<li>
-									<a href="">{{trans('frontend.present')}}<i class="fa fa-chevron-down"></i></a>
+									<a href="#">{{trans('frontend.present')}}<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu tab-content">
 										@foreach($staticPagess as $staticPage)
 										<li>
