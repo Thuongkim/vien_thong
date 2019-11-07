@@ -59,7 +59,7 @@ class ServiceController extends Controller
             $query .= " AND created_by = " . $request->user()->id;
         }
 
-        $services = Service::whereRaw($query . ' order by updated_at DESC')->paginate($page_num);
+        $services = Service::whereRaw($query . ' order by position')->paginate($page_num);
 
         $categories = [];
         $tmp = ServiceCategory::where('parent_id', 0)->get();
@@ -98,7 +98,7 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->merge(['featured' => intval($request->featured), 'status' => intval($request->status)]);
-        $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary','status', 'icon', 'featured'), Service::rules());
+        $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary','status', 'icon', 'featured', 'summary_long'), Service::rules());
         $validator->setAttributeNames(trans('services'));
         if ($validator->fails()) return redirect()->back()->withErrors($validator)->withInput();
 
@@ -109,22 +109,22 @@ class ServiceController extends Controller
 
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image)->resize(300, 225);
+            $image  = \Image::make($request->image)->resize(425, 500);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 225) {
-                    $image->resize(null, 225, function ($constraint) {
+                if ($image->height() >= 500) {
+                    $image->resize(null, 500, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->height() >= 225) {
-                    $image->resize(null, 225, function ($constraint) {
+                if ($image->height() >= 500) {
+                    $image->resize(null, 500, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image->width() >= 300) {
-                    $image->resize(300, null, function ($constraint) {
+                elseif ($image->width() >= 425) {
+                    $image->resize(425, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
@@ -202,9 +202,9 @@ class ServiceController extends Controller
         }
 
         if ($request->hasFile('image'))
-            $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary', 'status', 'icon', 'featured'), Service::rules($id));
+            $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary', 'status', 'icon', 'featured', 'summary_long'), Service::rules($id));
         else
-            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'summary', 'status', 'icon', 'featured', 'image'), Service::rules($id));
+            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'summary', 'status', 'icon', 'featured', 'image', 'summary_long'), Service::rules($id));
 
         $validator->setAttributeNames(trans('services'));
 
@@ -218,22 +218,22 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image)->resize(300, 225);
+            $image  = \Image::make($request->image)->resize(425, 500);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 225) {
-                    $image->resize(null, 225, function ($constraint) {
+                if ($image->height() >= 500) {
+                    $image->resize(null, 500, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->height() >= 225) {
-                    $image->resize(null, 225, function ($constraint) {
+                if ($image->height() >= 500) {
+                    $image->resize(null, 500, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image->width() >= 300) {
-                    $image->resize(300, null, function ($constraint) {
+                elseif ($image->width() >= 425) {
+                    $image->resize(425, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }

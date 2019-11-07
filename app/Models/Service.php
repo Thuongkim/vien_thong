@@ -11,13 +11,14 @@ class Service extends Model
     public static function rules($id = 0) {
 
         return [
-            'title'      => 'required|max:255',
-            'icon'      => 'required|max:255',
-            'summary'    => 'required|max:1024',
-            'content'    => 'required',
-            'image'      => ($id == 0 ? 'required|' : '') . 'max:2048|mimes:jpg,jpeg,png,gif',
-            'category'   => 'required|integer',
-            'created_by' => 'integer',
+            'title'        => 'required|max:255',
+            'icon'         => 'required|max:255',
+            'summary'      => 'required|max:1024',
+            'summary_long' => 'required|max:1024',
+            'content'      => 'required',
+            'image'        => ($id == 0 ? 'required|' : '') . 'max:2048|mimes:jpg,jpeg,png,gif',
+            'category'     => 'required|integer',
+            'created_by'   => 'integer',
         ];
 
     }
@@ -29,7 +30,7 @@ class Service extends Model
         return $this->morphMany('App\Translation', 'translatable')->where('locale', $locale)->where('name', $field); //->first();
     }
         // Don't forget to fill this array
-    protected $fillable = [ 'title', 'summary', 'content', 'status', 'image', 'position', 'icon', 'category_id','featured', 'created_by' ];
+    protected $fillable = [ 'title', 'summary', 'content', 'status', 'image', 'position', 'icon', 'category_id','featured', 'created_by','summary_long' ];
 
      public function category()
     {

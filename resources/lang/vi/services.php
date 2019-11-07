@@ -10,6 +10,7 @@ return array(
         'view_counter' => 'Lượt xem',
         'image'        => 'Ảnh bìa',
         'featured'        => 'Nổi bật',
+        'summary_long' => 'Mô tả',
         'category'     => 'Danh mục',
         'categories' => [
                 'label'                         => 'Danh mục dịch vụ',

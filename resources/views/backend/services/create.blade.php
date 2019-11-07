@@ -60,10 +60,30 @@
             </tr>
             <tr>
                 <th class="text-right">
+                    {!! trans('services.summary_long') !!}
+                </th>
+                <td>
+                    {!! Form::textarea('summary_long', old('summary_long'), array('class' => 'form-control', 'rows' => 3, 'required', 'maxlength' => 150)) !!}
+                </td>
+            </tr>
+            @if(isset($fields['summary_long']))
+                @foreach($languages as $language => $value)
+                    <tr>
+                        <th class="text-right">
+                            {!! trans('services.summary_long') !!} ({!! trans('system.' . $language) !!})
+                        </th>
+                        <td>
+                            {!! Form::textarea("summary_long_{$language}", old("summary_long_{$language}"), array('class' => 'form-control', 'rows' => 3, 'maxlength' => 150)) !!}
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
+            <tr>
+                <th class="text-right">
                     {!! trans('services.summary') !!}
                 </th>
                 <td>
-                    {!! Form::textarea('summary', old('summary'), array('class' => 'form-control', 'rows' => 3, 'required')) !!}
+                    {!! Form::textarea('summary', old('summary'), array('class' => 'form-control', 'rows' => 3, 'required', 'maxlength' => 255)) !!}
                 </td>
             </tr>
             @if(isset($fields['summary']))
@@ -73,7 +93,7 @@
                             {!! trans('services.summary') !!} ({!! trans('system.' . $language) !!})
                         </th>
                         <td>
-                            {!! Form::textarea("summary_{$language}", old("summary_{$language}"), array('class' => 'form-control', 'rows' => 3)) !!}
+                            {!! Form::textarea("summary_{$language}", old("summary_{$language}"), array('class' => 'form-control', 'rows' => 3, 'maxlength' => 255)) !!}
                         </td>
                     </tr>
                 @endforeach
@@ -90,7 +110,7 @@
                 <th class="text-right">{!! trans("services.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="width: {!! 300/1.5 !!}px; min-height: {!! 225/1.5 !!}px;max-height: auto; max-width: 300px;padding: 0px;">
+                        <div class="fileupload-preview thumbnail" style="width: {!! 425/1.5 !!}px; min-height: {!! 500/1.5 !!}px;max-height: auto; max-width: 500px;padding: 0px;">
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">
@@ -102,7 +122,7 @@
                             <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
                                 {!! trans('system.action.remove') !!}
                             </a>
-                            (Kích thước 225x300)
+                            (Kích thước 500x425)
                         </div>
                     </div>
                 </td>
