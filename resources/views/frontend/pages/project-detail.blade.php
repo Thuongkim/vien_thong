@@ -47,15 +47,10 @@
 						<div class="dlab-post-text">
 							<p>{!! $projectss->translation('content', $lang)->first()->content !!}</p>
 						</div>
-						<div class="dlab-post-tags clear">
-							{{-- <div class="post-tags">
-								<a href="javascript:void(0);">tin tức mới </a>
-								<a href="javascript:void(0);">tuyển dụng </a>
-								<a href="javascript:void(0);">an toàn </a>
-							</div> --}}
-						</div>
 					</div>
 					<!-- blog END -->
+					{{-- <div class="dlab-post-tags clear">
+					</div> --}}
 				</div>
 				<!-- Left part END -->
 				<!-- Side bar start -->
