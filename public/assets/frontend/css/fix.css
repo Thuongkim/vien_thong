@@ -188,7 +188,7 @@ max-height: 400px !important;
 }
 .widget-post .dlab-post-media {
     width: 110px;
-    padding: 0px;
+    padding: 15px;
 }
 .dlab-post-text dl,
 .dlab-post-text ol,
