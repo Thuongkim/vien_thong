@@ -111,12 +111,11 @@ max-height: 400px !important;
     font-style: italic;
 }*/
 /*bản quyền chân trang*/
-.footer-bottom {
-    background-color: #1c1c1c;
-    padding: 0;
-    color: #b0b0b0;
-    font-size: 14px;
-    border-top: 1px solid rgba(255, 255, 255, .05);
+.footer-bottom .container .row {
+    margin:auto;
+}
+.site-footer{
+    height: 100% ! important;
 }
 .dlab-post-readmore {
     margin-bottom: 0px;

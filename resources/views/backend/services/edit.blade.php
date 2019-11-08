@@ -118,7 +118,7 @@
                 <th class="text-right">{!! trans("services.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="width: {!! 425/1.5 !!}px; min-height: {!! 500/1.5 !!}px;max-height: auto; max-width: 500px;padding: 0px;">
+                        <div class="fileupload-preview thumbnail" style="min-height: auto;max-height: 500px;max-width: 425px;padding: 0px;">
                             <img src="{!! asset($services->image) !!}">
                         </div>
                         <div>
