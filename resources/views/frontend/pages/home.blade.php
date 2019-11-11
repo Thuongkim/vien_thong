@@ -180,9 +180,9 @@
 							<div id="sync2" class="owl-carousel owl-theme owl-none owl-dots-none project-list">
 								@foreach($servicess as $servicesLang)
 								<div class="item">
-									<div class="project-owbx">
+									<div class="project-owbx" style="{{ $lang == 'vi' ? '':'min-height: 166px;' }}">
 										<i class="fa {{ $servicesLang['icon'] }}"></i>
-										<h4 class="title">{{ $servicesLang[$lang]['title'] }}</h4>
+										<h4 class="title">{{\App\Helper\HString::modSubstr( $servicesLang[$lang]['title'],40) }}</h4>
 									</div>
 								</div>
 								@endforeach
