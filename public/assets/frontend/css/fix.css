@@ -26,8 +26,8 @@ h4 a{
     font-size: 11px;
     color: #ff5e14;
 }
-.row {
-    margin-top: 50px;
+.row{
+    margin: 10px 10px 5px 5px;
 }
 .call-action {
     padding: 15px;
@@ -229,3 +229,12 @@ max-height: 400px !important;
     height: 100% !important;
 }
 
+.content-inner{
+    padding: 5px;
+}
+.section-full:last-child {
+    margin-bottom: 0px;
+}
+.owl-carousel .ow-client-logo img {
+    height: auto ! important;
+}

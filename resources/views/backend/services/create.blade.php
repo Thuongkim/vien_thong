@@ -110,7 +110,7 @@
                 <th class="text-right">{!! trans("services.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="min-height: 500px;max-height: 500px; max-width: 425px;padding: 0px;">
+                        <div class="fileupload-preview thumbnail" style="min-height: 320px;max-height: 320px; max-width: 360px;padding: 0px;">
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">
@@ -122,7 +122,7 @@
                             <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
                                 {!! trans('system.action.remove') !!}
                             </a>
-                            (Kích thước 500x425)
+                            (Kích thước 320x360)
                         </div>
                     </div>
                 </td>

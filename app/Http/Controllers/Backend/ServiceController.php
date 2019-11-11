@@ -109,22 +109,22 @@ class ServiceController extends Controller
 
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image)->resize(425, 500);
+            $image  = \Image::make($request->image)->resize(360, 320);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 500) {
-                    $image->resize(null, 500, function ($constraint) {
+                if ($image->height() >= 320) {
+                    $image->resize(null, 320, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->height() >= 500) {
-                    $image->resize(null, 500, function ($constraint) {
+                if ($image->height() >= 320) {
+                    $image->resize(null, 320, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image->width() >= 425) {
-                    $image->resize(425, null, function ($constraint) {
+                elseif ($image->width() >= 360) {
+                    $image->resize(360, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
@@ -218,22 +218,22 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image)->resize(425, 500);
+            $image  = \Image::make($request->image)->resize(360, 320);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 500) {
-                    $image->resize(null, 500, function ($constraint) {
+                if ($image->height() >= 320) {
+                    $image->resize(null, 320, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->height() >= 500) {
-                    $image->resize(null, 500, function ($constraint) {
+                if ($image->height() >= 320) {
+                    $image->resize(null, 320, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image->width() >= 425) {
-                    $image->resize(425, null, function ($constraint) {
+                elseif ($image->width() >= 360) {
+                    $image->resize(360, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }

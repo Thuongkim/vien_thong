@@ -191,8 +191,8 @@
 								class="owl-carousel owl-theme owl-btn-center-lr m-b5 owl-dots-none owl-btn-3 primary">
 								@foreach($servicess as $servicesLang)
 								<div class="item">
-									<div class="row align-items-center">
-										<div class="col-lg-6 col-md-6 m-b30">
+									<div class="row service align-items-center">
+										<div class="col-lg-8 col-md-8 m-b30">
 											<div class="our-story">
 												<h2 class="title">{{ $servicesLang[$lang]['title'] }}</h2>
 												<h4 class="title">{!! $servicesLang[$lang]['summary_long'] !!}</h4>
@@ -200,8 +200,8 @@
 												<a href="{!! route('home.services-detail', ['slug' => str_slug($servicesLang[$lang]['title']), 'id' => $servicesLang['id']]) !!}" class="site-button btnhover16">{{trans('frontend.read_more')}}</a>
 											</div>
 										</div>
-										<div class="col-lg-6 col-md-6 m-b30">
-											<img src="{{ asset($servicesLang['image']) }}" class="radius-sm" style="height: 500px;width: 425px;padding: 0px;">
+										<div class="col-lg-4 col-md-4 m-b30">
+											<img src="{{ asset($servicesLang['image']) }}" class="radius-sm" style="max-height: 320px;max-width: 360px;padding: 0px;">
 										</div>
 									</div>
 								</div>
