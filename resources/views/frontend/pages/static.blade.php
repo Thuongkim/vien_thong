@@ -36,12 +36,12 @@
 			<div class="content-area">
 				<div class="container">
 					<div class="row align-items-center">
-						<div class="col-lg-4 col-md-4 m-b30">
+						<div class="col-lg-4 col-md-4 m-b30 wow fadeInLeftBig fly-box-ho" style="visibility: visible; animation-delay: 0.6s;">
 							<img src="{{ asset('assets/frontend/images/about/last.jpg') }}" alt="">
 						</div>
 						<div class="col-lg-8 col-md-8 m-b30">
 							<!-- Title separator style 8 -->
-							<div class="section-full bg-gray">
+							<div class="section-full bg-gray wow fadeInRightBig fly-box-ho" style="visibility: visible; animation-delay: 0.6s;">
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-12">
@@ -128,7 +128,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-12 col-md-12 m-b30 align-self-center video-infobx">
+							<div class="col-lg-12 col-md-12 m-b30 align-self-center video-infobx wow fadeInUp">
 								<div class="content-bx1">
 									<h2 class="m-b15 title">{{trans('frontend.business-production-results')}}</h2>
 									<div class="our-story">
@@ -278,7 +278,7 @@
 							<div class="row dzseth">
 
 								<div class="col-lg-12">
-										<div class="dlab-box active wow bounceIn fly-box-ho seth" data-wow-delay="0.1s" style=" visibility: visible; animation-delay: 0.1s; animation-name: bounceIn;">
+										<div class="dlab-box active wow fadeInUp" data-wow-delay="0.1s" style=" visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
 										<div class="dlab-media">
 											{!! $page[0][$lang]['description'] !!}
 										</div>
@@ -299,7 +299,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">
-							<div class="jumbotron">
+							<div class="jumbotron wow fadeInUp fly-box-ho seth">
 								{!! $page[0][$lang]['description'] !!}
 							</div>
 						</div>
