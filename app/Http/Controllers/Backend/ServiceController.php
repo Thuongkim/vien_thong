@@ -109,7 +109,7 @@ class ServiceController extends Controller
 
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image)->resize(540, 320);
+            $image  = \Image::make($request->image)->resize(360, 320);
             //resize
             if ($image->height() > $image->width()) {
                 if ($image->height() >= 320) {
@@ -123,8 +123,8 @@ class ServiceController extends Controller
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image->width() >= 540) {
-                    $image->resize(540, null, function ($constraint) {
+                elseif ($image->width() >= 360) {
+                    $image->resize(360, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
@@ -218,7 +218,7 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image)->resize(540, 320);
+            $image  = \Image::make($request->image)->resize(360, 320);
             //resize
             if ($image->height() > $image->width()) {
                 if ($image->height() >= 320) {
@@ -232,8 +232,8 @@ class ServiceController extends Controller
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image->width() >= 540) {
-                    $image->resize(540, null, function ($constraint) {
+                elseif ($image->width() >= 360) {
+                    $image->resize(360, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }

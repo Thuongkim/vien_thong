@@ -27,7 +27,7 @@ h4 a{
     color: #ff5e14;
 }
 .row{
-    margin-top: 10px;
+    margin: 10px 10px 5px 5px;
 }
 .call-action {
     padding: 15px;
@@ -233,5 +233,5 @@ max-height: 400px !important;
     margin-bottom: 0px;
 }
 .owl-carousel .ow-client-logo img {
-    height: 0px ! important;
+    height: auto ! important;
 }
