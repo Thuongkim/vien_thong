@@ -143,9 +143,16 @@ class HomeController extends Controller
     public function indexCareer()
     {
     	$id_exception = Constant::news_category_id;
-    	$news = News::where('status', 1)->where('category_id', $id_exception)->orderBy( 'updated_at', 'desc')->paginate(10);
+    	$news = News::where('status', 1)->where('category_id', $id_exception)->orderBy( 'updated_at', 'desc')->paginate(8);
     	$news_all = News::getHomeNews();
 		return view('frontend.pages.career', compact('news', 'news_all'));
+    }
+
+    public function showCareer($slug, $id)
+    {
+        $news = News::find($id);
+        $news_all = News::getHomeNews();
+        return view('frontend.pages.career-detail', compact('news', 'news_all'));
     }
 
     public function indexPartner()

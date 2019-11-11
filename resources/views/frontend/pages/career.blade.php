@@ -30,34 +30,48 @@
         <div class="container">
             <div class="row">
                 <!-- Left part start -->
-                <div class="col-xl-9 col-lg-8 col-md-7">
-                    <div class="dlab-accordion faq-1 box-sort-in m-b30" id="accordion1">
-                        @php
-                            $k = 0
-                        @endphp
-                    	@foreach ($news as $news_single)
-                        @if ($news_single->translation('title', $lang)->first()->content)
-                        @php
-                            $k++;
-                        @endphp
-                        <div class="panel wow fadeInLeftBig fly-box-ho" data-wow-delay="@php echo($k % 2 == 0 ? '0.4s':'0.2s') @endphp">
-                            <div class="acod-head active">
-                                <h6 class="acod-title">
-                                    <a href="javascript:void(0);" data-toggle="collapse" data-target="<?php echo "#faq".$news_single->id ?>"
-                                        class="collapsed" aria-expanded="true">
-                                        {{ $news_single->translation('title', $lang)->first()->content }}
-                                    </a>
-                                </h6>
+                <div class="col-lg-9">
+                    @php
+                        $k = 0
+                    @endphp
+                    @foreach ($news as $news_st)
+                    @if($news_st->translation('title', $lang)->first()->content)
+                    @php
+                        $k++;
+                    @endphp
+                    <div class="blog-post blog-md clearfix wow fadeInLeftBig fly-box-ho" data-wow-delay="@php
+                        echo($k % 2 == 0 ? '0.4s':'0.2s')
+                    @endphp">
+                        <div class="dlab-post-media dlab-img-effect zoom-slow">
+                            @if($news_st->image)
+                            <img src="{!! asset('assets/media/' . $news_st->image) !!}" alt="">
+                            @else
+                            <img src="https://via.placeholder.com/350x237.png?text=HTE-news" alt="">
+                            @endif
+                        </div>
+                        <div class="dlab-post-info">
+                            <div class="dlab-post-meta">
+                                <ul>
+                                    <li class="post-date"> <strong>{!! date("d/m", strtotime($news_st->updated_at)) !!}</strong> <span> {!! date("/Y", strtotime($news_st->updated_at)) !!}</span> </li>
+                                    <li class="post-author"> {{trans('frontend.by')}} <a href="javascript:void(0);">{!! \App\User::find( $news_st->created_by )->fullname !!}</a> </li>
+                                </ul>
                             </div>
-                            <div id="faq{{$news_single->id}}" class="acod-body collapse" data-parent="#accordion1">
-                                <div class="acod-content">
-                                	{!! $news_single->translation('content', $lang)->first()->content !!}
-                                </div>
+                            <div class="dlab-post-title">
+                                <h4 class="post-title"><a href="{{ route('career.show', ['slug' => str_slug($news_st->translation('title', $lang)->first()->content), 'id' => $news_st->id]) }}">{!! \App\Helper\HString::modSubstr($news_st->translation('title', $lang)->first()->content, 95) !!}</a></h4>
+                            </div>
+                            <div class="dlab-post-text">
+                                <p>{!! \App\Helper\HString::modSubstr(strip_tags($news_st->translation('summary', $lang)->first()->content), 200) !!}</p>
+                            </div>
+                            <div class="dlab-post-readmore">
+                                <a href="{{ route('career.show', ['slug' => str_slug($news_st->translation('title', $lang)->first()->content), 'id' => $news_st->id]) }}" title="READ MORE" rel="bookmark"
+                                    class="site-button">{{trans('frontend.read_more')}}
+                                    <i class="ti-arrow-right"></i>
+                                </a>
                             </div>
                         </div>
-                        @endif
-                        @endforeach
                     </div>
+                    @endif
+                    @endforeach
                     <!-- Pagination start -->
                     <div class="pagination-bx clearfix text-center">
                         {!! $news->links("frontend.pagination") !!}

@@ -91,6 +91,7 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('tin-tuc', 'Frontend\HomeController@indexNews')->name('news');
     Route::get('tin-tuc/{slug}-{id}.html', 'Frontend\HomeController@showNews')->name('news.show')->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);
     Route::get('tuyen-dung', 'Frontend\HomeController@indexCareer')->name('career');
+    Route::get('tuyen-dung/{slug}-{id}.html', 'Frontend\HomeController@showCareer')->name('career.show')->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);
     Route::get('doi-tac', 'Frontend\HomeController@indexPartner')->name('partner');
     Route::get('danh-muc-du-an/{slug}-{id}.html', 'Frontend\HomeController@indexProject')->name('project')->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);
     Route::get('du-an/{slug}-{id}.html', 'Frontend\HomeController@showproject')->name('project-detail')->where([ 'slug' => '[a-zA-Z0-9\-]+', 'id' => '[0-9]+' ]);
