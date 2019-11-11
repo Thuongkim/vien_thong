@@ -191,7 +191,7 @@
 								class="owl-carousel owl-theme owl-btn-center-lr m-b5 owl-dots-none owl-btn-3 primary">
 								@foreach($servicess as $servicesLang)
 								<div class="item">
-									<div class="row align-items-center">
+									<div class="row service align-items-center">
 										<div class="col-lg-6 col-md-6 m-b30">
 											<div class="our-story">
 												<h2 class="title">{{ $servicesLang[$lang]['title'] }}</h2>

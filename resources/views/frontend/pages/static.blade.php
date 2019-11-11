@@ -65,7 +65,7 @@
 				<!-- About Us End -->
 				<!-- About Services info END -->
 				<!-- Counter -->
-				<div class="section-full content-inner overlay-black-dark bg-img-fix" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide3.jpg') }});">
+				<div class="section-full content-inner abc overlay-black-dark bg-img-fix" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide3.jpg') }});">
 					<div class="container">
 						<div class="section-content text-center text-white">
 							<div class="row">
