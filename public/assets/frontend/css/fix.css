@@ -226,3 +226,6 @@ max-height: 400px !important;
     filter: alpha(opacity=70); /* For IE8 and earlier */
 }
 
+.content-inner{
+    padding: 5px;
+}
