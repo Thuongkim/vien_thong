@@ -22,7 +22,7 @@
 						{!! isset($staticPages[$lang]['footer-right']['description']) ? $staticPages[$lang]['footer-right']['description'] : '' !!}
 					</div>
 				</div>
-				<div class="col-md-12 footer-col-12">
+				<div class="col-md-12 footer-col-12" style="height: 30px;">
 					<div class="widget" align="right">
 						<ul class="list-inline m-a0">
 							<li><a href="{!! isset($staticPages[$lang]['fb']['description']) ? $staticPages[$lang]['fb']['description'] : '' !!}" class="site-button facebook circle "><i

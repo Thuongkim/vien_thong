@@ -113,7 +113,7 @@
 											data-textAlign="['center','center','center','center']"
 											data-paddingtop="[15,15,15,10]" data-paddingright="[30,30,30,20]"
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
-											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#3c7ba4; text-transform: uppercase;">
+											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#005193; text-transform: uppercase;">
 										
 											{{trans('frontend.about-us')}}
 											
@@ -132,7 +132,7 @@
 											data-textAlign="['center','center','center','center']"
 											data-paddingtop="[15,15,15,10]" data-paddingright="[30,30,30,20]"
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
-											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#3c7ba4; text-transform: uppercase;">
+											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#005193; text-transform: uppercase;">
 											{{trans('frontend.tam-nhin')}}
 										</a>
 									</li>
