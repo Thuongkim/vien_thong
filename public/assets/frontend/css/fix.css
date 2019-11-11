@@ -232,3 +232,6 @@ max-height: 400px !important;
 .section-full:last-child {
     margin-bottom: 0px;
 }
+.owl-carousel .ow-client-logo img {
+    height: 0px ! important;
+}
