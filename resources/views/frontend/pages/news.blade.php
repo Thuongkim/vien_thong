@@ -56,10 +56,10 @@
                                 </ul>
                             </div>
 							<div class="dlab-post-title">
-                                <h4 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}">{!! $news_st[$lang]['title'] !!}</a></h4>
+                                <h4 class="post-title"><a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}">{!! \App\Helper\HString::modSubstr($news_st[$lang]['title'], 100) !!}</a></h4>
                             </div>
                             <div class="dlab-post-text">
-                                <p>{!! \App\Helper\HString::modSubstr(strip_tags($news_st[$lang]['summary']), 255) !!}</p>
+                                <p>{!! \App\Helper\HString::modSubstr(strip_tags($news_st[$lang]['summary']), 200) !!}</p>
                             </div>
                             <div class="dlab-post-readmore">
 								<a href="{{ route('news.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}" title="READ MORE" rel="bookmark"
