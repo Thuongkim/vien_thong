@@ -240,13 +240,29 @@ max-height: 400px !important;
 }
 
 .content-inner{
-    padding: 5px;
+    padding: 10px 0px;
 }
 .section-full:last-child {
     margin-bottom: 0px;
 }
 .owl-carousel .ow-client-logo img {
     height: auto ! important;
+}
+.border {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+.owl-team .owl-stage-outer {
+    padding: 10px 0
+}
+.page-content {
+    padding-bottom: 20px; 
+}
+.ow-post-info {
+    padding: 10px 20px;
+}
+.site-filters .button-sm {
+    font-size: 15px;
 }
 .project-owbx .title {
     margin: 0;

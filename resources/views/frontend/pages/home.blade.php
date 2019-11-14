@@ -163,9 +163,6 @@
 					</div>
 				</div>
 				<!-- Call To Action End -->
-
-
-
 				<!-- About Us -->
 				<div class="section-full content-inner bg-white wow fadeIn" data-wow-duration="2s"
 					data-wow-delay="0.4s">
@@ -216,12 +213,8 @@
 					</div>
 				</div>
 				<!-- About Us End -->
-
-
-
 				<!-- Client logo -->
-				<div class="section-full content-inner-2 bg-gray wow fadeIn" data-wow-duration="2s"
-					data-wow-delay="0.6s">
+				<div class="section-full content-inner-2 bg-gray wow fadeIn" data-wow-duration="2s" data-wow-delay="0.6s">
 					<div class="container">
 						<div class="section-head text-black text-center">
 							<h2 class="title text-capitalize">{{trans('frontend.partner')}}</h2>
@@ -229,7 +222,7 @@
 						{{-- <div
 							class="client-logo-carousel owl-loaded owl-theme owl-carousel owl-dots-none owl-btn-center-lr owl-btn-3">
 							@foreach ($partners as $partner)
-							<div class="item">
+							<div class="item fly-box-ho">
 								<div class="ow-client-logo">
 									<div class="client-logo border">
 										<a href="{{ $partner['partner_link'] }}"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
@@ -261,6 +254,9 @@
 				<!-- Portfolio  -->
 				<div class="section-full content-inner portfolio text-uppercase bg-white" id="portfolio">
 					<div class="container">
+						<div class="section-head text-black text-center">
+							<h2 class="title text-capitalize">{{trans('frontend.project')}}</h2>
+						</div>
 						<div class="site-filters clearfix center  m-b40">
 							<ul class="filters_1" data-toggle="buttons">
 								{{-- <li data-filter="" class="btn active">
@@ -296,33 +292,33 @@
 									@php
 										$tmp[$project['category_id']]++;
 									@endphp
-									<li class="project_{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0">
+									<li class="project_{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0 fly-box-ho">
 										<div class="dlab-box dlab-gallery-box">
 											@if (!$project['image'])
-											<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-												<a> <img src="https://via.placeholder.com/279x200.png?text=HTE-project" alt="">
+											<div class="dlab-media dlab-img-effect zoom-slow">
+												<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><img src="https://via.placeholder.com/279x200.png?text=HTE-project" alt="">
 												</a>
-												<div class="overlay-bx">
+												{{-- <div class="overlay-bx">
 													<div class="overlay-icon">
 														<div class="text-white">
 															<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
 																	class="fa fa-link icon-bx-xs"></i></a>
 														</div>
 													</div>
-												</div>
+												</div> --}}
 											</div>
 											@else
-											<div class="dlab-media dlab-img-overlay1 dlab-img-effect">
-												<a> <img src="{!! asset('assets/media/images/projects/' . $project['image']) !!}" alt="">
+											<div class="dlab-media dlab-img-effect zoom-slow">
+												<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><img src="{!! asset('assets/media/images/projects/' . $project['image']) !!}" alt="">
 												</a>
-												<div class="overlay-bx">
+												{{-- <div class="overlay-bx">
 													<div class="overlay-icon">
 														<div class="text-white">
 															<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
 																	class="fa fa-link icon-bx-xs"></i></a>
 														</div>
 													</div>
-												</div>
+												</div> --}}
 											</div>
 											@endif
 											<div class="dez-info p-a30 bg-white">
@@ -368,7 +364,7 @@
 										</div>
 										<div class="ow-post-info">
 											<div class="ow-post-title">
-												<h4 class="post-title" style="min-height: 84px;font-size: 20px"> <a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}"
+												<h4 class="post-title" style="min-height: 60px;font-size: 20px"> <a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}"
 														title="news">{!! \App\Helper\HString::modSubstr($news[$lang]['title'], 75) !!}</a> </h4>
 											</div>
 											<div class="ow-post-meta">
