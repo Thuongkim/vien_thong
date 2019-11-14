@@ -194,9 +194,8 @@
 							</div>
 
 							<div class="row dzseth">
-
-								<div class="col-lg-3 col-sm">
-										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+								<div class="col">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g2.jpg') }}">
@@ -208,8 +207,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-3 col-sm">
-										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+								<div class="col">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g3.jpg') }}">
@@ -221,7 +220,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-3 col-sm">
+								<div class="col">
 									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
 										<div class="dlab-media">
 											<a href="javascript:;">
@@ -234,7 +233,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-3 col-sm">
+								<div class="col">
 									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
 										<div class="dlab-media">
 											<a href="javascript:;">
@@ -247,7 +246,102 @@
 										</div>
 									</div>
 								</div>
+								<div class="col">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g6.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Phạm Hưng</a></h4>
+											<span class="dlab-position">Giám đốc Trung tâm kỹ thuật miền Trung</span>	
+										</div>
+									</div>
+								</div>
+							</div>
 
+
+							<div class="row dzseth">
+
+								<div class="col-6 col-md-2">
+										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g7.png') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Quảng Bình</a></h4>
+											<span class="dlab-position">Phụ trách Phòng Kinh doanh</span>	
+										</div>
+									</div>
+								</div>
+								<div class="col-6 col-md-2">
+										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g8.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Bùi Ngọc Hùng</a></h4>
+											<span class="dlab-position">Phụ trách Phòng Kỹ thuật</span>	
+										</div>
+									</div>
+								</div>
+								<div class="col-6 col-md-2">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g9.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Thị Thu </a></h4>
+											<span class="dlab-position">Phụ trách phòng Quản trị nhân lực & Hành chính</span>	
+										</div>
+									</div>
+								</div>
+								<div class="col-6 col-md-2">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g10.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Cấn Ngọc Lĩnh</a></h4>
+											<span class="dlab-position">Trưởng Ban Quản lý dự án</span>	
+										</div>
+									</div>
+								</div>
+								<div class="col-6 col-md-2">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g11.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Trần Viết Tiến</a></h4>
+											<span class="dlab-position">Giám đốc Trung tâm thanh toán tiền điện tiền nhà</span>	
+										</div>
+									</div>
+								</div>
+								<div class="col-6 col-md-2">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g12.png') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">Hoàng Văn Khoa</a></h4>
+											<span class="dlab-position">Phó giám đốc trung tâm SPMS</span>	
+										</div>
+									</div>
+								</div>
 							</div>
 
 						</div>

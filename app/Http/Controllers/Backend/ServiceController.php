@@ -98,7 +98,7 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->merge(['featured' => intval($request->featured), 'status' => intval($request->status)]);
-        $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary','status', 'icon', 'featured', 'summary_long'), Service::rules());
+        $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary','status', 'icon', 'featured', 'summary_long', 'image_logo'), Service::rules());
         $validator->setAttributeNames(trans('services'));
         if ($validator->fails()) return redirect()->back()->withErrors($validator)->withInput();
 
@@ -134,6 +134,36 @@ class ServiceController extends Controller
             $timestamp = time();
             $image->save('assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext);
             $data['image'] = 'assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext;
+        }
+        if ($request->hasFile('image_logo')) {
+
+            $image_logo  = $request->image_logo;
+            $ext    = pathinfo($image_logo->getClientOriginalName(), PATHINFO_EXTENSION);
+            $image_logo  = \Image::make($request->image_logo)->resize(360, 320);
+            //resize
+            if ($image_logo->height() > $image_logo->width()) {
+                if ($image_logo->height() >= 320) {
+                    $image_logo->resize(null, 320, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+            } else {
+                if ($image_logo->height() >= 320) {
+                    $image_logo->resize(null, 320, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+                elseif ($image_logo->width() >= 360) {
+                    $image_logo->resize(360, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+            }
+
+            \File::makeDirectory('assets/media/images/services/', 0775, true, true);
+            $timestamp = time();
+            $image_logo->save('assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext);
+            $data['image_logo'] = 'assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext;
         }
         $data['position']   = 1;
         $sevice = Service::create($data);
@@ -202,9 +232,9 @@ class ServiceController extends Controller
         }
 
         if ($request->hasFile('image'))
-            $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary', 'status', 'icon', 'featured', 'summary_long'), Service::rules($id));
+            $validator = Validator::make($data = $request->only('category', 'title', 'image', 'content', 'summary', 'status', 'icon', 'featured', 'summary_long', 'image_logo'), Service::rules($id));
         else
-            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'summary', 'status', 'icon', 'featured', 'image', 'summary_long'), Service::rules($id));
+            $validator = Validator::make($data = $request->only('category', 'title', 'content', 'summary', 'status', 'icon', 'featured', 'image', 'summary_long', 'image_logo'), Service::rules($id));
 
         $validator->setAttributeNames(trans('services'));
 
@@ -244,6 +274,37 @@ class ServiceController extends Controller
             $timestamp = time();
             $image->save('assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext);
             $data['image'] = 'assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext;
+        }
+
+        if ($request->hasFile('image_logo')) {
+            $image_logo  = $request->image_logo;
+            $ext    = pathinfo($image_logo->getClientOriginalName(), PATHINFO_EXTENSION);
+            $image_logo  = \Image::make($request->image_logo)->resize(360, 320);
+            //resize
+            if ($image_logo->height() > $image_logo->width()) {
+                if ($image_logo->height() >= 320) {
+                    $image_logo->resize(null, 320, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+            } else {
+                if ($image_logo->height() >= 320) {
+                    $image_logo->resize(null, 320, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+                elseif ($image_logo->width() >= 360) {
+                    $image_logo->resize(360, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                }
+            }
+
+            \File::makeDirectory('assets/media/images/services/', 0775, true, true);
+            if (\File::exists(public_path() . '/' . $services->image_logo)) \File::delete(public_path() . '/' . $services->image_logo);
+            $timestamp = time();
+            $image_logo->save('assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext);
+            $data['image_logo'] = 'assets/media/images/services/' . str_slug($data['title']). "_" . $timestamp . '.' .  $ext;
         }
 
         $services->update($data);
