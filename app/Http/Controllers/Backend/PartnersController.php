@@ -51,22 +51,22 @@ class PartnersController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image)->resize(200, 50);
+            $image  = \Image::make($request->image)->resize(350, 350);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 50) {
-                    $image->resize(null, 50, function ($constraint) {
+                if ($image->height() >= 350) {
+                    $image->resize(null, 350, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->height() >= 50) {
-                    $image->resize(null, 50, function ($constraint) {
+                if ($image->height() >= 350) {
+                    $image->resize(null, 350, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image->width() >= 200) {
-                    $image->resize(200, null, function ($constraint) {
+                elseif ($image->width() >= 350) {
+                    $image->resize(350, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
@@ -145,22 +145,22 @@ class PartnersController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image)->resize(200, 50);
+            $image  = \Image::make($request->image)->resize(350, 350);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 50) {
-                    $image->resize(null, 50, function ($constraint) {
+                if ($image->height() >= 350) {
+                    $image->resize(null, 350, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->height() >= 50) {
-                    $image->resize(null, 50, function ($constraint) {
+                if ($image->height() >= 350) {
+                    $image->resize(null, 350, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image->width() >= 200) {
-                    $image->resize(200, null, function ($constraint) {
+                elseif ($image->width() >= 350) {
+                    $image->resize(350, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }

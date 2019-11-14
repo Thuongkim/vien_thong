@@ -61,7 +61,7 @@
                 <th class="text-right">{!! trans("partners.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="min-height: 70px; max-height: auto; max-width: 230px;">
+                        <div class="fileupload-preview thumbnail" style="min-height: 350px; max-height: auto; max-width: 350px;">
                             @if($partner->image)
                             <img src="{!! asset('assets/media/images/partners/' . $partner->image) !!}">
                             @endif
@@ -76,7 +76,7 @@
                             <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
                                 {!! trans('system.action.remove') !!}
                             </a>
-                            (Kích thước 200x50)
+                            (Kích thước 350x350)
                         </div>
                     </div>
                 </td>

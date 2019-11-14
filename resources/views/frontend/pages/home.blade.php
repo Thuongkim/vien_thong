@@ -182,7 +182,7 @@
 								<div class="item image_logo">
 									<div class="project-owbx">
 										@if($servicesLang['image_logo'])
-										<img src="{{ asset($servicesLang['image_logo']) }}" style="max-height: 60px; max-width:100px;display:block; margin:auto;">
+										<img src="{{ asset($servicesLang['image_logo']) }}" style="max-height: 60px; max-width:100px;display:block; margin:auto; border-radius: 5px">
 										@else
 										<i class="fa {{ $servicesLang['icon'] }}"></i>
 										@endif
@@ -226,7 +226,7 @@
 						<div class="section-head text-black text-center">
 							<h2 class="title text-capitalize">{{trans('frontend.partner')}}</h2>
 						</div>
-						<div
+						{{-- <div
 							class="client-logo-carousel owl-loaded owl-theme owl-carousel owl-dots-none owl-btn-center-lr owl-btn-3">
 							@foreach ($partners as $partner)
 							<div class="item">
@@ -237,9 +237,25 @@
 								</div>
 							</div>
 							@endforeach
+						</div> --}}
+
+						<div class="owl-team owl-carousel dlab-team11-area owl-theme owl-btn-center-lr dots-theme">
+						@foreach ($partners as $partner)
+						<div class="item wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+							<div class="dlab-box dlab-team11">
+								<div class="dlab-media dlab-img-effect zoom">
+									<a href="{{ $partner['partner_link'] }}"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
+								</div>
+							</div>
 						</div>
+						@endforeach
+
+					</div>
+
 					</div>
 				</div>
+
+
 				<!-- Client logo End -->
 				<!-- Services -->
 				<!-- Portfolio  -->
