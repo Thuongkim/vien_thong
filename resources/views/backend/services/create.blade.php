@@ -107,6 +107,27 @@
                 </td>
             </tr>
             <tr>
+                <th class="text-right">{!! trans("services.image_logo") !!}</th>
+                <td>
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                        <div class="fileupload-preview thumbnail" style="min-height: 60px;max-height: 60px; max-width: 100px;padding: 0px;">
+                        </div>
+                        <div>
+                            <span class="btn btn-default btn-file">
+                                <span class="fileupload-new">
+                                    {!! trans('system.action.select_image') !!}
+                                </span>
+                                {!! Form::file('image_logo') !!}
+                            </span>
+                            <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
+                                {!! trans('system.action.remove') !!}
+                            </a>
+                            (Kích thước 60x100)
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
                 <th class="text-right">{!! trans("services.image") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">

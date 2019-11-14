@@ -17,6 +17,7 @@ class Service extends Model
             'summary_long' => 'required|max:1024',
             'content'      => 'required',
             'image'        => ($id == 0 ? 'required|' : '') . 'max:2048|mimes:jpg,jpeg,png,gif',
+            'image_logo'        => ($id == 0 ? 'required|' : '') . 'max:2048|mimes:jpg,jpeg,png,gif',
             'category'     => 'required|integer',
             'created_by'   => 'integer',
         ];
@@ -30,9 +31,9 @@ class Service extends Model
         return $this->morphMany('App\Translation', 'translatable')->where('locale', $locale)->where('name', $field); //->first();
     }
         // Don't forget to fill this array
-    protected $fillable = [ 'title', 'summary', 'content', 'status', 'image', 'position', 'icon', 'category_id','featured', 'created_by','summary_long' ];
+    protected $fillable = [ 'title', 'summary', 'content', 'status', 'image', 'position', 'icon', 'category_id','featured', 'created_by','summary_long', 'image_logo' ];
 
-     public function category()
+    public function category()
     {
         return $this->belongsTo("\App\Models\ServiceCategory");
     }
@@ -77,36 +78,36 @@ class Service extends Model
         $servicesNews = [];
         $langs = config('app.locales');
         if (!Cache::has('services_new')) {
-        $servicess = Service::where('status', 1)->where('category_id', '<>', $id_exception)->where( 'featured', 1)->orderBy( 'updated_at', 'desc')->take(6)->get();
+            $servicess = Service::where('status', 1)->where('category_id', '<>', $id_exception)->where( 'featured', 1)->orderBy( 'updated_at', 'desc')->take(6)->get();
 
-        foreach ($servicess as $service) {
-            $tmp = [];
-            $id = $service->id;
-            $tmp['id'] = is_null($id) ? '' : $id;
-            $image = $service->image;
-            $tmp['image'] = is_null($image) ? '' : $image;
-            $created_by = \App\User::find( $service->created_by );
-            $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
-            $updated_at = $service->updated_at;
-            $tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
-            for ($i = 0; $i < count($langs); $i++) {
-                $trans = $service->translation('title', $langs[$i])->first();
-                $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
-                $trans = $service->translation('summary', $langs[$i])->first();
-                $tmp[$langs[$i]]['summary'] = is_null($trans) ? '' : $trans->content;
-                $trans = $service->translation('content', $langs[$i])->first();
-                $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
+            foreach ($servicess as $service) {
+                $tmp = [];
+                $id = $service->id;
+                $tmp['id'] = is_null($id) ? '' : $id;
+                $image = $service->image;
+                $tmp['image'] = is_null($image) ? '' : $image;
+                $created_by = \App\User::find( $service->created_by );
+                $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname; 
+                $updated_at = $service->updated_at;
+                $tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
+                for ($i = 0; $i < count($langs); $i++) {
+                    $trans = $service->translation('title', $langs[$i])->first();
+                    $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+                    $trans = $service->translation('summary', $langs[$i])->first();
+                    $tmp[$langs[$i]]['summary'] = is_null($trans) ? '' : $trans->content;
+                    $trans = $service->translation('content', $langs[$i])->first();
+                    $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
+                }
+
+                array_push($servicesNews, $tmp);
             }
-
-            array_push($servicesNews, $tmp);
+            $servicesNews = json_encode($servicesNews) ;
+            if ($servicesNews) Cache:: forever( 'services_new', $servicesNews);
+        } else {
+            $servicesNews = Cache::get( 'services_new');
         }
-        $servicesNews = json_encode($servicesNews) ;
-        if ($servicesNews) Cache:: forever( 'services_new', $servicesNews);
-    } else {
-        $servicesNews = Cache::get( 'services_new');
-    }
     // dd($servicesNews);
-    return json_decode($servicesNews, 1);
+        return json_decode($servicesNews, 1);
 
-}
+    }
 }

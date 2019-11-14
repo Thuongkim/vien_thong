@@ -59,6 +59,8 @@ class HomeController extends Controller
             $tmp = [];
             $icon = $service->icon;
             $tmp['icon'] = is_null($icon) ? '' : $icon;
+            $image_logo = $service->image_logo;
+            $tmp['image_logo'] = is_null($image_logo) ? '' : $image_logo;
             $image = $service->image;
             $tmp['image'] = is_null($image) ? '' : $image;
             $id = $service->id;
