@@ -239,7 +239,7 @@
 							@endforeach
 						</div> --}}
 
-						<div class="owl-team owl-carousel dlab-team11-area owl-theme owl-btn-center-lr dots-theme">
+						<div class="owl-team owl-carousel dlab-team11-area owl-theme owl-btn-center-lr owl-dots-none owl-btn-3">
 						@foreach ($partners as $partner)
 						<div class="item wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
 							<div class="dlab-box dlab-team11">
@@ -381,12 +381,12 @@
 															rel="author">{!! $news['created_by'] !!}</a> </li> --}}
 												</ul>
 											</div>
-											<div class="dlab-post-readmore">
+											{{-- <div class="dlab-post-readmore">
 												<a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}" title="READ MORE" rel="bookmark"
 													class="site-button">{{trans('frontend.read_more')}}
 													<i class="ti-arrow-right"></i>
 												</a>
-											</div>
+											</div> --}}
 											{{-- <div class="ow-post-text" style="min-height: 196px;">
 												<p>{!! \App\Helper\HString::modSubstr(strip_tags($news[$lang]['summary']), 255) !!}</p>
 											</div> --}}
