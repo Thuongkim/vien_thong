@@ -22,7 +22,11 @@
     color: #232323;
     font-size: 13px;
 }*/
+p{
+    font-size: 16px;
+}
 h1, h2, h3, h4, h5, h6 {
+    margin:0px;
     color: #232323;
     font-family: Times New Roman,sans-serif;
 }
@@ -80,6 +84,19 @@ max-height: 400px !important;
     font-weight: 200;
     margin-top: 0px;
     font-family: Times New Roman,sans-serif;
+}
+.section-head .title {
+    margin-bottom: 5px;
+    line-height: 45px;
+    font-weight: 600;
+    font-size: 40px;
+    font-family: Times,sans-serif;
+}
+.call-action .title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 40px;
+    font-family: Times,sans-serif;
 }
 
 .our-story h4.title {
