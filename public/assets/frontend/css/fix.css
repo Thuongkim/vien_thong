@@ -13,6 +13,7 @@
 }
 .dlab-team1 .dlab-info{
 	bottom:-15px;
+    min-height: 147px;
 }
 /*Style for the text*/
 .content-area {
@@ -113,16 +114,11 @@ max-height: 400px !important;
     padding-bottom: 10px;
 }
 /*Front chữ*/
-/*.project-owbx .title {
+.project-owbx .title {
     margin: 0;
-    font-size: 16px;
-    color: #000;
-    font-weight: 500;
-    line-height: 28px;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
+    font-size: 16px ! important ;
 }
-.section-head .title {
+/*.section-head .title {
     margin-bottom: 5px;
     font-size: 35px;
     line-height: 45px;
@@ -288,7 +284,7 @@ max-height: 400px !important;
     font-weight: 500;
     line-height: 28px;
 }
-/*.project-owbx {
+.project-owbx {
     padding: 20px 20px 15px 20px;
     background: rgba(0,0,0,.02);
     border: 1px solid rgba(0,0,0,.1);
@@ -302,7 +298,17 @@ max-height: 400px !important;
     -ms-transition: all .8s;
     -o-transition: all .8s;
     min-height: 153px;
-}*/
-/*.image_logo{
-    max-width: 250px !important;
-}*/
+}
+.dlab-team11 .dlab-media {
+    width: 240px;
+    height: 240px;
+    margin: auto;
+    border-radius: 240px;
+    overflow: hidden;
+    padding: 10px;
+    border: none; 
+}
+#sync2 .owl-item.active.current .item img {
+    outline: none;
+    outline-offset: none;
+}

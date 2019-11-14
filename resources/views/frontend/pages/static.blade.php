@@ -299,7 +299,7 @@
 										</div>
 										<div class="dlab-info">
 											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Thị Thu </a></h4>
-											<span class="dlab-position">Phụ trách phòng Quản trị nhân lực & Hành chính</span>	
+											<span class="dlab-position">Quản trị nhân lực & Hành chính</span>	
 										</div>
 									</div>
 								</div>
@@ -325,7 +325,7 @@
 										</div>
 										<div class="dlab-info">
 											<h4 class="dlab-title"><a href="javascript:;">Trần Viết Tiến</a></h4>
-											<span class="dlab-position">Giám đốc Trung tâm thanh toán tiền điện tiền nhà</span>	
+											<span class="dlab-position">GĐTT thanh toán tiền điện tiền nhà</span>	
 										</div>
 									</div>
 								</div>
