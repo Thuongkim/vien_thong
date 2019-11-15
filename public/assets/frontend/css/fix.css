@@ -13,16 +13,21 @@
 }
 .dlab-team1 .dlab-info{
 	bottom:-15px;
+    min-height: 147px;
 }
 /*Style for the text*/
 .content-area {
     padding-top: 0px;
 }
-h4 a{
+/*h4 a{
     color: #232323;
     font-size: 13px;
+}*/
+p{
+    font-size: 16px;
 }
 h1, h2, h3, h4, h5, h6 {
+    margin:0px;
     color: #232323;
     font-family: Times New Roman,sans-serif;
 }
@@ -45,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 /*slider*/
 #x-content-band-1 .rev_slider_wrapper, .rev_slider, .tp-fullwidth-forcer, .rev_slider .tp-bgimg.defaultimg {
-max-height: 400px !important;
+max-height: 480px !important;
 }
 @media only screen and (max-width: 400px) {
 	.tp-caption.rev-btn.tc-btnshadow.tp-rs-menulink{
@@ -54,14 +59,15 @@ max-height: 400px !important;
 }
 @media only screen and (min-width: 401px) and (max-width: 960px) {
 	.tp-caption.rev-btn.tc-btnshadow.tp-rs-menulink{
-		margin-bottom:400px;
+		margin-bottom:100px;
 	}
 }
 @media only screen and (min-width: 961px) {
   .tp-caption.rev-btn.tc-btnshadow.tp-rs-menulink{
-		margin-bottom:300px;
+		margin-bottom:150px;
 	}
 }
+
 /*Service*/
 #sync1.owl-carousel .owl-item {
     min-height: 1px;
@@ -81,6 +87,19 @@ max-height: 400px !important;
     margin-top: 0px;
     font-family: Times New Roman,sans-serif;
 }
+.section-head .title {
+    margin-bottom: 5px;
+    line-height: 45px;
+    font-weight: 600;
+    font-size: 40px;
+    font-family: Calibri,sans-serif;
+}
+.call-action .title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 40px;
+    font-family: Calibri,sans-serif;
+}
 
 .our-story h4.title {
     font-size: 20px;
@@ -96,16 +115,11 @@ max-height: 400px !important;
     padding-bottom: 10px;
 }
 /*Front chữ*/
-/*.project-owbx .title {
+.project-owbx .title {
     margin: 0;
-    font-size: 16px;
-    color: #000;
-    font-weight: 500;
-    line-height: 28px;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
+    font-size: 16px ! important ;
 }
-.section-head .title {
+/*.section-head .title {
     margin-bottom: 5px;
     font-size: 35px;
     line-height: 45px;
@@ -242,6 +256,9 @@ max-height: 400px !important;
 .content-inner{
     padding: 10px 0px;
 }
+.du_an{
+    padding: 0px;
+}
 .section-full:last-child {
     margin-bottom: 0px;
 }
@@ -271,7 +288,7 @@ max-height: 400px !important;
     font-weight: 500;
     line-height: 28px;
 }
-/*.project-owbx {
+.project-owbx {
     padding: 20px 20px 15px 20px;
     background: rgba(0,0,0,.02);
     border: 1px solid rgba(0,0,0,.1);
@@ -285,7 +302,17 @@ max-height: 400px !important;
     -ms-transition: all .8s;
     -o-transition: all .8s;
     min-height: 153px;
-}*/
-/*.image_logo{
-    max-width: 250px !important;
-}*/
+}
+.dlab-team11 .dlab-media {
+    width: 240px;
+    height: 240px;
+    margin: auto;
+    border-radius: 240px;
+    overflow: hidden;
+    padding: 10px;
+    border: none; 
+}
+#sync2 .owl-item.active.current .item img {
+    outline: none;
+    outline-offset: none;
+}

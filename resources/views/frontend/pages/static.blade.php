@@ -141,7 +141,7 @@
 				</div>
 				<!--result end-->
 				<!-- Client logo -->
-				<div class="section-full content-inner-2 wow fadeIn" data-wow-duration="2s" data-wow-delay="0.6s">
+				{{-- <div class="section-full content-inner-2 wow fadeIn" data-wow-duration="2s" data-wow-delay="0.6s">
 					<div class="container">
 						<div class="section-head text-black text-center">
 							<h2 class="title text-capitalize">{{trans('frontend.partner')}}</h2>
@@ -162,7 +162,7 @@
 
 						</div>
 					</div>
-				</div>
+				</div> --}}
 				<!-- Client logo End -->
 			</div>
 
@@ -184,8 +184,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Thế Thịnh</a></h4>
-											<span class="dlab-position">Tổng Giám đốc</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g1')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg1')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -202,8 +202,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Trường Giang</a></h4>
-											<span class="dlab-position">Phó Tổng Giám đốc</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g2')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg2')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -215,8 +215,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Thúy Hà</a></h4>
-											<span class="dlab-position">Kế toán trưởng</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g3')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg3')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -228,8 +228,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Huỳnh Trọng Trí</a></h4>
-											<span class="dlab-position">Giám đốc Chi nhánh miền Nam</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g4')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg4')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -241,8 +241,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Thanh An</a></h4>
-											<span class="dlab-position">Giám đốc Trung tâm kỹ thuật miền Bắc</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g5')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg5')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -254,8 +254,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Phạm Hưng</a></h4>
-											<span class="dlab-position">Giám đốc Trung tâm kỹ thuật miền Trung</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g6')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg6')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -272,8 +272,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Quảng Bình</a></h4>
-											<span class="dlab-position">Phụ trách Phòng Kinh doanh</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g7')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg7')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -285,8 +285,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Bùi Ngọc Hùng</a></h4>
-											<span class="dlab-position">Phụ trách Phòng Kỹ thuật</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g8')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg8')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -298,8 +298,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Nguyễn Thị Thu </a></h4>
-											<span class="dlab-position">Phụ trách phòng Quản trị nhân lực & Hành chính</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g9')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg9')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -311,8 +311,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Cấn Ngọc Lĩnh</a></h4>
-											<span class="dlab-position">Trưởng Ban Quản lý dự án</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g10')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg10')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -324,8 +324,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Trần Viết Tiến</a></h4>
-											<span class="dlab-position">Giám đốc Trung tâm thanh toán tiền điện tiền nhà</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g11')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg11')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -337,8 +337,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">Hoàng Văn Khoa</a></h4>
-											<span class="dlab-position">Phó giám đốc trung tâm SPMS</span>	
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g12')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.cg12')}}</span>	
 										</div>
 									</div>
 								</div>
