@@ -51,22 +51,22 @@ class SlidersController extends Controller
         if ($request->hasFile('image')) {
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image)->resize(1140, 450);
+            $image  = \Image::make($request->image)->resize(1520, 600);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 450) {
-                    $image->resize(null, 450, function ($constraint) {
+                if ($image->height() >= 600) {
+                    $image->resize(null, 600, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->height() >= 450) {
-                    $image->resize(null, 450, function ($constraint) {
+                if ($image->height() >= 600) {
+                    $image->resize(null, 600, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image->width() >= 1140) {
-                    $image->resize(1140, null, function ($constraint) {
+                elseif ($image->width() >= 1520) {
+                    $image->resize(1520, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
@@ -137,22 +137,22 @@ class SlidersController extends Controller
             if (\File::exists(public_path() . '/' . $slider->image)) \File::delete(public_path() . '/' . $slider->image);
             $image  = $request->image;
             $ext    = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image  = \Image::make($request->image)->resize(1140, 450);
+            $image  = \Image::make($request->image)->resize(1520, 600);
             //resize
             if ($image->height() > $image->width()) {
-                if ($image->height() >= 450) {
-                    $image->resize(null, 450, function ($constraint) {
+                if ($image->height() >= 600) {
+                    $image->resize(null, 600, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image->height() >= 450) {
-                    $image->resize(null, 450, function ($constraint) {
+                if ($image->height() >= 600) {
+                    $image->resize(null, 600, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image->width() >= 1140) {
-                    $image->resize(1140, null, function ($constraint) {
+                elseif ($image->width() >= 1520) {
+                    $image->resize(1520, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }

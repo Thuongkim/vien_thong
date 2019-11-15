@@ -163,96 +163,10 @@
 					</div>
 				</div>
 				<!-- Call To Action End -->
-				<!-- About Us -->
-				<div class="section-full content-inner bg-white wow fadeIn" data-wow-duration="2s"
-					data-wow-delay="0.4s">
-					<div class="container">
-						<div class="section-head text-black text-center">
-							<h2 class="title">
-								{!! isset($staticPages[$lang]['service']['description']) ? $staticPages[$lang]['service']['description'] : '' !!}
-							</h2>
-						</div>
-						<div class="on-show-slider ">
-							
-							<div id="sync2" class="owl-carousel owl-theme owl-none owl-dots-none project-list">
-								@foreach($servicess as $servicesLang)
-								<div class="item image_logo">
-									<div class="project-owbx">
-										@if($servicesLang['image_logo'])
-										<img src="{{ asset($servicesLang['image_logo']) }}" style="max-height: 60px; max-width:100px;display:block; margin:auto; border-radius: 5px">
-										@else
-										<i class="fa {{ $servicesLang['icon'] }}"></i>
-										@endif
-										<h4 class="title">{{ $servicesLang[$lang]['title'] }}</h4>
-									</div>
-								</div>
-								@endforeach
-							</div>
-							<div id="sync1"
-								class="owl-carousel owl-theme owl-btn-center-lr m-b5 owl-dots-none owl-btn-3 primary">
-								@foreach($servicess as $servicesLang)
-								<div class="item">
-									<div class="row service align-items-center">
-										<div class="col-lg-8 col-md-8 m-b30">
-											<div class="our-story">
-												<h2 class="title">{{ $servicesLang[$lang]['title'] }}</h2>
-												<h4 class="title">{!! $servicesLang[$lang]['summary_long'] !!}</h4>
-												<p>{!! $servicesLang[$lang]['summary'] !!}</p>
-												<a href="{!! route('home.services-detail', ['slug' => str_slug($servicesLang[$lang]['title']), 'id' => $servicesLang['id']]) !!}" class="site-button btnhover16">{{trans('frontend.read_more')}}</a>
-											</div>
-										</div>
-										<div class="col-lg-4 col-md-4 m-b30">
-											<img src="{{ asset($servicesLang['image']) }}" class="radius-sm" style="max-height: 320px;max-width: 360px;padding: 0px;">
-										</div>
-									</div>
-								</div>
-								@endforeach
-							</div>
-						</div>
+				<!-- Dự án-->
+				
 
-					</div>
-				</div>
-				<!-- About Us End -->
-				<!-- Client logo -->
-				<div class="section-full content-inner-2 bg-gray wow fadeIn" data-wow-duration="2s" data-wow-delay="0.6s">
-					<div class="container">
-						<div class="section-head text-black text-center">
-							<h2 class="title text-capitalize">{{trans('frontend.partner')}}</h2>
-						</div>
-						{{-- <div
-							class="client-logo-carousel owl-loaded owl-theme owl-carousel owl-dots-none owl-btn-center-lr owl-btn-3">
-							@foreach ($partners as $partner)
-							<div class="item fly-box-ho">
-								<div class="ow-client-logo">
-									<div class="client-logo border">
-										<a href="{{ $partner['partner_link'] }}"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
-									</div>
-								</div>
-							</div>
-							@endforeach
-						</div> --}}
-
-						<div class="owl-team owl-carousel dlab-team11-area owl-theme owl-btn-center-lr owl-dots-none owl-btn-3">
-						@foreach ($partners as $partner)
-						<div class="item wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-							<div class="dlab-box dlab-team11">
-								<div class="dlab-media dlab-img-effect zoom">
-									<a href="{{ $partner['partner_link'] }}"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
-								</div>
-							</div>
-						</div>
-						@endforeach
-
-					</div>
-
-					</div>
-				</div>
-
-
-				<!-- Client logo End -->
-				<!-- Services -->
-				<!-- Portfolio  -->
-				<div class="section-full content-inner portfolio text-uppercase bg-white" id="portfolio">
+				<div class="section-full content-inner portfolio text-uppercase bg-white du_an active wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 0.8s;" id="portfolio" >
 					<div class="container">
 						<div class="section-head text-black text-center">
 							<h2 class="title text-capitalize">{{trans('frontend.project')}}</h2>
@@ -336,9 +250,104 @@
 						</div>
 					</div>
 				</div>
+
+				
+
+				<!-- About Us -->
+				<div class="section-full content-inner bg-white active wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1s;" data-wow-duration="2s"
+					data-wow-delay="0.4s">
+					<div class="container">
+						<div class="section-head text-black text-center">
+							<h2 class="title">
+								{!! isset($staticPages[$lang]['service']['description']) ? $staticPages[$lang]['service']['description'] : '' !!}
+							</h2>
+						</div>
+						<div class="on-show-slider ">
+							
+							<div id="sync2" class="owl-carousel owl-theme owl-none owl-dots-none project-list">
+								@foreach($servicess as $servicesLang)
+								<div class="item image_logo">
+									<div class="project-owbx">
+										@if($servicesLang['image_logo'])
+										<img src="{{ asset($servicesLang['image_logo']) }}" style="max-height: 60px; max-width:100px;display:block; margin:auto; border-radius: 5px">
+										@else
+										<i class="fa {{ $servicesLang['icon'] }}"></i>
+										@endif
+										<h4 class="title">{{ $servicesLang[$lang]['title'] }}</h4>
+									</div>
+								</div>
+								@endforeach
+							</div>
+							<div id="sync1"
+								class="owl-carousel owl-theme owl-btn-center-lr m-b5 owl-dots-none owl-btn-3 primary">
+								@foreach($servicess as $servicesLang)
+								<div class="item">
+									<div class="row service align-items-center">
+										<div class="col-lg-8 col-md-8 m-b30">
+											<div class="our-story">
+												<h2 class="title">{{ $servicesLang[$lang]['title'] }}</h2>
+												<h4 class="title">{!! $servicesLang[$lang]['summary_long'] !!}</h4>
+												<p>{!! $servicesLang[$lang]['summary'] !!}</p>
+												<a href="{!! route('home.services-detail', ['slug' => str_slug($servicesLang[$lang]['title']), 'id' => $servicesLang['id']]) !!}" class="site-button btnhover16">{{trans('frontend.read_more')}}</a>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 m-b30">
+											<img src="{{ asset($servicesLang['image']) }}" class="radius-sm" style="max-height: 320px;max-width: 360px;padding: 0px;">
+										</div>
+									</div>
+								</div>
+								@endforeach
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- About Us End -->
+				<!-- Client logo -->
+				<div class="section-full content-inner-2 bg-gray wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1.2s;" data-wow-duration="2s" data-wow-delay="0.6s">
+					<div class="container">
+						<div class="section-head text-black text-center">
+							<h2 class="title text-capitalize">{{trans('frontend.partner')}}</h2>
+						</div>
+						{{-- <div
+							class="client-logo-carousel owl-loaded owl-theme owl-carousel owl-dots-none owl-btn-center-lr owl-btn-3">
+							@foreach ($partners as $partner)
+							<div class="item fly-box-ho">
+								<div class="ow-client-logo">
+									<div class="client-logo border">
+										<a href="{{ $partner['partner_link'] }}"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
+									</div>
+								</div>
+							</div>
+							@endforeach
+						</div> --}}
+
+						<div class="owl-team owl-carousel dlab-team11-area owl-theme owl-btn-center-lr owl-dots-none owl-btn-3">
+						@foreach ($partners as $partner)
+						<div class="item wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+							<div class="dlab-box dlab-team11">
+								<div class="dlab-media dlab-img-effect zoom">
+									<a href="{{ $partner['partner_link'] }}"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}" alt=""></a>
+								</div>
+							</div>
+						</div>
+						@endforeach
+
+					</div>
+
+					</div>
+				</div>
+
+
+				<!-- Client logo End -->
+				<!-- Services -->
+				<!-- Portfolio  -->
+
+				<!---du an-->
+
 				<!-- Services End -->
 				<!-- Latest Blog -->
-				<div class="section-full bg-white">
+				<div class="section-full bg-white wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1.4s;">
 					<div class="container">
 						<div class="section-head text-black text-center">
 							<h2 class="title text-capitalize">{{trans('frontend.news_event')}}</h2>

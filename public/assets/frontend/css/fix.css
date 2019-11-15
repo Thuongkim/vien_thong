@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 /*slider*/
 #x-content-band-1 .rev_slider_wrapper, .rev_slider, .tp-fullwidth-forcer, .rev_slider .tp-bgimg.defaultimg {
-max-height: 400px !important;
+max-height: 480px !important;
 }
 @media only screen and (max-width: 400px) {
 	.tp-caption.rev-btn.tc-btnshadow.tp-rs-menulink{
@@ -59,14 +59,15 @@ max-height: 400px !important;
 }
 @media only screen and (min-width: 401px) and (max-width: 960px) {
 	.tp-caption.rev-btn.tc-btnshadow.tp-rs-menulink{
-		margin-bottom:400px;
+		margin-bottom:100px;
 	}
 }
 @media only screen and (min-width: 961px) {
   .tp-caption.rev-btn.tc-btnshadow.tp-rs-menulink{
-		margin-bottom:300px;
+		margin-bottom:150px;
 	}
 }
+
 /*Service*/
 #sync1.owl-carousel .owl-item {
     min-height: 1px;
@@ -254,6 +255,9 @@ max-height: 400px !important;
 
 .content-inner{
     padding: 10px 0px;
+}
+.du_an{
+    padding: 0px;
 }
 .section-full:last-child {
     margin-bottom: 0px;
