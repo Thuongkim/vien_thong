@@ -217,6 +217,52 @@
 			});
 		});
 	</script>
+	<script>
+		// // Get the container element
+		// var btnContainer = document.getElementById("navbarNavDropdown");
+
+		// // Get all buttons with class="btn" inside the container
+		// var btns = btnContainer.getElementsByClassName("menu-hover");
+
+		// // Loop through the buttons and add the active class to the current/clicked button
+		// for (var i = 0; i < btns.length; i++) {
+		//   btns[i].addEventListener("mouseover", function() {
+		//     var current = document.getElementsByClassName("active");
+		//     current[0].className = current[0].className.replace(" active", "");
+		//     this.className += " active";
+		//   });
+		// }
+
+		// jQuery(document).ready(function( $ ){
+	 //        var retrievedClassName = localStorage.getItem('activeClass');
+	 //        if(retrievedClassName == "active"){
+	 //          // console.log($(this));
+	 //        }
+	 //        $(".menu-hover").bind('mouseover', function () {
+	 //          $(".menu-hover").removeClass("active");
+	 //          $(this).addClass("active");
+	 //          localStorage.setItem('activeClass', "active");
+	 //        });
+	 //    });
+		$(document).ready(function () {
+
+            $(".menu-hover").click(function () {
+                var id = $(this);
+
+                $(".active").removeClass("active");
+                $(id).addClass("active");
+                localStorage.setItem("selectedolditem", $(id).text());
+
+            });
+
+            var selectedolditem = localStorage.getItem('selectedolditem');
+
+            if (selectedolditem !== null && $(".menu-hover:contains('" + selectedolditem + "')").length) {
+            	$(".active").removeClass("active");
+                $(".menu-hover:contains('" + selectedolditem + "')").addClass("active");
+            }
+        });
+	</script>
 </body>
 
 </html>

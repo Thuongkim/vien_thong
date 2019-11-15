@@ -44,9 +44,9 @@
 								<a href="index.html"><img src="images/hte-logo.png" alt=""></a>
 							</div> --}}
 							<ul class="nav navbar-nav">
-								<li class="active has-mega-menu homedemo"> <a href="{{ route('home') }}">{{trans('frontend.home')}}</a>
+								<li class="has-mega-menu homedemo menu-hover active"> <a href="{{ route('home') }}">{{trans('frontend.home')}}</a>
 								</li>
-								<li>
+								<li class="menu-hover">
 									<a href="#">{{trans('frontend.present')}}<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu tab-content">
 										@foreach($staticPagess as $staticPage)
@@ -57,7 +57,7 @@
 										@endforeach
 									</ul>
 								</li>
-								<li>
+								<li class="menu-hover">
 									<a href="#">{{trans('frontend.service')}}<i class="fa fa-chevron-down"></i></a>
 									<ul class="sub-menu tab-content">
 										@foreach($servicesCategories as $servicesCategory)
@@ -83,7 +83,7 @@
 										@endforeach
 									</ul>
 								</li>
-								<li class="has-mega-menu"><a href="#">{{trans('frontend.project')}}<i
+								<li class="has-mega-menu menu-hover"><a href="#">{{trans('frontend.project')}}<i
 											class="fa fa-chevron-down"></i></a>
 									<ul class="mega-menu">
 										@foreach ($projectCategories as $projectCategory)
@@ -107,13 +107,13 @@
 										@endforeach
 									</ul>
 								</li>
-								<li class="has-mega-menu"> <a href="{{ route('news') }}">{{trans('frontend.news')}}</a>
+								<li class="has-mega-menu menu-hover"> <a href="{{ route('news') }}">{{trans('frontend.news')}}</a>
 								</li>
-								<li class="has-mega-menu"> <a href="{{ route('career') }}">{{trans('frontend.career')}}</a>
+								<li class="has-mega-menu menu-hover"> <a href="{{ route('career') }}">{{trans('frontend.career')}}</a>
 								</li>
-								{{-- <li class="has-mega-menu"> <a href="{{ route('partner') }}">{{trans('frontend.partner')}}</a>
+								{{-- <li class="has-mega-menu menu-hover"> <a href="{{ route('partner') }}">{{trans('frontend.partner')}}</a>
 								</li> --}}
-								<li class="has-mega-menu"> <a href="https://mail.hte.vn">Mail</a>
+								<li class="has-mega-menu menu-hover"> <a href="https://mail.hte.vn">Mail</a>
 								</li>
 							</ul>
 						</div>

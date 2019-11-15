@@ -368,7 +368,7 @@
 										</div>
 										<div class="ow-post-info">
 											<div class="ow-post-title">
-												<h4 class="post-title" style="min-height: 60px;font-size: 20px"> <a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}"
+												<h4 class="post-title"> <a href="{{ route('news.show', ['slug' => str_slug($news[$lang]['title']), 'id' => $news['id']]) }}"
 														title="news">{!! \App\Helper\HString::modSubstr($news[$lang]['title'], 75) !!}</a> </h4>
 											</div>
 											<div class="ow-post-meta">
