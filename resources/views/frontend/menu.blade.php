@@ -111,8 +111,8 @@
 								</li>
 								<li class="has-mega-menu menu-hover"> <a href="{{ route('career') }}">{{trans('frontend.career')}}</a>
 								</li>
-								<li class="has-mega-menu menu-hover"> <a href="{{ route('partner') }}">{{trans('frontend.partner')}}</a>
-								</li>
+								{{-- <li class="has-mega-menu menu-hover"> <a href="{{ route('partner') }}">{{trans('frontend.partner')}}</a>
+								</li> --}}
 								<li class="has-mega-menu menu-hover"> <a href="https://mail.hte.vn">Mail</a>
 								</li>
 							</ul>

@@ -316,3 +316,7 @@ max-height: 480px !important;
     outline: none;
     outline-offset: none;
 }
+.ow-post-title .post-title {
+    min-height: 84px;
+    font-size: 20px;
+}
