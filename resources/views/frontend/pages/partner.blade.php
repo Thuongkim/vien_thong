@@ -12,7 +12,7 @@
     <div class="content-area">
         <!-- Testimonials Style 16 -->
         <div class="section-full overlay-black-middle bg-img-fix content-inner"
-            style="background-image:url({{ asset('assets/frontend/images/background/bg-customer.png') }});">
+            style="background-image:url({{ asset('assets/frontend/images/main-slider/abc.png') }});">
             <div class="container">
                 <div class="row animation-effects">
                     <div class="col-lg-12 active wow zoomIn">
