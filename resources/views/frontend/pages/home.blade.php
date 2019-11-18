@@ -216,11 +216,16 @@
 				</div>
 				<!-- About Us End -->
 				<!-- Client logo -->
-				<div class="section-full content-inner-2 bg-gray wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1s;" data-wow-duration="2s" data-wow-delay="0.6s">
+				<div class="container">
+					<div class="section-head text-black text-center">
+						<h2 class="title">{{trans('frontend.partner')}}</h2>
+					</div>
+				</div>
+				<div class="section-full content-inner bg-gray wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1s;" data-wow-duration="2s" data-wow-delay="0.6s">
 					<div class="container">
-						<div class="section-head text-black text-center">
+						{{-- <div class="section-head text-black text-center">
 							<h2 class="title text-capitalize">{{trans('frontend.partner')}}</h2>
-						</div>
+						</div> --}}
 						{{-- <div
 							class="client-logo-carousel owl-loaded owl-theme owl-carousel owl-dots-none owl-btn-center-lr owl-btn-3">
 							@foreach ($partners as $partner)
@@ -255,10 +260,10 @@
 				<!-- Services -->
 				<!-- Portfolio  -->
 
-				<div class="section-full content-inner portfolio text-uppercase bg-white du_an active wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1.2s;" id="portfolio" >
+				<div class="section-full content-inner portfolio bg-white du_an active wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1.2s;" id="portfolio" >
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title text-capitalize">{{trans('frontend.project')}}</h2>
+							<h2 class="title ">{{trans('frontend.project')}}</h2>
 						</div>
 						<div class="site-filters clearfix center  m-b40">
 							<ul class="filters_1" data-toggle="buttons">
@@ -345,7 +350,7 @@
 				<div class="section-full bg-white wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1.4s;">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title text-capitalize">{{trans('frontend.news_event')}}</h2>
+							<h2 class="title">{{trans('frontend.news_event')}}</h2>
 						</div>
 						<!-- blog post Carousel with no margin -->
 						<div class="section-content box-sort-in m-b30 button-example">

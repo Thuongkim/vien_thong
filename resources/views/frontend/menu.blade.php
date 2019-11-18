@@ -5,7 +5,7 @@
 					<div class="container clearfix">
 						<!-- technologysite logo -->
 						<div class="logo-header mostion" style="width: auto;">
-							<a href="{{ route('home') }}"><img src="{{ asset('assets/frontend/images/hte-logo.png') }}" alt="" style="width: 258px; height: 75px"></a>
+							<a href="{{ route('home') }}"><img src="{{ asset('assets/frontend/images/hte-logo.png') }}" alt="" style="max-width: 258px; max-height: 70px"></a>
 						</div>
 						<!-- nav toggle button -->
 						<button class="navbar-toggler collapsed navicon justify-content-end" type="button"
