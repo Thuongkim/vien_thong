@@ -10,7 +10,7 @@
 <div class="page-content bg-white animation-effects">
 	<!-- inner page banner -->
 	<div class="dlab-bnr-inr overlay-black-middle bg-pt bg-ptactive wow zoomIn"
-		style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
+		style="background-image:url({{ asset('assets/frontend/images/main-slider/abc.png') }});">
 		<div class="container">
 			<div class="dlab-bnr-inr-entry">
 				<h1 class="text-white">{{trans('frontend.career')}}</h1>

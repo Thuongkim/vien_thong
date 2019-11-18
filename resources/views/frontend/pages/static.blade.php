@@ -12,7 +12,7 @@
 			<div class="animation-effects">
 				
 					<div class="dlab-bnr-inr overlay-black-middle bg-pt active wow zoomIn"
-					style="background-image:url({{ asset('assets/frontend/images/main-slider/slide1.jpg') }});">
+					style="background-image:url({{ asset('assets/frontend/images/main-slider/abc.png') }});">
 					<div class="container">
 						<div class="dlab-bnr-inr-entry">
 							<h1 class="text-white">{!! $page[0][$lang]['title'] !!}</h1>
