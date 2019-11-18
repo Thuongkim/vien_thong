@@ -22,50 +22,50 @@
 /*h4 a{
     color: #232323;
     font-size: 13px;
-}*/
-p{
-    font-size: 16px;
-}
-h1, h2, h3, h4, h5, h6 {
-    margin:0px;
-    color: #232323;
-    font-family: Times New Roman,sans-serif;
-}
-.dlab-team1 .dlab-position {
-    font-size: 10px;
-    color: #ff5e14;
-}
-/*image giám đốc*/
-.img-gd{
-    max-height: 300px !important;
-}
-.row{
-    margin-top: 25px;
-}
-.service{
-    margin: 0px 10px -25px 5px;
-}
-.call-action {
-    padding: 15px;
-}
-/*slider*/
-#x-content-band-1 .rev_slider_wrapper, .rev_slider, .tp-fullwidth-forcer, .rev_slider .tp-bgimg.defaultimg {
-max-height: 480px !important;
-}
-@media only screen and (max-width: 400px) {
-	.tp-caption.rev-btn.tc-btnshadow.tp-rs-menulink{
-		margin-bottom:0px;
-	}
+    }*/
+    p{
+        font-size: 18px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        margin:0px;
+        color: #232323;
+        font-family: SVN-Gotham;
+    }
+    .dlab-team1 .dlab-position {
+        font-size: 10px;
+        color: #ff5e14;
+    }
+    /*image giám đốc*/
+    .img-gd{
+        max-height: 300px !important;
+    }
+    .row{
+        margin-top: 25px;
+    }
+    .service{
+        margin: 0px 10px -25px 5px;
+    }
+    .call-action {
+        padding: 15px;
+    }
+    /*slider*/
+    #x-content-band-1 .rev_slider_wrapper, .rev_slider, .tp-fullwidth-forcer, .rev_slider .tp-bgimg.defaultimg {
+        max-height: 480px !important;
+    }
+    @media only screen and (max-width: 400px) {
+     .tp-caption.rev-btn.tc-btnshadow.tp-rs-menulink{
+      margin-bottom:0px;
+  }
 }
 @media only screen and (min-width: 401px) and (max-width: 960px) {
-	.tp-caption.rev-btn.tc-btnshadow.tp-rs-menulink{
-		margin-bottom:100px;
-	}
+ .tp-caption.rev-btn.tc-btnshadow.tp-rs-menulink{
+  margin-bottom:100px;
+}
 }
 @media only screen and (min-width: 961px) {
   .tp-caption.rev-btn.tc-btnshadow.tp-rs-menulink{
-		margin-bottom:150px;
-	}
+      margin-bottom:150px;
+  }
 }
 
 /*Service*/
@@ -85,27 +85,29 @@ max-height: 480px !important;
     line-height: 70px;
     font-weight: 200;
     margin-top: 0px;
-    font-family: Times New Roman,sans-serif;
+    font-family: SVN-Gotham;
 }
 .section-head .title {
     margin-bottom: 5px;
     line-height: 45px;
     font-weight: 600;
     font-size: 40px;
-    font-family: Calibri,sans-serif;
+    /*font-family: Calibri,sans-serif;*/
+    font-family: SVN-Gotham;
 }
 .call-action .title {
     font-weight: 600;
     margin-bottom: 5px;
     font-size: 40px;
-    font-family: Calibri,sans-serif;
+    /*font-family: Calibri,sans-serif;*/
+    font-family: SVN-Gotham;
 }
 
 .our-story h4.title {
     font-size: 20px;
     font-weight: 200;
     margin-top: 0px;
-    font-family: Times New Roman,sans-serif;
+    font-family: SVN-Gotham;
 }
 .project-list {
     margin-bottom: 0px;
@@ -133,46 +135,46 @@ max-height: 480px !important;
     margin-bottom: 5px;
     font-family: 'Playfair Display', serif;
     font-style: italic;
-}*/
-/*bản quyền chân trang*/
-.footer-bottom .container .row {
-    margin:auto;
-}
-.site-footer{
-    height: 100% ! important;
-}
-.dlab-post-readmore {
-    margin-bottom: 0px;
-}
-.page-item.active .page-link {
-    background-color: #775186; 
-    border-color: #775186; 
-}
-.site-button:hover {
-    background-color: #CC0066;
-}
-.owl-prev:hover {
-    background-color: #CC0066;
-    border-color: #CC0066;
-    color: #fff
-}
+    }*/
+    /*bản quyền chân trang*/
+    .footer-bottom .container .row {
+        margin:auto;
+    }
+    .site-footer{
+        height: 100% ! important;
+    }
+    .dlab-post-readmore {
+        margin-bottom: 0px;
+    }
+    .page-item.active .page-link {
+        background-color: #775186; 
+        border-color: #775186; 
+    }
+    .site-button:hover {
+        background-color: #CC0066;
+    }
+    .owl-prev:hover {
+        background-color: #CC0066;
+        border-color: #CC0066;
+        color: #fff
+    }
 
-.active>.site-button,.bg-primary-dark,.owl-btn-1.primary .owl-next:hover,.owl-btn-1.primary .owl-prev:hover,.owl-btn-2.primary .owl-next:hover,.owl-btn-2.primary .owl-prev:hover,.pagination>.active>a,.pagination>.active>a:focus,.pagination>.active>a:hover,.pagination>.active>span,.pagination>.active>span:focus,.pagination>.active>span:hover,.pagination>li>a:focus,.pagination>li>a:hover,.pagination>li>span:focus,.pagination>li>span:hover,.sidenav .closebtn:focus,.sidenav .closebtn:hover,.site-button:active,.site-button:focus,.site-button:hover{
-  background-color:#CC0066
-}
-.about-us .dlab-tabs .nav-tabs li.active{
-  border-right:4px solid #CC0066
-}
-.dlab-info-has.bg-primary,.dlab-info-has.bg-secondry:hover,.tp-bannertimer.tp-bottom{
-  background-color: #CC0066
-}
-.about-8-service .icon-bx-wraper:hover a,.acod-head a,.acod-head a.collapsed:hover,.acod-head a:after,.acod-head a:hover,.breadcrumb-row ul li a,.comments-area p:before,.dlab-post-meta i,.dlab-post-meta.text-primary i,.dlab-post-meta.text-primary ul li,.dlab-post-meta.text-primary ul li a,.dlab-tabs .nav-tabs>li>a i,.header-nav .nav>li .mega-menu>li ul a:hover,.header-nav .nav>li .sub-menu li:hover>a,.header-nav .nav>li.active>a,.header-nav .nav>li.current-menu-item>a .header-nav .nav>li .sub-menu li a:hover,.header-nav .nav>li:hover>a,.header-nav .nav>li>a.nav-link.active,.item-info-in ul li a:hover,.nav-dark.header-nav .nav>li .mega-menu>li ul a:hover,.nav-dark.header-nav .nav>li .sub-menu li:hover>a,.primary li:before,.site-button-link:hover,.site-button.outline,.testimonial-1 .testimonial-position,.testimonial-2 .testimonial-position,.testimonial-3 .quote-left:before,.testimonial-3 .testimonial-position,.testimonial-4 .testimonial-name:after,.text-primary,a,blockquote:before,button.scroltop,footer a:active,footer a:focus,footer a:hover,footer h1 a,footer h2 a,footer h3 a,footer h4 a,footer h5 a,footer h6 a,footer p a,h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover,ol.comment-list li.comment .reply a{
-  color:#CC0066
-}
-@media only screen and (max-width:991px){
-  .nav-dark.header-nav .nav>li>a:active,.nav-dark.header-nav .nav>li>a:focus,.nav-dark.header-nav .nav>li>a:hover{
-    color:#CC0066
-}
+    .active>.site-button,.bg-primary-dark,.owl-btn-1.primary .owl-next:hover,.owl-btn-1.primary .owl-prev:hover,.owl-btn-2.primary .owl-next:hover,.owl-btn-2.primary .owl-prev:hover,.pagination>.active>a,.pagination>.active>a:focus,.pagination>.active>a:hover,.pagination>.active>span,.pagination>.active>span:focus,.pagination>.active>span:hover,.pagination>li>a:focus,.pagination>li>a:hover,.pagination>li>span:focus,.pagination>li>span:hover,.sidenav .closebtn:focus,.sidenav .closebtn:hover,.site-button:active,.site-button:focus,.site-button:hover{
+      background-color:#CC0066
+  }
+  .about-us .dlab-tabs .nav-tabs li.active{
+      border-right:4px solid #CC0066
+  }
+  .dlab-info-has.bg-primary,.dlab-info-has.bg-secondry:hover,.tp-bannertimer.tp-bottom{
+      background-color: #CC0066
+  }
+  .about-8-service .icon-bx-wraper:hover a,.acod-head a,.acod-head a.collapsed:hover,.acod-head a:after,.acod-head a:hover,.breadcrumb-row ul li a,.comments-area p:before,.dlab-post-meta i,.dlab-post-meta.text-primary i,.dlab-post-meta.text-primary ul li,.dlab-post-meta.text-primary ul li a,.dlab-tabs .nav-tabs>li>a i,.header-nav .nav>li .mega-menu>li ul a:hover,.header-nav .nav>li .sub-menu li:hover>a,.header-nav .nav>li.active>a,.header-nav .nav>li.current-menu-item>a .header-nav .nav>li .sub-menu li a:hover,.header-nav .nav>li:hover>a,.header-nav .nav>li>a.nav-link.active,.item-info-in ul li a:hover,.nav-dark.header-nav .nav>li .mega-menu>li ul a:hover,.nav-dark.header-nav .nav>li .sub-menu li:hover>a,.primary li:before,.site-button-link:hover,.site-button.outline,.testimonial-1 .testimonial-position,.testimonial-2 .testimonial-position,.testimonial-3 .quote-left:before,.testimonial-3 .testimonial-position,.testimonial-4 .testimonial-name:after,.text-primary,a,blockquote:before,button.scroltop,footer a:active,footer a:focus,footer a:hover,footer h1 a,footer h2 a,footer h3 a,footer h4 a,footer h5 a,footer h6 a,footer p a,h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover,ol.comment-list li.comment .reply a{
+      color:#CC0066
+  }
+  @media only screen and (max-width:991px){
+      .nav-dark.header-nav .nav>li>a:active,.nav-dark.header-nav .nav>li>a:focus,.nav-dark.header-nav .nav>li>a:hover{
+        color:#CC0066
+    }
 }
 .navbar-toggle,.owl-slider-banner .owl-theme .owl-dots .owl-dot.active,.owl-slider-banner .owl-theme .owl-dots .owl-dot:hover,.owl-theme.dots-style-3 .owl-dots .owl-dot.active,.owl-theme.dots-style-3 .owl-dots .owl-dot:hover,.side-bar .widget_tag_cloud a:hover,.testimonial-4 .testimonial-pic,.testimonial-4 [class*=quote-],.testimonial-4:after,.ui-state-default,.ui-widget-content .ui-state-default,.ui-widget-header .ui-state-default,.widget_gallery li:hover,blockquote,button.scroltop,input[type=checkbox]+label:hover:before,input[type=checkbox]:checked+label:before,input[type=radio]+label:hover:before{
   border-color:#CC0066
