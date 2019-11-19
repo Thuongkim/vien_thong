@@ -251,11 +251,11 @@
 
                 $(".menu-hover").removeClass("active");
                 $(id).addClass("active");
-                localStorage.setItem("selectedolditem", $(id).text());
+                sessionStorage.setItem("selectedolditem", $(id).text());
 
             });
 
-            var selectedolditem = localStorage.getItem('selectedolditem');
+            var selectedolditem = sessionStorage.getItem('selectedolditem');
 
             if (selectedolditem !== null && $(".menu-hover:contains('" + selectedolditem + "')").length) {
             	$(".menu-hover").removeClass("active");

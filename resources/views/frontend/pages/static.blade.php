@@ -11,8 +11,7 @@
 			<!-- inner page banner -->
 			<div class="animation-effects">
 				
-					<div class="dlab-bnr-inr overlay-black-middle bg-pt active wow zoomIn"
-					style="background-image:url({{ asset('assets/frontend/images/main-slider/abc.png') }});">
+					<div class="dlab-bnr-inr overlay-black-middle bg-pt active wow zoomIn" data-wow-duration="2s" style="background-image:url({{ asset('assets/frontend/images/main-slider/abc.png') }});">
 					<div class="container">
 						<div class="dlab-bnr-inr-entry">
 							<h1 class="text-white">{!! $page[0][$lang]['title'] !!}</h1>
@@ -36,12 +35,12 @@
 			<div class="content-area">
 				<div class="container">
 					<div class="row align-items-center">
-						<div class="col-lg-4 col-md-4 m-b30 wow fadeInLeftBig fly-box-ho" style="visibility: visible; animation-delay: 0.6s;">
+						<div class="col-lg-4 col-md-4 m-b30 wow fadeInLeftBig" data-wow-duration="2s">
 							<img src="{{ asset('assets/frontend/images/about/last.jpg') }}" alt="">
 						</div>
 						<div class="col-lg-8 col-md-8 m-b30">
 							<!-- Title separator style 8 -->
-							<div class="section-full bg-gray wow fadeInRightBig fly-box-ho" style="visibility: visible; animation-delay: 0.6s;">
+							<div class="section-full bg-gray wow zoomIn fly-box-ho" data-wow-duration="3s">
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-12">
@@ -65,7 +64,7 @@
 				<!-- About Us End -->
 				<!-- About Services info END -->
 				<!-- Counter -->
-				<div class="section-full content-inner abc overlay-black-dark bg-img-fix" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide3.jpg') }});">
+				<div class="section-full content-inner abc overlay-black-dark bg-img-fix wow zoomIn" data-wow-duration="3s" style="background-image:url({{ asset('assets/frontend/images/main-slider/slide3.jpg') }});">
 					<div class="container">
 						<div class="section-content text-center text-white">
 							<div class="row">
@@ -103,11 +102,11 @@
 				<!-- result -->
 				<div class="section-full text-center bg-gray content-inner">
 					<div class="container">
-						<div class="section-head text-black text-center">
+						<div class="section-head text-black text-center wow zoomIn" data-wow-duration="3s">
 							<h2 class="title">{{trans('frontend.development-history')}}</h2>
 						</div>
 						<div class="row">
-							<div class="col-lg-12 col-md-12 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">
+							<div class="col-lg-12 col-md-12 wow zoomIn" data-wow-duration="3s">
 								<div class="blog-post blog-grid blog-rounded blog-effect1 fly-box">
 									<div class="dlab-post-media dlab-img-effect">
 										<a href="">{!! isset($staticPages[$lang]['lich-su-phat-trien']['description']) ? $staticPages[$lang]['lich-su-phat-trien']['description'] : '' !!}</a>
@@ -115,11 +114,11 @@
 								</div>
 							</div>
 						</div>
-						<div class="section-head text-black text-center">
+						<div class="section-head text-black text-center wow zoomIn" data-wow-duration="3s">
 							<h2 class="title">{{trans('frontend.field-of-operation')}}</h2>
 						</div>
 						<div class="row">
-							<div class="col-lg-12 col-md-12 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">
+							<div class="col-lg-12 col-md-12 wow zoomIn" data-wow-duration="3s">
 								<div class="blog-post blog-grid blog-rounded blog-effect1 fly-box">
 									<div class="dlab-post-media dlab-img-effect">
 										<a href="">{!! isset($staticPages[$lang]['result']['description']) ? $staticPages[$lang]['result']['description'] : '' !!}</a>
@@ -128,7 +127,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-12 col-md-12 m-b30 align-self-center video-infobx wow fadeInUp">
+							<div class="col-lg-12 col-md-12 m-b30 align-self-center video-infobx wow zoomIn" data-wow-duration="2s">
 								<div class="content-bx1">
 									<h2 class="m-b15 title">{{trans('frontend.business-production-results')}}</h2>
 									<div class="our-story">
