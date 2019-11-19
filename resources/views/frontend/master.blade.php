@@ -249,7 +249,7 @@
             $(".menu-hover").click(function () {
                 var id = $(this);
 
-                $(".active").removeClass("active");
+                $(".menu-hover").removeClass("active");
                 $(id).addClass("active");
                 localStorage.setItem("selectedolditem", $(id).text());
 
@@ -258,7 +258,7 @@
             var selectedolditem = localStorage.getItem('selectedolditem');
 
             if (selectedolditem !== null && $(".menu-hover:contains('" + selectedolditem + "')").length) {
-            	$(".active").removeClass("active");
+            	$(".menu-hover").removeClass("active");
                 $(".menu-hover:contains('" + selectedolditem + "')").addClass("active");
             }
         });
