@@ -83,7 +83,7 @@
     user-select: none;
 }
 .our-story h2.title {
-    font-size: 30px;
+    font-size: 25px;
     line-height: 70px;
     font-weight: 200;
     margin-top: 0px;
@@ -310,6 +310,10 @@
     -o-transition: all .8s;
     min-height: 153px;
     max-width: auto;
+}
+.active.current .project-owbx .title {
+    color: #800080;
+    /*background: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6));*/
 }
 .dlab-team11 .dlab-media {
     width: 240px;
