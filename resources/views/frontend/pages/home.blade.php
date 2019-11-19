@@ -260,6 +260,91 @@
 				<!-- Services -->
 				<!-- Portfolio  -->
 
+				<!-- <div class="section-full content-inner portfolio bg-white du_an active wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1.2s;" id="portfolio" >
+					<div class="container">
+						<div class="section-head text-black text-center">
+							<h2 class="title ">{{trans('frontend.project')}}</h2>
+						</div>
+						<div class="site-filters clearfix center  m-b40">
+							<ul class="filters_1" data-toggle="buttons">
+								{{-- <li data-filter="" class="btn active">
+									<input type="radio">
+									<a href="javascript:void(0);"
+										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.all')}}</span></a>
+									</li> --}}
+									@foreach ($projectCategories as $k => $projectCategory)
+									@if($k == 0)
+									<li data-filter="project_{{ $projectCategory['id']}}" class="btn active metal">
+										<input type="radio">
+										<a href="javascript:void(0);"
+										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</span></a>
+									</li>
+									@else
+									<li data-filter="project_{{$projectCategory['id']}}" class="btn">
+										<input type="radio">
+										<a href="javascript:void(0);"
+										class="site-button-secondry button-sm radius-xl"><span>{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</span></a>
+									</li>
+									@endif
+									@endforeach
+								</ul>
+							</div>
+
+							<div class="clearfix" id="lightgallery">
+								<ul id="masonry_1" class=" portfolio-ic dlab-gallery-listing gallery-grid-4 gallery lightgallery text-center">
+									@php
+									$tmp = []
+									@endphp
+									@foreach ($projects as $project)
+									@if ($project[$lang]['title'] && $tmp[$project['category_id']] < 4)
+									@php
+									$tmp[$project['category_id']]++;
+									@endphp
+									<li class="project_{{ $project['category_id']}} design card-container col-lg-3 col-md-6 col-sm-6 p-a0 fly-box-ho">
+										<div class="dlab-box dlab-gallery-box">
+											@if (!$project['image'])
+											<div class="dlab-media dlab-img-effect zoom-slow">
+												<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><img src="https://via.placeholder.com/279x200.png?text=HTE-project" alt="">
+												</a>
+												{{-- <div class="overlay-bx">
+													<div class="overlay-icon">
+														<div class="text-white">
+															<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
+																	class="fa fa-link icon-bx-xs"></i></a>
+														</div>
+													</div>
+												</div> --}}
+											</div>
+											@else
+											<div class="dlab-media dlab-img-effect zoom-slow">
+												<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><img src="{!! asset('assets/media/images/projects/' . $project['image']) !!}" alt="">
+												</a>
+												{{-- <div class="overlay-bx">
+													<div class="overlay-icon">
+														<div class="text-white">
+															<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}"><i
+																	class="fa fa-link icon-bx-xs"></i></a>
+														</div>
+													</div>
+												</div> --}}
+											</div>
+											@endif
+											<div class="dez-info p-a30 bg-white">
+												<b><p class="dez-title m-t0" style="text-transform: capitalize;">
+													<a href="{{ route('project-detail', ['slug' => str_slug($project[$lang]['title']), 'id' => $project['id']]) }}">
+														{!! \App\Helper\HString::modSubstr($project[$lang]['title'], 45)!!}
+													</a>
+												</p></b>
+											</div>
+										</div>
+									</li>
+									@endif
+									@endforeach
+								</ul>
+							</div>
+						</div>
+					</div> -->
+
 				<!-- Services End -->
 				<!-- Latest Blog -->
 				<div class="section-full bg-white wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1.4s;">
