@@ -179,7 +179,7 @@
 							<div id="sync2" class="owl-carousel owl-theme owl-none owl-dots-none project-list">
 								@foreach($servicess as $servicesLang)
 								<div class="item image_logo">
-									<div class="project-owbx" style="background: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)), url({{ asset($servicesLang['image_logo']) }}); max-height: 153px; max-width:277.5px;">
+									<div class="project-owbx" style="background: url({{ asset($servicesLang['image_logo']) }}); max-height: 153px; max-width:277.5px;">
 										{{-- @if($servicesLang['image_logo'])
 										<img src="{{ asset($servicesLang['image_logo']) }}" style="max-height: 150px; max-width:270px;z-index: -100; position:absolute; border-radius: 8px;">
 										@else
