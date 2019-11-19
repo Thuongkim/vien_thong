@@ -26,10 +26,12 @@
     p{
         font-size: 18px;
     }
-    h1, h2, h3, h4, h5, h6 {
+    h4 {
         margin:0px;
         color: #232323;
-        font-family: SVN-Gotham;
+        /*font-family: SVN-Gotham;*/
+        /*font-family: UTM_Avo;*/
+        font-family: "Roboto Light", sans-serif;
     }
     .dlab-team1 .dlab-position {
         font-size: 10px;
@@ -85,7 +87,7 @@
     line-height: 70px;
     font-weight: 200;
     margin-top: 0px;
-    font-family: SVN-Gotham;
+    font-family: "Roboto Light", sans-serif;
 }
 .section-head .title {
     margin-bottom: 5px;
@@ -93,21 +95,21 @@
     font-weight: 600;
     font-size: 40px;
     /*font-family: Calibri,sans-serif;*/
-    font-family: SVN-Gotham;
+    font-family: "Roboto Light", sans-serif;
 }
 .call-action .title {
     font-weight: 600;
     margin-bottom: 5px;
     font-size: 40px;
     /*font-family: Calibri,sans-serif;*/
-    font-family: SVN-Gotham;
+    font-family: "Roboto Light", sans-serif;
 }
 
 .our-story h4.title {
     font-size: 20px;
     font-weight: 200;
     margin-top: 0px;
-    font-family: SVN-Gotham;
+    font-family: "Roboto Light", sans-serif;
 }
 .project-list {
     margin-bottom: 0px;
