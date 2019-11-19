@@ -118,7 +118,7 @@
                 <th class="text-right">{!! trans("services.image_logo") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="min-height: auto;max-height: 60px;max-width: 100px;padding: 0px;">
+                        <div class="fileupload-preview thumbnail" style="min-height: auto;max-height: 153px;max-width: 278px;padding: 0px;">
                             <img src="{!! asset($services->image_logo) !!}">
                         </div>
                         <div>
@@ -131,7 +131,7 @@
                             <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
                                 {!! trans('system.action.remove') !!}
                             </a>
-                            (Kích thước 60x100)
+                            (Kích thước 153x278)
                         </div>
                     </div>
                 </td>

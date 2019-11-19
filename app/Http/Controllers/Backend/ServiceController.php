@@ -139,22 +139,22 @@ class ServiceController extends Controller
 
             $image_logo  = $request->image_logo;
             $ext    = pathinfo($image_logo->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image_logo  = \Image::make($request->image_logo)->resize(100, 60);
+            $image_logo  = \Image::make($request->image_logo)->resize(278, 153);
             //resize
             if ($image_logo->height() > $image_logo->width()) {
-                if ($image_logo->height() >= 60) {
-                    $image_logo->resize(null, 60, function ($constraint) {
+                if ($image_logo->height() >= 153) {
+                    $image_logo->resize(null, 153, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image_logo->height() >= 60) {
-                    $image_logo->resize(null, 60, function ($constraint) {
+                if ($image_logo->height() >= 153) {
+                    $image_logo->resize(null, 153, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image_logo->width() >= 100) {
-                    $image_logo->resize(100, null, function ($constraint) {
+                elseif ($image_logo->width() >= 278) {
+                    $image_logo->resize(278, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
@@ -279,22 +279,22 @@ class ServiceController extends Controller
         if ($request->hasFile('image_logo')) {
             $image_logo  = $request->image_logo;
             $ext    = pathinfo($image_logo->getClientOriginalName(), PATHINFO_EXTENSION);
-            $image_logo  = \Image::make($request->image_logo)->resize(100, 60);
+            $image_logo  = \Image::make($request->image_logo)->resize(278, 153);
             //resize
             if ($image_logo->height() > $image_logo->width()) {
-                if ($image_logo->height() >= 60) {
-                    $image_logo->resize(null, 60, function ($constraint) {
+                if ($image_logo->height() >= 153) {
+                    $image_logo->resize(null, 153, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
             } else {
-                if ($image_logo->height() >= 60) {
-                    $image_logo->resize(null, 60, function ($constraint) {
+                if ($image_logo->height() >= 153) {
+                    $image_logo->resize(null, 153, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }
-                elseif ($image_logo->width() >= 100) {
-                    $image_logo->resize(100, null, function ($constraint) {
+                elseif ($image_logo->width() >= 278) {
+                    $image_logo->resize(278, null, function ($constraint) {
                         $constraint->aspectRatio();
                     });
                 }

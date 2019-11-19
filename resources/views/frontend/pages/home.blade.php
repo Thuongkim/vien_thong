@@ -179,13 +179,16 @@
 							<div id="sync2" class="owl-carousel owl-theme owl-none owl-dots-none project-list">
 								@foreach($servicess as $servicesLang)
 								<div class="item image_logo">
-									<div class="project-owbx">
-										@if($servicesLang['image_logo'])
-										<img src="{{ asset($servicesLang['image_logo']) }}" style="max-height: 60px; max-width:100px;display:block; margin:auto; border-radius: 5px">
+									<div class="project-owbx" style="background-image:url({{ asset($servicesLang['image_logo']) }}); max-height: 153px; max-width:277.5px;">
+										{{-- @if($servicesLang['image_logo'])
+										<img src="{{ asset($servicesLang['image_logo']) }}" style="max-height: 150px; max-width:270px;z-index: -100; position:absolute; border-radius: 8px;">
 										@else
 										<i class="fa {{ $servicesLang['icon'] }}"></i>
-										@endif
-										<h4 class="title">{{ $servicesLang[$lang]['title'] }}</h4>
+										@endif --}}
+										<h4 class="title" style="margin-top: 30px; font-size: 20px!important; font-family: Roboto Black !important;">
+											<?php $str = explode ('-', $servicesLang[$lang]['title']); ?>
+											{{ $str[0] }}<br>{{ $str[1] }}
+										</h4>
 									</div>
 								</div>
 								@endforeach
@@ -197,7 +200,10 @@
 									<div class="row service align-items-center">
 										<div class="col-lg-8 col-md-8 m-b30">
 											<div class="our-story">
-												<h2 class="title">{{ $servicesLang[$lang]['title'] }}</h2>
+												<h2 class="title">
+													<?php $string = str_replace('-','',$servicesLang[$lang]['title']) ?>
+													{{ $string }}
+												</h2>
 												<h4 class="title">{!! $servicesLang[$lang]['summary_long'] !!}</h4>
 												<p>{!! $servicesLang[$lang]['summary'] !!}</p>
 												<a href="{!! route('home.services-detail', ['slug' => str_slug($servicesLang[$lang]['title']), 'id' => $servicesLang['id']]) !!}" class="site-button btnhover16">{{trans('frontend.read_more')}}</a>
