@@ -185,7 +185,7 @@
 										@else
 										<i class="fa {{ $servicesLang['icon'] }}"></i>
 										@endif --}}
-										<h4 class="title" style="margin-top: 30px; font-size: 20px!important; font-family: Roboto Black !important;">
+										<h4 class="title" style="margin-top: 30px; font-size: 17px!important; font-family: Roboto Black !important;">
 											<?php $str = explode ('-', $servicesLang[$lang]['title']); ?>
 											{{ $str[0] }}<br>{{ $str[1] }}
 										</h4>
