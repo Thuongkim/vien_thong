@@ -12,7 +12,7 @@ class Project extends Model
         return [
             'title'                 => 'required|max:255',
             'content'               => 'required',
-            'image'                 => 'max:2048|mimes:jpg,jpeg,png,gif',
+            'image'                 => 'max:2048|mimes:jpg,jpeg,png,gif,svg',
             'category'              => 'required|integer',
         ];
 

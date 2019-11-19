@@ -10,7 +10,7 @@ class Slider extends \Eloquent
         return [
             'name'    => 'required|max:50',
             'summary' => 'required|max:255',
-            'image'   => ($id == 0 ? 'required|' : '') . 'max:4096|mimes:jpg,jpeg,png,gif',
+            'image'   => ($id == 0 ? 'required|' : '') . 'max:4096|mimes:jpg,jpeg,png,gif,svg',
         ];
     }
 

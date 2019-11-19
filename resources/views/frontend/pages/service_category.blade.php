@@ -54,7 +54,9 @@
                                 </ul>
                             </div>
 							<div class="dlab-post-title">
-                                <h4 class="post-title"><a href="{!! route('home.services-detail', ['slug' => str_slug($service[$lang]['title']), 'id' => $service['id']]) !!}">{{ $service[$lang]['title'] }}</a></h4>
+                                <h4 class="post-title"><a href="{!! route('home.services-detail', ['slug' => str_slug($service[$lang]['title']), 'id' => $service['id']]) !!}">
+                                    <?php $string = str_replace('-','',$service[$lang]['title']) ?>
+                                    {{ $string }}</a></h4>
                             </div>
                             <div class="dlab-post-text">
                                 <p>{!! \App\Helper\HString::modSubstr($service[$lang]['summary'], 100) !!}</p>
@@ -95,7 +97,9 @@
                                             </ul>
                                         </div>
                                         <div class="dlab-post-header">
-                                            <h6 class="post-title"><a href="{!! route('home.services-detail', ['slug' => str_slug($servicesN[$lang]['title']), 'id' => $service['id']]) !!}">{{$servicesN[$lang]['title']}}</a></h6>
+                                            <h6 class="post-title"><a href="{!! route('home.services-detail', ['slug' => str_slug($servicesN[$lang]['title']), 'id' => $service['id']]) !!}">
+                                                <?php $string = str_replace('-','',$servicesN[$lang]['title']) ?>
+                                            {{ $string }}</a></h6>
                                         </div>
                                     </div>
                                 </div>
