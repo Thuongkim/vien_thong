@@ -217,7 +217,7 @@
 				<!-- About Us End -->
 				<!-- Client logo -->
 				<div class="container">
-					<div class="section-head text-black text-center">
+					<div class="section-head text-black text-center wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1s;">
 						<h2 class="title">{{trans('frontend.partner')}}</h2>
 					</div>
 				</div>
