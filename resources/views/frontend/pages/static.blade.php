@@ -176,7 +176,7 @@
 							<div class="row dzseth">
 
 								<div class="col-lg-3 col-md-6 col-sm-6" style="height: 350px;margin: auto;">
-										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceIn fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceIn;">
+										<div class="dlab-box-bg m-b30 dlab-team1 active wow zoomIn fly-box-ho seth" data-wow-duration="2s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g1.jpg') }}">
@@ -194,7 +194,7 @@
 
 							<div class="row dzseth">
 								<div class="col">
-									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g2.jpg') }}">
@@ -207,7 +207,7 @@
 									</div>
 								</div>
 								<div class="col">
-									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g3.jpg') }}">
@@ -220,7 +220,7 @@
 									</div>
 								</div>
 								<div class="col">
-									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g4.jpg') }}">
@@ -233,7 +233,7 @@
 									</div>
 								</div>
 								<div class="col">
-									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g5.jpg') }}">
@@ -246,7 +246,7 @@
 									</div>
 								</div>
 								<div class="col">
-									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth" data-wow-delay="0.1s" style="height: 289px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g6.jpg') }}">
@@ -264,7 +264,7 @@
 							<div class="row dzseth">
 
 								<div class="col-6 col-md-2">
-										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth img-gd" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g7.png') }}">
@@ -277,7 +277,7 @@
 									</div>
 								</div>
 								<div class="col-6 col-md-2">
-										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+										<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth img-gd" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g8.jpg') }}">
@@ -290,7 +290,7 @@
 									</div>
 								</div>
 								<div class="col-6 col-md-2">
-									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth img-gd" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g9.jpg') }}">
@@ -303,7 +303,7 @@
 									</div>
 								</div>
 								<div class="col-6 col-md-2">
-									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth img-gd" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g10.jpg') }}">
@@ -316,7 +316,7 @@
 									</div>
 								</div>
 								<div class="col-6 col-md-2">
-									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth img-gd" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g11.jpg') }}">
@@ -329,7 +329,7 @@
 									</div>
 								</div>
 								<div class="col-6 col-md-2">
-									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInDown fly-box-ho seth img-gd" data-wow-delay="0.1s" style="height: 100px; visibility: visible; animation-delay: 0.1s; animation-name: bounceInDown;">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth img-gd" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
 												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g12.png') }}">
