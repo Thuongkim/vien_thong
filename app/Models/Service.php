@@ -16,8 +16,8 @@ class Service extends Model
             'summary'      => 'required|max:1024',
             'summary_long' => 'required|max:1024',
             'content'      => 'required',
-            'image'        => ($id == 0 ? 'required|' : '') . 'max:2048|mimes:jpg,jpeg,png,gif',
-            'image_logo'        => ($id == 0 ? 'required|' : '') . 'max:2048|mimes:jpg,jpeg,png,gif',
+            'image'        => ($id == 0 ? 'required|' : '') . 'max:2048|mimes:jpg,jpeg,png,gif,svg',
+            'image_logo'        => ($id == 0 ? 'required|' : '') . 'max:2048|mimes:jpg,jpeg,png,gif,svg',
             'category'     => 'required|integer',
             'created_by'   => 'integer',
         ];

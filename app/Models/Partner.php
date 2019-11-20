@@ -13,7 +13,7 @@ class Partner extends Model
 			'name'   => 'required|max:255',
             'partner_link'   => 'required|max:255',
 			'slogan' => 'max:255',
-			'image'  => ($id == 0 ? 'required' : ''). '|max:2048|mimes:jpg,jpeg,png,gif',
+			'image'  => ($id == 0 ? 'required' : ''). '|max:2048|mimes:jpg,jpeg,png,gif,svg',
 			'status' => 'in:0,1',
         ];
 

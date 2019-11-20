@@ -8,7 +8,7 @@ body {
     /*font-family: Arial,sans-serif;*/
     /*font-family: 'Roboto-Light', sans-serif;*/
     /*font-family: SVN-Gotham;*/
-    font-family: "Roboto Light", sans-serif;
+    font-family: "Roboto Black", sans-serif;
     font-weight: 400;
     color: #6f6f6f;
     padding: 0;
@@ -151,7 +151,7 @@ h4,
 h5,
 h6 {
     color: #232323;
-    font-family: Poppins, sans-serif
+    font-family: Poppins, sans-serif;
 }
 
 h1 a,

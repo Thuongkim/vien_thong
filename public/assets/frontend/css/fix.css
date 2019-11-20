@@ -26,12 +26,12 @@
     p{
         font-size: 18px;
     }
-    h4 {
+    h4,h5 {
         margin:0px;
         color: #232323;
         /*font-family: SVN-Gotham;*/
         /*font-family: UTM_Avo;*/
-        font-family: "Roboto Light", sans-serif;
+        font-family: "Roboto Black", sans-serif;
     }
     .dlab-team1 .dlab-position {
         font-size: 10px;
@@ -83,11 +83,11 @@
     user-select: none;
 }
 .our-story h2.title {
-    font-size: 30px;
+    font-size: 25px;
     line-height: 70px;
     font-weight: 200;
     margin-top: 0px;
-    font-family: "Roboto Light", sans-serif;
+    font-family: "Roboto Black", sans-serif;
 }
 .section-head .title {
     margin-bottom: 5px;
@@ -95,21 +95,21 @@
     font-weight: 600;
     font-size: 40px;
     /*font-family: Calibri,sans-serif;*/
-    font-family: "Roboto Light", sans-serif;
+    font-family: "Roboto Black", sans-serif;
 }
 .call-action .title {
     font-weight: 600;
     margin-bottom: 5px;
     font-size: 40px;
     /*font-family: Calibri,sans-serif;*/
-    font-family: "Roboto Light", sans-serif;
+    font-family: "Roboto Black", sans-serif;
 }
 
 .our-story h4.title {
     font-size: 20px;
     font-weight: 200;
     margin-top: 0px;
-    font-family: "Roboto Light", sans-serif;
+    font-family: "Roboto Black", sans-serif;
 }
 .project-list {
     margin-bottom: 0px;
@@ -288,24 +288,33 @@
 .project-owbx .title {
     margin: 0;
     font-size: 18px;
-    color: #000;
+    color: #FFFFFF;
     font-weight: 500;
     line-height: 28px;
 }
 .project-owbx {
     padding: 20px 20px 15px 20px;
-    background: rgba(0,0,0,.02);
-    border: 1px solid rgba(0,0,0,.1);
-    border-radius: 8px;
+    /*background: rgba(0,0,0,.02);*/
+    /*border: 1px solid rgba(0,0,0,.1);*/
+    /*border-radius: 8px;*/
+    background: none;
+    border: none;
+    border-radius: none;
     text-align: center;
     position: relative;
-    margin: 20px 0;
+    margin: 20px 0px;
     transition: all .8s;
     -moz-transition: all .8s;
     -webkit-transition: all .8s;
     -ms-transition: all .8s;
     -o-transition: all .8s;
     min-height: 153px;
+    max-width: auto;
+}
+.active.current .project-owbx .title {
+    color: #000000;
+    background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6));
+    border-radius: 8px;
 }
 .dlab-team11 .dlab-media {
     width: 240px;
@@ -320,7 +329,42 @@
     outline: none;
     outline-offset: none;
 }
+/*#sync2 .owl-item{
+    margin: 5px !important;
+}*/
 .ow-post-title .post-title {
     min-height: 84px;
     font-size: 20px;
+}
+/*hover dich vụ*/
+.active.current .project-owbx {
+     background: none;
+    box-shadow: none;
+}
+.active.current .project-owbx:after{
+    content:"";
+    background:none;
+    width:20px;
+    height:20px;
+    position:absolute;
+    bottom:-18px;
+    transform:rotate(45deg) translate(-50%);
+    left:50%;
+    transition:all .8s;
+    -moz-transition:all .8s;
+    -webkit-transition:all .8s;
+    -ms-transition:all .8s;
+    -o-transition:all .8s
+}
+.widget_gallery.gallery-grid-4 li {
+    width: 50%;
+}
+.footer-top {
+    background: #1c1c1c;
+    background-size: cover;
+    background-position: center;
+    padding: 10px 0 10px;
+}
+.widget {
+    margin-bottom: -30px;
 }

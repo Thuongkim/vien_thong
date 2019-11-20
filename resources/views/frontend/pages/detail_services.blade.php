@@ -17,7 +17,10 @@
 					<ul class="list-inline">
 						<li><a href="{{ route('home') }}">{{trans('frontend.home')}}</a></li>
 						<li>{{trans('frontend.service')}}</li>
-						<li>{!! $detailService[0][$lang]['title'] !!}</li>
+						<li>
+                            <?php $string = str_replace('-','',$detailService[0][$lang]['title']) ?>
+                                    {{ $string }}
+                        </li>
 					</ul>
 				</div>
 				<!-- Breadcrumb row END -->
@@ -40,7 +43,8 @@
                         </ul>
                     </div>
                     <div class="dlab-post-title ">
-                        <h4 class="post-title m-t0"><a href="blog-single-sidebar">{{ $detailService[0][$lang]['title'] }}</a></h4>
+                        <h4 class="post-title m-t0"><a href="blog-single-sidebar"><?php $string = str_replace('-','',$detailService[0][$lang]['title']) ?>
+                                    {{ $string }}</a></h4>
                     </div>
                     <div class="dlab-post-media dlab-img-effect zoom-slow">
                         <a href="blog-single-sidebar"><img src="images/blog/default/thum1.jpg" alt=""></a>
@@ -73,7 +77,8 @@
                                         </ul>
                                     </div>
                                     <div class="dlab-post-header">
-                                        <h6 class="post-title"><a href="{!! route('home.services-detail', ['slug' => str_slug($featuredService->title), 'id' => $featuredService->id]) !!}">{{ $featuredService->title }}</a></h6>
+                                        <h6 class="post-title"><a href="{!! route('home.services-detail', ['slug' => str_slug($featuredService->title), 'id' => $featuredService->id]) !!}"><?php $string = str_replace('-','',$featuredService->title) ?>
+                                    {{ $string }}</a></h6>
                                     </div>
                                 </div>
                             </div>
