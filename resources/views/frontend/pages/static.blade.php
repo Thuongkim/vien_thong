@@ -43,7 +43,7 @@
 							<div class="section-full bg-gray wow zoomIn fly-box-ho" data-wow-duration="3s">
 								<div class="container">
 									<div class="row">
-										<div class="col-lg-12">
+										<div class="col-lg-12" style="background: #ffffff">
 											<div class=" clearfix">
 												<h4>{{trans('frontend.introduction')}}</h4>
 											</div>
@@ -391,11 +391,55 @@
 			<div class="content-area">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-12">
+						{{-- <div class="col-lg-12">
 							<div class="jumbotron wow fadeInUp fly-box-ho seth">
 								{!! $page[0][$lang]['description'] !!}
 							</div>
+						</div> --}}
+						<div class="col-sm wow zoomIn">
+							<div class="dlab-box m-b30 dlab-team4">
+								<div class="dlab-media">
+									<a href="javascript:;">
+										<img src="{{ asset('assets/frontend/images/tn/tn1.png') }}">
+									</a>
+								</div>
+								<div class="dlab-info">
+									<h4 class="dlab-title"><a href="javascript:;">TẦM NHÌN HTE</a></h4>
+									<span class="dlab-position">HTE mong muốn trở thành một công ty có mô hình tổ chức hiện đại, không ngừng nâng cao giá trị thương hiệu và phát triển bền vững của công ty bằng nỗ lực sáng tạo và lao động của từng nhân viên, đầu tư không ngừng vào nền tảng tiềm lực và công nghệ; tối ưu chi phí của khách hàng, tạo điều kiện phát huy tốt nhất tiềm năng của từng thành viên và tạo nên các giá trị dài hạn cho các cổ đông.</span>
+									
+								</div>
+							</div>
 						</div>
+						<div class="col-sm wow zoomIn">
+							<div class="dlab-box m-b30 dlab-team4">
+								<div class="dlab-media">
+									<a href="javascript:;">
+										<img src="{{ asset('assets/frontend/images/tn/tn2.png') }}">
+									</a>
+								</div>
+								<div class="dlab-info">
+									<h4 class="dlab-title"><a href="javascript:;">SỨ MỆNH HTE</a></h4>
+									<span class="dlab-position">Trở thành công ty hàng đầu có khả năng cung cấp trọn gói các dịch vụ kỹ thuật từ khảo sát thiết kế cho đến quản lý vận hành mạng lưới viễn thông và CNTT trên toàn bộ lãnh thổ Việt nam <br> Trở thành công ty hàng đầu tại Việt nam có khả năng cung cấp các giải pháp tích hợp viễn thông – tin học – truyền thông nhằm cung cấp các dịch vụ tiện ích cho các cá nhân, gia đình và tổ chức trong xã hội.</span>
+									
+								</div>
+							</div>
+						</div>
+						<div class="col-sm wow zoomIn">
+							<div class="dlab-box m-b30 dlab-team4">
+								<div class="dlab-media">
+									<a href="javascript:;">
+										<img src="{{ asset('assets/frontend/images/tn/tn3.png') }}">
+									</a>
+								</div>
+								<div class="dlab-info">
+									<h4 class="dlab-title"><a href="javascript:;">GIÁ TRỊ CỐT LÕI HTE</a></h4>
+									<span class="dlab-position">Cân bằng lợi ích KHÁCH HÀNG – CỔ ĐÔNG – NGƯỜI LAO ĐỘNG là mục tiêu chính của Công ty. <br> Trung thực với khách hàng, minh bạch với cổ đông và công bằng với người lao động là tôn chỉ hoạt động của Công ty. <br> Tinh thần làm việc theo nhóm là tư tưởng chủ đạo trong mọi tổ chức hoạt động của Công ty.</span>
+									
+								</div>
+							</div>
+						</div>
+					
+
 					</div>
 				</div>
 			</div>

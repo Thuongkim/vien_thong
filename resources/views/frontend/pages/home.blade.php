@@ -180,6 +180,7 @@
 								@foreach($servicess as $servicesLang)
 								<div class="item image_logo">
 									<div class="project-owbx" style="background: url({{ asset($servicesLang['image_logo']) }}); max-height: 153px; max-width:277.5px;">
+										<div class="hovers">
 										{{-- @if($servicesLang['image_logo'])
 										<img src="{{ asset($servicesLang['image_logo']) }}" style="max-height: 150px; max-width:270px;z-index: -100; position:absolute; border-radius: 8px;">
 										@else
@@ -189,6 +190,7 @@
 											<?php $str = explode ('-', $servicesLang[$lang]['title']); ?>
 											{{ $str[0] }}<br>{{ $str[1] }}</b>
 										</h4>
+										</div>
 									</div>
 								</div>
 								@endforeach
