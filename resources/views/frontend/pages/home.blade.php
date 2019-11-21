@@ -170,8 +170,8 @@
 					data-wow-delay="0.4s">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title">
-								{!! isset($staticPages[$lang]['service']['description']) ? $staticPages[$lang]['service']['description'] : '' !!}
+							<h2 class="title" style="text-transform: uppercase;">
+								{{trans('frontend.service_home')}}
 							</h2>
 						</div>
 						<div class="on-show-slider ">
@@ -226,7 +226,7 @@
 				<!-- Client logo -->
 				<div class="container">
 					<div class="section-head text-black text-center wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1s;">
-						<h2 class="title">{{trans('frontend.partner')}}</h2>
+						<h2 class="title" style="text-transform: uppercase;">{{trans('frontend.partner')}}</h2>
 					</div>
 				</div>
 				<div class="section-full content-inner bg-gray wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1s;" data-wow-duration="2s" data-wow-delay="0.6s">
@@ -358,7 +358,7 @@
 				<div class="section-full bg-white wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1.4s;">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title">{{trans('frontend.news_event')}}</h2>
+							<h2 class="title" style="text-transform: uppercase;">{{trans('frontend.news_event')}}</h2>
 						</div>
 						<!-- blog post Carousel with no margin -->
 						<div class="section-content box-sort-in m-b30 button-example">

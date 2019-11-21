@@ -22,8 +22,8 @@ return [
     'cg6'               => 'Giám đốc Trung tâm kỹ thuật miền Trung',
     'cg7'               => 'Phụ trách Phòng Kinh doanh',
     'cg8'               => 'Phụ trách Phòng Kỹ thuật',
-    'cg9'               => 'Quản trị nhân lực & Hành chính',
+    'cg9'               => 'Phụ trách quản trị nhân lực & Hành chính',
     'cg10'               => 'Trưởng Ban Quản lý dự án',
     'cg11'               => 'GĐTT thanh toán tiền điện tiền nhà',
-    'cg12'               => 'Phó giám đốc trung tâm SPMS',
+    'cg12'               => 'Giám đốc trung tâm SPMS',
 ];
