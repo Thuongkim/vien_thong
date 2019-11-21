@@ -116,7 +116,7 @@
 									<ul class="sub-menu tab-content">
 										@foreach ($projectCategories as $projectCategory)
 										<li>
-											<a href="{!! route('project', ['slug' => str_slug($projectCategory['vi']['name']), 'id' => $projectCategory['id']]) !!}">{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</a>
+											<a href="{!! route('project', ['slug' => str_slug($projectCategory['vi']['name']), 'id' => $projectCategory['id']]) !!}">{{ $projectCategory[$lang]['name']}}</a>
 										</li>
 										@endforeach
 									</ul>
