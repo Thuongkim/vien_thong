@@ -323,7 +323,7 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g11')}}</a></h4>
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g11')}}</a></h4>
 											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg11')}}</span>	
 										</div>
 									</div>
