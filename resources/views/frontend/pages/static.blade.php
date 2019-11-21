@@ -14,7 +14,7 @@
 					<div class="dlab-bnr-inr overlay-black-middle bg-pt active wow zoomIn" data-wow-duration="2s" style="background-image:url({{ asset('assets/frontend/images/main-slider/abc.png') }});">
 					<div class="container">
 						<div class="dlab-bnr-inr-entry">
-							<h1 class="text-white">{!! $page[0][$lang]['title'] !!}</h1>
+							<h1 class="text-white" style="text-transform: uppercase;">{!! $page[0][$lang]['title'] !!}</h1>
 							<!-- Breadcrumb row -->
 							<div class="breadcrumb-row">
 								<ul class="list-inline">
@@ -174,7 +174,6 @@
 						<div class="animation-effects">
 
 							<div class="row dzseth">
-
 								<div class="col-lg-3 col-md-6 col-sm-6" style="height: 350px;margin: auto;">
 										<div class="dlab-box-bg m-b30 dlab-team1 active wow zoomIn fly-box-ho seth" data-wow-duration="2s">
 										<div class="dlab-media">
@@ -188,29 +187,27 @@
 										</div>
 									</div>
 								</div>
-								
-
 							</div>
 
 							<div class="row dzseth">
-								<div class="col">
+								<div class="col-xl-2dot4">
 									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
-												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g2.jpg') }}">
+												<img src="{{ asset('assets/frontend/images/our-team/g2.jpg') }}">
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title" style="margin-left: -25px;width: 200px;"><a href="javascript:;">{{trans('gd.g2')}}</a></h4>
+											<h4 class="dlab-title" style="margin-left: -25px;max-width: 1000px;"><a href="javascript:;">{{trans('gd.g2')}}</a></h4>
 											<span class="dlab-position">{{trans('gd.cg2')}}</span>	
 										</div>
 									</div>
 								</div>
-								<div class="col">
+								<div class="col-xl-2dot4">
 									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
-												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g3.jpg') }}">
+												<img src="{{ asset('assets/frontend/images/our-team/g3.jpg') }}">
 											</a>
 										</div>
 										<div class="dlab-info">
@@ -219,24 +216,11 @@
 										</div>
 									</div>
 								</div>
-								<div class="col">
+								<div class="col-xl-2dot4">
 									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
-												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g4.jpg') }}">
-											</a>
-										</div>
-										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g4')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg4')}}</span>	
-										</div>
-									</div>
-								</div>
-								<div class="col">
-									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
-										<div class="dlab-media">
-											<a href="javascript:;">
-												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g5.png') }}">
+												<img src="{{ asset('assets/frontend/images/our-team/g5.png') }}">
 											</a>
 										</div>
 										<div class="dlab-info">
@@ -245,11 +229,11 @@
 										</div>
 									</div>
 								</div>
-								<div class="col">
+								<div class="col-xl-2dot4">
 									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
-												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g6.jpg') }}">
+												<img src="{{ asset('assets/frontend/images/our-team/g6.jpg') }}">
 											</a>
 										</div>
 										<div class="dlab-info">
@@ -258,9 +242,21 @@
 										</div>
 									</div>
 								</div>
+								<div class="col-xl-2dot4">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img src="{{ asset('assets/frontend/images/our-team/g4.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g4')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg4')}}</span>	
+										</div>
+									</div>
+								</div>
 							</div>
-
-
+							
 							<div class="row dzseth">
 
 								<div class="col-6 col-md-2">

@@ -16,7 +16,7 @@
 		<div class="dlab-bnr-inr overlay-black-middle bg-pt active wow zoomIn" style="background-image:url({{ asset('assets/frontend/images/main-slider/abc.png') }});">
 			<div class="container">
 				<div class="dlab-bnr-inr-entry">
-					<h1 class="text-white">{!! $categories[0][$lang]['name'] !!}</h1>
+					<h1 class="text-white" style="text-transform: uppercase;">{!! $categories[0][$lang]['name'] !!}</h1>
 					<!-- Breadcrumb row -->
 					<div class="breadcrumb-row">
 						<ul class="list-inline">
