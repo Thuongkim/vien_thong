@@ -206,7 +206,7 @@
 													<?php $string = str_replace('-','',$servicesLang[$lang]['title']) ?>
 													{{ $string }}
 												</h2>
-												<h4 class="title">{!! $servicesLang[$lang]['summary_long'] !!}</h4>
+												<h4 style="font-size: 18px;">{!! $servicesLang[$lang]['summary_long'] !!}</h4>
 												<p>{!! $servicesLang[$lang]['summary'] !!}</p>
 												<a href="{!! route('home.services-detail', ['slug' => str_slug($servicesLang[$lang]['title']), 'id' => $servicesLang['id']]) !!}" class="site-button btnhover16">{{trans('frontend.read_more')}}</a>
 											</div>

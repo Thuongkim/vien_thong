@@ -45,7 +45,7 @@
 									<div class="row">
 										<div class="col-lg-12" style="background: #ffffff">
 											<div class=" clearfix">
-												<h4>{{trans('frontend.introduction')}}</h4>
+												<h4 style="text-transform: uppercase;">{{trans('frontend.introduction')}}</h4>
 											</div>
 											<div class="dlab-separator-outer ">
 												<div class="dlab-separator bg-primary style-skew"></div>
@@ -103,7 +103,7 @@
 				<div class="section-full text-center bg-gray content-inner">
 					<div class="container">
 						<div class="section-head text-black text-center wow zoomIn" data-wow-duration="3s">
-							<h2 class="title">{{trans('frontend.development-history')}}</h2>
+							<h2 class="m-b15 title" style="text-transform: uppercase;">{{trans('frontend.development-history')}}</h2>
 						</div>
 						<div class="row">
 							<div class="col-lg-12 col-md-12 wow zoomIn" data-wow-duration="3s">
@@ -115,7 +115,7 @@
 							</div>
 						</div>
 						<div class="section-head text-black text-center wow zoomIn" data-wow-duration="3s">
-							<h2 class="title">{{trans('frontend.field-of-operation')}}</h2>
+							<h2 class="m-b15 title" style="text-transform: uppercase;">{{trans('frontend.field-of-operation')}}</h2>
 						</div>
 						<div class="row">
 							<div class="col-lg-12 col-md-12 wow zoomIn" data-wow-duration="3s">
@@ -129,7 +129,7 @@
 						<div class="row">
 							<div class="col-lg-12 col-md-12 m-b30 align-self-center video-infobx wow zoomIn" data-wow-duration="2s">
 								<div class="content-bx1">
-									<h2 class="m-b15 title">{{trans('frontend.business-production-results')}}</h2>
+									<h2 class="m-b15 title" style="text-transform: uppercase;">{{trans('frontend.business-production-results')}}</h2>
 									<div class="our-story">
 										{!! isset($staticPages[$lang]['story']['description']) ? $staticPages[$lang]['story']['description'] : '' !!}
 									</div>
@@ -201,7 +201,7 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g2')}}</a></h4>
+											<h4 class="dlab-title" style="margin-left: -25px;width: 200px;"><a href="javascript:;">{{trans('gd.g2')}}</a></h4>
 											<span class="dlab-position">{{trans('gd.cg2')}}</span>	
 										</div>
 									</div>
@@ -228,7 +228,7 @@
 										</div>
 										<div class="dlab-info">
 											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g4')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg4')}}</span>	
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg4')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -241,7 +241,7 @@
 										</div>
 										<div class="dlab-info">
 											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g5')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg5')}}</span>	
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg5')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -254,7 +254,7 @@
 										</div>
 										<div class="dlab-info">
 											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g6')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg6')}}</span>	
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg6')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -271,8 +271,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title" style="margin-left: -45px; width: 200px;"><a href="javascript:;">{{trans('gd.g7')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg7')}}</span>	
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g7')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.pt')}}<br>{{trans('gd.cg7')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -284,8 +284,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g8')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg8')}}</span>	
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g8')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.pt')}}<br>{{trans('gd.cg8')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -297,8 +297,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g9')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg9')}}</span>	
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g9')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.pt')}}<br>{{trans('gd.cg9')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -310,7 +310,7 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g10')}}</a></h4>
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g10')}}</a></h4>
 											<span class="dlab-position">{{trans('gd.cg10')}}</span>	
 										</div>
 									</div>
@@ -324,7 +324,7 @@
 										</div>
 										<div class="dlab-info">
 											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g11')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg11')}}</span>	
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg11')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -336,8 +336,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g12')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg12')}}</span>	
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g12')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg12')}}</span>	
 										</div>
 									</div>
 								</div>

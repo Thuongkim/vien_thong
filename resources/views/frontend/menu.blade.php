@@ -83,7 +83,9 @@
 										@endforeach
 									</ul>
 								</li>
-								<li class="has-mega-menu menu-hover"><a href="#">{{trans('frontend.project')}}<i
+
+
+								{{-- <li class="has-mega-menu menu-hover"><a href="#">{{trans('frontend.project')}}<i
 											class="fa fa-chevron-down"></i></a>
 									<ul class="mega-menu">
 										@foreach ($projectCategories as $projectCategory)
@@ -106,7 +108,21 @@
 										</li>
 										@endforeach
 									</ul>
+								</li> --}}
+
+
+								<li class="menu-hover">
+									<a href="#">{{trans('frontend.project')}}<i class="fa fa-chevron-down"></i></a>
+									<ul class="sub-menu tab-content">
+										@foreach ($projectCategories as $projectCategory)
+										<li>
+											<a href="{!! route('project', ['slug' => str_slug($projectCategory['vi']['name']), 'id' => $projectCategory['id']]) !!}">{{trans('frontend.project')}} {{ $projectCategory[$lang]['name']}}</a>
+										</li>
+										@endforeach
+									</ul>
 								</li>
+
+
 								<li class="has-mega-menu menu-hover"> <a href="{{ route('news') }}">{{trans('frontend.news')}}</a>
 								</li>
 								<li class="has-mega-menu menu-hover"> <a href="{{ route('career') }}">{{trans('frontend.career')}}</a>
