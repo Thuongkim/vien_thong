@@ -384,3 +384,16 @@
     font-size: 8px;
     color: #ff5e14;
 }
+.header-nav .nav>li .sub-menu li a {
+    color: #000;
+    display: block;
+    font-size: 15px;
+    padding: 10px 25px;
+    text-transform: capitalize;
+    transition: all .15s linear;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    font-weight: 400;
+    font-family: "Roboto Black", sans-serif;
+}
