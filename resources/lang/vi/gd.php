@@ -17,7 +17,7 @@ return [
     'cg1'               => 'Tổng Giám đốc',
     'cg2'               => 'Phó Tổng Giám đốc',
     'cg3'               => 'Kế toán trưởng',
-    'cg4'               => 'Chi nhánh miền Nam',
+    'cg4'               => 'Trung tâm kỹ thuật miền Nam',
     'cg5'               => 'Trung tâm kỹ thuật miền Bắc',
     'cg6'               => 'Trung tâm kỹ thuật miền Trung',
     'cg7'               => 'Phòng Kinh doanh',
