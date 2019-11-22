@@ -33,5 +33,6 @@ return [
     'featured_services' => 'Dịch vụ nổi bật',
     'project_n' => 'Tin tức nổi bật',
     'summary_long' => 'Mô tả',
-    'chung_chi' => 'CHỨNG CHỈ'
+    'chung_chi' => 'CHỨNG CHỈ',
+    'service_home' => 'Dịch vụ của chúng tôi'
 ];

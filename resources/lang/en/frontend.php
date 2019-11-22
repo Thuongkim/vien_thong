@@ -33,5 +33,6 @@ return [
     'featured_services' => 'Featured Services',
     'project_n' => 'Outstanding News',
     'summary_long' => 'Description Summary',
-    'chung_chi' => 'CERTIFICATE'
+    'chung_chi' => 'CERTIFICATE',
+    'service_home' => 'Our Services'
 ];

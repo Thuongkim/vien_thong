@@ -14,7 +14,7 @@
 					<div class="dlab-bnr-inr overlay-black-middle bg-pt active wow zoomIn" data-wow-duration="2s" style="background-image:url({{ asset('assets/frontend/images/main-slider/abc.png') }});">
 					<div class="container">
 						<div class="dlab-bnr-inr-entry">
-							<h1 class="text-white">{!! $page[0][$lang]['title'] !!}</h1>
+							<h1 class="text-white" style="text-transform: uppercase;">{!! $page[0][$lang]['title'] !!}</h1>
 							<!-- Breadcrumb row -->
 							<div class="breadcrumb-row">
 								<ul class="list-inline">
@@ -43,9 +43,9 @@
 							<div class="section-full bg-gray wow zoomIn fly-box-ho" data-wow-duration="3s">
 								<div class="container">
 									<div class="row">
-										<div class="col-lg-12">
+										<div class="col-lg-12" style="background: #ffffff">
 											<div class=" clearfix">
-												<h4>{{trans('frontend.introduction')}}</h4>
+												<h4 style="text-transform: uppercase;">{{trans('frontend.introduction')}}</h4>
 											</div>
 											<div class="dlab-separator-outer ">
 												<div class="dlab-separator bg-primary style-skew"></div>
@@ -103,7 +103,7 @@
 				<div class="section-full text-center bg-gray content-inner">
 					<div class="container">
 						<div class="section-head text-black text-center wow zoomIn" data-wow-duration="3s">
-							<h2 class="title">{{trans('frontend.development-history')}}</h2>
+							<h2 class="m-b15 title" style="text-transform: uppercase;">{{trans('frontend.development-history')}}</h2>
 						</div>
 						<div class="row">
 							<div class="col-lg-12 col-md-12 wow zoomIn" data-wow-duration="3s">
@@ -115,7 +115,7 @@
 							</div>
 						</div>
 						<div class="section-head text-black text-center wow zoomIn" data-wow-duration="3s">
-							<h2 class="title">{{trans('frontend.field-of-operation')}}</h2>
+							<h2 class="m-b15 title" style="text-transform: uppercase;">{{trans('frontend.field-of-operation')}}</h2>
 						</div>
 						<div class="row">
 							<div class="col-lg-12 col-md-12 wow zoomIn" data-wow-duration="3s">
@@ -129,7 +129,7 @@
 						<div class="row">
 							<div class="col-lg-12 col-md-12 m-b30 align-self-center video-infobx wow zoomIn" data-wow-duration="2s">
 								<div class="content-bx1">
-									<h2 class="m-b15 title">{{trans('frontend.business-production-results')}}</h2>
+									<h2 class="m-b15 title" style="text-transform: uppercase;">{{trans('frontend.business-production-results')}}</h2>
 									<div class="our-story">
 										{!! isset($staticPages[$lang]['story']['description']) ? $staticPages[$lang]['story']['description'] : '' !!}
 									</div>
@@ -174,7 +174,6 @@
 						<div class="animation-effects">
 
 							<div class="row dzseth">
-
 								<div class="col-lg-3 col-md-6 col-sm-6" style="height: 350px;margin: auto;">
 										<div class="dlab-box-bg m-b30 dlab-team1 active wow zoomIn fly-box-ho seth" data-wow-duration="2s">
 										<div class="dlab-media">
@@ -188,29 +187,27 @@
 										</div>
 									</div>
 								</div>
-								
-
 							</div>
 
 							<div class="row dzseth">
-								<div class="col">
+								<div class="col-xl-2dot4">
 									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
-												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g2.jpg') }}">
+												<img src="{{ asset('assets/frontend/images/our-team/g2.jpg') }}">
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g2')}}</a></h4>
+											<h4 class="dlab-title" style="margin-left: -25px;max-width: 1000px;"><a href="javascript:;">{{trans('gd.g2')}}</a></h4>
 											<span class="dlab-position">{{trans('gd.cg2')}}</span>	
 										</div>
 									</div>
 								</div>
-								<div class="col">
+								<div class="col-xl-2dot4">
 									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
-												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g3.jpg') }}">
+												<img src="{{ asset('assets/frontend/images/our-team/g3.jpg') }}">
 											</a>
 										</div>
 										<div class="dlab-info">
@@ -219,48 +216,47 @@
 										</div>
 									</div>
 								</div>
-								<div class="col">
+								<div class="col-xl-2dot4">
 									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
-												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g4.jpg') }}">
-											</a>
-										</div>
-										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g4')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg4')}}</span>	
-										</div>
-									</div>
-								</div>
-								<div class="col">
-									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
-										<div class="dlab-media">
-											<a href="javascript:;">
-												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g5.jpg') }}">
+												<img src="{{ asset('assets/frontend/images/our-team/g5.png') }}">
 											</a>
 										</div>
 										<div class="dlab-info">
 											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g5')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg5')}}</span>	
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg5')}}</span>	
 										</div>
 									</div>
 								</div>
-								<div class="col">
+								<div class="col-xl-2dot4">
 									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
 										<div class="dlab-media">
 											<a href="javascript:;">
-												<img width="358" height="460" alt="" src="{{ asset('assets/frontend/images/our-team/g6.jpg') }}">
+												<img src="{{ asset('assets/frontend/images/our-team/g6.jpg') }}">
 											</a>
 										</div>
 										<div class="dlab-info">
 											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g6')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg6')}}</span>	
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg6')}}</span>	
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-2dot4">
+									<div class="dlab-box-bg m-b30 dlab-team1 active wow bounceInUp fly-box-ho seth" data-wow-duration="2.5s">
+										<div class="dlab-media">
+											<a href="javascript:;">
+												<img src="{{ asset('assets/frontend/images/our-team/g4.jpg') }}">
+											</a>
+										</div>
+										<div class="dlab-info">
+											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g4')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg4')}}</span>	
 										</div>
 									</div>
 								</div>
 							</div>
-
-
+							
 							<div class="row dzseth">
 
 								<div class="col-6 col-md-2">
@@ -271,8 +267,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g7')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg7')}}</span>	
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g7')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.pt')}}<br>{{trans('gd.cg7')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -284,8 +280,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g8')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg8')}}</span>	
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g8')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.pt')}}<br>{{trans('gd.cg8')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -297,8 +293,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g9')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg9')}}</span>	
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g9')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.pt')}}<br>{{trans('gd.cg9')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -310,7 +306,7 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g10')}}</a></h4>
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g10')}}</a></h4>
 											<span class="dlab-position">{{trans('gd.cg10')}}</span>	
 										</div>
 									</div>
@@ -323,8 +319,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g11')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg11')}}</span>	
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g11')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg11')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -336,8 +332,8 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g12')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.cg12')}}</span>	
+											<h4 class="dlab-title" style="margin-left: -45px;width: 200px;"><a href="javascript:;">{{trans('gd.g12')}}</a></h4>
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg12')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -391,11 +387,55 @@
 			<div class="content-area">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-12">
+						{{-- <div class="col-lg-12">
 							<div class="jumbotron wow fadeInUp fly-box-ho seth">
 								{!! $page[0][$lang]['description'] !!}
 							</div>
+						</div> --}}
+						<div class="col-sm wow zoomIn">
+							<div class="dlab-box m-b30 dlab-team4">
+								<div class="dlab-media">
+									<a href="javascript:;">
+										<img src="{{ asset('assets/frontend/images/tn/tn1.png') }}">
+									</a>
+								</div>
+								<div class="dlab-info">
+									<h4 class="dlab-title"><a href="javascript:;">TẦM NHÌN HTE</a></h4>
+									<span class="dlab-position">HTE mong muốn trở thành một công ty có mô hình tổ chức hiện đại, không ngừng nâng cao giá trị thương hiệu và phát triển bền vững của công ty bằng nỗ lực sáng tạo và lao động của từng nhân viên, đầu tư không ngừng vào nền tảng tiềm lực và công nghệ; tối ưu chi phí của khách hàng, tạo điều kiện phát huy tốt nhất tiềm năng của từng thành viên và tạo nên các giá trị dài hạn cho các cổ đông.</span>
+									
+								</div>
+							</div>
 						</div>
+						<div class="col-sm wow zoomIn">
+							<div class="dlab-box m-b30 dlab-team4">
+								<div class="dlab-media">
+									<a href="javascript:;">
+										<img src="{{ asset('assets/frontend/images/tn/tn2.png') }}">
+									</a>
+								</div>
+								<div class="dlab-info">
+									<h4 class="dlab-title"><a href="javascript:;">SỨ MỆNH HTE</a></h4>
+									<span class="dlab-position">Trở thành công ty hàng đầu có khả năng cung cấp trọn gói các dịch vụ kỹ thuật từ khảo sát thiết kế cho đến quản lý vận hành mạng lưới viễn thông và CNTT trên toàn bộ lãnh thổ Việt nam <br> Trở thành công ty hàng đầu tại Việt nam có khả năng cung cấp các giải pháp tích hợp viễn thông – tin học – truyền thông nhằm cung cấp các dịch vụ tiện ích cho các cá nhân, gia đình và tổ chức trong xã hội.</span>
+									
+								</div>
+							</div>
+						</div>
+						<div class="col-sm wow zoomIn">
+							<div class="dlab-box m-b30 dlab-team4">
+								<div class="dlab-media">
+									<a href="javascript:;">
+										<img src="{{ asset('assets/frontend/images/tn/tn3.png') }}">
+									</a>
+								</div>
+								<div class="dlab-info">
+									<h4 class="dlab-title"><a href="javascript:;">GIÁ TRỊ CỐT LÕI HTE</a></h4>
+									<span class="dlab-position">Cân bằng lợi ích KHÁCH HÀNG – CỔ ĐÔNG – NGƯỜI LAO ĐỘNG là mục tiêu chính của Công ty. <br> Trung thực với khách hàng, minh bạch với cổ đông và công bằng với người lao động là tôn chỉ hoạt động của Công ty. <br> Tinh thần làm việc theo nhóm là tư tưởng chủ đạo trong mọi tổ chức hoạt động của Công ty.</span>
+									
+								</div>
+							</div>
+						</div>
+					
+
 					</div>
 				</div>
 			</div>

@@ -113,7 +113,7 @@
 											data-textAlign="['center','center','center','center']"
 											data-paddingtop="[15,15,15,10]" data-paddingright="[30,30,30,20]"
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
-											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#775186; text-transform: uppercase;">
+											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#775186; text-transform: uppercase; border-radius: 30px">
 										
 											{{trans('frontend.about-us')}}
 											
@@ -132,7 +132,7 @@
 											data-textAlign="['center','center','center','center']"
 											data-paddingtop="[15,15,15,10]" data-paddingright="[30,30,30,20]"
 											data-paddingbottom="[15,15,15,10]" data-paddingleft="[30,30,30,20]"
-											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#775186; text-transform: uppercase;">
+											style="z-index: 8;letter-spacing: 2px; white-space: nowrap; font-size: 12px; font-weight: 600; color: rgba(255,255,255,1); font-family:rubik; background-color:#775186; text-transform: uppercase;border-radius: 30px">
 											{{trans('frontend.tam-nhin')}}
 										</a>
 									</li>
@@ -170,8 +170,8 @@
 					data-wow-delay="0.4s">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title">
-								{!! isset($staticPages[$lang]['service']['description']) ? $staticPages[$lang]['service']['description'] : '' !!}
+							<h2 class="title" style="text-transform: uppercase;">
+								{{trans('frontend.service_home')}}
 							</h2>
 						</div>
 						<div class="on-show-slider ">
@@ -180,6 +180,7 @@
 								@foreach($servicess as $servicesLang)
 								<div class="item image_logo">
 									<div class="project-owbx" style="background: url({{ asset($servicesLang['image_logo']) }}); max-height: 153px; max-width:277.5px;">
+										<div class="hovers">
 										{{-- @if($servicesLang['image_logo'])
 										<img src="{{ asset($servicesLang['image_logo']) }}" style="max-height: 150px; max-width:270px;z-index: -100; position:absolute; border-radius: 8px;">
 										@else
@@ -189,6 +190,7 @@
 											<?php $str = explode ('-', $servicesLang[$lang]['title']); ?>
 											{{ $str[0] }}<br>{{ $str[1] }}</b>
 										</h4>
+										</div>
 									</div>
 								</div>
 								@endforeach
@@ -204,7 +206,7 @@
 													<?php $string = str_replace('-','',$servicesLang[$lang]['title']) ?>
 													{{ $string }}
 												</h2>
-												<h4 class="title">{!! $servicesLang[$lang]['summary_long'] !!}</h4>
+												<h4 style="font-size: 18px;">{!! $servicesLang[$lang]['summary_long'] !!}</h4>
 												<p>{!! $servicesLang[$lang]['summary'] !!}</p>
 												<a href="{!! route('home.services-detail', ['slug' => str_slug($servicesLang[$lang]['title']), 'id' => $servicesLang['id']]) !!}" class="site-button btnhover16">{{trans('frontend.read_more')}}</a>
 											</div>
@@ -224,7 +226,7 @@
 				<!-- Client logo -->
 				<div class="container">
 					<div class="section-head text-black text-center wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1s;">
-						<h2 class="title">{{trans('frontend.partner')}}</h2>
+						<h2 class="title" style="text-transform: uppercase;">{{trans('frontend.partner')}}</h2>
 					</div>
 				</div>
 				<div class="section-full content-inner bg-gray wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1s;" data-wow-duration="2s" data-wow-delay="0.6s">
@@ -356,7 +358,7 @@
 				<div class="section-full bg-white wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1.4s;">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title">{{trans('frontend.news_event')}}</h2>
+							<h2 class="title" style="text-transform: uppercase;">{{trans('frontend.news_event')}}</h2>
 						</div>
 						<!-- blog post Carousel with no margin -->
 						<div class="section-content box-sort-in m-b30 button-example">

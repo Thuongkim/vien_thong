@@ -13,7 +13,7 @@
 		style="background-image:url({{ asset('assets/frontend/images/main-slider/abc.png') }});">
 		<div class="container">
 			<div class="dlab-bnr-inr-entry">
-				<h1 class="text-white">{{trans('frontend.career')}}</h1>
+				<h1 class="text-white" style="text-transform: uppercase;">{{trans('frontend.career')}}</h1>
 				<!-- Breadcrumb row -->
 				<div class="breadcrumb-row">
 					<ul class="list-inline">

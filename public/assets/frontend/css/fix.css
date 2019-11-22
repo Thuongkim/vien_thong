@@ -11,10 +11,6 @@
 .about-8-service .icon-bx-wraper:hover a,.acod-head a,.acod-head a.collapsed:hover,.acod-head a:after,.acod-head a:hover,.breadcrumb-row ul li a,.comments-area p:before,.dlab-post-meta i,.dlab-post-meta.text-primary i,.dlab-post-meta.text-primary ul li,.dlab-post-meta.text-primary ul li a,.dlab-tabs .nav-tabs>li>a i,.header-nav .nav>li .mega-menu>li ul a:hover,.header-nav .nav>li .sub-menu li:hover>a,.header-nav .nav>li.active>a,.header-nav .nav>li.current-menu-item>a .header-nav .nav>li .sub-menu li a:hover,.header-nav .nav>li:hover>a,.header-nav .nav>li>a.nav-link.active,.item-info-in ul li a:hover,.nav-dark.header-nav .nav>li .mega-menu>li ul a:hover,.nav-dark.header-nav .nav>li .sub-menu li:hover>a,.primary li:before,.site-button-link:hover,.site-button.outline,.testimonial-1 .testimonial-position,.testimonial-2 .testimonial-position,.testimonial-3 .quote-left:before,.testimonial-3 .testimonial-position,.testimonial-4 .testimonial-name:after,.text-primary,a,blockquote:before,button.scroltop,footer a:active,footer a:focus,footer a:hover,footer h1 a,footer h2 a,footer h3 a,footer h4 a,footer h5 a,footer h6 a,footer p a,h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover,ol.comment-list li.comment .reply a{
 	color:#775186
 }
-.dlab-team1 .dlab-info{
-	bottom:-15px;
-    min-height: 147px;
-}
 /*Style for the text*/
 .content-area {
     padding-top: 0px;
@@ -33,6 +29,10 @@
         /*font-family: UTM_Avo;*/
         font-family: "Roboto Black", sans-serif;
     }
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #232323;
+     font-family: "Roboto Black", sans-serif;
+}
     .dlab-team1 .dlab-position {
         font-size: 10px;
         color: #ff5e14;
@@ -311,11 +311,6 @@
     min-height: 153px;
     max-width: auto;
 }
-.active.current .project-owbx .title {
-    color: #000000;
-    background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6));
-    border-radius: 8px;
-}
 .dlab-team11 .dlab-media {
     width: 240px;
     height: 240px;
@@ -340,21 +335,31 @@
 .active.current .project-owbx {
      background: none;
     box-shadow: none;
+/*    background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)) !important;
+    box-shadow: 0 0 40px -20px var(--color-primary) !important;*/
+}
+.active.current .project-owbx .hovers .title {
+    color: #000000;
+    padding-top:20px;
+}
+/*nút mũi tên phần dịch vụ*/
+.active.current .project-owbx .hovers{
+    color: #000000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6));
+    border-radius: 8px;
+    margin-top:-20px;
+    margin-left: -20px;
 }
 .active.current .project-owbx:after{
     content:"";
-    background:none;
+    background: none;
     width:20px;
     height:20px;
     position:absolute;
     bottom:-18px;
-    transform:rotate(45deg) translate(-50%);
-    left:50%;
-    transition:all .8s;
-    -moz-transition:all .8s;
-    -webkit-transition:all .8s;
-    -ms-transition:all .8s;
-    -o-transition:all .8s
 }
 .widget_gallery.gallery-grid-4 li {
     width: 50%;
@@ -367,4 +372,83 @@
 }
 .widget {
     margin-bottom: -30px;
+}
+/*ban điều hành*/
+.dlab-team1 .dlab-info{
+    bottom:-15px;
+    min-height: 105px;
+}
+.dlab-team1 .dlab-title {
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 0px;
+    font-weight: 500px;
+    text-align: center;
+}
+.dlab-team1 .dlab-position {
+    font-size: 8px;
+    color: #ff5e14;
+}
+.header-nav .nav>li .sub-menu li a {
+    color: #000;
+    display: block;
+    font-size: 15px;
+    padding: 10px 25px;
+    text-transform: capitalize;
+    transition: all .15s linear;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    font-weight: 400;
+    font-family: "Roboto Black", sans-serif;
+}
+
+.col-2dot4,
+.col-sm-2dot4,
+.col-md-2dot4,
+.col-lg-2dot4,
+.col-xl-2dot4 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.col-2dot4 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+@media (min-width: 540px) {
+    .col-sm-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+@media (min-width: 720px) {
+    .col-md-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+@media (min-width: 960px) {
+    .col-lg-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+@media (min-width: 1140px) {
+    .col-xl-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
 }
