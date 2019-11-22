@@ -20,6 +20,9 @@ use App\StaticPage;
 use App\NewsCategory;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 class HomeController extends Controller
 {
 	private $lang;
@@ -48,6 +51,14 @@ class HomeController extends Controller
 	        return $next($request);
         });
     }
+
+    public function paginatePage($items, $perPage = 8, $page = null)
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, ['path' => Paginator::resolveCurrentPath(), 'pageName' => 'page']);
+    }
+
     public function index(Request $request)
     {
         $servicess = [];
@@ -105,7 +116,7 @@ class HomeController extends Controller
     	$id_exception = Constant::news_category_id;
     	$homeNews = [];
     	$langs = config('app.locales');
-    	$temp = News::where('status', 1)->where('category_id', '<>', $id_exception)->orderBy( 'updated_at', 'desc')->paginate(8);
+    	$temp = News::where('status', 1)->where('category_id', '<>', $id_exception)->orderBy( 'updated_at', 'desc')->get();
     	foreach ($temp as $home_news) {
     		$tmp = [];
     		$image = $home_news->image;
@@ -125,13 +136,17 @@ class HomeController extends Controller
     			$tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
     		}
 
-    		array_push($homeNews, $tmp);
-    	}
 
+            if($tmp[$this->lang]['title']) {
+                array_push($homeNews, $tmp);
+            }
+    	}
     	$homeNews = json_encode($homeNews) ;
     	$news = json_decode($homeNews, 1);
+        $news = $this->paginatePage($news, $perPage = 8, $page = null);
+        // dd($homeNews);
     	$news_all             = News::getHomeNews();
-    	return view('frontend.pages.news', compact('news','temp','news_all'));
+    	return view('frontend.pages.news', compact('news','news_all'));
     }
 
 
@@ -145,7 +160,36 @@ class HomeController extends Controller
     public function indexCareer()
     {
     	$id_exception = Constant::news_category_id;
-    	$news = News::where('status', 1)->where('category_id', $id_exception)->orderBy( 'updated_at', 'desc')->paginate(8);
+    	$news = News::where('status', 1)->where('category_id', $id_exception)->orderBy( 'updated_at', 'desc')->get();
+        $homeNews = [];
+        $langs = config('app.locales');
+        foreach ($news as $home_news) {
+            $tmp = [];
+            $image = $home_news->image;
+            $tmp['image'] = is_null($image) ? '' : $image;
+            $id = $home_news->id;
+            $tmp['id'] = is_null($id) ? '' : $id;
+            $created_by = \App\User::find( $home_news->created_by );
+            $tmp['created_by'] = is_null($created_by) ? '' : $created_by->fullname;
+            $updated_at = $home_news->updated_at;
+            $tmp['updated_at'] = is_null($updated_at) ? '' : $updated_at;
+            for ($i = 0; $i < count($langs); $i++) {
+                $trans = $home_news->translation('title', $langs[$i])->first();
+                $tmp[$langs[$i]]['title'] = is_null($trans) ? '' : $trans->content;
+                $trans = $home_news->translation('summary', $langs[$i])->first();
+                $tmp[$langs[$i]]['summary'] = is_null($trans) ? '' : $trans->content;
+                $trans = $home_news->translation('content', $langs[$i])->first();
+                $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
+            }
+
+
+            if($tmp[$this->lang]['title']) {
+                array_push($homeNews, $tmp);
+            }
+        }
+        $homeNews = json_encode($homeNews) ;
+        $news = json_decode($homeNews, 1);
+        $news = $this->paginatePage($news, $perPage = 8, $page = null);
     	$news_all = News::getHomeNews();
 		return view('frontend.pages.career', compact('news', 'news_all'));
     }
@@ -174,7 +218,7 @@ class HomeController extends Controller
             $project_category[$langs[$i]]['name'] = is_null($trans) ? '' : $trans->content;
         }
 
-        $temp = Project::where('status', 1)->where('category_id', intval($id))->orderBy( 'updated_at', 'desc')->paginate(8);
+        $temp = Project::where('status', 1)->where('category_id', intval($id))->orderBy( 'updated_at', 'desc')->get();
         foreach ($temp as $project) {
             $tmp = [];
             $id = $project->id;
@@ -192,12 +236,15 @@ class HomeController extends Controller
                 $tmp[$langs[$i]]['content'] = is_null($trans) ? '' : $trans->content;
             }
 
-            array_push($projects, $tmp);
+            if($tmp[$this->lang]['title']) {
+                array_push($projects, $tmp);
+            }
         }
         $projects = json_encode($projects) ;
         $projectss = json_decode($projects, 1);
+        $projectss = $this->paginatePage($projectss, $perPage = 8, $page = null);
         $news_all = News::getHomeNews();
-		return view('frontend.pages.project', compact('projectss', 'news_all', 'temp', 'project_category'));
+		return view('frontend.pages.project', compact('projectss', 'news_all', 'project_category'));
     }
 
     public function showProject($slug, $id)

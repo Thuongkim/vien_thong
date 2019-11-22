@@ -74,7 +74,7 @@
                     @endforeach
                     <!-- Pagination start -->
                     <div class="pagination-bx clearfix text-center">
-                        {!! $temp->links("frontend.pagination") !!}
+                        {!! $projectss->links("frontend.pagination") !!}
                     </div>
                     <!-- Pagination END -->
                 </div>

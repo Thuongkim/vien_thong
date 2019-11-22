@@ -35,7 +35,7 @@
                         $k = 0
                     @endphp
                     @foreach ($news as $news_st)
-                    @if($news_st->translation('title', $lang)->first()->content)
+                    @if($news_st[$lang]['title'])
                     @php
                         $k++;
                     @endphp
@@ -43,8 +43,8 @@
                         echo($k % 2 == 0 ? '0.4s':'0.2s')
                     @endphp">
                         <div class="dlab-post-media dlab-img-effect zoom-slow">
-                            @if($news_st->image)
-                            <img src="{!! asset('assets/media/' . $news_st->image) !!}" alt="">
+                            @if($news_st['image'])
+                            <img src="{!! asset('assets/media/' . $news_st['image']) !!}" alt="">
                             @else
                             <img src="https://via.placeholder.com/350x237.png?text=HTE-news" alt="">
                             @endif
@@ -52,18 +52,18 @@
                         <div class="dlab-post-info">
                             <div class="dlab-post-meta">
                                 <ul>
-                                    <li class="post-date"> <strong>{!! date("d/m", strtotime($news_st->updated_at)) !!}</strong> <span> {!! date("/Y", strtotime($news_st->updated_at)) !!}</span> </li>
-                                    <li class="post-author"> {{trans('frontend.by')}} <a href="javascript:void(0);">{!! \App\User::find( $news_st->created_by )->fullname !!}</a> </li>
+                                    <li class="post-date"> <strong>{!! date("d/m", strtotime($news_st['updated_at'])) !!}</strong> <span> {!! date("/Y", strtotime($news_st['updated_at'])) !!}</span> </li>
+                                    <li class="post-author"> {{trans('frontend.by')}} <a href="javascript:void(0);">{!! $news_st['created_by'] !!}</a> </li>
                                 </ul>
                             </div>
                             <div class="dlab-post-title">
-                                <h4 class="post-title"><a href="{{ route('career.show', ['slug' => str_slug($news_st->translation('title', $lang)->first()->content), 'id' => $news_st->id]) }}">{!! \App\Helper\HString::modSubstr($news_st->translation('title', $lang)->first()->content, 95) !!}</a></h4>
+                                <h4 class="post-title"><a href="{{ route('career.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}">{!! \App\Helper\HString::modSubstr($news_st[$lang]['title'], 95) !!}</a></h4>
                             </div>
                             <div class="dlab-post-text">
-                                <p>{!! \App\Helper\HString::modSubstr(strip_tags($news_st->translation('summary', $lang)->first()->content), 200) !!}</p>
+                                <p>{!! \App\Helper\HString::modSubstr(strip_tags($news_st[$lang]['summary']), 180) !!}</p>
                             </div>
                             <div class="dlab-post-readmore">
-                                <a href="{{ route('career.show', ['slug' => str_slug($news_st->translation('title', $lang)->first()->content), 'id' => $news_st->id]) }}" title="READ MORE" rel="bookmark"
+                                <a href="{{ route('career.show', ['slug' => str_slug($news_st[$lang]['title']), 'id' => $news_st['id']]) }}" title="READ MORE" rel="bookmark"
                                     class="site-button">{{trans('frontend.read_more')}}
                                     <i class="ti-arrow-right"></i>
                                 </a>
