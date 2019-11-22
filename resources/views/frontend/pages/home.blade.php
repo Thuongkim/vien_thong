@@ -186,7 +186,7 @@
 										@else
 										<i class="fa {{ $servicesLang['icon'] }}"></i>
 										@endif --}}
-										<h4 class="title" style="margin-top: 30px; font-size: 17px!important; font-family: Roboto Black Italic !important;"><b>
+										<h4 class="title" style="margin-top: 30px; font-size: 17px!important; font-family: Roboto Black Italic !important; 	text-transform: uppercase;"><b>
 											<?php $str = explode ('-', $servicesLang[$lang]['title']); ?>
 											{{ $str[0] }}<br>{{ $str[1] }}</b>
 										</h4>
@@ -202,7 +202,7 @@
 									<div class="row service align-items-center">
 										<div class="col-lg-8 col-md-8 m-b30">
 											<div class="our-story">
-												<h2 class="title">
+												<h2 class="title" style="text-transform: uppercase;">
 													<?php $string = str_replace('-','',$servicesLang[$lang]['title']) ?>
 													{{ $string }}
 												</h2>

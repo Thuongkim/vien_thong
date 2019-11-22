@@ -18,8 +18,8 @@ return [
     'cg2'               => 'Phó Tổng Giám đốc',
     'cg3'               => 'Kế toán trưởng',
     'cg4'               => 'Chi nhánh miền nam',
-    'cg5'               => 'Trung tâm kỹ thuật miền Bắc',
-    'cg6'               => 'Trung tâm kỹ thuật miền Trung',
+    'cg5'               => 'Trung tâm kỹ thuật',
+    'cg6'               => 'Trung tâm kỹ thuật',
     'cg7'               => 'Phòng Kinh doanh',
     'cg8'               => 'Phòng Kỹ thuật',
     'cg9'               => 'Quản trị nhân lực & Hành chính',
@@ -28,4 +28,7 @@ return [
     'cg12'               => 'Trung tâm SPMS',
     'gd'                => 'Giám đốc',
     'pt'                => 'Phụ trách',
+    'mb'                => 'miền Bắc',
+    'mt'                => 'miền Trung',
+
 ];

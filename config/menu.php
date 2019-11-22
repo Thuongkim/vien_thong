@@ -91,13 +91,13 @@ return [
             //     'glyphicon' => 'fa fa-university fa-fw',
             //     'hide' => false
             // ],
-            [
-                'name' => 'static_page',
-                'route'=> 'admin.static-pages.index',
-                'glyphicon' => 'fa fa-leanpub fa-fw',
-                'permissions'   => ['static_pages.read'],
-                'hide' => false
-            ],
+            // [
+            //     'name' => 'static_page',
+            //     'route'=> 'admin.static-pages.index',
+            //     'glyphicon' => 'fa fa-leanpub fa-fw',
+            //     'permissions'   => ['static_pages.read'],
+            //     'hide' => false
+            // ],
         ]
     ],
 

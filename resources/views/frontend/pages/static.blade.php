@@ -50,7 +50,7 @@
 											<div class="dlab-separator-outer ">
 												<div class="dlab-separator bg-primary style-skew"></div>
 											</div>
-											{!! isset($staticPages[$lang]['gioi-thieu']['description']) ? $staticPages[$lang]['gioi-thieu']['description'] : '' !!}
+											<h4 class="dlab-title">{!! isset($staticPages[$lang]['gioi-thieu']['description']) ? $staticPages[$lang]['gioi-thieu']['description'] : '' !!}</h4>
 										</div>
 										<div class="section-content"></div>
 									</div>
@@ -198,7 +198,7 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title" style="margin-left: -25px;max-width: 1000px;"><a href="javascript:;">{{trans('gd.g2')}}</a></h4>
+											<h4 class="dlab-title" style="margin-left: -10px;max-width: 1000px;"><a href="javascript:;">{{trans('gd.g2')}}</a></h4>
 											<span class="dlab-position">{{trans('gd.cg2')}}</span>	
 										</div>
 									</div>
@@ -225,7 +225,7 @@
 										</div>
 										<div class="dlab-info">
 											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g5')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg5')}}</span>	
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg5')}}<br>{{trans('gd.mb')}}</span>	
 										</div>
 									</div>
 								</div>
@@ -238,7 +238,7 @@
 										</div>
 										<div class="dlab-info">
 											<h4 class="dlab-title"><a href="javascript:;">{{trans('gd.g6')}}</a></h4>
-											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg6')}}</span>	
+											<span class="dlab-position">{{trans('gd.gd')}}<br>{{trans('gd.cg6')}}<br>{{trans('gd.mt')}}</span>	
 										</div>
 									</div>
 								</div>

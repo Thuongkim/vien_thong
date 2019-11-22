@@ -110,7 +110,7 @@
                 <th class="text-right">{!! trans("services.image_logo") !!}</th>
                 <td>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                        <div class="fileupload-preview thumbnail" style="min-height: 153;max-height: 153; max-width: 278px;padding: 0px;">
+                        <div class="fileupload-preview thumbnail" style="min-height: 153px;max-height: 153px; max-width: 278px;padding: 0px;">
                         </div>
                         <div>
                             <span class="btn btn-default btn-file">

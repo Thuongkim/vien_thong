@@ -97,7 +97,7 @@
                                             </ul>
                                         </div>
                                         <div class="dlab-post-header">
-                                            <h6 class="post-title"><a href="{!! route('home.services-detail', ['slug' => str_slug($servicesN[$lang]['title']), 'id' => $service['id']]) !!}">
+                                            <h6 class="post-title" style="text-transform: capitalize;"><a href="{!! route('home.services-detail', ['slug' => str_slug($servicesN[$lang]['title']), 'id' => $service['id']]) !!}">
                                                 <?php $string = str_replace('-','',$servicesN[$lang]['title']) ?>
                                             {{ $string }}</a></h6>
                                         </div>
