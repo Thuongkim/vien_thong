@@ -22,7 +22,7 @@ return [
     'cg6'               => 'Trung tâm kỹ thuật',
     'cg7'               => 'Phòng Kinh doanh',
     'cg8'               => 'Phòng Kỹ thuật',
-    'cg9'               => 'Quản trị nhân lực & Hành chính',
+    'cg9'               => 'phòng Quản trị nhân lực & Hành chính',
     'cg10'               => 'Trưởng Ban Quản lý dự án',
     'cg11'               => 'Thanh toán tiền điện tiền nhà',
     'cg12'               => 'Trung tâm SPMS',

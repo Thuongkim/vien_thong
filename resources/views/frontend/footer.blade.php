@@ -78,9 +78,9 @@
 												<li class="img-effect2"> <a href=""><img src="{{ asset('assets/frontend/images/footer/f1.png') }}"></a> </li>
 												<li class="img-effect2"> <a href="javascript:void(0);"><img src="{{ asset('assets/frontend/images/footer/f2.png') }}"></a> </li>
 												<li class="img-effect2"> <a href="javascript:void(0);"><img src="{{ asset('assets/frontend/images/footer/f3.png') }}"></a> </li>
-												<li class="img-effect2"> <a href="javascript:void(0);"><img src="{{ asset('assets/frontend/images/footer/f5.png') }}"></a> </li>
-												<li class="img-effect2"> <a href="javascript:void(0);"><img src="{{ asset('assets/frontend/images/footer/f4.png') }}" style="min-height: 97px"></a> </li>
-												<li class="img-effect2"> <a href="javascript:void(0);"><img src="{{ asset('assets/frontend/images/footer/f6.png') }}" style="min-height: 97px"></a> </li>
+												<li class="img-effect2"> <a href="javascript:void(0);"><img src="{{ asset('assets/frontend/images/footer/f5.png') }}" style="max-height: 94px; max-width: 96px"></a> </li>
+												<li class="img-effect2"> <a href="javascript:void(0);"><img src="{{ asset('assets/frontend/images/footer/f4.png') }}" style=""></a> </li>
+												<li class="img-effect2"> <a href="javascript:void(0);"><img src="{{ asset('assets/frontend/images/footer/f6.png') }}" style=""></a> </li>
 											</ul>
 										</div>
 									</div>

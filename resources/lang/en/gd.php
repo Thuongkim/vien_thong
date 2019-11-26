@@ -24,8 +24,10 @@ return [
     'cg8'               => 'Technical Dept ',
     'cg9'               => 'HR & Administration Dept',
     'cg10'               => 'Director Of Civil Work Center',
-    'cg11'               => 'DDO EVN & Lease Payment Center',
+    'cg11'               => 'EVN & Lease Payment Center',
     'cg12'               => 'SPMS Center',
-    'gd'                   => 'Director Of',
+    'gd'                 => 'Director Of',
     'pt'                => 'Deputy Head Of',
+    'mb'                => '',
+    'mt'                => '',
 ];

@@ -198,7 +198,7 @@
 											</a>
 										</div>
 										<div class="dlab-info">
-											<h4 class="dlab-title" style="margin-left: -10px;max-width: 1000px;"><a href="javascript:;">{{trans('gd.g2')}}</a></h4>
+											<h4 class="dlab-title" style="margin-left: -15px;max-width: 1000px; min-width: 180px"><a href="javascript:;">{{trans('gd.g2')}}</a></h4>
 											<span class="dlab-position">{{trans('gd.cg2')}}</span>	
 										</div>
 									</div>
@@ -429,7 +429,11 @@
 								</div>
 								<div class="dlab-info">
 									<h4 class="dlab-title"><a href="javascript:;">GIÁ TRỊ CỐT LÕI HTE</a></h4>
-									<span class="dlab-position">Cân bằng lợi ích KHÁCH HÀNG – CỔ ĐÔNG – NGƯỜI LAO ĐỘNG là mục tiêu chính của Công ty. <br> Trung thực với khách hàng, minh bạch với cổ đông và công bằng với người lao động là tôn chỉ hoạt động của Công ty. <br> Tinh thần làm việc theo nhóm là tư tưởng chủ đạo trong mọi tổ chức hoạt động của Công ty.</span>
+									<span class="dlab-position">1. Khách hàng là trung tâm, đối tác là đồng hành:Luôn tập trung vào chất lượng sản phẩm dịch vụ để đem đến lợi ích cao nhất cho khách hàng. Đồng thời luôn coi đối tác, nhà cung cấp là người bạn đồng hành xuyên suốt trên chặng đường phát triển của Công ty để cùng chia sẻ lợi ích, cùng hợp tác thành công.
+										<br>
+										2. Sáng tạo: Luôn năng động, sáng tạo nhằm thích nghi với sự thay đổi của thị trường; tạo sự khác biệt, đa dạng hóa dịch vụ để đáp ứng nhu cầu của khách hàng.
+										<br>
+										3. Tin cậy: Đội ngũ cán bộ đáng tin cậy, làm việc trên nguyên tắc tôn trọng lẫn nhau gắn với trách nhiệm của từng cá nhân.</span>
 									
 								</div>
 							</div>
