@@ -358,7 +358,7 @@
 				<div class="section-full bg-white wow zoomIn" style="visibility: visible; animation-duration: 0.6s; animation-delay: 1.4s;">
 					<div class="container">
 						<div class="section-head text-black text-center">
-							<h2 class="title" style="text-transform: uppercase;">{{trans('frontend.news_event')}}</h2>
+							<h2 class="title" style="text-transform: uppercase; margin-top: 15px;">{{trans('frontend.news_event')}}</h2>
 						</div>
 						<!-- blog post Carousel with no margin -->
 						<div class="section-content box-sort-in m-b30 button-example">
