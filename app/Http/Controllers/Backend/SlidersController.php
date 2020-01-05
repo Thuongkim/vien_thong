@@ -29,7 +29,7 @@ class SlidersController extends Controller
 
 	public function index(Request $request)
 	{
-        $sliders = Slider::orderBy('updated_at', 'DESC')->orderBy('position')->get();
+        $sliders = Slider::orderBy('position')->get();
 		return view('backend.sliders.index', compact('sliders'));
 	}
 
