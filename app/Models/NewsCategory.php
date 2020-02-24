@@ -50,12 +50,12 @@ class NewsCategory extends \Eloquent {
         if (!Cache::has('news_categoriess')) {
             $categories = NewsCategory::where('parent_id', 0)->where('status', 1)->get();
             for ($i=0; $i < $categories->count(); $i++) {
-                $children = NewsCategory::where('parent_id', $categories{$i}->id)->where('status', 1)->get();
+                $children = NewsCategory::where('parent_id', $categories[$i]->id)->where('status', 1)->get();
                 for ($j=0; $j < $children->count(); $j++) {
-                    $children{$j}->children = NewsCategory::where('parent_id', $children{$j}->id)->where('status', 1)->get();
+                    $children[$j]->children = NewsCategory::where('parent_id', $children[$j]->id)->where('status', 1)->get();
 
                 }
-                $categories{$i}->children = $children;
+                $categories[$i]->children = $children;
             }
 
             $categories = json_encode($categories);

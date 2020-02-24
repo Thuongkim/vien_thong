@@ -46,12 +46,12 @@
                         {!! Form::text('title', Request::input('title'), ['class' => 'form-control']) !!}
                     </div>
                 </div>
-                <div class="col-md-3">
+                {{-- <div class="col-md-3">
                     <div class="form-group">
                         {!! Form::label('category_id', trans('news.category')) !!}
                         {!! Form::select('category_id', [-1 => trans('system.dropdown_all')] + $categories, Request::input('category_id', -1), ["class" => "form-control"]) !!}
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-md-3">
                     <div class="form-group">
                         {!! Form::label('update_range', trans('system.update_range')) !!}
