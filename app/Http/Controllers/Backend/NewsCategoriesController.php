@@ -34,7 +34,7 @@ class NewsCategoriesController extends Controller
         $categories = NewsCategory::where('parent_id', 0)->get();
 
         for ($i=0; $i < $categories->count(); $i++) {
-            $categories{$i}->children = NewsCategory::where('parent_id', $categories{$i}->id)->get();
+            $categories[$i]->children = NewsCategory::where('parent_id', $categories[$i]->id)->get();
         }
 
         return view('backend.news_categories.index', compact('categories'));
