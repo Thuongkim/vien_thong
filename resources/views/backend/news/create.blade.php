@@ -107,14 +107,14 @@
                     {!! Form::textarea('content', old('content'), array('class' => 'form-control ckeditor', 'rows' => 25, 'id' => 'content')) !!}
                 </td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <th class="text-right">
                     {!! trans('news.content') !!}
                 </th>
                 <td colspan="3">
                     {!! Form::textarea('content', old('content'), array('class' => 'form-control ckeditor', 'rows' => 25, 'id' => 'content')) !!}
                 </td>
-            </tr>
+            </tr> --}}
             @if(isset($fields['content']))
                 @foreach($languages as $language => $value)
                     <tr>

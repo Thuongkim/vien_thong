@@ -144,7 +144,7 @@ class HomeController extends Controller
     	$homeNews = json_encode($homeNews) ;
     	$news = json_decode($homeNews, 1);
         $news = $this->paginatePage($news, $perPage = 8, $page = null);
-        // dd($homeNews);
+        // dd($temp);
     	$news_all             = News::getHomeNews();
     	return view('frontend.pages.news', compact('news','news_all'));
     }
