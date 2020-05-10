@@ -64,7 +64,7 @@ class HomeController extends Controller
         $servicess = [];
         $langs = config('app.locales');
 		$sliders           = Slider::getSliders();
-		$services = Service::where('featured', 1)->where('status', 1)->orderBy('position')->take(5)->get();
+		$services = Service::where('featured', 1)->where('status', 1)->orderBy('position')->take(100)->get();
 
         foreach ($services as $service) {
             $tmp = [];

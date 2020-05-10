@@ -129,7 +129,7 @@
 								</li>
 								{{-- <li class="has-mega-menu menu-hover"> <a href="{{ route('partner') }}">{{trans('frontend.partner')}}</a>
 								</li> --}}
-								<li class="has-mega-menu menu-hover"> <a href="https://mail.hte.vn">Mail</a>
+								<li class="has-mega-menu menu-hover"> <a href="mailto: someone@example.com">Mail</a>
 								</li>
 							</ul>
 						</div>
