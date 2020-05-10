@@ -36,7 +36,7 @@
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-4 col-md-4 m-b30 wow fadeInLeftBig" data-wow-duration="2s">
-							<img src="{{ asset('assets/frontend/images/about/last.jpg') }}" alt="">
+							<img src="{{ asset('assets/frontend/images/hte-logo.png') }}" alt="">
 						</div>
 						<div class="col-lg-8 col-md-8 m-b30">
 							<!-- Title separator style 8 -->
@@ -167,8 +167,9 @@
 
 			@elseif($slug == 'ban-dieu-hanh')
 
+			{!! $staticPagess[2][$lang]['description'] ? $staticPagess[2][$lang]['description'] : ''!!}
 
-			<div class="content-area">
+			{{-- <div class="content-area">
 				<div class="section-full bg-gray content-inner">
 					<div class="container">
 						<div class="animation-effects">
@@ -342,7 +343,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 
 			@elseif($slug == 'so-do-to-chuc')
 
@@ -383,15 +384,10 @@
 			</div>
 
 			@else
-
-			<div class="content-area">
+			{!! $staticPagess[1][$lang]['description'] ? $staticPagess[1][$lang]['description'] : ''!!}
+			{{-- <div class="content-area">
 				<div class="container">
 					<div class="row">
-						{{-- <div class="col-lg-12">
-							<div class="jumbotron wow fadeInUp fly-box-ho seth">
-								{!! $page[0][$lang]['description'] !!}
-							</div>
-						</div> --}}
 						<div class="col-sm wow zoomIn">
 							<div class="dlab-box m-b30 dlab-team4">
 								<div class="dlab-media">
@@ -442,7 +438,7 @@
 
 					</div>
 				</div>
-			</div>
+			</div> --}}
 
 			@endif
 			<!-- contact area END -->

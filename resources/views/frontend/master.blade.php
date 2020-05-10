@@ -3,7 +3,7 @@
 <?php $appName = isset($staticPages['website-title']['description']) ? $staticPages['website-title']['description'] : env('APP_NAME'); ?>
 <head>
 	<!-- PAGE TITLE HERE -->
-	<title>@yield('title') | HTE.,JSC</title>
+	<title>@yield('title') | ITE.,JSC</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:title" content="@yield('title')">
     <meta property="og:url" content="{!! url()->full() !!}">
@@ -21,7 +21,7 @@
     <meta name="author" content="{!! env("APP_NAME") !!}" />
     <meta name="keywords" content="@yield('seo_keywords')" />
     <meta name="description" content="@yield('seo_description')" />
-    <meta name="copyright" content="BCTech, Công ty Cổ phần Giải pháp Công nghệ cao BCTech, Chuyên thiết kế website, phần mềm ứng dụng, ứng dụng Android, iOS, các giải pháp Cloud Server, Streaming, Camera, Cung cấp VPS, Hosting, 024 6688 3355" />
+    <meta name="copyright" content="" />
     <link rel="icon" href="{{ asset('assets/frontend/images/hte-logo.png') }}" type="image/x-icon" />
 
 
