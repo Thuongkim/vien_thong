@@ -43,7 +43,7 @@ class HomeController extends BaseController
                 foreach (explode("\n", $email_lists) as $email) {
                     $total++;
                     $email     = strtolower(trim($email));
-                    $sender    = 'canhbd.hte@gmail.com';
+                    $sender    = 'thuongbk.ite@gmail.com';
                     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         if ('true' == $request->only_gmail) {
                             $domain = explode("@", $email);
