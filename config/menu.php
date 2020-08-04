@@ -85,33 +85,33 @@ return [
                 'glyphicon' => 'fa fa-users fa-fw',
                 'hide' => false
             ],
-            // [
-            //     'name' => 'users.role',
-            //     'route'=> 'admin.roles.index',
-            //     'glyphicon' => 'fa fa-university fa-fw',
-            //     'hide' => false
-            // ],
-            // [
-            //     'name' => 'static_page',
-            //     'route'=> 'admin.static-pages.index',
-            //     'glyphicon' => 'fa fa-leanpub fa-fw',
-            //     'permissions'   => ['static_pages.read'],
-            //     'hide' => false
-            // ],
-        ]
-    ],
-
-    [
-        'name' => 'settings.label',
-        'glyphicon' => 'fa fa-cog fa-fw',
-        'hide' => false,
-        'child'=> [
             [
-                'name' => 'settings.redis',
-                'route'=> 'admin.caches.redis',
-                'glyphicon' => 'fa fa-refresh fa-fw',
+                'name' => 'users.role',
+                'route'=> 'admin.roles.index',
+                'glyphicon' => 'fa fa-university fa-fw',
+                'hide' => false
+            ],
+            [
+                'name' => 'static_page',
+                'route'=> 'admin.static-pages.index',
+                'glyphicon' => 'fa fa-leanpub fa-fw',
+                'permissions'   => ['static_pages.read'],
                 'hide' => false
             ],
         ]
     ],
+
+    // [
+    //     'name' => 'settings.label',
+    //     'glyphicon' => 'fa fa-cog fa-fw',
+    //     'hide' => false,
+    //     'child'=> [
+    //         [
+    //             'name' => 'settings.redis',
+    //             'route'=> 'admin.caches.redis',
+    //             'glyphicon' => 'fa fa-refresh fa-fw',
+    //             'hide' => false
+    //         ],
+    //     ]
+    // ],
 ];
