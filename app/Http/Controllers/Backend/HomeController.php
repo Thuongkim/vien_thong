@@ -216,10 +216,10 @@ class HomeController extends BaseController
             $errors->add('editError', 'Mật khẩu hiện tại không đúng');
             return back()->withErrors($errors);
         }
-
-        $user->attemptResetPassword('', $request->input('new_password'));
+        $user->password = \Hash::make($request->new_password);
         $user->save();
-        \Sentry::logout();
+        \Session::flash('message', trans('system.success'));
+        \Session::flash('alert-class', 'success');
         return redirect()->route('admin.home');
     }
 
@@ -236,7 +236,7 @@ class HomeController extends BaseController
 
         $user = \Auth::guard('admin')->user();
         $user->fullname         = $request->input('fullname');
-        $user->menu_is_collapse = $request->input('menu_is_collapse');
+        // $user->menu_is_collapse = $request->input('menu_is_collapse');
         $user->save();
 
         \Session::flash('message', trans('system.success'));

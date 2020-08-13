@@ -16,7 +16,6 @@ if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
     error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
     // error_reporting(E_ALL ^ E_WARNING); // Maybe this is enough
 }
-
 Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], function() {
     Route::get('login', ['as' => 'login', 'uses' => 'HomeController@getLogin']);
     Route::group(['before' => 'csrf'], function() {
@@ -26,6 +25,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.'], 
         Route::get('', ['as' => 'home', 'uses' => 'HomeController@index']);
         Route::post('get-district-by-province', ['as' => 'get-district-by-province', 'uses' => 'HomeController@getDistrictByProvince']);
         Route::get('404', ['as' => '404', 'uses' => 'HomeController@get404']);
+        Route::get('401', ['as' => '401', 'uses' => 'HomeController@get403']);
         Route::get('logout', ['as' => 'logout', 'uses' => "HomeController@getLogout"]);
         Route::get('change-password', ['as' => 'change-password', 'uses' => 'HomeController@changePassword']);
         Route::post('change-password', ['as' => 'change-password', 'uses' => 'HomeController@postChangePassword']);

@@ -47,14 +47,14 @@
                                 {!! Form::text('email', old('email', $user->email), array('class' => 'form-control', 'disabled')) !!}
                             </td>
                         </tr>
-                        <tr>
+                        {{-- <tr>
                             <th class="text-center" colspan="2">
                                 <label>
                                     {!! Form::checkbox('menu_is_collapse', 1, old('menu_is_collapse', $user->menu_is_collapse), [ 'class' => 'minimal' ]) !!}
                                     {!! trans('users.menu_is_collapse') !!}
                                 </label>
                             </th>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <td colspan="2" class="text-center">
                                 {!! HTML::link(route('admin.home'), trans('system.action.cancel'), array('class' => 'btn btn-default'))!!}

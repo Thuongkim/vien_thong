@@ -2,8 +2,8 @@
 /.phpintel
 /node_modules
 /public/hot
-# /public/assets/media
-# /public/storage
+/public/assets/media
+/public/storage
 /storage/*.key
 /vendor
 .env

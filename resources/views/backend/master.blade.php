@@ -99,7 +99,7 @@
                                         <img src="{!! asset('assets/backend/img/user.png') !!}" class="img-circle" alt="User Image">
                                         <p>
                                             {!! $user->fullname !!}
-                                            <small>Lần cuối đăng nhập {!! date('d/m/Y H:i', strtotime($user->last_login)) !!}</small>
+                                            {{-- <small>Lần cuối đăng nhập {!! date('d/m/Y H:i', strtotime($user->last_login)) !!}</small> --}}
                                         </p>
                                     </li>
 

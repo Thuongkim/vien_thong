@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('backend.master')
 
 @section('content')
     <h1>Oops, 404!</h1>

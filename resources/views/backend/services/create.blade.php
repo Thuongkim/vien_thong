@@ -117,7 +117,7 @@
                                 <span class="fileupload-new">
                                     {!! trans('system.action.select_image') !!}
                                 </span>
-                                {!! Form::file('image_logo') !!}
+                                {!! Form::file('image_logo', $attributes = ['accept'=>"image/x-png,image/gif,image/jpeg"]) !!}
                             </span>
                             <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
                                 {!! trans('system.action.remove') !!}
@@ -138,7 +138,7 @@
                                 <span class="fileupload-new">
                                     {!! trans('system.action.select_image') !!}
                                 </span>
-                                {!! Form::file('image') !!}
+                                {!! Form::file('image', $attributes = ['accept'=>"image/x-png,image/gif,image/jpeg"]) !!}
                             </span>
                             <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
                                 {!! trans('system.action.remove') !!}

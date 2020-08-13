@@ -54,9 +54,9 @@ class ProjectsController extends Controller
         // if (isset($date_range[0]) && isset($date_range[1]))
         //     $query .= " AND created_at >= '" . date("Y-m-d 00:00:00", strtotime(str_replace('/', '-', ($date_range[0] == '' ? '1/1/2015' : $date_range[0]) ))) . "' AND updated_at <= '" . date("Y-m-d 23:59:59", strtotime(str_replace('/', '-', ($date_range[1] == '' ? date("d/m/Y") : $date_range[1]) ))) . "'";
 
-        if (!$request->user()->ability(['system', 'admin'], ['project.approve'])) {
-            $query .= " AND created_by = " . $request->user()->id;
-        }
+        // if (!$request->user()->ability(['system', 'admin'], ['project.approve'])) {
+        //     $query .= " AND created_by = " . $request->user()->id;
+        // }
 
         $projects = Project::whereRaw($query . ' order by updated_at DESC')->paginate($page_num);
 

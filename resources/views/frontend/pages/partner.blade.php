@@ -20,11 +20,11 @@
                             <h4>{{trans('frontend.partner_us')}}</h4>
                         </div>
                         <div class="section-content">
-                            <div class="testimonial-four owl-loaded owl-theme owl-carousel owl-none">
+                            <div class="testimonial-four owl-loaded owl-theme owl-carousel owl-none"> 
                                 @foreach ($partners as $partner)
                                 <div class="item">
                                     <div class="testimonial-4 testimonial-bg">
-                                        <div class="testimonial-pic">
+                                        <div class="testimonial-pic" style="width: 100px;">
                                             <a href="{{ $partner['partner_link'] }}"><img src="{!! asset('assets/media/images/partners/' . $partner['image']) !!}"
                                                 style="width: 100%;height: auto;" alt=""></a>
                                         </div>
@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                                 @endforeach
-                            </div>
+                           </div> 
                         </div>
                     </div>
                 </div>
