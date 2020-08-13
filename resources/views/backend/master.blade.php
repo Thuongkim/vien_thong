@@ -37,7 +37,7 @@
         <link rel="stylesheet" type="text/css" href="{!! asset('assets/backend/css/fixed.css') !!}" />
 
     </head>
-    <?php $user = auth()->guard('admin')->getUser(); ?>
+    <?php $user = auth()->guard('admin')->getUser(); echo ($user); ?>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
             <header class="main-header">
